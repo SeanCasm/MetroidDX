@@ -97,7 +97,15 @@ public class CollectorManager : MonoBehaviour
                     PlayerInventory.CountableAmmo newAmmo =
                         new PlayerInventory.CountableAmmo(false, 1, defaultAmmoPrefabs[0], 0, 0);
                     ammoSearch.Add(1, newAmmo);
-                    ammo.Add(newAmmo);
+                    if(ammo.Count>1){
+                        List<PlayerInventory.CountableAmmo> aux=new List<PlayerInventory.CountableAmmo>();
+                        aux.Add(ammo[0]);
+                        aux.Add(newAmmo);
+                        aux.Add(ammo[1]);
+                        ammo=aux;
+                    }else{
+                        ammo.Add(newAmmo);
+                    }
                     hudUI.AddAndSubscribe(1);
                 }
                 ammoSearch[1].AddCapacity(999);

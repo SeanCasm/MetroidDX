@@ -44,7 +44,12 @@ namespace Player.Weapon{
                 if (health!=null&& iInvulnerable!= null)
                 {
                     TryDoDamage(damage, health, beamType,iInvulnerable);
-                    if (!rejected){ Instantiate(impactPrefab, transform.position, Quaternion.identity,null);Destroy(gameObject);}
+                    if (!rejected){ 
+                        Instantiate(impactPrefab, transform.position, Quaternion.identity,null);
+                        if(beamType !=WeaponType.Plasma){
+                            Destroy(gameObject);
+                        }
+                    }
                     else Reject();
                 }
             }else if ((collision.IsTouching(floorCol) && collision.tag=="Suelo"))FloorCollision();

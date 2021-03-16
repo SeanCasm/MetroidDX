@@ -200,25 +200,27 @@ public class PlayerController : MonoBehaviour
     }
     void LateUpdate()
     {
-        anim.SetBool(animatorHash[0], aimDiagonalDown);
-        anim.SetBool(animatorHash[1], aimDiagonal);
-        anim.SetBool(animatorHash[3], moveOnFloor);
-        anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded));
-        anim.SetBool(animatorHash[5], crouch);
-        anim.SetBool(animatorHash[6], leftLook);
-        anim.SetBool(animatorHash[7], aimUp);
-        anim.SetBool(animatorHash[8], isGrounded && xInput == 0);
-        anim.SetBool(animatorHash[10], onRoll);
-        anim.SetBool(animatorHash[11], aimDown);
-        anim.SetBool(animatorHash[13], airShoot || (holdingFire && !isGrounded));
-        anim.SetBool(animatorHash[14], screwing);
-        anim.SetBool(animatorHash[15], hyperJumping);
-        anim.SetBool(animatorHash[16], onJumpingState);
-        anim.SetBool(animatorHash[17], fall);
-        anim.SetBool(animatorHash[18], gravityJump);
-        anim.SetBool(animatorHash[2], balled);
-        anim.SetBool(animatorHash[9], isGrounded);
-        anim.SetFloat(animatorHash[12], rb.velocity.y);
+        if(Time.timeScale>0){
+            anim.SetBool(animatorHash[0], aimDiagonalDown);
+            anim.SetBool(animatorHash[1], aimDiagonal);
+            anim.SetBool(animatorHash[3], moveOnFloor);
+            anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded));
+            anim.SetBool(animatorHash[5], crouch);
+            anim.SetBool(animatorHash[6], leftLook);
+            anim.SetBool(animatorHash[7], aimUp);
+            anim.SetBool(animatorHash[8], isGrounded && xInput == 0);
+            anim.SetBool(animatorHash[10], onRoll);
+            anim.SetBool(animatorHash[11], aimDown);
+            anim.SetBool(animatorHash[13], airShoot || (holdingFire && !isGrounded));
+            anim.SetBool(animatorHash[14], screwing);
+            anim.SetBool(animatorHash[15], hyperJumping);
+            anim.SetBool(animatorHash[16], onJumpingState);
+            anim.SetBool(animatorHash[17], fall);
+            anim.SetBool(animatorHash[18], gravityJump);
+            anim.SetBool(animatorHash[2], balled);
+            anim.SetBool(animatorHash[9], isGrounded);
+            anim.SetFloat(animatorHash[12], rb.velocity.y);
+        }
     }
     #endregion
     #region Private methods

@@ -51,6 +51,6 @@ MonoBehaviour:
   invSuperBombs: 0
   invFreeze: 0
   materials: {fileID: 11400000, guid: 57f0750b5c65c8944a3209add1eaf321, type: 2}
-  deathClip: {fileID: 8300000, guid: bf0181bf4ba888545afc476660610e39, type: 3}
+  deathClip: {fileID: 5122862422074326034, guid: bccb81efe6a1c09469ab7d11ee28ede4, type: 3}
   collideDamage: 12
   deadPrefab: {fileID: 338955410158009082, guid: ed52c26abe576934ab72d20f58cd6283, type: 3}

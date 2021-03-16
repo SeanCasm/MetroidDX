@@ -22,6 +22,10 @@ namespace Player.Weapon
                     if (!iInvulnerable.InvBeams) healthManager.AddDamage(damage);
                     else rejected=true;
                     break;
+                case WeaponType.Plasma:
+                    if (!iInvulnerable.InvBeams) healthManager.AddDamage(damage);
+                    else rejected = true;
+                    break;
                 case WeaponType.Missile:
                     if (!iInvulnerable.InvMissiles) healthManager.AddDamage(damage);
                     else rejected=true;

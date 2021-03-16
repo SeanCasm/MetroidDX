@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0.1
   livingTime: 0
-  startSound: {fileID: 0}
+  startSound: {fileID: 7119153977521584086, guid: 76ccfbdb4f53cdc499ee6df31c3e92b9, type: 3}
   hotPoints: 45
   iD: 2
   beamType: 6

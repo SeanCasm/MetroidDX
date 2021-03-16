@@ -131,14 +131,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1912643350613227332, guid: c9c84027e9b07b444bab03450c585e5e,
-        type: 3}
+      value: {fileID: -1912643350613227332, guid: c9c84027e9b07b444bab03450c585e5e, type: 3}
     - time: 0.1
-      value: {fileID: 770396578870941816, guid: c9c84027e9b07b444bab03450c585e5e,
-        type: 3}
+      value: {fileID: 770396578870941816, guid: c9c84027e9b07b444bab03450c585e5e, type: 3}
     - time: 0.2
-      value: {fileID: -3750604866860465202, guid: c9c84027e9b07b444bab03450c585e5e,
-        type: 3}
+      value: {fileID: -3750604866860465202, guid: c9c84027e9b07b444bab03450c585e5e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -379,11 +376,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: PlaySet
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

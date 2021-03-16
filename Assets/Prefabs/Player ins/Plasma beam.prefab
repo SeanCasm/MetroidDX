@@ -71,7 +71,6 @@ GameObject:
   - component: {fileID: 7732796515086214945}
   - component: {fileID: 5315201622987498651}
   - component: {fileID: 3591577372322195583}
-  - component: {fileID: 7405548023568963346}
   - component: {fileID: 4825134128353058808}
   m_Layer: 6
   m_Name: Plasma beam
@@ -237,19 +236,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.08}
   m_EdgeRadius: 0
---- !u!114 &7405548023568963346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7732796515086214950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67b56c11bdda5ed41b7ee40abd9a724e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundClip: {fileID: 6051933038019189946, guid: 1bd5c655935a62c4f90661eef2a1de61, type: 3}
 --- !u!82 &4825134128353058808
 AudioSource:
   m_ObjectHideFlags: 0

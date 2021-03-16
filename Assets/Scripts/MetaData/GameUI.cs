@@ -33,7 +33,7 @@ public class GameUI : MonoBehaviour
     #region Properties
     [SerializeField] PlayerInventory pInventory;
     [SerializeField]PlayerHealth pHealth;
-    private List<AmmoUI> ammoUI;
+    private Dictionary<int,AmmoUI> ammoUI;
     [SerializeField] Text health;
     [SerializeField] RectTransform healthImage;
     #endregion
@@ -46,27 +46,30 @@ public class GameUI : MonoBehaviour
     private void Start()
     {
         ///Creates a ammo collection UI (missiles UI,super missiles UI...)
-        ammoUI = new List<AmmoUI>();
-        for(int i = 0; i < pInventory.limitedAmmo.Count; i++)
+        ammoUI = new Dictionary<int, AmmoUI>();
+        var ammo=pInventory.limitedAmmo;
+        for(int i = 0; i < ammo.Count; i++)
         {
-            ammoUI.Add(new AmmoUI(i, transform.GetChild(i).gameObject));
+            ammoUI.Add(ammo[i].iD,new AmmoUI(ammo[i].iD, transform.GetChild(ammo[i].iD).gameObject));
             if (pInventory.limitedAmmo[i] != null)
             {
-                pInventory.limitedAmmo[i].ammoText += ammoUI[i].UpdateText;
-                pInventory.limitedAmmo[i].toggleUI += ammoUI[i].ToggleSelection;
-                pInventory.limitedAmmo[i].enableUI += ammoUI[i].EnableUI;
-                pInventory.limitedAmmo[i].StablishUI();
+                ammo[i].ammoText += ammoUI[i].UpdateText;
+                ammo[i].toggleUI += ammoUI[i].ToggleSelection;
+                ammo[i].enableUI += ammoUI[i].EnableUI;
+                ammo[i].StablishUI();
             }
         }
         GameEvents.playerHealth.Invoke(pHealth.MyHealth,pHealth.Tanks);
     }
     public void AddAndSubscribe(int iD)
     {
-        ammoUI.Add(new AmmoUI(iD, transform.GetChild(iD).gameObject));
-        pInventory.limitedAmmo[iD].ammoText += ammoUI[iD].UpdateText;
-        pInventory.limitedAmmo[iD].toggleUI += ammoUI[iD].ToggleSelection;
-        pInventory.limitedAmmo[iD].enableUI += ammoUI[iD].EnableUI;
-        pInventory.limitedAmmo[iD].StablishUI();
+        var ammo=pInventory.limitedAmmoSearch;
+        ammoUI.Add(iD,new AmmoUI(iD, transform.GetChild(iD).gameObject));
+        ammo[iD].ammoText += ammoUI[iD].UpdateText;
+        ammo[iD].toggleUI += ammoUI[iD].ToggleSelection;
+        ammo[iD].enableUI += ammoUI[iD].EnableUI;
+        ammo[iD].StablishUI();
+         
     }
     private void UpdateHealth(int amount,int tanks){
         health.text="Energy: "+amount.ToString();

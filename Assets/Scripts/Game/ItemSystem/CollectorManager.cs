@@ -108,8 +108,6 @@ public class CollectorManager : MonoBehaviour
                     }
                     hudUI.AddAndSubscribe(1);
                 }
-                print(inventory.limitedAmmo[1].actualAmmo);
-                
                 ammoSearch[1].AddCapacity(999);
                 break;
             case ReserveType.SuperBomb:

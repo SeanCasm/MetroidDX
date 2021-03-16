@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -401590264231600145}
   m_Layer: 10
   m_Name: Life orb premium
-  m_TagString: Super Missile Tank
+  m_TagString: Life
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

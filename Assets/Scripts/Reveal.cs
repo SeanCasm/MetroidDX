@@ -44,6 +44,10 @@ public class Reveal : MonoBehaviour
             sprite.color = tempColor;
             yield return new WaitForSeconds(0.05f);
         }
+        //Fixed alpha
+        tempColor=sprite.color;
+        tempColor.a=0;
+        sprite.color=tempColor;
     }
     IEnumerator FadeIn(SpriteRenderer sprite)
     {
@@ -54,5 +58,9 @@ public class Reveal : MonoBehaviour
             sprite.color = tempColor;
             yield return new WaitForSeconds(0.05f);
         }
+        //Fixed alpha
+        tempColor = sprite.color;
+        tempColor.a = 1;
+        sprite.color = tempColor;
     }
 }

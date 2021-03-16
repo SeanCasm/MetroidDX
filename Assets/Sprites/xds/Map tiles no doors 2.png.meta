@@ -1,0 +1,3024 @@
+fileFormatVersion: 2
+guid: d22d7e136c1a7504b9ac4e80c3356879
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3201653096884653999
+    second: Map tiles no doors 2_0
+  - first:
+      213: 5900121314916660199
+    second: Map tiles no doors 2_1
+  - first:
+      213: -1497271335135328416
+    second: Map tiles no doors 2_2
+  - first:
+      213: 5854399714037003803
+    second: Map tiles no doors 2_3
+  - first:
+      213: -7539793485091734486
+    second: Map tiles no doors 2_4
+  - first:
+      213: 8088215141848738006
+    second: Map tiles no doors 2_5
+  - first:
+      213: 4220645365710421000
+    second: Map tiles no doors 2_6
+  - first:
+      213: 7757996365209715418
+    second: Map tiles no doors 2_7
+  - first:
+      213: 8449885461660572517
+    second: Map tiles no doors 2_8
+  - first:
+      213: -4977521619218776019
+    second: Map tiles no doors 2_9
+  - first:
+      213: 6461638846640105975
+    second: Map tiles no doors 2_10
+  - first:
+      213: -8504228824763013082
+    second: Map tiles no doors 2_11
+  - first:
+      213: -3568414245256808863
+    second: Map tiles no doors 2_12
+  - first:
+      213: 157352927033105620
+    second: Map tiles no doors 2_13
+  - first:
+      213: -2303660586076734723
+    second: Map tiles no doors 2_14
+  - first:
+      213: -4248582916196825907
+    second: Map tiles no doors 2_15
+  - first:
+      213: -6370609502777764446
+    second: Map tiles no doors 2_16
+  - first:
+      213: 8963492691406152506
+    second: Map tiles no doors 2_17
+  - first:
+      213: -2950843807886268499
+    second: Map tiles no doors 2_18
+  - first:
+      213: -5082934759322270192
+    second: Map tiles no doors 2_19
+  - first:
+      213: -2993032584517818273
+    second: Map tiles no doors 2_20
+  - first:
+      213: 8065114551088781534
+    second: Map tiles no doors 2_21
+  - first:
+      213: -7095463030717517808
+    second: Map tiles no doors 2_22
+  - first:
+      213: -7912848511546137325
+    second: Map tiles no doors 2_23
+  - first:
+      213: -734460829528924057
+    second: Map tiles no doors 2_24
+  - first:
+      213: 3289745171686902136
+    second: Map tiles no doors 2_25
+  - first:
+      213: -77564437442084610
+    second: Map tiles no doors 2_26
+  - first:
+      213: -4981603816812660360
+    second: Map tiles no doors 2_27
+  - first:
+      213: -3768379989031645391
+    second: Map tiles no doors 2_28
+  - first:
+      213: 9190817025088560500
+    second: Map tiles no doors 2_29
+  - first:
+      213: 956044883272970133
+    second: Map tiles no doors 2_30
+  - first:
+      213: -6010319150364754949
+    second: Map tiles no doors 2_31
+  - first:
+      213: 7018355226014537741
+    second: Map tiles no doors 2_32
+  - first:
+      213: 43374118093947965
+    second: Map tiles no doors 2_33
+  - first:
+      213: -4939935274561680348
+    second: Map tiles no doors 2_34
+  - first:
+      213: -7272939269105904603
+    second: Map tiles no doors 2_35
+  - first:
+      213: 8056952600683873058
+    second: Map tiles no doors 2_36
+  - first:
+      213: 2664244787820799908
+    second: Map tiles no doors 2_37
+  - first:
+      213: -7311794276548372918
+    second: Map tiles no doors 2_38
+  - first:
+      213: -292935487917339602
+    second: Map tiles no doors 2_39
+  - first:
+      213: 6296068468570781642
+    second: Map tiles no doors 2_40
+  - first:
+      213: 7164480317120099554
+    second: Map tiles no doors 2_41
+  - first:
+      213: -1513469833913612975
+    second: Map tiles no doors 2_42
+  - first:
+      213: 4860802630297792316
+    second: Map tiles no doors 2_43
+  - first:
+      213: 376291649260976167
+    second: Map tiles no doors 2_44
+  - first:
+      213: -1254578674027090944
+    second: Map tiles no doors 2_45
+  - first:
+      213: -9149682412886167769
+    second: Map tiles no doors 2_46
+  - first:
+      213: -4479657016279914562
+    second: Map tiles no doors 2_47
+  - first:
+      213: -8656944670678647986
+    second: Map tiles no doors 2_48
+  - first:
+      213: 7650950335051495654
+    second: Map tiles no doors 2_49
+  - first:
+      213: -7002144079311329473
+    second: Map tiles no doors 2_50
+  - first:
+      213: 4836820164188564266
+    second: Map tiles no doors 2_51
+  - first:
+      213: 7024294554300489678
+    second: Map tiles no doors 2_52
+  - first:
+      213: 4280679613028623433
+    second: Map tiles no doors 2_53
+  - first:
+      213: 7743385148286561374
+    second: Map tiles no doors 2_54
+  - first:
+      213: 2800980402928581415
+    second: Map tiles no doors 2_55
+  - first:
+      213: 3502816854949491483
+    second: Map tiles no doors 2_56
+  - first:
+      213: 5660433330803086330
+    second: Map tiles no doors 2_57
+  - first:
+      213: 8326205990793393374
+    second: Map tiles no doors 2_58
+  - first:
+      213: 1994483918241715620
+    second: Map tiles no doors 2_59
+  - first:
+      213: -2712243798203437487
+    second: Map tiles no doors 2_60
+  - first:
+      213: 2516109409801571686
+    second: Map tiles no doors 2_61
+  - first:
+      213: -1463311468966304851
+    second: Map tiles no doors 2_62
+  - first:
+      213: -3942657769103526551
+    second: Map tiles no doors 2_63
+  - first:
+      213: 8969416459726936345
+    second: Map tiles no doors 2_64
+  - first:
+      213: 5827083585368300211
+    second: Map tiles no doors 2_65
+  - first:
+      213: -4252181415366449246
+    second: Map tiles no doors 2_66
+  - first:
+      213: -2844406508844935643
+    second: Map tiles no doors 2_67
+  - first:
+      213: 5217026019924313996
+    second: Map tiles no doors 2_68
+  - first:
+      213: -5566539648166957088
+    second: Map tiles no doors 2_69
+  - first:
+      213: -5560808009833006804
+    second: Map tiles no doors 2_70
+  - first:
+      213: -3943460487344792921
+    second: Map tiles no doors 2_71
+  - first:
+      213: 946309351204298794
+    second: Map tiles no doors 2_72
+  - first:
+      213: -6704612860283398692
+    second: Map tiles no doors 2_73
+  - first:
+      213: 5812530136236587164
+    second: Map tiles no doors 2_74
+  - first:
+      213: 1347075058490198208
+    second: Map tiles no doors 2_75
+  - first:
+      213: 1717830704024340085
+    second: Map tiles no doors 2_76
+  - first:
+      213: 8703806808925093327
+    second: Map tiles no doors 2_77
+  - first:
+      213: -2191362640203878771
+    second: Map tiles no doors 2_78
+  - first:
+      213: 3607744700489658833
+    second: Map tiles no doors 2_79
+  - first:
+      213: -7640103993876046065
+    second: Map tiles no doors 2_80
+  - first:
+      213: -1922241870970974982
+    second: Map tiles no doors 2_81
+  - first:
+      213: 1418950945521978159
+    second: Map tiles no doors 2_82
+  - first:
+      213: -966296455525161425
+    second: Map tiles no doors 2_83
+  - first:
+      213: 396533601632177466
+    second: Map tiles no doors 2_84
+  - first:
+      213: -7825210941676773541
+    second: Map tiles no doors 2_85
+  - first:
+      213: -324075621053151788
+    second: Map tiles no doors 2_86
+  - first:
+      213: -1332702398708877459
+    second: Map tiles no doors 2_87
+  - first:
+      213: 2011209692705601324
+    second: Map tiles no doors 2_88
+  - first:
+      213: -387073536659715728
+    second: Map tiles no doors 2_89
+  - first:
+      213: -6832076706279015249
+    second: Map tiles no doors 2_90
+  - first:
+      213: 1562374672153368408
+    second: Map tiles no doors 2_91
+  - first:
+      213: 5191649500349661602
+    second: Map tiles no doors 2_92
+  - first:
+      213: 102075363459226415
+    second: Map tiles no doors 2_93
+  - first:
+      213: -8547251368948648940
+    second: Map tiles no doors 2_94
+  - first:
+      213: -8272559748324394178
+    second: Map tiles no doors 2_95
+  - first:
+      213: -5485612411613558183
+    second: Map tiles no doors 2_96
+  - first:
+      213: 951394900297442665
+    second: Map tiles no doors 2_97
+  - first:
+      213: -100854526270390291
+    second: Map tiles no doors 2_98
+  - first:
+      213: 989826185214770621
+    second: Map tiles no doors 2_99
+  - first:
+      213: -2860692001348759067
+    second: Map tiles no doors 2_100
+  - first:
+      213: -6124887316044444643
+    second: Map tiles no doors 2_101
+  - first:
+      213: -1257801092035318007
+    second: Map tiles no doors 2_102
+  - first:
+      213: -3437043470650013314
+    second: Map tiles no doors 2_103
+  - first:
+      213: -8476016985966019346
+    second: Map tiles no doors 2_104
+  - first:
+      213: -5646599267931427271
+    second: Map tiles no doors 2_105
+  - first:
+      213: -693030490514132260
+    second: Map tiles no doors 2_106
+  - first:
+      213: 4603998912850796156
+    second: Map tiles no doors 2_107
+  - first:
+      213: 2227232022329100858
+    second: Map tiles no doors 2_108
+  - first:
+      213: 4149185083050082740
+    second: Map tiles no doors 2_109
+  - first:
+      213: 1561224851135514864
+    second: Map tiles no doors 2_110
+  - first:
+      213: 4738693803564815239
+    second: Map tiles no doors 2_111
+  - first:
+      213: -9210001316978111078
+    second: Map tiles no doors 2_112
+  - first:
+      213: 459472510332630769
+    second: Map tiles no doors 2_113
+  - first:
+      213: -8412668301878555399
+    second: Map tiles no doors 2_114
+  - first:
+      213: 37208841252709615
+    second: Map tiles no doors 2_115
+  - first:
+      213: -2044346208105836365
+    second: Map tiles no doors 2_116
+  - first:
+      213: -8614843543274417679
+    second: Map tiles no doors 2_117
+  - first:
+      213: 7894611863853227128
+    second: Map tiles no doors 2_118
+  - first:
+      213: -993592283169482972
+    second: Map tiles no doors 2_119
+  - first:
+      213: -5707227279009046140
+    second: Map tiles no doors 2_120
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Map tiles no doors 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1503922b8717193d0800000000000000
+      internalID: -3201653096884653999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e37153631171e150800000000000000
+      internalID: 5900121314916660199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06742e057af983be0800000000000000
+      internalID: -1497271335135328416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16f250a5810f3150800000000000000
+      internalID: 5854399714037003803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c7d49d5c54d5790800000000000000
+      internalID: -7539793485091734486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d864dc71dc1f3070800000000000000
+      internalID: 8088215141848738006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 110
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c7112299eb29a30800000000000000
+      internalID: 4220645365710421000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2c81d2790f9ab60800000000000000
+      internalID: 7757996365209715418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b1407de06044570800000000000000
+      internalID: 8449885461660572517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2043a8957a4ceab0800000000000000
+      internalID: -4977521619218776019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_10
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f929d8bb4a5ca950800000000000000
+      internalID: 6461638846640105975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628ec53f0f8eaf980800000000000000
+      internalID: -8504228824763013082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_12
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166360476227a7ec0800000000000000
+      internalID: -3568414245256808863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_13
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc1d2847a70f2200800000000000000
+      internalID: 157352927033105620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_14
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfaf3dbf6e0c700e0800000000000000
+      internalID: -2303660586076734723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc48b4109500a05c0800000000000000
+      internalID: -4248582916196825907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_16
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a51430096c0797a0800000000000000
+      internalID: -6370609502777764446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_17
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33e21abc19b46c70800000000000000
+      internalID: 8963492691406152506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_18
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da72743e03f7c07d0800000000000000
+      internalID: -2950843807886268499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_19
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0164c1654c9c579b0800000000000000
+      internalID: -5082934759322270192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_20
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5865aed8bc9676d0800000000000000
+      internalID: -2993032584517818273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_21
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed81b7214fa0def60800000000000000
+      internalID: 8065114551088781534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_22
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0107a2987f9d78d90800000000000000
+      internalID: -7095463030717517808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_23
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31560dbe33aef2290800000000000000
+      internalID: -7912848511546137325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_24
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7606d7254cbaec5f0800000000000000
+      internalID: -734460829528924057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_25
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 92
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87944f7cdc587ad20800000000000000
+      internalID: 3289745171686902136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0cf0b1e8f6ceef0800000000000000
+      internalID: -77564437442084610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_27
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879b627e8b9cddab0800000000000000
+      internalID: -4981603816812660360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_28
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f041f9d5604bbc0800000000000000
+      internalID: -3768379989031645391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_29
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d1408a3675c8f70800000000000000
+      internalID: 9190817025088560500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_30
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59fa0d881cd844d00800000000000000
+      internalID: 956044883272970133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_31
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbf7c7a39e079ca0800000000000000
+      internalID: -6010319150364754949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_32
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d085a1aa4e4366160800000000000000
+      internalID: 7018355226014537741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_33
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d348f65d7881a9000800000000000000
+      internalID: 43374118093947965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_34
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c445a6a03d17bb0800000000000000
+      internalID: -4939935274561680348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_35
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52414f7b444511b90800000000000000
+      internalID: -7272939269105904603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_36
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 83
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2230ce7e3bb00df60800000000000000
+      internalID: 8056952600683873058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7aebcc48c49f420800000000000000
+      internalID: 2664244787820799908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_38
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46999358d9478a90800000000000000
+      internalID: -7311794276548372918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_39
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2cc49cc9b84febf0800000000000000
+      internalID: -292935487917339602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_40
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7f2b60ae0206750800000000000000
+      internalID: 6296068468570781642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_41
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4b83ea3e85d6360800000000000000
+      internalID: 7164480317120099554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_42
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1554f4b64331ffae0800000000000000
+      internalID: -1513469833913612975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_43
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f2f261d3a057340800000000000000
+      internalID: 4860802630297792316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_44
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7287526e24bd83500800000000000000
+      internalID: 376291649260976167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_45
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ca5dfc757d69ee0800000000000000
+      internalID: -1254578674027090944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_46
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72fe744925cc50180800000000000000
+      internalID: -9149682412886167769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_47
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7ac0d8daf05d1c0800000000000000
+      internalID: -4479657016279914562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_48
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4bfcff30ba5cd780800000000000000
+      internalID: -8656944670678647986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_49
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 74
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e876e21bc2ad2a60800000000000000
+      internalID: 7650950335051495654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f372b8e0f0363de90800000000000000
+      internalID: -7002144079311329473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_51
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2be7e01056df1340800000000000000
+      internalID: 4836820164188564266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_52
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf9aca4eae4b7160800000000000000
+      internalID: 7024294554300489678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_53
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944e3d39d67086b30800000000000000
+      internalID: 4280679613028623433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_54
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ce7a224c7067b60800000000000000
+      internalID: 7743385148286561374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_55
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b736316d41fd620800000000000000
+      internalID: 2800980402928581415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_56
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13f380fe518c9030800000000000000
+      internalID: 3502816854949491483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_57
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af39c45cf16ed8e40800000000000000
+      internalID: 5660433330803086330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_58
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed438f70c30ac8370800000000000000
+      internalID: 8326205990793393374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_59
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5d6017e84ddab10800000000000000
+      internalID: 1994483918241715620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_60
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 65
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ee3d7b2ac2c5ad0800000000000000
+      internalID: -2712243798203437487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d8d336d240be220800000000000000
+      internalID: 2516109409801571686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_62
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da32280d8f541bbe0800000000000000
+      internalID: -1463311468966304851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_63
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96576a9e5add849c0800000000000000
+      internalID: -3942657769103526551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_64
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919d0948fb4c97c70800000000000000
+      internalID: 8969416459726936345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_65
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba136ec5a5fdd050800000000000000
+      internalID: 5827083585368300211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_66
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7a09028873df4c0800000000000000
+      internalID: -4252181415366449246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_67
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5261d7bb953a688d0800000000000000
+      internalID: -2844406508844935643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_68
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c870f8d2689966840800000000000000
+      internalID: 5217026019924313996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_69
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef61eaceadafb2b0800000000000000
+      internalID: -5566539648166957088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_70
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29b1c5d39a04d2b0800000000000000
+      internalID: -5560808009833006804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_71
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa560284930649c0800000000000000
+      internalID: -3943460487344792921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20a9265757f12d00800000000000000
+      internalID: 946309351204298794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_73
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5da4a402e64f2a0800000000000000
+      internalID: -6704612860283398692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_74
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9872a0ec514aa050800000000000000
+      internalID: 5812530136236587164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_75
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8c81be0a5c1b210800000000000000
+      internalID: 1347075058490198208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_76
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57641a18ce5f6d710800000000000000
+      internalID: 1717830704024340085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_77
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd3b9f8d222ac870800000000000000
+      internalID: 8703806808925093327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_78
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ee5900a47b691e0800000000000000
+      internalID: -2191362640203878771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_79
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1fbf0c0b8411230800000000000000
+      internalID: 3607744700489658833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_80
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f99f585e5e8f590800000000000000
+      internalID: -7640103993876046065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_81
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc846ce333d255e0800000000000000
+      internalID: -1922241870970974982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_82
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 47
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2bca85fd5021b310800000000000000
+      internalID: 1418950945521978159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2624bc4e760792f0800000000000000
+      internalID: -966296455525161425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_84
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3dcac2b535c08500800000000000000
+      internalID: 396533601632177466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_85
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f1bd8bb14476390800000000000000
+      internalID: -7825210941676773541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_86
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d543ce80f6a08bf0800000000000000
+      internalID: -324075621053151788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_87
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6775a5ba3a418de0800000000000000
+      internalID: -1332702398708877459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_88
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c273a864f8049eb10800000000000000
+      internalID: 2011209692705601324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_89
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07981715ba6d0aaf0800000000000000
+      internalID: -387073536659715728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_90
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facb40cfe669f21a0800000000000000
+      internalID: -6832076706279015249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_91
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857d4cb8c7baea510800000000000000
+      internalID: 1562374672153368408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_92
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a10daac6b17c0840800000000000000
+      internalID: 5191649500349661602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_93
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b5e439005aa6100800000000000000
+      internalID: 102075363459226415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_94
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41438db4a20126980800000000000000
+      internalID: -8547251368948648940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_95
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3bfde12db6f13d80800000000000000
+      internalID: -8272559748324394178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_96
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95acc4e53903fd3b0800000000000000
+      internalID: -5485612411613558183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_97
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965e8510f98043d00800000000000000
+      internalID: 951394900297442665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_98
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: defb9abb751b99ef0800000000000000
+      internalID: -100854526270390291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_99
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 29
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd3b1fcba19cbd00800000000000000
+      internalID: 989826185214770621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e15ec708c7cc48d0800000000000000
+      internalID: -2860692001348759067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_101
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c00e5ef67000ba0800000000000000
+      internalID: -6124887316044444643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_102
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90fe22722946b8ee0800000000000000
+      internalID: -1257801092035318007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_103
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7984567c2b2d40d0800000000000000
+      internalID: -3437043470650013314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_104
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec715985732f5a80800000000000000
+      internalID: -8476016985966019346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_105
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e67fdf1ef33a1b0800000000000000
+      internalID: -5646599267931427271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_106
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2f362d07cd166f0800000000000000
+      internalID: -693030490514132260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_107
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 20
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e91c24e90b4ef30800000000000000
+      internalID: 4603998912850796156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a0d4359b7b8ee10800000000000000
+      internalID: 2227232022329100858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_109
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1cc8689ddd49930800000000000000
+      internalID: 4149185083050082740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_110
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8c17afab59aa510800000000000000
+      internalID: 1561224851135514864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_111
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78353dc58e833c140800000000000000
+      internalID: 4738693803564815239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_112
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9dc3a059908f2080800000000000000
+      internalID: -9210001316978111078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_113
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6fe6250df506600800000000000000
+      internalID: 459472510332630769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_114
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc075d60c2304b80800000000000000
+      internalID: -8412668301878555399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_115
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe42f557e31348000800000000000000
+      internalID: 37208841252709615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_116
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b05fe384f501a3e0800000000000000
+      internalID: -2044346208105836365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f19f87d07de17880800000000000000
+      internalID: -8614843543274417679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_118
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c5e88a9ab4f8d60800000000000000
+      internalID: 7894611863853227128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_119
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4271d1e251d0632f0800000000000000
+      internalID: -993592283169482972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map tiles no doors 2_120
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 2
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4812f36270bdbc0b0800000000000000
+      internalID: -5707227279009046140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

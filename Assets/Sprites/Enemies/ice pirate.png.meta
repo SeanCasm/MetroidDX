@@ -1,0 +1,2088 @@
+fileFormatVersion: 2
+guid: 3efbe7aed5dfb334aab2f81bd48a143d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -372623362407159152
+    second: ice pirate_0
+  - first:
+      213: 1695816569051973150
+    second: ice pirate_1
+  - first:
+      213: -7706596781724430347
+    second: ice pirate_2
+  - first:
+      213: -7590129523745758894
+    second: ice pirate_3
+  - first:
+      213: 9222156622497169906
+    second: ice pirate_4
+  - first:
+      213: 5466941608880039595
+    second: ice pirate_5
+  - first:
+      213: -803305068630958604
+    second: ice pirate_6
+  - first:
+      213: -767492544183866359
+    second: ice pirate_7
+  - first:
+      213: 4079681628738920303
+    second: ice pirate_8
+  - first:
+      213: 3820231497112333180
+    second: ice pirate_9
+  - first:
+      213: -3997561655572238850
+    second: ice pirate_10
+  - first:
+      213: -2389696547571922653
+    second: ice pirate_11
+  - first:
+      213: 1234032439741616019
+    second: ice pirate_12
+  - first:
+      213: 3133055224212304859
+    second: ice pirate_13
+  - first:
+      213: 3285805632195012930
+    second: ice pirate_14
+  - first:
+      213: 3194767869934590912
+    second: ice pirate_15
+  - first:
+      213: 4497673096508374425
+    second: ice pirate_16
+  - first:
+      213: 4185563280013579561
+    second: ice pirate_17
+  - first:
+      213: 4329539212470463337
+    second: ice pirate_18
+  - first:
+      213: -2414703981640094913
+    second: ice pirate_19
+  - first:
+      213: -821899481392398302
+    second: ice pirate_20
+  - first:
+      213: -5488078427932237590
+    second: ice pirate_21
+  - first:
+      213: 3463432636731282554
+    second: ice pirate_22
+  - first:
+      213: 8792458059828024979
+    second: ice pirate_23
+  - first:
+      213: 1407939192208666491
+    second: ice pirate_24
+  - first:
+      213: 8908260008248791335
+    second: ice pirate_25
+  - first:
+      213: -2398857245439278544
+    second: ice pirate_26
+  - first:
+      213: -7617690372170792234
+    second: ice pirate_27
+  - first:
+      213: 2388506589676271436
+    second: ice pirate_28
+  - first:
+      213: -6242925376911091991
+    second: ice pirate_29
+  - first:
+      213: -4451741579179041122
+    second: ice pirate_30
+  - first:
+      213: -1851427363935023373
+    second: ice pirate_31
+  - first:
+      213: 952429167946472432
+    second: ice pirate_32
+  - first:
+      213: -421077286143223381
+    second: ice pirate_33
+  - first:
+      213: 4138343173715926009
+    second: ice pirate_34
+  - first:
+      213: 2000638461579450274
+    second: ice pirate_35
+  - first:
+      213: -735533045342310038
+    second: ice pirate_36
+  - first:
+      213: -2457034337749799556
+    second: ice pirate_37
+  - first:
+      213: 6496168342784447188
+    second: ice pirate_38
+  - first:
+      213: -301029746682740156
+    second: ice pirate_39
+  - first:
+      213: 7620372386426767210
+    second: ice pirate_40
+  - first:
+      213: 293927126781655305
+    second: ice pirate_41
+  - first:
+      213: -1203971155123421788
+    second: ice pirate_42
+  - first:
+      213: -7482446390684175148
+    second: ice pirate_43
+  - first:
+      213: 8390049724352233223
+    second: ice pirate_44
+  - first:
+      213: 7197399576338714030
+    second: ice pirate_45
+  - first:
+      213: -1947373221019915631
+    second: ice pirate_46
+  - first:
+      213: 618682069579226821
+    second: ice pirate_47
+  - first:
+      213: -38926624340183729
+    second: ice pirate_48
+  - first:
+      213: 2291775868941048523
+    second: ice pirate_49
+  - first:
+      213: -4861610603039269529
+    second: ice pirate_50
+  - first:
+      213: -1653389108530431232
+    second: ice pirate_51
+  - first:
+      213: -7052057292190500995
+    second: ice pirate_52
+  - first:
+      213: 7404566642313417106
+    second: ice pirate_53
+  - first:
+      213: 1864178773754111093
+    second: ice pirate_54
+  - first:
+      213: 7944311576330616761
+    second: ice pirate_55
+  - first:
+      213: 3029030437872156523
+    second: ice pirate_56
+  - first:
+      213: 546433057286067389
+    second: ice pirate_57
+  - first:
+      213: 995410884909028343
+    second: ice pirate_58
+  - first:
+      213: -695422181668423495
+    second: ice pirate_59
+  - first:
+      213: 8914663527979086633
+    second: ice pirate_60
+  - first:
+      213: 6598826312661714573
+    second: ice pirate_61
+  - first:
+      213: 1158021285682710732
+    second: ice pirate_62
+  - first:
+      213: -4174290157417848160
+    second: ice pirate_63
+  - first:
+      213: -1809016575470571829
+    second: ice pirate_64
+  - first:
+      213: 5350737406920900199
+    second: ice pirate_65
+  - first:
+      213: 7620934700415769828
+    second: ice pirate_66
+  - first:
+      213: -7707198123294970376
+    second: ice pirate_67
+  - first:
+      213: 6461527290996831006
+    second: ice pirate_68
+  - first:
+      213: -62611949271633114
+    second: ice pirate_69
+  - first:
+      213: -4033297329787084793
+    second: ice pirate_70
+  - first:
+      213: -3298633938031130194
+    second: ice pirate_71
+  - first:
+      213: 2206639640391194004
+    second: ice pirate_72
+  - first:
+      213: 7140360755493049719
+    second: ice pirate_73
+  - first:
+      213: 2252285923839272274
+    second: ice pirate_74
+  - first:
+      213: -7895007752741683276
+    second: ice pirate_75
+  - first:
+      213: 5116255086503396801
+    second: ice pirate_76
+  - first:
+      213: -2418054332801295247
+    second: ice pirate_77
+  - first:
+      213: 7228260218612051527
+    second: ice pirate_78
+  - first:
+      213: -5002010355169850727
+    second: ice pirate_79
+  - first:
+      213: -5387406043726474145
+    second: ice pirate_80
+  - first:
+      213: 7838341079688362200
+    second: ice pirate_81
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 25
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 25
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 65
+    textureCompression: 3
+    compressionQuality: 25
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ice pirate_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 454
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09aa5b0b60d24daf0800000000000000
+      internalID: -372623362407159152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 454
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16809a4f20c88710800000000000000
+      internalID: 1695816569051973150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 454
+        width: 40
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff852eee0bac0590800000000000000
+      internalID: -7706596781724430347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 454
+        width: 48
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251ede199617aa690800000000000000
+      internalID: -7590129523745758894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_4
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 454
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1c5fa469eabff70800000000000000
+      internalID: 9222156622497169906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_5
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 454
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba6e81d9d6a7edb40800000000000000
+      internalID: 5466941608880039595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_6
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 454
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd1bf1db461ad4f0800000000000000
+      internalID: -803305068630958604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_7
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 454
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ce820f8915955f0800000000000000
+      internalID: -767492544183866359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_8
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 454
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f9ba583d0fd9830800000000000000
+      internalID: 4079681628738920303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 394
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ba3216e40340530800000000000000
+      internalID: 3820231497112333180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_10
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 394
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efde4efaadec588c0800000000000000
+      internalID: -3997561655572238850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 394
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3298ff0b6a716ded0800000000000000
+      internalID: -2389696547571922653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_12
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 394
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f8b1c37f9202110800000000000000
+      internalID: 1234032439741616019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_13
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 394
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd33bd47029da7b20800000000000000
+      internalID: 3133055224212304859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 394
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24926f340d6899d20800000000000000
+      internalID: 3285805632195012930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_15
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 393
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb584b7378165c20800000000000000
+      internalID: 3194767869934590912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_16
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 394
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d76310ad1fa6e30800000000000000
+      internalID: 4497673096508374425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_17
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 394
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925d02a80ab161a30800000000000000
+      internalID: 4185563280013579561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_18
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 394
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b2d6099fc951c30800000000000000
+      internalID: 4329539212470463337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_19
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 393
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bee98b58f3d7ed0800000000000000
+      internalID: -2414703981640094913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_20
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 394
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220478ab6c60894f0800000000000000
+      internalID: -821899481392398302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_21
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 346
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae06d933fbd66d3b0800000000000000
+      internalID: -5488078427932237590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_22
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 346
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a74dcdf02a5901030800000000000000
+      internalID: 3463432636731282554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_23
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 346
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396d19e5506150a70800000000000000
+      internalID: 8792458059828024979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_24
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 346
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7fa2f85c310a8310800000000000000
+      internalID: 1407939192208666491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_25
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 346
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721dc7e874f70ab70800000000000000
+      internalID: 8908260008248791335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_26
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 346
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03248b28b0c85bed0800000000000000
+      internalID: -2398857245439278544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_27
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 343
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2c8dd77f6884690800000000000000
+      internalID: -7617690372170792234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_28
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 343
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c477555a61ea52120800000000000000
+      internalID: 2388506589676271436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_29
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 343
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e651f5327cac59a0800000000000000
+      internalID: -6242925376911091991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_30
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 343
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e523dbe9c3832c0800000000000000
+      internalID: -4451741579179041122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_31
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 343
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe073d2f986e46e0800000000000000
+      internalID: -1851427363935023373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_32
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 343
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb9b253845b73d00800000000000000
+      internalID: 952429167946472432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_33
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 343
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba992707078082af0800000000000000
+      internalID: -421077286143223381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_34
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 290
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb100cc0395e6930800000000000000
+      internalID: 4138343173715926009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_35
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 290
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a75d6ab412b3cb10800000000000000
+      internalID: 2000638461579450274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_36
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 290
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a617fcf979cdac5f0800000000000000
+      internalID: -735533045342310038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_37
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 290
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d6c79a94cd6edd0800000000000000
+      internalID: -2457034337749799556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_38
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 290
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d21ec880b6072a50800000000000000
+      internalID: 6496168342784447188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_39
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 290
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44246225a0782dbf0800000000000000
+      internalID: -301029746682740156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_40
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 290
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67c92d9f4001c960800000000000000
+      internalID: 7620372386426767210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_41
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 290
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909fbad1a2d341400800000000000000
+      internalID: 293927126781655305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_42
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 289
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad3d030d92aa4fe0800000000000000
+      internalID: -1203971155123421788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_43
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 290
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4bd50c6a2092890800000000000000
+      internalID: -7482446390684175148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_44
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 287
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ff0eb95c17f6470800000000000000
+      internalID: 8390049724352233223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_45
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 243
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead473ef7cc42e360800000000000000
+      internalID: 7197399576338714030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_46
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 243
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19aeff38f5a89f4e0800000000000000
+      internalID: -1947373221019915631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_47
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 243
+        width: 58
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce5c2a7010069800800000000000000
+      internalID: 618682069579226821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_48
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 243
+        width: 62
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45f5eff074b57ff0800000000000000
+      internalID: -38926624340183729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_49
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 243
+        width: 55
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca1b0da2060ecf10800000000000000
+      internalID: 2291775868941048523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_50
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 243
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d52991ae6188cb0800000000000000
+      internalID: -4861610603039269529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_51
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 243
+        width: 58
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b3b86ad5bfd09e0800000000000000
+      internalID: -1653389108530431232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_52
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 243
+        width: 62
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d773843914f022e90800000000000000
+      internalID: -7052057292190500995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_53
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 243
+        width: 55
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2915cce412e42c660800000000000000
+      internalID: 7404566642313417106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_54
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 243
+        width: 52
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574ef67c7b4eed910800000000000000
+      internalID: 1864178773754111093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_55
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 243
+        width: 58
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfb534b94ddf3e60800000000000000
+      internalID: 7944311576330616761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_56
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 243
+        width: 62
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f373f7227490a20800000000000000
+      internalID: 3029030437872156523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_57
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 151
+        width: 29
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4111178f1559700800000000000000
+      internalID: 546433057286067389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_58
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 151
+        width: 29
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f35f880de860dd00800000000000000
+      internalID: 995410884909028343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_59
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 151
+        width: 29
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8f9b4d53d5956f0800000000000000
+      internalID: -695422181668423495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_60
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 151
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923f25d2f3f37bb70800000000000000
+      internalID: 8914663527979086633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_61
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 151
+        width: 37
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86c3bcb19db39b50800000000000000
+      internalID: 6598826312661714573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_62
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 151
+        width: 36
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8857f493e121010800000000000000
+      internalID: 1158021285682710732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_63
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 151
+        width: 35
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a223b9d731f116c0800000000000000
+      internalID: -4174290157417848160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_64
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 151
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce684a520515e6e0800000000000000
+      internalID: -1809016575470571829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_65
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 151
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e3ae97253a14a40800000000000000
+      internalID: 5350737406920900199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_66
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 151
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ecdaba8bbff2c960800000000000000
+      internalID: 7620934700415769828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_67
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 151
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd227f24288a0590800000000000000
+      internalID: -7707198123294970376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_68
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 151
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13bb5626d4fba950800000000000000
+      internalID: 6461527290996831006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_69
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 151
+        width: 49
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62338fc83ce812ff0800000000000000
+      internalID: -62611949271633114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_70
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 151
+        width: 53
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7006288a279d608c0800000000000000
+      internalID: -4033297329787084793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_71
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 151
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea94b9709e5e832d0800000000000000
+      internalID: -3298633938031130194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_72
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 76
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49510d8cf0f8f9e10800000000000000
+      internalID: 2206639640391194004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_73
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 76
+        width: 23
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7759d4f9648a71360800000000000000
+      internalID: 7140360755493049719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_74
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 76
+        width: 23
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2556d075d1ab14f10800000000000000
+      internalID: 2252285923839272274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_75
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 76
+        width: 23
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf70e6474c4f6290800000000000000
+      internalID: -7895007752741683276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_76
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 76
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c50253e4e6900740800000000000000
+      internalID: 5116255086503396801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_77
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 76
+        width: 23
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17cd8cd4568517ed0800000000000000
+      internalID: -2418054332801295247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_78
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 76
+        width: 23
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e65723f50ff4460800000000000000
+      internalID: 7228260218612051527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_79
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 76
+        width: 23
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a8641751a459ab0800000000000000
+      internalID: -5002010355169850727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_80
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 75
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5414e63fb61c35b0800000000000000
+      internalID: -5387406043726474145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice pirate_81
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 100
+        width: 30
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d83d23cea167cc60800000000000000
+      internalID: 7838341079688362200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,276 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.0b5 (37f46e59aab7) revision 3667054'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.867; Version 2009; 64bit' Language: 'es' Physical Memory: 7984 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.0b5\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Sebastian/Documents/UnityProjects/MetroidDXFinal
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+55258
+Successfully changed project path to: C:/Users/Sebastian/Documents/UnityProjects/MetroidDXFinal
+C:/Users/Sebastian/Documents/UnityProjects/MetroidDXFinal
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 146.13 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.0b5 (37f46e59aab7)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.0b5/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Sebastian/Documents/UnityProjects/MetroidDXFinal/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 620 (ID=0x5916)
+    Vendor:   Intel
+    VRAM:     3992 MB
+    Driver:   23.20.16.4973
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.0b5/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.0b5/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.0b5/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56500
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.0b5/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002285 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 131.06 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.288 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006054 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 144.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.901 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 1.13 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4444 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 318.8 MB.
+System memory in use after: 313.7 MB.
+
+Unloading 123 unused Assets to reduce memory usage. Loaded Objects now: 4815.
+Total: 6.213100 ms (FindLiveObjects: 0.453100 ms CreateObjectMapping: 0.418500 ms MarkObjects: 3.129500 ms  DeleteObjects: 2.206500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/Enemies/Krab feo.prefab
+  artifactKey: Guid(2099a1bb44d7ca745a71cbff06263b3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Krab feo.prefab using Guid(2099a1bb44d7ca745a71cbff06263b3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1595e15dbba691558f0f3025245b4c9d') in 0.302846 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 47.359066 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b95aa337bf10ec10e0d18bbd200c248b') in 0.229062 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005544 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.49 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.882 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.24 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4349 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 321.8 MB.
+System memory in use after: 316.9 MB.
+
+Unloading 111 unused Assets to reduce memory usage. Loaded Objects now: 4864.
+Total: 8.677200 ms (FindLiveObjects: 0.506500 ms CreateObjectMapping: 0.402900 ms MarkObjects: 5.212700 ms  DeleteObjects: 2.552700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 98.110317 seconds.
+  path: Assets/Prefabs/Enemies/Powamp.prefab
+  artifactKey: Guid(8063864b8704d3942b5e6fa5163bd940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Powamp.prefab using Guid(8063864b8704d3942b5e6fa5163bd940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e83f63b145a9858a0f17ac5b2ba19be1') in 0.285002 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.428607 seconds.
+  path: Assets/Prefabs/Enemies/Powamp.prefab
+  artifactKey: Guid(8063864b8704d3942b5e6fa5163bd940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Powamp.prefab using Guid(8063864b8704d3942b5e6fa5163bd940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6b98be9bcf12320d7b0a6491c9a2383') in 0.041016 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.031058 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.60 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.106 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4349 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 322.1 MB.
+System memory in use after: 317.1 MB.
+
+Unloading 111 unused Assets to reduce memory usage. Loaded Objects now: 4904.
+Total: 10.108300 ms (FindLiveObjects: 0.930700 ms CreateObjectMapping: 0.572900 ms MarkObjects: 5.477000 ms  DeleteObjects: 3.125900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 439.955161 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22b587087e3c37c8edb22bc511bb7a22') in 0.567244 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 49.011682 seconds.
+  path: Assets/Prefabs/Enemies/Krus krab.prefab
+  artifactKey: Guid(59a5821b5c9dd854bb41b9e8ba9ceb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Krus krab.prefab using Guid(59a5821b5c9dd854bb41b9e8ba9ceb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '131c012dff90322d0f3550dbed4a8467') in 0.047844 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.534052 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a008ee21244f02a195647144575aa96') in 0.758678 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.037096 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.27 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.216 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 6.34 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4349 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 322.2 MB.
+System memory in use after: 317.2 MB.
+
+Unloading 111 unused Assets to reduce memory usage. Loaded Objects now: 4944.
+Total: 14.502300 ms (FindLiveObjects: 1.831400 ms CreateObjectMapping: 4.291000 ms MarkObjects: 5.376600 ms  DeleteObjects: 2.999000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.156019 seconds.
+  path: Assets/Prefabs/Enemies/Krus krab.prefab
+  artifactKey: Guid(59a5821b5c9dd854bb41b9e8ba9ceb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Krus krab.prefab using Guid(59a5821b5c9dd854bb41b9e8ba9ceb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66ad96382f5e94e5a5c388bf7ad19d13') in 0.267543 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.397657 seconds.
+  path: Assets/Prefabs/Enemies/Krus krab.prefab
+  artifactKey: Guid(59a5821b5c9dd854bb41b9e8ba9ceb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Krus krab.prefab using Guid(59a5821b5c9dd854bb41b9e8ba9ceb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d9ec4bb4238fbd77eb0a0f1a5ce199e') in 0.061336 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 32.715523 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef8a154e6143d4667dbbe8bc0e18a35d') in 0.287612 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007116 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.08 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.980 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.02 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4349 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 322.4 MB.
+System memory in use after: 317.3 MB.
+
+Unloading 111 unused Assets to reduce memory usage. Loaded Objects now: 4984.
+Total: 13.460200 ms (FindLiveObjects: 0.873100 ms CreateObjectMapping: 1.718400 ms MarkObjects: 5.954900 ms  DeleteObjects: 4.911300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 152.829932 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ffb98eaf2fdcfbe1494d528544e95e7') in 1.018295 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 86.635609 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a941d2a09d5d0c73e728e67816da4aca') in 0.191568 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.884665 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb92eb2fa8348030f5e7092c99325762') in 0.259527 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004790 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.968 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.63 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4349 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 322.5 MB.
+System memory in use after: 317.5 MB.
+
+Unloading 111 unused Assets to reduce memory usage. Loaded Objects now: 5024.
+Total: 17.330600 ms (FindLiveObjects: 1.550600 ms CreateObjectMapping: 4.093600 ms MarkObjects: 8.578500 ms  DeleteObjects: 3.104600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.793759 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad6cf540af466c6e1b713c8f2bb6788c') in 0.522314 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.338353 seconds.
+  path: Assets/Prefabs/Scenarios/water demo.prefab
+  artifactKey: Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/water demo.prefab using Guid(53bdf595997bb2048880a9bb9ab6a30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb01077f638117bcbf2b98ab1b78afa') in 0.166321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.782094 seconds.
+  path: Assets/Prefabs/Scenarios/Begin.prefab
+  artifactKey: Guid(65e8e108deb43aa44aa4100e3e676c4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Scenarios/Begin.prefab using Guid(65e8e108deb43aa44aa4100e3e676c4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d6987a7fba2a70ec45333f4ba86d146') in 0.477838 seconds 

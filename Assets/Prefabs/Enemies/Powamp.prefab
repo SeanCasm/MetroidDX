@@ -147,7 +147,7 @@ MonoBehaviour:
   detectPlayer: 0
   ground:
     serializedVersion: 2
-    m_Bits: 16640
+    m_Bits: 8
   groundDistance: 0.2
   swimVelocity: 0.2
   bulletPrefab: {fileID: 7655227758275712113, guid: 38a651ad823c8b149bab66549f69948d, type: 3}

@@ -532,8 +532,10 @@ public class PlayerController : MonoBehaviour
             if (balled) { instantiates.SetBomb(); }
             else
             {
-                if (moveOnFloor && !onRoll && !aiming)ShootOnWalk = true;
-                GameEvents.playerFire.Invoke(false);
+                if(pressCount!=3){
+                    if (moveOnFloor && !onRoll && !aiming) ShootOnWalk = true;
+                    GameEvents.playerFire.Invoke(false);
+                }
             }
             if (inventory.CheckItem(0)) Invoke("ChargingShoot", 0.25f);//charge beam
         }

@@ -102,12 +102,14 @@ public class CollectorManager : MonoBehaviour
                         aux.Add(ammo[0]);
                         aux.Add(newAmmo);
                         aux.Add(ammo[1]);
-                        ammo=aux;
+                        inventory.limitedAmmo =aux;
                     }else{
                         ammo.Add(newAmmo);
                     }
                     hudUI.AddAndSubscribe(1);
                 }
+                print(inventory.limitedAmmo[1].actualAmmo);
+                
                 ammoSearch[1].AddCapacity(999);
                 break;
             case ReserveType.SuperBomb:

@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e4ff56872a59f4794053fbc7ce18de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.1
+  damage: 0.2
   livingTime: 0
   startSound: {fileID: 7119153977521584086, guid: 76ccfbdb4f53cdc499ee6df31c3e92b9, type: 3}
   hotPoints: 45

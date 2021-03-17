@@ -10,9 +10,9 @@ The months of development were learning Unity and applying what I learned.
 Items in original 2d games are be added:
 <details>
  <summary>Speed booster and Charging jump</sumary>
- 
+ <p>
  <a href="https://imgur.com/a/MJsfKmn" target="_blank">Video</a>
- 
+ </p>
 </details>
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
 <a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,

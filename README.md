@@ -7,7 +7,7 @@ Its on finished state, but need more improvements and a few IA bug fixes.
 
 Items in original 2d games are be added:
 
-Speed booster (only be able to up jumps),
+<a href="https://imgur.com/a/MJsfKmn" target="_blank">Speed booster and Charging jump</a>,
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
 <a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,
 High jump,

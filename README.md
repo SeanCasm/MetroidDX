@@ -8,7 +8,7 @@ Its on finished state, but need more improvements and a few IA bug fixes.
 A large list of items are be added in this game:
 
 -Speed booster (only be able to up jumps)
-
+markdown: kramdown
 -[Screw attack](https://imgur.com/a/aAidgHc){:target="_blank" rel="noopener"}
 
 

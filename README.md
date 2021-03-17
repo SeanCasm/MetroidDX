@@ -32,6 +32,6 @@ The unique game mechanic I aditional added is the overheat bar, at the top-righ 
 
 ### Bosses
 
-Only Kraid and Ridley are implemented, in the past it was had Crocomire and Spore-Spawn, but both are ugly so I deleted they.
+Only two bosses are implemented.
 
-<a href="https://imgur.com/a/oXrtPnB">Kraid</a>,
+<a href="https://imgur.com/a/oXrtPnB">Kraid</a>, and Ridley

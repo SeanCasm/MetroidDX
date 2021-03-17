@@ -8,8 +8,11 @@ The months of development were learning Unity and applying what I learned.
 <p align="center"><img src="https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif" alt="animated")</p>
 
 Items in original 2d games are be added:
-<details><summary>Speed booster and Charging jump</sumary>
-    ###<a href="https://imgur.com/a/MJsfKmn" target="_blank"></a>
+<details>
+ <summary>Speed booster and Charging jump</sumary>
+ 
+ <a href="https://imgur.com/a/MJsfKmn" target="_blank"></a>
+ 
 </details>
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
 <a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,

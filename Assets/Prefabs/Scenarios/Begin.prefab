@@ -32356,6 +32356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moto
       objectReference: {fileID: 0}
+    - target: {fileID: 6269663693729443160, guid: c5cf38ec73aa9d84f99d85fc7f96b078, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6269663693729443163, guid: c5cf38ec73aa9d84f99d85fc7f96b078, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -33429,6 +33433,10 @@ PrefabInstance:
     - target: {fileID: 2439020459736602653, guid: b8c447ab996e2c540b995650005c1b96, type: 3}
       propertyPath: m_Name
       value: Black Pirate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439020459736602653, guid: b8c447ab996e2c540b995650005c1b96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2439020459736602655, guid: b8c447ab996e2c540b995650005c1b96, type: 3}
       propertyPath: m_RootOrder

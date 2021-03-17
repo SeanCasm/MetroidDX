@@ -11,7 +11,7 @@ Items in original 2d games are be added:
 <details>
  <summary>Speed booster and Charging jump</sumary>
  
- <a href="https://imgur.com/a/MJsfKmn" target="_blank"></a>
+ <a href="https://imgur.com/a/MJsfKmn" target="_blank">Video</a>
  
 </details>
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,

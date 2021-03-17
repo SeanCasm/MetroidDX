@@ -9,7 +9,7 @@ A large list of items are be added in this game:
 
 Speed booster (only be able to up jumps),
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
--<a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,
+<a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,
 High jump,
 Charge beam,
 Ice beam,

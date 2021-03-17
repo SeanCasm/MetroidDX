@@ -23,4 +23,5 @@ Morphball by default,
 Super bombs,
 Super missiles,
 Missiles by default,
-Energy tanks
+Energy tanks,
+<a href="https://imgur.com/a/JvGM9tO" target="_blank">Beam combinations</a> (only spazer+ice)

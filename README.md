@@ -14,7 +14,7 @@ Items in original 2d games are be added:
 </details>
 <details>
  <summary>Screw attack</sumary>
- 
+ <img src="https://user-images.githubusercontent.com/51692672/111522143-b8022a00-8738-11eb-8667-0904a10bd73a.gif" alt="animated")
 </details>
 <a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,
 High jump,

@@ -9,21 +9,10 @@ The months of development were learning Unity and applying what I learned.
 
 Items in original 2d games are be added:
 
-<details>
-<summary>Speed booster and Charging jump</summary>
- <img src="https://user-images.githubusercontent.com/51692672/111524322-087a8700-873b-11eb-8c83-0a23a49dedba.gif" width=500>
-</details>
-  
-<details>
-<summary>Screw attack</summary>
-<img src="https://user-images.githubusercontent.com/51692672/111522143-b8022a00-8738-11eb-8667-0904a10bd73a.gif" width=500>
+<a href="https://imgur.com/a/MJsfKmn" target="_blank">Speed booster</a>,
+<a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
+<a href="https://imgur.com/a/8630FMY" target="_blank">Gravity jump</a>,
 
-</details>
-
-<details>
-<summary>Gravity jump</summary>
-<img src="https://user-images.githubusercontent.com/51692672/111524859-b5550400-873b-11eb-8007-ae092a2da655.gif" width=500>
-</details>
 High jump,
 Charge beam,
 Ice beam,

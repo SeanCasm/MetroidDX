@@ -155,6 +155,7 @@ public class PlayerInventory : MonoBehaviour
         int id = item.iD;
         items.Add(id);
         playerItems.Add(id, item);
+        if(id==7)ChangeJumpForce();//high jump
         foreach (int element in Item.beamsID)
         {
             if (id == element)DisableIncompatibleBeams(id);
@@ -275,7 +276,6 @@ public class PlayerInventory : MonoBehaviour
     public void ChangeJumpForce()
     {
         var pItems=playerItems[7];
-        pItems.selected=!pItems.selected;
         if(pItems.selected)playerController.currentJumpForce=baseData.jumpForceUp;
         else playerController.currentJumpForce=baseData.jumpForce;
     }

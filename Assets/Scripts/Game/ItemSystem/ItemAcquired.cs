@@ -30,7 +30,7 @@ public class ItemAcquired : MonoBehaviour,ICollecteable
     }
     private void OnBecameVisible()
     {
-        anim.enabled=box.enabled = true;
+        anim.enabled = box.enabled = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

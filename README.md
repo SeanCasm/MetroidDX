@@ -14,7 +14,12 @@ Items in original 2d games are be added:
  <a href="https://imgur.com/a/MJsfKmn" target="_blank">Video</a>
  </p>
 </details>
-<a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
+<details>
+ <summary>Screw attack</sumary>
+ 
+ https://user-images.githubusercontent.com/51692672/111521177-9a809080-8737-11eb-9ab8-33534e4d65c7.mp4
+
+</details>
 <a href="https://imgur.com/a/c2VB9xo" target="_blank">Gravity jump</a>,
 High jump,
 Charge beam,

@@ -16,23 +16,15 @@ public class ChargedBeamFX : MonoBehaviour
     }
     void Awake()
     {
-        childAnim = GetComponentInChildren<Animator>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        anim = GetComponent<Animator>();
         audioPlayer = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+        childAnim = GetComponentInChildren<Animator>();
     }
     public void PlayChargingClip()
     {
-        if (!audioPlayer.isPlaying)
-        {
-            audioPlayer.clip = chargingClip;
-            audioPlayer.loop = false;
-            audioPlayer.Play();
-        }
+        audioPlayer.clip = chargingClip;
+        audioPlayer.loop = false;
+        audioPlayer.Play();
     }
     public void StopChargingClip()
     {
@@ -43,11 +35,8 @@ public class ChargedBeamFX : MonoBehaviour
 
     public void PlayChargedClip()
     {
-        if (!audioPlayer.isPlaying)
-        {
-            audioPlayer.clip = chargedClip;
-            audioPlayer.loop = true;
-            audioPlayer.Play();
-        }
+        audioPlayer.clip = chargedClip;
+        audioPlayer.loop = true;
+        audioPlayer.Play();
     }
 }

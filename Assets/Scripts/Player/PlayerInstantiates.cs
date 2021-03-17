@@ -40,7 +40,6 @@ public class PlayerInstantiates : MonoBehaviour
     {
         var ammo = inventory.limitedAmmoSearch;
         if(inventory.canShootBeams){
-            print(beamToShoot.GetComponent<Beam>().ID);
             if(!isCharging) ShootPrefab(beamToShoot);
             else{
                 int id=beamToShoot.GetComponent<Beam>().ID;

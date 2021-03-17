@@ -12,7 +12,6 @@ Items in original 2d games are be added:
 <a href="https://imgur.com/a/MJsfKmn" target="_blank">Speed booster</a>,
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,
 <a href="https://imgur.com/a/8630FMY" target="_blank">Gravity jump</a>,
-
 High jump,
 Charge beam,
 Ice beam,
@@ -22,7 +21,7 @@ Plasma beam,
 <a href="https://imgur.com/a/8630FMY" target="_blank">Gravity suit</a>,
 <a href="https://imgur.com/a/Oim3mHW" target="_blank">Bombs</a>,
 <a href="https://imgur.com/a/IgeAvx8" target="_blank">Super bombs</a>,
-Super missiles,
+<a href="https://imgur.com/a/B54Kohq">Super missiles</a>,
 Missiles by default,
 Energy tanks,
 <a href="https://imgur.com/a/JvGM9tO" target="_blank">Beam combinations</a> (only spazer+ice)

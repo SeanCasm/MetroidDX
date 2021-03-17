@@ -26,7 +26,7 @@ A large list of items are be added in this game:
 
 -Morphball by default
 
--Gravity jump
+-<a href="https://imgur.com/a/8630FMY" target="_blank">Gravity jump</a>
 
 -Bombs
 

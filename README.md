@@ -11,7 +11,7 @@ The unique game mechanic I additional added is the overheat bar, at the top-righ
 
 ## Content
 
-### Items in original 2d games are be added:
+### Items
 
 <a href="https://imgur.com/a/MJsfKmn" target="_blank">Speed booster</a>,
 <a href="https://imgur.com/a/aAidgHc" target="_blank">Screw attack</a>,

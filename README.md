@@ -21,13 +21,13 @@ The unique game mechanic I aditional added is the overheat bar, at the top-righ 
 <a href="https://imgur.com/a/qyQdsuK">Ice beam</a>,
 <a href="https://imgur.com/a/HFLidK1">Plasma beam</a>,
 <a href="https://imgur.com/a/uA9KfUP" target="_blank">Spazer beam</a>,
-<a href="https://imgur.com/a/kQGiLZN" target="_blank">Morphball by default</a>,
+<a href="https://imgur.com/a/kQGiLZN" target="_blank">Morphball</a> by default,
 <a href="https://imgur.com/a/8630FMY" target="_blank">Gravity suit</a>,
 <a href="https://imgur.com/a/Oim3mHW" target="_blank">Bombs</a>,
 <a href="https://imgur.com/a/IgeAvx8" target="_blank">Super bombs</a>,
 <a href="https://imgur.com/a/B54Kohq">Super missiles</a>,
 <a href="https://imgur.com/a/v46CSVJ">Missiles by default</a>,
-<a href="https://imgur.com/a/6VWaziU">Energy tanks</a>,
+<a href="https://imgur.com/a/6VWaziU">Energy tanks</a> and
 <a href="https://imgur.com/a/JvGM9tO" target="_blank">Beam combinations</a> (only spazer+ice)
 
 ### Bosses

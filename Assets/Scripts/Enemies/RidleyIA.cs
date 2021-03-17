@@ -30,10 +30,6 @@ public class RidleyIA : Boss
         pathSpeed = path.speed;
         currentSpeed = speed;
     }
-    new void OnDestroy()
-    {
-        base.OnDestroy();
-    }
     
     // Update is called once per frame
     void Update()

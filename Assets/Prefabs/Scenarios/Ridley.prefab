@@ -273,7 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockDoorSprite: {fileID: 518685385827646087, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   bossDoor: 0
   weaponType: 1
   openEvent:
@@ -346,7 +345,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.053369313, y: 0}
+  m_Offset: {x: -0.005560845, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -357,7 +356,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18675178, y: 0.64}
+  m_Size: {x: 0.068891466, y: 0.64}
   m_EdgeRadius: 0
 --- !u!50 &710611765
 Rigidbody2D:
@@ -2912,6 +2911,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+      propertyPath: nextzone
+      value: 
+      objectReference: {fileID: 6512815536920120954, guid: 2e654ec46bdeb584aad591e314860864, type: 3}
     - target: {fileID: 8506606003914838878, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47499847

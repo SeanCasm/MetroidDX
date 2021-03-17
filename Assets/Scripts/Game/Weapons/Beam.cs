@@ -70,12 +70,12 @@ namespace Player.Weapon{
         #endregion
         public void Reject()
         {
+            Instantiate(reject);
             if(beamType == WeaponType.Missile || beamType == WeaponType.SuperMissile){
-                Instantiate(reject);
                 rigid.bodyType = RigidbodyType2D.Dynamic;
                 rigid.constraints = RigidbodyConstraints2D.None;
-                rigid.velocity = Vector2.zero;
-                rigid.gravityScale = 1f;
+                speed=0;
+                rigid.gravityScale = 7f;
                 GetComponent<BoxCollider2D>().isTrigger = false;
             }else{
                 Destroy(gameObject);

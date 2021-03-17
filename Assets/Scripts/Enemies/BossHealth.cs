@@ -10,7 +10,7 @@ public class BossHealth : Health<float>, IDamageable<float>,IInvulnerable
     [SerializeField] Colors bossColors;
     [SerializeField] private ScriptableDrop drop;
     private Color currentHealthColor;
-
+    private Boss boss;
     public bool Damaged{get;set;}
     public bool onInvulnerable{get;set;}
     private float totalHealth;
@@ -25,6 +25,7 @@ public class BossHealth : Health<float>, IDamageable<float>,IInvulnerable
     private void Awake(){
         //anim = GetComponentInParent<Animator>();
         //_renderer = GetComponentInParent<SpriteRenderer>();
+        boss=GetComponentInParent<Boss>();
         rb2d = GetComponentInParent<Rigidbody2D>();
         totalHealth=health;
         currentHealthColor=Color.white;
@@ -76,6 +77,7 @@ public class BossHealth : Health<float>, IDamageable<float>,IInvulnerable
     private void OnDeath()
     {
         Instantiate(drop.reloadAll, transform.position, Quaternion.identity, null);
+        boss.OnDeath();
     }
     private void SetHealthColor(Color color)
     {

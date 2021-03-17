@@ -56,8 +56,4 @@ public class KraidIA : Boss
     {
         audioPlayer.Play();
     }
-    new void OnDestroy()
-    {
-        base.OnDestroy();
-    }
 }

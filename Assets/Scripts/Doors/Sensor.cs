@@ -6,7 +6,6 @@ using Player.Weapon;
 using UnityEngine.Events;
 public class Sensor : MonoBehaviour
 {
-    [SerializeField] private Sprite lockDoorSprite;
     [SerializeField] bool bossDoor;
     [SerializeField] WeaponType weaponType;
     [SerializeField] UnityEvent openEvent,closeEvent;
@@ -14,10 +13,7 @@ public class Sensor : MonoBehaviour
     public bool BossDoor{get=>bossDoor;
     set{
         bossDoor=value;
-        if(bossDoor)spriteRenderer.sprite=lockDoorSprite;
-        else spriteRenderer.sprite=defaultSprite;
     }} 
-    private SpriteRenderer spriteRenderer;
     private Animator _animator;
     public AudioClip clip;
     public AudioClip clip2;
@@ -28,7 +24,6 @@ public class Sensor : MonoBehaviour
     {
         audioClip = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

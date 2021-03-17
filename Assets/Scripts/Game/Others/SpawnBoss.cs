@@ -5,22 +5,23 @@ using UnityEngine;
 public class SpawnBoss : MonoBehaviour
 {
     [SerializeField] GameObject bossToSpawn;
-    [SerializeField]Sensor[] doors;
+    [SerializeField]List<Sensor> doors;
     [SerializeField]PathCreation.PathCreator ridleyPath;
     void Awake()
     {
-        Boss bossComponenet=bossToSpawn.GetComponent<Boss>();
-        int iD = bossComponenet.ID;
+        int iD = bossToSpawn.GetComponent<Boss>().ID;
         if (!Boss.defeateds.Contains(iD))
         {
-            Instantiate(bossToSpawn,transform.position,Quaternion.identity);
+            
+            GameObject boss = Instantiate(bossToSpawn, transform.position, Quaternion.identity);
+            Boss bossComponent = boss.GetComponent<Boss>();
+
             foreach(Sensor s in doors){
-                bossComponenet.roomDoors.Add(s);
+                bossComponent.roomDoors.Add(s);
             }
+            bossComponent.SetDoors();
             if(iD==1){//ridley
-                PathCreation.Examples.PathFollower ridleyPathFollower=bossToSpawn.AddComponent<PathCreation.Examples.PathFollower>();
-                ridleyPathFollower.speed=1.2f;
-                ridleyPathFollower.endOfPathInstruction=PathCreation.EndOfPathInstruction.Loop;
+                PathCreation.Examples.PathFollower ridleyPathFollower=boss.GetComponent<PathCreation.Examples.PathFollower>();
                 ridleyPathFollower.pathCreator=ridleyPath;
             }
         }

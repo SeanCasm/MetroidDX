@@ -176,7 +176,7 @@ MonoBehaviour:
   wallAware: 0.2
   WallLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8
 --- !u!50 &7529187779353539247
 Rigidbody2D:
   serializedVersion: 4

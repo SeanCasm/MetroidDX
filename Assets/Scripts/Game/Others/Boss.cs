@@ -6,20 +6,23 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] protected int iD;
     [SerializeField] protected Colors bossColors;
-    public List<Sensor> roomDoors;
+    public List<Sensor> roomDoors= new List<Sensor>();
     protected bool quarterReached, halfReached, lowReached;
     public int ID { get; }
     public static List<int> defeateds { get; set; } = new List<int>();
     protected void Start()
     {
         quarterReached =halfReached=lowReached = false;
-        foreach (Sensor element in roomDoors)
-        {
-            element.BossDoor = true;
-        }
-         
     }
-    protected void OnDestroy()
+    public void SetDoors(){
+        if(roomDoors.Count>0){
+            foreach (Sensor element in roomDoors)
+            {
+                element.BossDoor = true;
+            }
+        }
+    }
+    public void OnDeath()
     {
         foreach (Sensor element in roomDoors)
         {

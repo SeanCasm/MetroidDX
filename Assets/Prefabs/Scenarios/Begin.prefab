@@ -10539,7 +10539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockDoorSprite: {fileID: 518685385827646087, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   bossDoor: 0
   weaponType: 1
   openEvent:
@@ -10612,7 +10611,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.053369313, y: 0}
+  m_Offset: {x: -0.009760827, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10623,7 +10622,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18675178, y: 0.64}
+  m_Size: {x: 0.060491502, y: 0.64}
   m_EdgeRadius: 0
 --- !u!50 &1548041783283896008
 Rigidbody2D:
@@ -17816,7 +17815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockDoorSprite: {fileID: 518685385827646087, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   bossDoor: 0
   weaponType: 7
   openEvent:
@@ -30631,7 +30629,7 @@ MonoBehaviour:
   unloadCurrentScene: 0
   onlyLoadSaveRoom: 0
   nextSceneIndex: 0
-  nextzone: {fileID: 0}
+  nextzone: {fileID: 1329454616152066583, guid: 144cf6e1d03b3dd479d4763fc912758a, type: 3}
 --- !u!212 &4476442023981646250
 SpriteRenderer:
   m_ObjectHideFlags: 0

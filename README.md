@@ -9,7 +9,7 @@ A large list of items are be added in this game:
 
 -Speed booster (only be able to up jumps)
 
--![Screw attack](https://imgur.com/a/aAidgHc){:target="_blank" rel="noopener"}
+-![Screw attack](https://imgur.com/a/aAidgHc)
 
 
 -Gravity suit

@@ -47,10 +47,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             hyperJumping = value;
-            if (hyperJumping)
-            {
-                skin.SetSpeedBooster(true); rb.isKinematic = true;
-            }
+            skin.SetSpeedBooster(value);rb.isKinematic=value;
         }
     }
     public bool canInstantiate { get; set; }

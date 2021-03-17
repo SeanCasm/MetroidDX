@@ -7,18 +7,33 @@ Its on finished state, but need more improvements and a few IA bug fixes.
 
 A large list of items are be added in this game:
 -Speed booster (only be able to up jumps)
+
 -Screw attack
+
 https://imgur.com/a/aAidgHc
+
 -Gravity suit
+
 -High jump
+
 -Charge beam
+
 -Ice beam
+
 -Plasma beam
+
 -Spazer beam
+
 -Morphball by default
+
 -Gravity jump
+
 -Bombs
+
 -Super bombs
+
 -Super missiles
+
 -Missiles by default
+
 -Energy tanks

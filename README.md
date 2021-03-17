@@ -2,7 +2,7 @@
 # MetroidDX
 Technique demo based on metroid 2d games.
 Its finished, but need more improvements and a few IA bug fixes.
-I started this project in july 2020 and I finished him in november 2020, until at this date I only added some code improvements.
+I started this project in july 2020 and I finished him in november 2020, until at this date I only added some code improvements and fixes.
 The months of development were learning Unity and applying what I learned.
 
 The unique game mechanic I aditional added is the overheat bar, at the top-righ corner on the screen, next to mini map. 

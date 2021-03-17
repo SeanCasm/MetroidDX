@@ -11,7 +11,7 @@ A large list of items are be added in this game:
 
 -Screw attack
 
-[Text](#https://imgur.com/a/aAidgHc)
+<a href="https://imgur.com/a/aAidgHc"></a>
 
 -Gravity suit
 

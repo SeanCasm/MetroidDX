@@ -5,10 +5,10 @@ Its finished, but need more improvements and a few IA bug fixes.
 I started this project in july 2020 and I finished him in november 2020, until at this date I only added some code improvements.
 The months of development were learning Unity and applying what I learned.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif" alt="animated")</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif" alt="animated"></p>
 
 Items in original 2d games are be added:
-<details open>
+<details>
  <summary>Speed booster and Charging jump</sumary>
   <a href="https://imgur.com/a/MJsfKmn" target="_blank">Video</a>
 </details>

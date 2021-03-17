@@ -18,7 +18,7 @@ The unique game mechanic I additional added is the overheat bar, at the top-righ
 <a href="https://imgur.com/a/8630FMY" target="_blank">Gravity jump</a>,
 <a href="https://imgur.com/a/1d80b2R">High jump</a>,
 <a href="https://imgur.com/a/hzTbmKh">Charge beam</a>,
-<a href="https://imgur.com/a/qyQdsuK">Ice beam</a>,
+<a href="https://imgur.com/a/7xCov0X">Ice beam</a>,
 <a href="https://imgur.com/a/HFLidK1">Plasma beam</a>,
 <a href="https://imgur.com/a/uA9KfUP" target="_blank">Spazer beam</a>,
 <a href="https://imgur.com/a/kQGiLZN" target="_blank">Morphball</a> by default,

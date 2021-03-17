@@ -2,7 +2,7 @@
 # MetroidDX
 Technique demo based on metroid 2d games.
 Its finished, but need more improvements and a few IA bug fixes.
-I start this project in july 2020 and I finished him in november 2020, at this date I only add some code improvements.
+I started this project in july 2020 and I finished him in november 2020, at this date I only add some code improvements.
 The months of development were learning Unity and applying what I learned.
 
 ![movie_001_Trim](https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif)

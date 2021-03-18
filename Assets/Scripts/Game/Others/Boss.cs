@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour
     [SerializeField] protected Colors bossColors;
     public List<Sensor> roomDoors= new List<Sensor>();
     protected bool quarterReached, halfReached, lowReached;
-    public int ID { get; }
+    public int ID { get=>iD; }
     public static List<int> defeateds { get; set; } = new List<int>();
     protected void Start()
     {

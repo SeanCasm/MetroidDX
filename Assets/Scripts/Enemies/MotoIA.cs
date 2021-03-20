@@ -58,20 +58,6 @@ public class MotoIA : EnemyBase
         anim.SetBool("prepared", prepared);
     }
     #endregion
-
-    public void SetOnGroundVelocity(float amount)
-    {
-        if (!efd.OnSlope)
-        {
-            if (efd.FacingRight) rigid.velocity = new Vector2(amount, rigid.velocity.y);
-            else rigid.velocity = new Vector2(-amount, rigid.velocity.y);
-        }
-        else
-        {
-            if (efd.FacingRight) rigid.velocity = new Vector2(amount * efd.SlopePerp.x * -1, amount *efd.SlopePerp.y*-1);
-            else rigid.velocity = new Vector2(-amount * efd.SlopePerp.x * -1, amount * efd.SlopePerp.y);
-        }
-    }
     public void OnRotation()
     {
         currentSpeed *= transform.right.x;

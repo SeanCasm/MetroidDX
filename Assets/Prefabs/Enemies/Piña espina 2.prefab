@@ -155,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2547602659667012140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.160001, z: 0}
+  m_LocalPosition: {x: 0.05, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3720790355299908124}
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a82e083fa4fbfb48867683542ad3303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.35
   detectPlayer: 0
   bulletPrefab: {fileID: 7655227758275712113, guid: 38a651ad823c8b149bab66549f69948d, type: 3}
 --- !u!50 &4016996625106324352
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.11
   floorAware: 0.3
-  slopeDetectorOffset: 0.045
+  slopeAware: 0.15
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

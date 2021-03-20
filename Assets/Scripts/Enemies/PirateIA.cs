@@ -13,7 +13,7 @@ public class PirateIA : EnemyBase
     Transform playerTransform;
     private float currentSpeed, horizontalVelocity;
     private GroundChecker efd;
-    private bool shooting;
+    private bool idleShooting;
     private const float minAltitude = 0.5f;
     public LayerMask playerLayer;
     #endregion
@@ -36,7 +36,7 @@ public class PirateIA : EnemyBase
             {
                 if (!efd.FacingRight) { efd.Flip(); }
             }
-            if (!shooting)
+            if (!idleShooting)
             {
                 if (playerTransform.position.y >= transform.position.y + minAltitude)
                 {
@@ -48,17 +48,19 @@ public class PirateIA : EnemyBase
                 }
                 else anim.SetTrigger("Shoot");
 
-                Invoke("StartCheck", 1f);
-                shooting = true;
+                idleShooting = true;
+                anim.SetBool("Idle", true);
+                Invoke("StartCheck", 2f);
             }
         }
         else horizontalVelocity = speed;
     }
     private void FixedUpdate()
     {
-        if (shooting)rigid.velocity = new Vector2(0f, rigid.velocity.y);
+        if (idleShooting){rigid.SetVelocity(0f, 0f);}
         else
         {
+            print("XD");
             if (pDetect.detected) efd.SetOnGroundVelocity(horizontalVelocity * 1.2f);
             else efd.SetOnGroundVelocity(speed);
         }
@@ -75,12 +77,14 @@ public class PirateIA : EnemyBase
         if (col.IsTouching(playerDetector) && col.tag == "Player")
         {
             playerTransform = null;
-            shooting=false;
+            idleShooting=false;
+            anim.SetBool("Idle",false);
         }
     }
     #endregion
+     
     void StartCheck(){
-        shooting=false;
+        idleShooting =false;
     }
     public void ShootEvent()
     {

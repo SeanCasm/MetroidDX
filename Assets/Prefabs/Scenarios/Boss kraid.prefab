@@ -2258,6 +2258,10 @@ PrefabInstance:
       propertyPath: nextzone
       value: 
       objectReference: {fileID: 1329454616152066583, guid: 144cf6e1d03b3dd479d4763fc912758a, type: 3}
+    - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+      propertyPath: nextzone.m_AssetGUID
+      value: 144cf6e1d03b3dd479d4763fc912758a
+      objectReference: {fileID: 0}
     - target: {fileID: 8506606003914838878, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47499847

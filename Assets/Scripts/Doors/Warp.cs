@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.AddressableAssets;
 public class Warp : MonoBehaviour
 {
     [SerializeField] bool unloadCurrentScene,onlyLoadSaveRoom;
     [SerializeField] int nextSceneIndex;
-    [SerializeField] GameObject nextzone;
+    [SerializeField] AssetReference nextzone;
     private float playerYPoint,exitXPoint;
-    private GameObject currentZone;
+    private GameObject currentZone,nextRoom;
     private PlayerController playerC;
 
     void Start()
     {
         exitXPoint = transform.GetChild(transform.childCount-1).position.x;
         if (!unloadCurrentScene)currentZone = transform.parent.gameObject;
+        nextzone.LoadAssetAsync<GameObject>().Completed += OnLoadDone;
+    }
+    private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
+    {
+        nextRoom = obj.Result;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,7 +43,7 @@ public class Warp : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
 
-        }else Instantiate(nextzone);
+        }else Instantiate(nextRoom);
 
         yield return new WaitForSecondsRealtime(1.5f);
          

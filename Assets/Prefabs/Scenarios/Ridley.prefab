@@ -78,7 +78,10 @@ MonoBehaviour:
   unloadCurrentScene: 0
   onlyLoadSaveRoom: 0
   nextSceneIndex: 0
-  nextzone: {fileID: 5922225402975987311, guid: 65e8e108deb43aa44aa4100e3e676c4a, type: 3}
+  nextzone:
+    m_AssetGUID: 65e8e108deb43aa44aa4100e3e676c4a
+    m_SubObjectName: 
+    m_SubObjectType: 
 --- !u!212 &418030081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2915,6 +2918,10 @@ PrefabInstance:
       propertyPath: nextzone
       value: 
       objectReference: {fileID: 6512815536920120954, guid: 2e654ec46bdeb584aad591e314860864, type: 3}
+    - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+      propertyPath: nextzone.m_AssetGUID
+      value: 2e654ec46bdeb584aad591e314860864
+      objectReference: {fileID: 0}
     - target: {fileID: 8506606003914838878, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47499847

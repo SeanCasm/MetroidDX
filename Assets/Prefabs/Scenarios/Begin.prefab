@@ -30629,7 +30629,10 @@ MonoBehaviour:
   unloadCurrentScene: 0
   onlyLoadSaveRoom: 0
   nextSceneIndex: 0
-  nextzone: {fileID: 1329454616152066583, guid: 144cf6e1d03b3dd479d4763fc912758a, type: 3}
+  nextzone:
+    m_AssetGUID: 144cf6e1d03b3dd479d4763fc912758a
+    m_SubObjectName: 
+    m_SubObjectType: 
 --- !u!212 &4476442023981646250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30941,7 +30944,10 @@ MonoBehaviour:
   unloadCurrentScene: 0
   onlyLoadSaveRoom: 0
   nextSceneIndex: 0
-  nextzone: {fileID: 8563997471958745961, guid: 53bdf595997bb2048880a9bb9ab6a30b, type: 3}
+  nextzone:
+    m_AssetGUID: 53bdf595997bb2048880a9bb9ab6a30b
+    m_SubObjectName: 
+    m_SubObjectType: 
 --- !u!212 &3189846024601244263
 SpriteRenderer:
   m_ObjectHideFlags: 0

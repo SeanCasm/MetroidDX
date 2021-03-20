@@ -49,18 +49,19 @@ public class PirateIA : EnemyBase
                 else anim.SetTrigger("Shoot");
 
                 idleShooting = true;
-                anim.SetBool("Idle", true);
                 Invoke("StartCheck", 2f);
             }
         }
         else horizontalVelocity = speed;
+    }
+    private void LateUpdate() {
+        anim.SetBool("Idle", idleShooting);
     }
     private void FixedUpdate()
     {
         if (idleShooting){rigid.SetVelocity(0f, 0f);}
         else
         {
-            print("XD");
             if (pDetect.detected) efd.SetOnGroundVelocity(horizontalVelocity * 1.2f);
             else efd.SetOnGroundVelocity(speed);
         }
@@ -78,7 +79,6 @@ public class PirateIA : EnemyBase
         {
             playerTransform = null;
             idleShooting=false;
-            anim.SetBool("Idle",false);
         }
     }
     #endregion

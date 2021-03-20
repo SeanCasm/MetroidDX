@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2685789641386037151, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
+      value: {fileID: 3820231497112333180, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
     - time: 0.21666667
-      value: {fileID: -1619536366347743290, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
+      value: {fileID: -3997561655572238850, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
     - time: 0.45
-      value: {fileID: -4245154994391510182, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
+      value: {fileID: -2389696547571922653, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
     - time: 0.6666667
-      value: {fileID: -524151812688639830, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
+      value: {fileID: 1234032439741616019, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2685789641386037151, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - {fileID: -1619536366347743290, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - {fileID: -4245154994391510182, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - {fileID: -524151812688639830, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
+    - {fileID: 3820231497112333180, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
+    - {fileID: -3997561655572238850, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
+    - {fileID: -2389696547571922653, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
+    - {fileID: 1234032439741616019, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -60,7 +60,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

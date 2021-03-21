@@ -119,7 +119,7 @@ public class PlayerInventory : MonoBehaviour
     #endregion
 
     #region Properties
-    [SerializeField] ChangeSkin playerSkin;
+    [SerializeField] SkinSwapper playerSkin;
     [SerializeField]Interactions interactions;
     [SerializeField] Beams beams;
     [SerializeField] BaseData baseData;

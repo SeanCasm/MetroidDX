@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoxCollider2D floorChecker;
     [SerializeField] LayerMask groundLayer;
     [SerializeField]Transform feetPosition;
-    private ChangeSkin skin;
+    private SkinSwapper skin;
     private const float groundDistance = 0.18f,jumpForce=88,speed=88,speedBooster=130, 
         hyperJumpForceMultiplier=1.8f, jumpTime=0.35f,speedIncreaseOverTime=1.5f;
     private float xInput=0, yInput=0, xVelocity,yVelocity, jumpTimeCounter;
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         material = rb.sharedMaterial;
         anim = GetComponent<Animator>();
-        skin = GetComponent<ChangeSkin>();
+        skin = GetComponent<SkinSwapper>();
     }
     void Start()
     {
@@ -256,6 +256,7 @@ public class PlayerController : MonoBehaviour
     {
         if (xInput != 0f)
         {
+            material.friction = 0f;
             if (balled) anim.SetFloat(animatorHash[23], 1);
             else if (runBooster)
             {
@@ -266,7 +267,6 @@ public class PlayerController : MonoBehaviour
             else rb.gravityScale = 1;
             if (yInput > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
             else if (yInput < 0) { aimDiagonalDown = true; aimUp = aimDown = aimDiagonal = false; }
-            material.friction = 0f;
             if (!moveOnFloor) Invoke("enableWalking", 0.05f);
             OnSlope();
         }
@@ -382,7 +382,7 @@ public class PlayerController : MonoBehaviour
             if (xInput == 0) InputX();
             else
             {
-                crouch = false;material.friction = 0f;
+                crouch = false;
                 if (xInput < 0)direction = Vector2.left;
                 else if (xInput > 0) direction = Vector2.right;
             }

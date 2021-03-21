@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeSkin : MonoBehaviour
+public class SkinSwapper : MonoBehaviour
 {
     [SerializeField] Image suit;
     [SerializeField] Player.BaseData playerSuits;

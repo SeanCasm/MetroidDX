@@ -23,7 +23,7 @@ public class CollectorManager : MonoBehaviour
 
     private PlayerInventory inventory;
     private float audioAux;
-    private ChangeSkin skin;
+    private SkinSwapper skin;
     private AudioSource audioPlayer;
     private PlayerController playerC;
     private GameObject itemGot,panel;
@@ -72,7 +72,7 @@ public class CollectorManager : MonoBehaviour
         playerC = player.GetComponent<PlayerController>();
         inventory = player.GetComponent<PlayerInventory>();
         audioPlayer = GetComponent<AudioSource>();
-        skin = player.GetComponent<ChangeSkin>();
+        skin = player.GetComponent<SkinSwapper>();
     }
     private void OnDisable() {
         GameEvents.verifyRegistry-=VerifyRegistry;

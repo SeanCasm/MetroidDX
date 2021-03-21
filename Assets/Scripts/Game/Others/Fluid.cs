@@ -7,7 +7,7 @@ public class Fluid : MonoBehaviour
     [SerializeField] BuoyancyEffector2D bE2d;
     [SerializeField] protected BoxCollider2D waterCollider;
     [SerializeField] float animationSpeed;
-    protected ChangeSkin pSkin;
+    protected SkinSwapper pSkin;
     protected PlayerHealth playerH;
     private Animator pAnimator;
     protected void OnTriggerEnter2D(Collider2D col)
@@ -15,7 +15,7 @@ public class Fluid : MonoBehaviour
         if (col.CompareTag("Player") && col.IsTouching(waterCollider))
         {
             pAnimator = col.GetComponentInParent<Animator>();
-            pSkin=col.GetComponentInParent<ChangeSkin>();
+            pSkin=col.GetComponentInParent<SkinSwapper>();
             if (!pSkin.Gravity)
             {
                 pAnimator.SetFloat("AnimSpeed", animationSpeed);

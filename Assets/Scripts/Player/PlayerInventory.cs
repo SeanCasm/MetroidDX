@@ -262,6 +262,12 @@ public class PlayerInventory : MonoBehaviour
         canShootBeams = true;AmmoSelection();
         return 0;
     }
+    public void AmmoSelection_Mobile(int index){
+        var lAmmo=limitedAmmo[index];
+        lAmmo.Select(!lAmmo.selected);
+        PlayerInstantiates.countableID = index;
+        canShootBeams=!lAmmo.selected;
+    } 
     /// <summary>
     /// Disable all ammo UI.
     /// </summary>

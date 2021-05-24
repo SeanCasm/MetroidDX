@@ -616,8 +616,8 @@ TextureImporter:
   spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
-  alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaUsage: 0
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -636,7 +636,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 3
-    compressionQuality: 0
+    compressionQuality: 20
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -648,7 +648,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 3
-    compressionQuality: 0
+    compressionQuality: 20
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -660,7 +660,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 3
-    compressionQuality: 0
+    compressionQuality: 20
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0

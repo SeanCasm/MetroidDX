@@ -15,6 +15,7 @@ public class Pause : MonoBehaviour
     [SerializeField]OptionsMenu optionsMenu;
     [SerializeField] Interactions menuFirst;
     private Button resume,options,mainMenu,quitGame;
+    public static System.Action<bool> touchpadPaused;
     private GameObject pause;
     public static bool onItemMenu,onMap,onSlots, gamePaused, onAnyMenu, onGame,onSave;
     public GameObject player,HUD;
@@ -70,6 +71,7 @@ public class Pause : MonoBehaviour
     #region UnityEvent
     private void GeneralPause()
     {
+        touchpadPaused.Invoke(false);
         gameSettings.SetEffectsVolume(true);
         gameSettings.SetMusicVolume(true);
         playerC.movement = playerC.canInstantiate = false;
@@ -79,6 +81,7 @@ public class Pause : MonoBehaviour
     }
     private void Unpause()
     {
+        touchpadPaused.Invoke(true);
         gameSettings.SetEffectsVolume(false);
         gameSettings.SetMusicVolume(false);
         playerC.canInstantiate = playerC.movement = true;

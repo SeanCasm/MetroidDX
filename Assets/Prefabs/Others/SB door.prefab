@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522148314186653889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.037675634, y: 0.0018564761, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1522148313660421393}
@@ -107,7 +107,10 @@ MonoBehaviour:
   unloadCurrentScene: 0
   onlyLoadSaveRoom: 0
   nextSceneIndex: 0
-  nextzone: {fileID: 0}
+  nextzone:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
 --- !u!212 &5407764396238316926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -149,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 930449575
   m_SortingLayer: 2
   m_SortingOrder: 50
-  m_Sprite: {fileID: 4364760968447775023, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
+  m_Sprite: {fileID: -8784149345001395665, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -291,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockDoorSprite: {fileID: 518685385827646087, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   bossDoor: 0
   weaponType: 6
   openEvent:

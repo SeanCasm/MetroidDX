@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class LoadScenes : MonoBehaviour
 {
-    [SerializeField]Room rooms;
-    private bool check;
-    public static int currentScene;
+    [SerializeField]AssetReference initialRoom;
+    [SerializeField]EnableAllPlayer playerEnabler;
+    private GameObject roomInitial;
+    private void Awake() {
+        initialRoom.LoadAssetAsync<GameObject>().Completed+=OnLoadDone;
+    }
+    private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj){
+        roomInitial=obj.Result;
+    }
     public void StartLoadingScene(int sceneIndex){
         SceneManager.LoadSceneAsync(sceneIndex,LoadSceneMode.Single);
     }
@@ -53,9 +60,11 @@ public class LoadScenes : MonoBehaviour
         {
             yield return null;
         }
-        GameObject room=rooms.LoadRoom("Begin");
-        room.name="Begin";
-        Instantiate(room);
+        initialRoom.InstantiateAsync(roomInitial.transform,roomInitial).Completed+=OnInstantiateDone;
+    }
+    private void OnInstantiateDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
+    {
+        playerEnabler.EnablePlayer();
     }
     public void LoadScene(int sceneIndex)
     {

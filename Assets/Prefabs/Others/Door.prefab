@@ -107,7 +107,10 @@ MonoBehaviour:
   unloadCurrentScene: 0
   onlyLoadSaveRoom: 0
   nextSceneIndex: 0
-  nextzone: {fileID: 0}
+  nextzone:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
 --- !u!212 &5407764396238316926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -149,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 930449575
   m_SortingLayer: 2
   m_SortingOrder: 50
-  m_Sprite: {fileID: 4364760968447775023, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
+  m_Sprite: {fileID: -8784149345001395665, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -268,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 2181901
   m_SortingLayer: 3
   m_SortingOrder: 10
-  m_Sprite: {fileID: -8941556546035749447, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
+  m_Sprite: {fileID: 492323500917238264, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -291,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockDoorSprite: {fileID: 518685385827646087, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   bossDoor: 0
   weaponType: 7
   openEvent:

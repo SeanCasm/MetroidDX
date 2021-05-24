@@ -9,12 +9,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoxCollider2D floorChecker;
     [SerializeField] LayerMask groundLayer;
     [SerializeField]Transform feetPosition;
+    [SerializeField]Joystick joystick;
     private SkinSwapper skin;
     private const float groundDistance = 0.18f,jumpForce=88,speed=88,speedBooster=130, 
         hyperJumpForceMultiplier=1.8f, jumpTime=0.35f,speedIncreaseOverTime=1.5f;
     private float xInput=0, yInput=0, xVelocity,yVelocity, jumpTimeCounter;
     Vector2 direction,slopePerp;
-    public Vector2 Direction{get=>direction;}
     private Animator anim;
     private PlayerInventory inventory;
     private SomePlayerFX playerFX;
@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
         set 
         { 
             screwing = value;
-            if (screwing) skin.SetScrewAttack(true);
-            else skin.SetScrewAttack(false);
+            if (screwing) skin?.SetScrewAttack(true);
+            else skin?.SetScrewAttack(false);
         }
     }
     public bool leftLook { get; set; }public bool aimUp { get; set; }
@@ -71,12 +71,12 @@ public class PlayerController : MonoBehaviour
             if (runBooster)
             {
                 rb.gravityScale = 0;
-                skin.SetSpeedBooster(true);
+                skin?.SetSpeedBooster(true);
             }
             else
             {
                 currentSpeed = speed;
-                skin.SetSpeedBooster(false);
+                skin?.SetSpeedBooster(false);
                 if (isGrounded) rb.gravityScale = 3;
             }
         }
@@ -166,6 +166,10 @@ public class PlayerController : MonoBehaviour
             else OnAir();
             if (xInput < 0) leftLook = true;
             else if(xInput>0)leftLook = false;
+
+            #if UNITY_ANDROID
+            MobileMovement();
+            #endif
         }
     }
     void OnDisable()
@@ -363,7 +367,7 @@ public class PlayerController : MonoBehaviour
                 aiming=false;
             }
         }
-    } 
+    }
     public void SelectingAmmo(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -373,10 +377,59 @@ public class PlayerController : MonoBehaviour
             if (pressCount == 4) pressCount = 0;
         }
     }
+    private void MobileMovement(){
+        if(joystick.Horizontal<-0.25)xInput =-1;
+        else if(joystick.Horizontal>0.25)xInput=1;
+        else{ xInput=0;InputX(); }
+        if(joystick.Vertical<-0.25)yInput=-1;
+        else if(joystick.Vertical>0.25)yInput=1;
+        else{ yInput=0;InputY();}
+
+            if (xInput == 0) InputX();
+            else
+            {
+                crouch = false;
+                if (xInput < 0) direction = Vector2.left;
+                else if (xInput > 0) direction = Vector2.right;
+            }
+            if (yInput == 0) InputY();
+            else
+            {
+                if (!balled && !crouch)
+                {
+                    //if (yInput < 0f && !isGrounded) { aimDown = true; aimDiagonal = aimDiagonalDown = aimUp = false; }
+                    //if (yInput > 0f && xInput == 0f && !aiming) { aimUp = true; aimDiagonalDown = aimDiagonal = aimDown = false; }
+                    gravityJump = screwing = false;
+                }
+                if (isGrounded)
+                {
+                    if (crouch)
+                    {
+                        if (yInput > 0) crouch = false;
+                        //else if (yInput < 0 && inventory.CheckItem(4)) Balled = true;
+                    }
+                    else
+                    {
+                        if (balled) { if (yInput > 0) { crouch = true; Balled = false; } }
+                        //else { if (yInput < 0) crouch = true; }
+                    }
+                }
+                else
+                {
+                    if (balled)
+                    {
+                        if (yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
+                        {
+                            Balled = false;
+                        }
+                    }
+                }
+            }
+    }
     public void Movement(InputAction.CallbackContext context)
     {
-        xInput = context.ReadValue<Vector2>().x;
-        yInput = context.ReadValue<Vector2>().y;
+            xInput = context.ReadValue<Vector2>().x;
+            yInput = context.ReadValue<Vector2>().y;
         if (movement)
         {
             if (xInput == 0) InputX();
@@ -544,5 +597,5 @@ public class PlayerController : MonoBehaviour
             CancelInvoke("HoldFire");
         }else{ CancelAndInvoke("HoldFire",0.5f); }
     }
-    #endregion
+#endregion
 }

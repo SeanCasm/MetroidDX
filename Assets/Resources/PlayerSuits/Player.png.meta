@@ -992,7 +992,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 0
     compressionQuality: 25
     crunchedCompression: 1
     allowsAlphaSplitting: 0
@@ -1004,7 +1004,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 0
     compressionQuality: 25
     crunchedCompression: 1
     allowsAlphaSplitting: 0
@@ -1015,10 +1015,10 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 47
-    textureCompression: 1
-    compressionQuality: 0
-    crunchedCompression: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 25
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 1
     androidETC2FallbackOverride: 2

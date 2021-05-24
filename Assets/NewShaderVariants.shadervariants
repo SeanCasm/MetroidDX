@@ -11,14 +11,18 @@ ShaderVariantCollection:
   - first: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
-      - keywords: BILLBOARD_FACE_CAMERA_POS ETC1_EXTERNAL_ALPHA LIGHTPROBE_SH USE_SHAPE_LIGHT_TYPE_0
+      - keywords: USE_SHAPE_LIGHT_TYPE_0
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS USE_SHAPE_LIGHT_TYPE_0
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH USE_SHAPE_LIGHT_TYPE_0
         passType: 0
   - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
-      - keywords: 
-        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS USE_SHAPE_LIGHT_TYPE_0
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH USE_SHAPE_LIGHT_TYPE_0
         passType: 0
   - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
     second:
@@ -58,6 +62,8 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
     second:
       variants:
+      - keywords: USE_SHAPE_LIGHT_TYPE_0
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS USE_SHAPE_LIGHT_TYPE_0
         passType: 0
   - first: {fileID: 4800000, guid: 65df88701913c224d95fc554db28381a, type: 3}
@@ -70,6 +76,11 @@ ShaderVariantCollection:
       variants:
       - keywords: BILLBOARD_FACE_CAMERA_POS USE_SHAPE_LIGHT_TYPE_0
         passType: 0
+  - first: {fileID: 4800000, guid: dd89cf5b9246416f84610a006f916af7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
   - first: {fileID: 9101, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
@@ -78,5 +89,7 @@ ShaderVariantCollection:
   - first: {fileID: 9103, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
+      - keywords: USE_SHAPE_LIGHT_TYPE_0
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS USE_SHAPE_LIGHT_TYPE_0
         passType: 0

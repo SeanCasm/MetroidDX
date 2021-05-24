@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.AddressableAssets;
 public class Retry : MonoBehaviour
 {
     #region Properties
@@ -12,12 +13,16 @@ public class Retry : MonoBehaviour
     [SerializeField]Transform canvas;
     [SerializeField] UnityEvent playerDeath;
     [SerializeField]private SaveAndLoad saveLoad;
-    [SerializeField]private GameObject player,retryMenuPrefab,hudMenu,allObjectContainer;
+    [SerializeField]private GameObject allObjectContainer;
+    [SerializeField]AssetReference retryMenuPrefab;
     [SerializeField] Interactions menuFirst;
-    private GameObject retryMenu;
+    private GameObject retryMenu,retryReference;
     private Button retry,mainMenu;
     #endregion
     #region Unity Methods
+    private void Awake() {
+        retryMenuPrefab.LoadAssetAsync<GameObject>().Completed+=OnLoadDone;
+    }
     private void OnEnable()
     {
         GameEvents.retry += EnableRetry;
@@ -28,13 +33,16 @@ public class Retry : MonoBehaviour
     }
     #endregion
     #region Private Methods
+    private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj){
+        retryReference =obj.Result;
+    }
     private void EnableRetry(bool value)
     {
         playerDeath.AddListener(()=>InstantiateAndPutOnCanvas());
         playerDeath.Invoke();
     }
     private void InstantiateAndPutOnCanvas(){
-        retryMenu =Instantiate(retryMenuPrefab,canvas.position,Quaternion.identity,canvas);
+        retryMenu =Instantiate(retryReference,canvas.position,Quaternion.identity,canvas);
         //Adding events to mainMenu button
         mainMenu=retryMenu.transform.GetChild(1).GetComponent<Button>();
         mainMenu.onClick.AddListener(()=>canvas.GetComponent<LoadScenes>().LoadScene(0));

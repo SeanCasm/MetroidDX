@@ -2,18 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 public class GameUI : MonoBehaviour
 {
     public class AmmoUI
     {
         private int iD { get; set; }
         private GameObject ammoGeneralUI, ammoImageObjectUI;
-        private Text ammoText;
+        private TextMeshProUGUI ammoText;
         public AmmoUI(int iD,GameObject ammoGeneralUI)
         {
             this.iD = iD;this.ammoGeneralUI = ammoGeneralUI;
-            ammoText = ammoGeneralUI.transform.GetChild(0).GetComponent<Text>();
+            ammoText = ammoGeneralUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             ammoImageObjectUI= ammoGeneralUI.transform.GetChild(1).gameObject;
 
         }
@@ -34,14 +34,12 @@ public class GameUI : MonoBehaviour
     [SerializeField] PlayerInventory pInventory;
     [SerializeField]PlayerHealth pHealth;
     private Dictionary<int,AmmoUI> ammoUI;
-    [SerializeField] Text health;
+    [SerializeField] TextMeshProUGUI health;
     [SerializeField] RectTransform healthImage;
     #endregion
     private void OnEnable() {
-        GameEvents.playerHealth += UpdateHealth;
-    }
-    private void OnDisable() {
         GameEvents.playerHealth -= UpdateHealth;
+        GameEvents.playerHealth += UpdateHealth;
     }
     private void Start()
     {

@@ -39,6 +39,7 @@ public class PlayerInstantiates : MonoBehaviour
     private void GunShoot(bool isCharging)
     {
         var ammo = inventory.limitedAmmoSearch;
+        if(countableID==2)countableID=-999;
         if(inventory.canShootBeams){
             if(!isCharging) ShootPrefab(beamToShoot);
             else{
@@ -62,24 +63,29 @@ public class PlayerInstantiates : MonoBehaviour
     private bool canInstantiate = true; 
     public void SetBomb()
     {
+        bool ins=false;;
         if (inventory.limitedAmmoSearch.ContainsKey(2))
         {
+            
             ammo = inventory.limitedAmmoSearch[2];
+            if(ammo.selected)ins=true;
         }
         else
         {
             ammo = null;
         }
-        if (ammo!=null && ammo.CheckAmmo())
-        {
-            GameObject mb = Instantiate(ammo.ammoPrefab, firePoint.position, Quaternion.identity) as GameObject;
-            ammo.ActualAmmoCount(-1);
-        }
-        else if(inventory.CheckItem(6) && canInstantiate)//bomb
-        {
-            GameObject mb = Instantiate(beams.bomb, firePoint.transform.position, Quaternion.identity);
-            canInstantiate = false;
-            Invoke("InsBomb", 1f);
+        if(ins){
+            if (ammo != null && ammo.CheckAmmo())
+            {
+                GameObject mb = Instantiate(ammo.ammoPrefab, firePoint.position, Quaternion.identity) as GameObject;
+                ammo.ActualAmmoCount(-1);
+            }
+            else if (inventory.CheckItem(6) && canInstantiate)//bomb
+            {
+                GameObject mb = Instantiate(beams.bomb, firePoint.transform.position, Quaternion.identity);
+                canInstantiate = false;
+                Invoke("InsBomb", 1f);
+            }
         }
     }
     void InsBomb()

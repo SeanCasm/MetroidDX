@@ -8,7 +8,6 @@ public class ReserveAcquired : MonoBehaviour,ICollecteable
     #region Properties
     [SerializeField] ReserveType reserveType;
     [SerializeField] int iD;
-    public event Action<ReserveAcquired> onPickup;
     private BoxCollider2D box;
     private Animator anim;
     public string nameItem { get; set; }
@@ -46,7 +45,9 @@ public class ReserveAcquired : MonoBehaviour,ICollecteable
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))onPickup.Invoke(this);
+        if (collision.CompareTag("Player")){
+            CollectorManager.instance.HandlePickupReserve(this);
+        }
     }
     private void OnBecameVisible()
     {
@@ -56,11 +57,6 @@ public class ReserveAcquired : MonoBehaviour,ICollecteable
     {
         box.enabled = anim.enabled =false;
     }
-    private void OnDisable()
-    {
-        var acqSystem = References.AcqSystem;
-        onPickup -= acqSystem.HandlePickupReserve;
-        acqSystem.reserveSearch[ID] = null;
-    }
+  
     #endregion
 }

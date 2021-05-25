@@ -17,6 +17,7 @@ public class MapUI : MonoBehaviour
             CutMapUI();
             playerMenu.SetActive(true);
             Interactions.BackMap.Invoke();
+            playerMenu.GetParent().SetActive(true);
         });
         Destroy(mapUI.GetChild(1).GetChild(0));//destroys a gameobject with attached text component
          

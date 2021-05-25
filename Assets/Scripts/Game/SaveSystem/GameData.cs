@@ -15,6 +15,7 @@ public class GameData
     public Dictionary<string, List<int>> tilesX, tilesY;
     public List<int> bossesDefeated;//boss id and name
     public Dictionary<float,float> tilesRegistered=new Dictionary<float, float>();
+    public int[] time=new int[4];
     public bool[] miniMapItem = new bool[40];
     public GameData(PlayerInventory inventory,PlayerHealth energy,MapSaveSystem map,float[] pos,string sectorName)
     {
@@ -27,6 +28,11 @@ public class GameData
                 ammoMunition.Add(limitedAmmo[i].iD,limitedAmmo[i].maxAmmo);
             }
         }
+        
+        time[0]=TimeCounter.hours;
+        time[1]=TimeCounter.minutes;
+        time[2]=TimeCounter.seconds;
+        time[3]=TimeCounter.miliseconds;
         scene = SceneManager.GetActiveScene().buildIndex;
         reserve = new List<int>(inventory.reserve);
         items = new List<int>(inventory.items);

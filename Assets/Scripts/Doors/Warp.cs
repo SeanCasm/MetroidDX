@@ -27,7 +27,7 @@ public class Warp : MonoBehaviour
         if (other.CompareTag("PlayerDetect")){
             playerC = other.GetComponentInParent<PlayerController>();
             playerYPoint=playerC.transform.position.y;
-            DoorTransition.Transition=true;
+            GameEvents.doorTransition.Invoke(true);
             SetPause();
         }
     }
@@ -48,7 +48,7 @@ public class Warp : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
          
         if(!unloadCurrentScene) Destroy(currentZone);
-        DoorTransition.Transition = false;
+        GameEvents.doorTransition.Invoke(false);
         Pause.UnpausePlayer(playerC);
     }
 }

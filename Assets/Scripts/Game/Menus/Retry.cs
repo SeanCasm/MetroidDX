@@ -16,6 +16,7 @@ public class Retry : MonoBehaviour
     [SerializeField]private GameObject allObjectContainer;
     [SerializeField]AssetReference retryMenuPrefab;
     [SerializeField] Interactions menuFirst;
+    [SerializeField]GameObject hud,player;
     private GameObject retryMenu,retryReference;
     private Button retry,mainMenu;
     #endregion
@@ -48,11 +49,15 @@ public class Retry : MonoBehaviour
         mainMenu.onClick.AddListener(()=>canvas.GetComponent<LoadScenes>().LoadScene(0));
         mainMenu.onClick.AddListener(() => Destroy(allObjectContainer));
         //Adding events to retry button
-        /*retry=retryMenu.transform.GetChild(0).GetComponent<Button>();
-        retry.onClick.AddListener(() => RetryGame());
-        retry.onClick.AddListener(() =>player.SetActive(true));
-        retry.onClick.AddListener(()=>hudMenu.SetActive(true));
-        retry.onClick.AddListener(()=>Destroy(retryMenu));*/
+        retry=retryMenu.transform.GetChild(0).GetComponent<Button>();
+        retry.onClick.AddListener(() =>
+        {
+            GameEvents.OnRetry.Invoke();
+            player.SetActive(true);
+            hud.SetActive(true);
+            RetryGame();
+        });
+      
         //Setting the first select.
         menuFirst.SetGameObjectToEventSystem(mainMenu);
     }
@@ -72,6 +77,7 @@ public class Retry : MonoBehaviour
     }
     public void DesactivePause()
     {
+        Destroy(retryMenu);
         Time.timeScale = 1f;
         AudioListener.pause = false;
         Pause.onAnyMenu = false;

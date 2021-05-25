@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class BuildManager : MonoBehaviour
 {
     [Header("Global config")]
@@ -12,7 +12,6 @@ public class BuildManager : MonoBehaviour
     [SerializeField] List<GameObject> menuMessages;
     [SerializeField] GameObject eventSystemStandalone, eventSystemAndroid;
     [SerializeField] List<Image> raycasteableImages;
-    [SerializeField]List<Text> raycasteableTexts;
     [SerializeField]List<GameObject> mobileButtons;
     [Header("Player UI and inventory config")]
     [SerializeField]List<GameObject> ammoUI;
@@ -23,9 +22,6 @@ public class BuildManager : MonoBehaviour
         raycasteableImages.ForEach(item =>
         {
             item.raycastTarget = true;
-        });
-        raycasteableTexts.ForEach(item=>{
-            item.raycastTarget=true;
         });
         controlDeviceReference.ForEach(item =>
         {

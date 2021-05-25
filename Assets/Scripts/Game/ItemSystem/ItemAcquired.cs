@@ -11,7 +11,6 @@ public class ItemAcquired : MonoBehaviour,ICollecteable
     [SerializeField] ItemType itemType;
     private BoxCollider2D box;
     private Animator anim;
-    public event Action<ItemAcquired> onPickup;
 
     public int ID { get { return iD; } }
     public string Message { get { return message; } }
@@ -36,14 +35,8 @@ public class ItemAcquired : MonoBehaviour,ICollecteable
     {
         if (collision.CompareTag("Player"))
         {
-            onPickup.Invoke(this);
+            CollectorManager.instance.HandlePickupItem(this);
         }
-    }
-    private void OnDisable()
-    {
-        var acqSystem = References.AcqSystem;
-        onPickup -= acqSystem.HandlePickupItem;
-        acqSystem.itemSearch[ID] = null;
     }
     #endregion
 }

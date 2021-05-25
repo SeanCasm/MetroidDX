@@ -55,7 +55,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -67,8 +67,8 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 0
-  alphaIsTransparency: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -83,11 +83,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 256
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 25
+    textureFormat: 7
+    textureCompression: 1
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -95,11 +95,11 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 32
+    maxTextureSize: 256
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 3
-    compressionQuality: 25
+    textureFormat: 7
+    textureCompression: 1
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -109,13 +109,13 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 256
     resizeAlgorithm: 0
-    textureFormat: 47
-    textureCompression: 3
-    compressionQuality: 25
+    textureFormat: 65
+    textureCompression: 1
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
-    androidETC2FallbackOverride: 2
+    androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
@@ -124,8 +124,8 @@ TextureImporter:
       name: Menu panels_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 95
+        x: 2
+        y: 92
         width: 59
         height: 52
       alignment: 0
@@ -145,10 +145,10 @@ TextureImporter:
       name: Menu panels_1
       rect:
         serializedVersion: 2
-        x: 111
-        y: 119
+        x: 71
+        y: 84
         width: 75
-        height: 28
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,7 +167,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 55
+        y: 56
         width: 91
         height: 28
       alignment: 0
@@ -187,10 +187,10 @@ TextureImporter:
       name: Menu panels_3
       rect:
         serializedVersion: 2
-        x: 111
-        y: 54
+        x: 0
+        y: 28
         width: 75
-        height: 60
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,8 @@ TextureImporter:
       name: Menu panels_4
       rect:
         serializedVersion: 2
-        x: 111
-        y: 21
+        x: 0
+        y: 0
         width: 75
         height: 28
       alignment: 0
@@ -229,9 +229,9 @@ TextureImporter:
       name: Menu panels_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 27
-        width: 75
+        x: 74
+        y: 0
+        width: 74
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -249,7 +249,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: ec34e3e4f6c81e945a8df4665a9b2503
     internalID: 0
     vertices: []
     indices: 

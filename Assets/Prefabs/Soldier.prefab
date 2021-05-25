@@ -298,6 +298,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   feetPosition: {fileID: 5754288491238777777}
+  joystick: {fileID: 0}
 --- !u!82 &8898891342960035912
 AudioSource:
   m_ObjectHideFlags: 0

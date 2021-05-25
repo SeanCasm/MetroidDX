@@ -125,6 +125,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] BaseData baseData;
     [SerializeField] ButtonUtilities buttonEssentials;
     [SerializeField] PlayerInstantiates playerInstantiates;
+    private GameData data;
     private PlayerController playerController;
     public Dictionary<int, Item> playerItems { get; set; }= new Dictionary<int, Item>();
     public List<int> reserve { get; set; }=new List<int>();
@@ -142,6 +143,10 @@ public class PlayerInventory : MonoBehaviour
         buttonEssentials.SetButton(4, true);
         interactions.SetButtonNavigation();
         SetBeamToShoot();
+    }
+    private void OnEnable() {
+        GameEvents.OnRetry -= OnRetry;
+        GameEvents.OnRetry+=OnRetry;
     }
     void OnDisable()
     {
@@ -211,22 +216,26 @@ public class PlayerInventory : MonoBehaviour
             else return false;
         }else return false;
     }
-    public void LoadInventory(List<int> MSB, List<int> item, Dictionary<int,bool> selectItems,Dictionary<int,int> ammoMunition)
+    public void LoadInventory(GameData data)//List<int> MSB, List<int> item, Dictionary<int,bool> selectItems,Dictionary<int,int> ammoMunition)
     {
+        this.data=data;
         int ammo=0;
-        for(int i = 1; i < ammoMunition.Count; i++)//load limited ammo, from super missiles...
+        var ammoMn=data.ammoMunition;
+        for(int i = 1; i <ammoMn.Count; i++)//load limited ammo, from super missiles...
         {
-            if (ammoMunition.ContainsKey(i))ammo = ammoMunition[i];
+            if (data.ammoMunition.ContainsKey(i))ammo =ammoMn[i];
             CountableAmmo lAmmo=new CountableAmmo(false, i, beams.limitedAmmo[i], ammo);
             limitedAmmo.Add(lAmmo);
             limitedAmmoSearch.Add(lAmmo.iD,lAmmo);
         }
-        limitedAmmo[0].maxAmmo = limitedAmmo[0].actualAmmo=ammoMunition[0];
-        reserve = new List<int>(MSB);
-        items = new List<int>(item);
-        foreach(var element in selectItems){
+        limitedAmmo[0].maxAmmo = limitedAmmo[0].actualAmmo=ammoMn[0];
+        reserve = new List<int>(data.reserve);
+        items = new List<int>(data.items);
+        foreach(var element in data.selectItems){
             if(element.Key!=4){
-                playerItems.Add(element.Key,new Item(element.Value,element.Key));
+                bool value=element.Value;
+                playerItems.Add(element.Key,new Item(value,element.Key));
+                buttonEssentials.SetButton(element.Key,value);
                 DisableIncompatibleBeams(element.Key);
             }
         }
@@ -262,12 +271,17 @@ public class PlayerInventory : MonoBehaviour
         canShootBeams = true;AmmoSelection();
         return 0;
     }
+    #region Mobile Methods
     public void AmmoSelection_Mobile(int index){
-        var lAmmo=limitedAmmo[index];
+        var lAmmo=limitedAmmoSearch[index];
         lAmmo.Select(!lAmmo.selected);
         PlayerInstantiates.countableID = index;
         canShootBeams=!lAmmo.selected;
+        foreach(var item in limitedAmmoSearch){
+            if(item.Key!=index)item.Value.Select(false);
+        }
     } 
+    #endregion
     /// <summary>
     /// Disable all ammo UI.
     /// </summary>
@@ -281,9 +295,10 @@ public class PlayerInventory : MonoBehaviour
     /// <param name="changeForce">true: to change the jump force to the high jump force, false: change to the default jump force</param>
     public void ChangeJumpForce()
     {
-        var pItems=playerItems[7];
-        if(pItems.selected)playerController.currentJumpForce=baseData.jumpForceUp;
-        else playerController.currentJumpForce=baseData.jumpForce;
+        if(playerItems.ContainsKey(7)){
+            if (playerItems[7].selected) playerController.currentJumpForce = baseData.jumpForceUp;
+            else playerController.currentJumpForce = baseData.jumpForce;
+        }
     }
     public void SetBeamToShoot()
     {
@@ -304,4 +319,13 @@ public class PlayerInventory : MonoBehaviour
         playerInstantiates.beamToShoot = beams.GetAmmoPrefab(Ammo.ammoSelected);
     }
     #endregion
+    private void OnRetry(){
+        if(!SaveAndLoad.newGame){
+            LoadInventory(data);
+            AmmoSelection();
+            ChangeJumpForce();
+            SetSuit();
+            SetBeamToShoot();
+        }
+    }
 }

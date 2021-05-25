@@ -9,6 +9,11 @@ public class ButtonUtilities : MonoBehaviour
     [SerializeField]ButtonEssentials buttonEssentials;
     public Dictionary<int, Button> buttons { get; set; }
     public List<Button> itemButtons { get; set; }
+    private void OnEnable() {
+        GameEvents.OnRetry -= OnRetry;
+        GameEvents.OnRetry+=OnRetry; 
+        GameEvents.setItemButton+=SetButton;
+    }
     void Awake()
     {
         buttons=new Dictionary<int, Button>();
@@ -23,6 +28,11 @@ public class ButtonUtilities : MonoBehaviour
                 buttons.Add(iD,button);
                 itemButtons.Add(button);
             }
+        }
+    }
+    private void OnRetry(){
+        for(int i=0;i<buttons.Count;i++){
+            buttons[i].gameObject.SetActive(false);
         }
     }
     public void SetButton(int iD, bool isSelected)

@@ -18,6 +18,7 @@ public class PlayerKnockBack : MonoBehaviour
     #region Unity Methods
     private void OnEnable()
     {
+        box.enabled=true;
         GameEvents.damagePlayer += HandleHit;
     }
     private void OnDisable()

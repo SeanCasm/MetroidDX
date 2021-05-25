@@ -15,6 +15,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     private float currentTankSize;
     private PlayerController player;
     private AudioSource audioPlayer;
+    private GameData data;
     public AudioClip damageClip;
     public int CurrentMaxTotalHealth{get;set;}
     public int Tanks { get { return energyTanks; } set {energyTanks=value; } }
@@ -22,6 +23,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     public int MaxTotalHealth { get { return maxTotalHealth; } set{maxTotalHealth=value;} }
     public bool invulnerability { get; set; }public bool freezed { get; set; }
     private bool freezeInvulnerablility;
+     
     #endregion
     #region Unity Methods
     private void Awake()
@@ -34,8 +36,11 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
         baseData.SetHealthData(this);
     }
     private void OnEnable() {
+        GameEvents.OnRetry -= OnRetry;
+
         GameEvents.healthTank+=HandleIncrementHealthStats;
         GameEvents.refullAll+=HandleRefullAll;
+        GameEvents.OnRetry+=OnRetry;
     }
     private void OnDisable()
     {
@@ -67,11 +72,20 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     }
     public void LoadHealth(GameData data)
     {
+        this.data=data;
         healthRound = data.tanks + 1;
         CurrentMaxTotalHealth=maxTotalHealth = healthRound * 99;
         energyTanks = data.tanks;
         health = 99;
         currentTankSize = 16f * energyTanks;
+    }
+    private void OnRetry(){
+        if(!SaveAndLoad.newGame){
+            LoadHealth(data);
+        }else{
+            baseData.SetHealthData(this);
+        }
+        GameEvents.playerHealth.Invoke(health, energyTanks);
     }
     /// <summary>
     /// Add a tank to the total tank count and refill the player health

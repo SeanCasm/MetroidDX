@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class DoorTransition : MonoBehaviour
 {
     [SerializeField] GameObject doorTransition;
-    private static GameObject transitionReference;
-    private void Awake() {
-        transitionReference=doorTransition;   
+    private void OnEnable() {
+        GameEvents.doorTransition+=SetTransition;
     }
-    public static bool Transition { set { transitionReference.SetActive(value) ; } }
-
+    private void SetTransition(bool active){
+        doorTransition.SetActive(active);
+    }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 public class Slots : MonoBehaviour
 {
     [SerializeField] GameObject[] buttonGames, energySlots, missileSlots, superMissileSlots, superBombSlots;
@@ -12,6 +13,8 @@ public class Slots : MonoBehaviour
     [SerializeField]LoadScenes sceneLoader;
     [SerializeField]SaveAndLoad saveLoad;
     [SerializeField]PlayerInput playerInput;
+    [Tooltip("Array of play time in order: slot-1,slot-2,slot-3")]
+    [SerializeField] TextMeshProUGUI[] times;
     private GameData data;
     public GameObject player;
     void Awake()
@@ -45,18 +48,19 @@ public class Slots : MonoBehaviour
         if (data.ammoMunition.ContainsKey(0))
         {
             missilesSlot[slotIndex].SetActive(true);
-            missilesSlot[slotIndex].GetComponentInChildren<Text>().text = data.ammoMunition[0].ToString();
+            missilesSlot[slotIndex].GetComponentInChildren<TextMeshProUGUI>().text = data.ammoMunition[0].ToString();
         }
         if (data.ammoMunition.ContainsKey(1))
         {
             superMissileSlot[slotIndex].SetActive(true);
-            superMissileSlot[slotIndex].GetComponentInChildren<Text>().text= data.ammoMunition[1].ToString();
+            superMissileSlot[slotIndex].GetComponentInChildren<TextMeshProUGUI>().text= data.ammoMunition[1].ToString();
         }
         if (data.ammoMunition.ContainsKey(2))
         {
             superBombSlot[slotIndex].SetActive(true);
-            superBombSlot[slotIndex].GetComponentInChildren<Text>().text = data.ammoMunition[2].ToString();
+            superBombSlot[slotIndex].GetComponentInChildren<TextMeshProUGUI>().text = data.ammoMunition[2].ToString();
         }
+        times[slotIndex].text = TimeCounter.TimeArrayIntToString(data.time);
         energySlot[slotIndex].SetActive(true);
         energyUI[slotIndex].sizeDelta = new Vector2(16f * totalTanks, 16f);
     }
@@ -69,13 +73,14 @@ public class Slots : MonoBehaviour
     }
     public void ShowButtons(int slotIndex)
     {
-        Text buttonText= buttonGames[slotIndex].GetComponentInChildren<Text>();
+        TextMeshProUGUI buttonText= buttonGames[slotIndex].GetComponentInChildren<TextMeshProUGUI>();
         if (SaveSystem.LoadPlayerSlot(slotIndex) != null)buttonText.text="Continue";
         else buttonText.text = "New Game";
     }
     private void NewGameData()
     {
         player.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y,0f);
+        SaveAndLoad.newGame=true;
         sceneLoader.UnloadCurrentScene();
     }
     public void SetData(int loadSlot)
@@ -84,10 +89,11 @@ public class Slots : MonoBehaviour
         SaveAndLoad.slot = loadSlot;
         for(int i=0;i<3;i++){
             if(loadSlot==i){
-                if (SaveSystem.LoadPlayerSlot(i) != null) saveLoad.LoadPlayerSlot(i);
+                if (SaveSystem.LoadPlayerSlot(i) != null){SaveAndLoad.newGame=false; saveLoad.LoadPlayerSlot(i);}
                 else NewGameData();
             }
         }
+        GameEvents.timeCounter.Invoke(true);
     }
     void OnDisable()
     {

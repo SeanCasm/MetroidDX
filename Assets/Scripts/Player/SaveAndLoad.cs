@@ -12,9 +12,9 @@ public class SaveAndLoad : MonoBehaviour
     [SerializeField] CollectorManager collector;
     [SerializeField]MapSaveSystem map;
     [SerializeField] Room rooms;
-    [SerializeField]ButtonUtilities buttonEssentials;
     private float[] position= new float[3];
     public string sectorName{get;set;}
+    public static bool newGame;
     public static int slot{get;set;}
     public void SetPositions(float x, float y, float z)
     {
@@ -48,8 +48,9 @@ public class SaveAndLoad : MonoBehaviour
         health.LoadHealth(data);
         map.LoadMap(data);
         Boss.defeateds = new List<int>(data.bossesDefeated);
-        LoadItems(data);
-        inventory.LoadInventory(data.reserve, data.items, data.selectItems, data.ammoMunition);
+        LoadToCollectorManager(data);
+        TimeCounter.SetTimeAfterLoad(data.time);
+        inventory.LoadInventory(data);
     }
     IEnumerator CheckSceneLoaded(AsyncOperation operation,GameData data){
         while(!operation.isDone){
@@ -57,26 +58,29 @@ public class SaveAndLoad : MonoBehaviour
         }
         GameObject room=rooms.LoadRoom(sectorName);
         room.name=sectorName;
-        Instantiate(room);
         Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
         position.z = 0;
         SaveStation.recentlyLoad = true;
         transform.position = position;
+        Instantiate(room);
+         
+        GameEvents.enablePlayer.Invoke();
     }
-    private void LoadItems(GameData data)
+    private void LoadToCollectorManager(GameData data)
     {
         var reserve = data.reserve;
         var items = data.items;
+        collector.reserveSearch.Clear();
         for(int i = 0; i < reserve.Count; i++)
         {
             collector.reserveSearch.Add(reserve[i], new ReserveAcquired());
         }
+        collector.itemSearch.Clear();
         for (int i = 0; i < items.Count; i++)
         {
             collector.itemSearch.Add(items[i], new ItemAcquired());
-            buttonEssentials.SetButton(items[i],data.selectItems[items[i]]);
         }
     }
 }

@@ -33,11 +33,11 @@ public class LoadScenes : MonoBehaviour
     /// </summary>
     public void UnloadCurrentScene()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         StartCoroutine(CheckUnload(operation));
     }
     /// <summary>
-    /// Wait to next scene be loaded in background, when it happens the current scene is unloaded.
+    /// Waits to next scene be loaded in background, when it happens the current scene is unloaded.
     /// </summary>
     /// <param name="operation"></param>
     /// <param name="actualScene">index of actual scene</param>
@@ -55,16 +55,18 @@ public class LoadScenes : MonoBehaviour
         {
             yield return null;
         }
+        /*
         AsyncOperation unloadOperation=SceneManager.UnloadSceneAsync(0);
         while (!unloadOperation.isDone)
         {
             yield return null;
-        }
-        initialRoom.InstantiateAsync(roomInitial.transform,roomInitial).Completed+=OnInstantiateDone;
+        }*/
+        initialRoom.InstantiateAsync(null,roomInitial).Completed+=OnInstantiateDone;
     }
     private void OnInstantiateDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
     {
-        playerEnabler.EnablePlayer();
+        GameEvents.enablePlayer.Invoke();
+
     }
     public void LoadScene(int sceneIndex)
     {

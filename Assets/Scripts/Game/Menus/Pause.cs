@@ -14,11 +14,10 @@ public class Pause : MonoBehaviour
     [SerializeField]GameObject pauseMenuPrefab,settings,allObjectsContainer;
     [SerializeField]OptionsMenu optionsMenu;
     [SerializeField] Interactions menuFirst;
-    private Button resume,options,mainMenu,quitGame;
+    GameObject pause;
     public static System.Action<bool> touchpadPaused;
-    private GameObject pause;
     public static bool onItemMenu,onMap,onSlots, gamePaused, onAnyMenu, onGame,onSave;
-    public GameObject player,HUD;
+    public GameObject player;
     public GameObject playerMenu;
     private PlayerController playerC;
     private bool enterPause,escPause;
@@ -39,7 +38,7 @@ public class Pause : MonoBehaviour
     #region Public Methods
     public void PauseMenu(InputAction.CallbackContext context)
     {
-        if(!onAnyMenu && player.activeSelf && !enterPause && !onSubMenu && onGame)
+        if(CheckBeforePause() && context.performed)
         {
             if (gamePaused)unpauseEvent.Invoke();
             else{escPause = true;EscPause();pauseEvent.Invoke();}
@@ -47,10 +46,10 @@ public class Pause : MonoBehaviour
     } 
     public void Menu(InputAction.CallbackContext context)
     {
-        if (!onAnyMenu && player.activeSelf && !escPause && !onSubMenu && onGame)
+        if (CheckBeforePause() && context.performed)
         {
             if (gamePaused)unpauseEvent.Invoke();
-            else{enterPause = true;EnterPause();pauseEvent.Invoke(); }
+            else{enterPause = true;EnterPause(false);pauseEvent.Invoke(); }
         }
     }
     public static void PausePlayer(PlayerController playerC){
@@ -62,12 +61,19 @@ public class Pause : MonoBehaviour
         playerC.canInstantiate = playerC.movement = true;
         Time.timeScale = 1f;
     }
+    public void PauseOnMiniMapTouch_Mobile(){
+        enterPause = true; EnterPause(true); pauseEvent.Invoke();
+    }
     public void QuitGame()
     {
         Application.Quit();
     }
     #endregion
     #region Private Methods
+    private bool CheckBeforePause(){
+        if(!onAnyMenu && player.activeSelf && !enterPause && !onSubMenu && onGame)return true;
+        else return false;
+    }
     #region UnityEvent
     private void GeneralPause()
     {
@@ -81,12 +87,13 @@ public class Pause : MonoBehaviour
     }
     private void Unpause()
     {
+        GameEvents.pauseTimeCounter.Invoke(playerMenu.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>(), false);
         touchpadPaused.Invoke(true);
         gameSettings.SetEffectsVolume(false);
         gameSettings.SetMusicVolume(false);
         playerC.canInstantiate = playerC.movement = true;
         Time.timeScale = 1f;
-        if (pauseMenuPrefab != null) Destroy(pause);
+        if(pause!=null)Destroy(pause);
         else if (playerMenu.activeSelf) playerMenu.SetActive(false);
         escPause = enterPause = gamePaused = false;
     }
@@ -99,33 +106,50 @@ public class Pause : MonoBehaviour
     }
     #endregion
     
-    void EnterPause()
+    void EnterPause(bool onMobile)
     {
-        playerMenu.SetActive(true);
+        if(!onMobile)playerMenu.SetActive(true);
+        GameEvents.pauseTimeCounter.Invoke(playerMenu.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>(),true);
         menuFirst.SetGameObjectToEventSystem(playerMenu.GetChild(1).GetChild(3).GetComponent<Button>());
     }
     void EscPause() {
+         
         pause=Instantiate(pauseMenuPrefab,canvas);
         optionsMenu.pauseMenu=pause.GetChild(0);
-        
+
+        Button resume, options, mainMenu, quitGame;
+        TMPro.TextMeshProUGUI time;
+
         resume=GetComponentAtIndex(pause.GetChild(0),1);
-        resume.onClick.AddListener(()=>unpauseEvent.Invoke());
-        resume.onClick.AddListener(()=>Destroy(pause));
+        resume.onClick.AddListener(()=>{
+            unpauseEvent.Invoke();
+            GameEvents.timeCounter.Invoke(true);//unpauses the time counter.
+            Destroy(pause);
+        });
         //Setting the first select.
         menuFirst.PauseFirst=resume;
         options=GetComponentAtIndex(pause.GetChild(0), 2);
-        options.onClick.AddListener(() => pause.GetChild(0).SetActive(false));
-        options.onClick.AddListener(()=>settings.SetActive(true));
-        options.onClick.AddListener(() => settings.GetComponent<OptionsMenu>().fromMenuCalled=false);
-        options.onClick.AddListener(() => onSubMenu=true);
-        options.onClick.AddListener(() => menuFirst.SetGameObjectToEventSystem(menuFirst.SettingsFirst));
+        options.onClick.AddListener(() => {
+            pause.GetChild(0).SetActive(false);
+            settings.SetActive(true);
+            settings.GetComponent<OptionsMenu>().fromMenuCalled = false;
+            onSubMenu = true;
+            menuFirst.SetGameObjectToEventSystem(menuFirst.SettingsFirst);
+        });
         
         mainMenu=GetComponentAtIndex(pause.GetChild(0),3);
-        mainMenu.onClick.AddListener(()=>canvas.GetComponent<LoadScenes>().LoadScene(0));
-        mainMenu.onClick.AddListener(()=>Destroy(allObjectsContainer));
+        mainMenu.onClick.AddListener(()=>{
+            canvas.GetComponent<LoadScenes>().LoadScene(0);
+            GameEvents.timeCounter.Invoke(false);//pauses the time counter.
+            Destroy(allObjectsContainer);
+        });
         
         quitGame=GetComponentAtIndex(pause.GetChild(0),4);
         quitGame.onClick.AddListener(()=>QuitGame());
+        
+        GameEvents.timeCounter.Invoke(false);//pauses the time counter.
+        time=pause.GetChild(0).GetChild(5).GetComponent<TMPro.TextMeshProUGUI>();
+        time.text="Time:"+TimeCounter.CurrentTime;
     }
     private Button GetComponentAtIndex(GameObject someObject,int index){
         return someObject.transform.GetChild(index).GetComponent<Button>();

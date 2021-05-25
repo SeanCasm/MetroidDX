@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 using Items;
 using UnityEngine.Audio;
+using TMPro;
+using UnityEngine.UI;
 
 public class CollectorManager : MonoBehaviour
 {
     #region Properties
+    public static CollectorManager instance;
     [SerializeField] UnityEvent Pickup;
     [SerializeField]Interactions interactions;
     [SerializeField] AudioClip reserveAcquired, itemAcquired;
@@ -35,13 +37,13 @@ public class CollectorManager : MonoBehaviour
             ReserveAcquired reserve=behaviour as ReserveAcquired;
             if(!reserveSearch.ContainsKey(reserve.ID)){
                 reserveSearch.Add(reserve.ID, reserve);
-                reserve.onPickup += HandlePickupReserve;
+                //HandlePickupReserve(reserve);
             }else Destroy(reserve.gameObject);
         }else if(behaviour is ItemAcquired){
             ItemAcquired item = behaviour as ItemAcquired;
             if(!itemSearch.ContainsKey(item.ID)){
                 itemSearch.Add(item.ID, item);
-                item.onPickup += HandlePickupItem;
+                //HandlePickupItem(item);
             }
             else Destroy(item.gameObject);
         }
@@ -64,13 +66,14 @@ public class CollectorManager : MonoBehaviour
     #region Unity Methods
     private void Start()
     {
+        instance=this;
         if(reserveSearch==null)reserveSearch = new Dictionary<int, ReserveAcquired>();
         if (itemSearch == null) itemSearch = new Dictionary<int, ItemAcquired>();
         GameEvents.verifyRegistry+=VerifyRegistry;
         playerC = player.GetComponent<PlayerController>();
         inventory = player.GetComponent<PlayerInventory>();
         audioPlayer = GetComponent<AudioSource>();
-        skin = player.GetComponent<SkinSwapper>();
+        //skin = player.GetComponent<SkinSwapper>();
     }
     private void OnDisable() {
         GameEvents.verifyRegistry-=VerifyRegistry;
@@ -126,7 +129,7 @@ public class CollectorManager : MonoBehaviour
         }
         AddToPlayerInventory(reserve);
         audioPlayer.ClipAndPlay(reserveAcquired);
-        panel.transform.GetChild(0).GetComponent<Text>().text = reserve.nameItem;
+        panel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = reserve.nameItem;
         Pause.onAnyMenu = true;
     }
     private void ItemAcquired(ItemAcquired item)
@@ -134,12 +137,13 @@ public class CollectorManager : MonoBehaviour
         if (item.iType == ItemType.Suit)
         {
             suitUI.GetComponent<Image>().sprite = playerSuits.sprite2;
+            skin=player.GetComponent<SkinSwapper>();
             skin.SetGravitySuit();
         }
         itemGot = item.gameObject;
         string itemName = item.name;
-        panel.transform.GetChild(0).GetComponent<Text>().text = itemName;
-        panel.transform.GetChild(1).GetComponent<Text>().text = item.Message;
+        panel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemName;
+        panel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.Message;
         AddToPlayerInventory(item);
         audioPlayer.ClipAndPlay(itemAcquired);
         Pause.onAnyMenu = true;
@@ -148,14 +152,12 @@ public class CollectorManager : MonoBehaviour
     {
         Pickup.Invoke();
         ItemAcquired(itemS);
-        itemS.onPickup -= HandlePickupItem;
         StartCoroutine(Resume(itemAcquired.length));
     }
     public void HandlePickupReserve(ReserveAcquired reserveItem)
     {
         Pickup.Invoke();
         ReserveAcquired(reserveItem);
-        reserveItem.onPickup -= HandlePickupReserve;
         StartCoroutine(Resume(reserveAcquired.length));
     }
     public void ShowAcquiredPanel(){

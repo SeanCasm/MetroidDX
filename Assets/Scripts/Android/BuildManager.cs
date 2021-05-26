@@ -46,13 +46,11 @@ public class BuildManager : MonoBehaviour
         Destroy(touchpadReference);
         eventSystemStandalone.SetActive(true);
         Destroy(eventSystemAndroid);
-        mobileButtons.Foreach(item=>{
+        mobileButtons.ForEach(item =>
+        {
             Destroy(item);
         });
         raycasteableImages.ForEach(item=>{
-            item.raycastTarget=false;
-        });
-        raycasteableTexts.ForEach(item=>{
             item.raycastTarget=false;
         });
 #endif

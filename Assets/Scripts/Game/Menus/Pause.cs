@@ -77,7 +77,7 @@ public class Pause : MonoBehaviour
     #region UnityEvent
     private void GeneralPause()
     {
-        touchpadPaused.Invoke(false);
+        touchpadPaused?.Invoke(false);
         gameSettings.SetEffectsVolume(true);
         gameSettings.SetMusicVolume(true);
         playerC.movement = playerC.canInstantiate = false;
@@ -88,7 +88,7 @@ public class Pause : MonoBehaviour
     private void Unpause()
     {
         GameEvents.pauseTimeCounter.Invoke(playerMenu.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>(), false);
-        touchpadPaused.Invoke(true);
+        touchpadPaused?.Invoke(true);
         gameSettings.SetEffectsVolume(false);
         gameSettings.SetMusicVolume(false);
         playerC.canInstantiate = playerC.movement = true;
@@ -139,8 +139,6 @@ public class Pause : MonoBehaviour
         
         mainMenu=GetComponentAtIndex(pause.GetChild(0),3);
         mainMenu.onClick.AddListener(()=>{
-            canvas.GetComponent<LoadScenes>().LoadScene(0);
-            GameEvents.timeCounter.Invoke(false);//pauses the time counter.
             Destroy(allObjectsContainer);
         });
         
@@ -155,4 +153,8 @@ public class Pause : MonoBehaviour
         return someObject.transform.GetChild(index).GetComponent<Button>();
     }
      #endregion
+     private void OnDestroy() {
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0);
+        Time.timeScale=1f;
+    }
 }

@@ -1705,7 +1705,7 @@ ScriptedImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+    androidETC2FallbackOverride: 2
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7

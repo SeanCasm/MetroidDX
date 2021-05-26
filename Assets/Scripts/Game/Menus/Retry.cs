@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
 using UnityEngine.AddressableAssets;
 public class Retry : MonoBehaviour
 {
@@ -46,8 +45,9 @@ public class Retry : MonoBehaviour
         retryMenu =Instantiate(retryReference,canvas.position,Quaternion.identity,canvas);
         //Adding events to mainMenu button
         mainMenu=retryMenu.transform.GetChild(1).GetComponent<Button>();
-        mainMenu.onClick.AddListener(()=>canvas.GetComponent<LoadScenes>().LoadScene(0));
-        mainMenu.onClick.AddListener(() => Destroy(allObjectContainer));
+        mainMenu.onClick.AddListener(() =>{
+            Destroy(allObjectContainer);
+        });
         //Adding events to retry button
         retry=retryMenu.transform.GetChild(0).GetComponent<Button>();
         retry.onClick.AddListener(() =>

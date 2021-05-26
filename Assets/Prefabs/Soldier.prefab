@@ -433,7 +433,6 @@ MonoBehaviour:
   collector: {fileID: 0}
   map: {fileID: 0}
   rooms: {fileID: 11400000, guid: 757ba1966e2c6694391644ec9c9618e0, type: 2}
-  buttonEssentials: {fileID: 0}
 --- !u!114 &2436391998152188294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +446,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerFX: {fileID: 11400000, guid: 18ad7081560d2b948b1996fcaac646ad, type: 2}
+  morphball:
+    morphJumpRef:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+    audioTime: 0
 --- !u!95 &6185344611131457504
 Animator:
   serializedVersion: 3

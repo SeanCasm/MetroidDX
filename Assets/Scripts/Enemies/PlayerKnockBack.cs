@@ -12,6 +12,7 @@ public class PlayerKnockBack : MonoBehaviour
     [SerializeField] PlayerHealth health;
     [SerializeField] PlayerController player;
     [SerializeField] Animator animator;
+    [SerializeField] SomePlayerFX playerFX;
     private EnemyHealth enemy;
     public int damageReceived { get; set; }
     #endregion
@@ -39,6 +40,7 @@ public class PlayerKnockBack : MonoBehaviour
         if (col.CompareTag("Suelo") && player.HyperJumping)
         {
             player.HyperJumping = player.speedJump = player.hyperJumpCharged = false;
+            playerFX.StopLoopClips();
             health.AddDamage(20);
         }
     }

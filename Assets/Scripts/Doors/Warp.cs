@@ -46,7 +46,7 @@ public class Warp : MonoBehaviour
         }else Instantiate(nextRoom);
 
         yield return new WaitForSecondsRealtime(1.5f);
-         
+        Parallax.clearList.Invoke();
         if(!unloadCurrentScene) Destroy(currentZone);
         GameEvents.doorTransition.Invoke(false);
         Pause.UnpausePlayer(playerC);

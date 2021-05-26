@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/q
+  m_ControlPath: <Gamepad>/rightTrigger
 --- !u!114 &71445366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2186,10 +2186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08526d26cd950ef4a9524938810111fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialRoom:
-    m_AssetGUID: 65e8e108deb43aa44aa4100e3e676c4a
-    m_SubObjectName: 
-    m_SubObjectType: 
+  initialRoom: {fileID: 5922225402975987311, guid: 65e8e108deb43aa44aa4100e3e676c4a, type: 3}
   playerEnabler: {fileID: 210899536}
 --- !u!82 &128693698
 AudioSource:
@@ -2950,7 +2947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/s
+  m_ControlPath: <Gamepad>/dpad/down
 --- !u!114 &178923612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6874,7 +6871,6 @@ GameObject:
   - component: {fileID: 450963420}
   - component: {fileID: 450963419}
   - component: {fileID: 450963418}
-  - component: {fileID: 450963417}
   m_Layer: 5
   m_Name: Look diagonal down
   m_TagString: Untagged
@@ -6899,22 +6895,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -391.97803, y: -147.82323}
+  m_AnchoredPosition: {x: -391.97803, y: -129.33122}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &450963417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450963415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/k
 --- !u!114 &450963418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6958,7 +6941,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 450963419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 210899529}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Diagonal_Mobile
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &450963419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8704,6 +8699,74 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1214313358528198564, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: m_Size.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: morphball.audioTime
+      value: 0.408
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: stepRef.m_AssetGUID
+      value: f618862f2e826484791d71deb7c14493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: rollJump.m_AssetGUID
+      value: ed093c596f0f28f4aa88eed44cfdffcb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: normalJump.m_AssetGUID
+      value: d03ec85d7602dfe42a7b93419f71895e
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: playerSteps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: morphballed.m_AssetGUID
+      value: 258ec441950da42408b19ec28eaaab5a
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: screwAttack.m_AssetGUID
+      value: 595209a22b69d904295429d0d509b21d
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: hyperJumpRef.m_AssetGUID
+      value: d3919c0d4e7b1c94eb1f42328f204862
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: morphJumpRef.m_AssetGUID
+      value: 2bf32718ffebff24c86deb1812c89f84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: rollJumpLoop.m_AssetGUID
+      value: d5a78d5c422609a4b9c3393d3ed4958d
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: playerSteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa13e3059195e5845ad46d6e567a7b4d, type: 3}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: playerSteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57e473a0652820b48a14e0126b2fc03f, type: 3}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: playerSteps.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 36850b7461f105d4c871c17c57cc6b8d, type: 3}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: playerSteps.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45a763f3c5341d247b212310ede8841c, type: 3}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: screwAttackLoop.m_AssetGUID
+      value: 17d58ab5cb3e33146aa86b7f7fac1c2e
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436391998152188294, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: morphball.morphJumpRef.m_AssetGUID
+      value: 2bf32718ffebff24c86deb1812c89f84
+      objectReference: {fileID: 0}
     - target: {fileID: 2731804531825199252, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
       propertyPath: map
       value: 
@@ -9008,7 +9071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/space
+  m_ControlPath: <Gamepad>/buttonSouth
 --- !u!1 &630918229
 GameObject:
   m_ObjectHideFlags: 0
@@ -9516,7 +9579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/escape
+  m_ControlPath: <Gamepad>/start
 --- !u!1 &636539310
 GameObject:
   m_ObjectHideFlags: 0
@@ -11624,7 +11687,6 @@ GameObject:
   - component: {fileID: 764324016}
   - component: {fileID: 764324015}
   - component: {fileID: 764324014}
-  - component: {fileID: 764324013}
   m_Layer: 5
   m_Name: Look diagonal
   m_TagString: Untagged
@@ -11649,22 +11711,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -391.80276, y: -85.22531}
+  m_AnchoredPosition: {x: -391.80276, y: -66.73332}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &764324013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764324011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/leftShift
 --- !u!114 &764324014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11708,7 +11757,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 764324015}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 210899529}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Diagonal_Mobile
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &764324015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14890,7 +14951,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.4222223, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -15175,6 +15236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1144888144}
+  - component: {fileID: 1144888145}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -15198,6 +15260,20 @@ Transform:
   m_Father: {fileID: 2030108189}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144888145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144888143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe79e353ac8a7f49998d107599b22e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothing: -1
+  cam: {fileID: 1119529748}
 --- !u!1 &1155432107
 GameObject:
   m_ObjectHideFlags: 0
@@ -18999,7 +19075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70.33513
+      value: -48.875656
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19193,7 +19269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/j
+  m_ControlPath: <Gamepad>/buttonWest
 --- !u!1 &1480574851
 GameObject:
   m_ObjectHideFlags: 0
@@ -22113,7 +22189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Keyboard>/enter
+  m_ControlPath: <Gamepad>/select
 --- !u!1 &1802669694
 GameObject:
   m_ObjectHideFlags: 0
@@ -24264,6 +24340,7 @@ GameObject:
   - component: {fileID: 1960596235}
   - component: {fileID: 1960596233}
   - component: {fileID: 1960596234}
+  - component: {fileID: 1960596231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -24285,6 +24362,20 @@ Transform:
   m_Father: {fileID: 1144888144}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1960596231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960596229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe79e353ac8a7f49998d107599b22e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothing: 1
+  cam: {fileID: 0}
 --- !u!114 &1960596233
 MonoBehaviour:
   m_ObjectHideFlags: 0

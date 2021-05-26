@@ -14,11 +14,14 @@ public class EnableAllPlayer : MonoBehaviour
         behaviours = GetComponents<Behaviour>();
     }
     private void OnEnable() {
-        GameEvents.enablePlayer -= Enable;
         GameEvents.enablePlayer+=Enable;
     }
     private void Enable(){
         Utilities.SetBehaviours(behaviours,true);
         rigid.bodyType=RigidbodyType2D.Dynamic;
+    }
+    private void OnDestroy() {
+        GameEvents.enablePlayer -= Enable;
+
     }
 }

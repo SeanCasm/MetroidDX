@@ -38,8 +38,11 @@ public class GameUI : MonoBehaviour
     [SerializeField] RectTransform healthImage;
     #endregion
     private void OnEnable() {
-        GameEvents.playerHealth -= UpdateHealth;
         GameEvents.playerHealth += UpdateHealth;
+    }
+    private void OnDestroy() {
+        GameEvents.playerHealth -= UpdateHealth;
+
     }
     private void Start()
     {
@@ -57,6 +60,7 @@ public class GameUI : MonoBehaviour
                 ammo[i].StablishUI();
             }
         }
+        print(healthImage);
         GameEvents.playerHealth.Invoke(pHealth.MyHealth,pHealth.Tanks);
     }
     public void AddAndSubscribe(int iD)

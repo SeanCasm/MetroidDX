@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     private const float groundDistance = 0.18f,jumpForce=88,speed=88,speedBooster=130, 
         hyperJumpForceMultiplier=1.8f, jumpTime=0.35f,speedIncreaseOverTime=1.5f;
     private float xInput=0, yInput=0, xVelocity,yVelocity, jumpTimeCounter;
-    Vector2 direction,slopePerp;
+    public static Vector2 direction;
+    Vector2 slopePerp;
     private Animator anim;
     private PlayerInventory inventory;
     private SomePlayerFX playerFX;
@@ -30,7 +31,8 @@ public class PlayerController : MonoBehaviour
     public bool OnRoll {
      set{
          onRoll=value;
-         if(onRoll && !screwing)playerFX.RollJump(true);
+         if(value && !screwing)playerFX.RollJump(true);
+         else playerFX.RollJump(false);
         }
      }
     public bool speedJump { get; set; }
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             hyperJumping = value;
             skin.SetSpeedBooster(value);rb.isKinematic=value;
+            if(value)playerFX.HyperJump();
         }
     }
     public bool canInstantiate { get; set; }
@@ -56,8 +59,9 @@ public class PlayerController : MonoBehaviour
         set 
         { 
             screwing = value;
-            if (screwing) skin?.SetScrewAttack(true);
-            else skin?.SetScrewAttack(false);
+            print(screwing);
+            if (screwing){ skin?.SetScrewAttack(true);playerFX.ScrewAttack(true);}
+            else {skin?.SetScrewAttack(false);playerFX.ScrewAttack(false); }
         }
     }
     public bool leftLook { get; set; }public bool aimUp { get; set; }
@@ -116,7 +120,7 @@ public class PlayerController : MonoBehaviour
             if (balled)
             {
                 playerFX.Balled();
-                crouch =aimDiagonal = aimDown = aimUp = aimDiagonalDown = false;
+                Screwing=OnRoll=crouch =aimDiagonal = aimDown = aimUp = aimDiagonalDown = false;
             }
             else anim.SetFloat(animatorHash[23], 1);
         }
@@ -127,17 +131,16 @@ public class PlayerController : MonoBehaviour
         get => isGrounded; 
         set{
             isGrounded = value;
-            if (isGrounded)
-            {
-                if(!runBooster)currentSpeed = speed;
-                playerFX.RollJump(false); playerFX.ScrewAttack(false);
-                airShoot=onJumpingState=screwing = OnRoll = gravityJump = fall = movingOnAir = false;
+            if (isGrounded && !runBooster)currentSpeed = speed;
+            /*{
+                //if(!runBooster)currentSpeed = speed;
+                //airShoot=onJumpingState=screwing = OnRoll = gravityJump = fall = movingOnAir = false;
             }
             else
             {
                 rb.gravityScale = 1;
                 onSlope=RunBooster=ShootOnWalk = moveOnFloor = false;
-            }
+            }*/
         }
     }
     #endregion
@@ -284,7 +287,7 @@ public class PlayerController : MonoBehaviour
         {
             if (speedJump && yInput < 0) { hyperJumpCharged = true; speedJump = false; }
             else if (hyperJumpCharged && !IsInvoking("HyperJumpTimeAction") && !hyperJumping) { Invoke("HyperJumpTimeAction", 2f); }
-            if (balled || hitted || hittedLeft) { RunBooster = hyperJumpCharged = speedJump = false; }
+            if ((balled ||damaged) && !runBooster) { RunBooster = hyperJumpCharged = speedJump = false; }
         }
     }
     float slopeAngle=0;bool slopeUp;
@@ -343,24 +346,32 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
     #region Public methods
+    public void FalseAnyAnimStateAtGrounding(){
+        airShoot = onJumpingState = Screwing = OnRoll = gravityJump = fall = movingOnAir = false;
+    }
+    public void FalseAnyAnimStateAtAir(){
+        rb.gravityScale = 1;
+        onSlope = RunBooster = ShootOnWalk = moveOnFloor = false;
+    }
     public void ResetState()
     {
         StopAllCoroutines();
         CancelInvoke();
         crouch= fall= wallJumping= airShoot= movingOnAir= isJumping= runBooster=moveOnFloor=gravityJump=
-        onJumpingState= charged= holdingFire= ShootOnWalk = isGrounded= screwing= hyperJumping=balled=
+        onJumpingState= charged= holdingFire= ShootOnWalk = isGrounded= Screwing= hyperJumping=balled=
         movement = canInstantiate=OnRoll=false;
         xInput=yInput=0;
         rb.velocity = Vector2.zero;
     }
     bool aiming;
+    
     public void OnAim(InputAction.CallbackContext context){
         if(movement){
             float aim = context.ReadValue<float>();
             if(context.performed){
                if (aim > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
                else if (aim < 0) { aimUp = aimDown = aimDiagonal = false; aimDiagonalDown = true; }
-               aiming=true;gravityJump = screwing = ShootOnWalk=false;
+               aiming=true;gravityJump = Screwing = ShootOnWalk=false;
                CheckAirShoot();
             }else if(context.canceled){
                 if (aim == 0) aimUp = aimDown = aimDiagonal = aimDiagonalDown = false;
@@ -376,55 +387,6 @@ public class PlayerController : MonoBehaviour
             pressCount=inventory.AmmoSelection(pressCount);
             if (pressCount == 4) pressCount = 0;
         }
-    }
-    private void MobileMovement(){
-        if(joystick.Horizontal<-0.25)xInput =-1;
-        else if(joystick.Horizontal>0.25)xInput=1;
-        else{ xInput=0;InputX(); }
-        if(joystick.Vertical<-0.25)yInput=-1;
-        else if(joystick.Vertical>0.25)yInput=1;
-        else{ yInput=0;InputY();}
-
-            if (xInput == 0) InputX();
-            else
-            {
-                crouch = false;
-                if (xInput < 0) direction = Vector2.left;
-                else if (xInput > 0) direction = Vector2.right;
-            }
-            if (yInput == 0) InputY();
-            else
-            {
-                if (!balled && !crouch)
-                {
-                    //if (yInput < 0f && !isGrounded) { aimDown = true; aimDiagonal = aimDiagonalDown = aimUp = false; }
-                    //if (yInput > 0f && xInput == 0f && !aiming) { aimUp = true; aimDiagonalDown = aimDiagonal = aimDown = false; }
-                    gravityJump = screwing = false;
-                }
-                if (isGrounded)
-                {
-                    if (crouch)
-                    {
-                        if (yInput > 0) crouch = false;
-                        //else if (yInput < 0 && inventory.CheckItem(4)) Balled = true;
-                    }
-                    else
-                    {
-                        if (balled) { if (yInput > 0) { crouch = true; Balled = false; } }
-                        //else { if (yInput < 0) crouch = true; }
-                    }
-                }
-                else
-                {
-                    if (balled)
-                    {
-                        if (yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
-                        {
-                            Balled = false;
-                        }
-                    }
-                }
-            }
     }
     public void Movement(InputAction.CallbackContext context)
     {
@@ -445,7 +407,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (yInput < 0f && !isGrounded) { aimDown = true; aimDiagonal = aimDiagonalDown = aimUp = false; }
                     if (yInput > 0f && xInput == 0f && !aiming) { aimUp = true; aimDiagonalDown = aimDiagonal = aimDown = false; }
-                    gravityJump = screwing =false;
+                    gravityJump = Screwing =false;
                 }
                 if (isGrounded && context.started)
                 {
@@ -476,15 +438,7 @@ public class PlayerController : MonoBehaviour
             if(yInput==0)InputY();
         }
     }
-    private void InputX(){
-        CancelInvoke("enableWalking");
-        ShootOnWalk = moveOnFloor = false;
-    }
-    private void InputY(){
-        aimUp = aimDown = false;
-        if (xInput != 0) aimDiagonalDown = aimDiagonal = false;
-    }
-    public void InstantMorfBall(InputAction.CallbackContext context)
+     public void InstantMorfBall(InputAction.CallbackContext context)
     {
         if (context.started && movement && inventory.CheckItem(4))
         {
@@ -507,6 +461,29 @@ public class PlayerController : MonoBehaviour
                 Balled = true;
             }
         }
+    } 
+    public void Fire(InputAction.CallbackContext context)
+    {
+        if (context.started && canInstantiate)
+        {
+            if (!isGrounded) {CheckAirShoot(); OnRoll = gravityJump = Screwing = onJumpingState = false; }
+            if (balled) { instantiates.SetBomb(); }
+            else
+            {
+                if(pressCount!=3){
+                    if (moveOnFloor && !onRoll && !aiming) ShootOnWalk = true;
+                    GameEvents.playerFire.Invoke(false);
+                }
+            }
+            if (inventory.CheckItem(0)) Invoke("ChargingShoot", 0.25f);//charge beam
+        }
+        if (context.canceled)
+        {
+            if (charged){GameEvents.playerFire.Invoke(true);charged = false;}
+            CancelInvoke("Charged"); instantiates.Charge(false);
+            CancelInvoke("ChargingShoot");holdingFire = false;
+            CancelInvoke("HoldFire");
+        }else{ CancelAndInvoke("HoldFire",0.5f); }
     }
     public void OnRunning(InputAction.CallbackContext context)
     {
@@ -528,7 +505,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (xInput != 0)
                     {
-                        if (inventory.CheckItem(5))screwing = true; //screw
+                        if (inventory.CheckItem(5))Screwing = true; //screw
                         else OnRoll = true;//no gravity jump
                     }
                     else
@@ -547,7 +524,7 @@ public class PlayerController : MonoBehaviour
                 if (context.started && !crouch && movement)
                 {
                     airShoot=false;
-                    if (inventory.CheckItem(5)) gravityJump = screwing = true;//screw
+                    if (inventory.CheckItem(5)) gravityJump = Screwing = true;//screw
                     else { onJumpingState = OnRoll = false; gravityJump = true; }
                     jumpTimeCounter = jumpTime;
                     IsJumping = true;
@@ -568,34 +545,88 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
         }
     }
+
+    private void InputX(){
+        CancelInvoke("enableWalking");
+        ShootOnWalk = moveOnFloor = false;
+    }
+    private void InputY(){
+        aimUp = aimDown = false;
+        if (xInput != 0) aimDiagonalDown = aimDiagonal = false;
+    }
+    
+    #if UNITY_ANDROID
+    private void MobileMovement()
+    {
+        if (joystick.Horizontal < -0.25) xInput = -1;
+        else if (joystick.Horizontal > 0.25) xInput = 1;
+        else { xInput = 0; InputX(); }
+        if (joystick.Vertical < -0.25) yInput = -1;
+        else if (joystick.Vertical > 0.25) yInput = 1;
+        else { yInput = 0; InputY(); }
+
+        if (xInput == 0) InputX();
+        else
+        {
+            crouch = false;
+            if (xInput < 0) direction = Vector2.left;
+            else if (xInput > 0) direction = Vector2.right;
+        }
+        if (yInput == 0) InputY();
+        else
+        {
+            if (!balled && !crouch)
+            {
+                //if (yInput < 0f && !isGrounded) { aimDown = true; aimDiagonal = aimDiagonalDown = aimUp = false; }
+                //if (yInput > 0f && xInput == 0f && !aiming) { aimUp = true; aimDiagonalDown = aimDiagonal = aimDown = false; }
+                gravityJump = screwing = false;
+            }
+            if (isGrounded)
+            {
+                if (crouch)
+                {
+                    if (yInput > 0) crouch = false;
+                    //else if (yInput < 0 && inventory.CheckItem(4)) Balled = true;
+                }
+                else
+                {
+                    if (balled) { if (yInput > 0) { crouch = true; Balled = false; } }
+                    //else { if (yInput < 0) crouch = true; }
+                }
+            }
+            else
+            {
+                if (balled)
+                {
+                    if (yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
+                    {
+                        Balled = false;
+                    }
+                }
+            }
+        }
+    }
+    public void Diagonal_Mobile(int value){
+        if (movement)
+        {
+            if (value > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
+            else if (value < 0) { aimUp = aimDown = aimDiagonal = false; aimDiagonalDown = true; }
+            aiming = true; gravityJump = screwing = ShootOnWalk = false;
+            CheckAirShoot();
+            CancelInvoke("DisableAimDiagonal");
+            Invoke("DisableAimDiagonal",3);
+        }
+    }
+    private void DisableAimDiagonal(){
+        aiming=aimDiagonal = aimUp = aimDown = aimDiagonalDown = false;
+    }
+#endif
+     
     private void CheckAirShoot(){
         if(!aimDown && !aimUp && !aiming && !balled){
             airShoot=true;
             CancelAndInvoke("StopPlayerFire",1f);
         }else airShoot=false;
-    }
-    public void Fire(InputAction.CallbackContext context)
-    {
-        if (context.started && canInstantiate)
-        {
-            if (!isGrounded) {CheckAirShoot(); OnRoll = gravityJump = screwing = onJumpingState = false; }
-            if (balled) { instantiates.SetBomb(); }
-            else
-            {
-                if(pressCount!=3){
-                    if (moveOnFloor && !onRoll && !aiming) ShootOnWalk = true;
-                    GameEvents.playerFire.Invoke(false);
-                }
-            }
-            if (inventory.CheckItem(0)) Invoke("ChargingShoot", 0.25f);//charge beam
-        }
-        if (context.canceled)
-        {
-            if (charged){GameEvents.playerFire.Invoke(true);charged = false;}
-            CancelInvoke("Charged"); instantiates.Charge(false);
-            CancelInvoke("ChargingShoot");holdingFire = false;
-            CancelInvoke("HoldFire");
-        }else{ CancelAndInvoke("HoldFire",0.5f); }
     }
 #endregion
 }

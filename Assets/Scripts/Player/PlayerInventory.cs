@@ -125,7 +125,6 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] BaseData baseData;
     [SerializeField] ButtonUtilities buttonEssentials;
     [SerializeField] PlayerInstantiates playerInstantiates;
-    [SerializeField] Screw screw;
     private GameData data;
     private PlayerController playerController;
     public Dictionary<int, Item> playerItems { get; set; }= new Dictionary<int, Item>();
@@ -173,9 +172,6 @@ public class PlayerInventory : MonoBehaviour
         var item = playerItems[itemID];
         bool selected=item.selected=!item.selected;
         buttonEssentials.SetButton(itemID, selected);
-    }
-    public void SetJumpAnimationStrategy(){
-        screw.enabled=!screw.enabled;
     }
     /// <summary>
     /// Disable other beam when combinations are invalid.

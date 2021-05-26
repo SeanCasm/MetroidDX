@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class TimeCounter : MonoBehaviour
 {
+    [SerializeField]TMPro.TextMeshProUGUI textMesh;
     public static int miliseconds,seconds,minutes,hours;
     private static string currentTime;
     /// <summary>
@@ -22,7 +23,6 @@ public class TimeCounter : MonoBehaviour
     private void OnDisable() {
         GameEvents.timeCounter -= StartCounter;
         GameEvents.pauseTimeCounter -= StartPauseCounter;
-
     }
     public static void SetTimeAfterLoad(int[] time){
         hours=time[0];
@@ -31,13 +31,15 @@ public class TimeCounter : MonoBehaviour
         miliseconds= time[3];
     }
     private void StartCounter(bool start){
-        if(start)StartCoroutine(Counter());
-        else StopCoroutine(Counter());
+        StopAllCoroutines();
+        if(start){textMesh.gameObject.SetActive(false); StartCoroutine(Counter());}
+        else {textMesh.gameObject.SetActive(true);textMesh.text=TimeValuesToString();}
     }
-    private void StartPauseCounter(TMPro.TextMeshProUGUI text,bool start)
+    private void StartPauseCounter(bool start)
     {
-        if (start) StartCoroutine(OnPauseCounter(text));
-        else{ StopCoroutine(OnPauseCounter(text));StartCoroutine(Counter());}
+        StopAllCoroutines();
+        if (start){textMesh.gameObject.SetActive(true); ; StartCoroutine(OnPauseCounter());}
+        else{textMesh.gameObject.SetActive(false);StartCoroutine(Counter());}
     }
     IEnumerator Counter(){
         while(true){
@@ -52,15 +54,15 @@ public class TimeCounter : MonoBehaviour
     /// Coroutine for player pause.
     /// </summary>
     /// <returns></returns>
-    IEnumerator OnPauseCounter(TMPro.TextMeshProUGUI text){
-        StopCoroutine(Counter());
+    IEnumerator OnPauseCounter(){
+        textMesh.gameObject.SetActive(true);
         while (true)
         {
             miliseconds += 1;
             if (miliseconds > 99) { seconds++; miliseconds = 0; }
             if (seconds > 59) { minutes++; seconds = 0; }
             if (minutes > 59) { hours++; minutes = 0; }
-            text.text=TimeValuesToString();
+            textMesh.text=TimeValuesToString();
             yield return new WaitForSecondsRealtime(.01f);
         }
     }

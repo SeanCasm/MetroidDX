@@ -60,7 +60,7 @@ public static class GameEvents
     /// </summary>
     public static Action<bool> doorTransition;
     public static Action<bool> timeCounter;
-    public static Action<TMPro.TextMeshProUGUI,bool> pauseTimeCounter;
+    public static Action<bool> pauseTimeCounter;
     /// <summary>
     /// Sets the background the parallax effect.
     /// </summary>

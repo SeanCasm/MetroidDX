@@ -13,6 +13,7 @@ public class Pause : MonoBehaviour
     [SerializeField]Transform canvas;
     [SerializeField]GameObject pauseMenuPrefab,settings,allObjectsContainer;
     [SerializeField]OptionsMenu optionsMenu;
+    [SerializeField] TMPro.TextMeshProUGUI text;
     [SerializeField] Interactions menuFirst;
     GameObject pause;
     public static System.Action<bool> touchpadPaused;
@@ -87,7 +88,7 @@ public class Pause : MonoBehaviour
     }
     private void Unpause()
     {
-        GameEvents.pauseTimeCounter.Invoke(playerMenu.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>(), false);
+        GameEvents.pauseTimeCounter.Invoke(false);
         touchpadPaused?.Invoke(true);
         gameSettings.SetEffectsVolume(false);
         gameSettings.SetMusicVolume(false);
@@ -109,7 +110,7 @@ public class Pause : MonoBehaviour
     void EnterPause(bool onMobile)
     {
         if(!onMobile)playerMenu.SetActive(true);
-        GameEvents.pauseTimeCounter.Invoke(playerMenu.GetChild(2).GetComponent<TMPro.TextMeshProUGUI>(),true);
+        GameEvents.pauseTimeCounter.Invoke(true);
         menuFirst.SetGameObjectToEventSystem(playerMenu.GetChild(1).GetChild(3).GetComponent<Button>());
     }
     void EscPause() {
@@ -118,7 +119,6 @@ public class Pause : MonoBehaviour
         optionsMenu.pauseMenu=pause.GetChild(0);
 
         Button resume, options, mainMenu, quitGame;
-        TMPro.TextMeshProUGUI time;
 
         resume=GetComponentAtIndex(pause.GetChild(0),1);
         resume.onClick.AddListener(()=>{
@@ -146,8 +146,6 @@ public class Pause : MonoBehaviour
         quitGame.onClick.AddListener(()=>QuitGame());
         
         GameEvents.timeCounter.Invoke(false);//pauses the time counter.
-        time=pause.GetChild(0).GetChild(5).GetComponent<TMPro.TextMeshProUGUI>();
-        time.text="Time:"+TimeCounter.CurrentTime;
     }
     private Button GetComponentAtIndex(GameObject someObject,int index){
         return someObject.transform.GetChild(index).GetComponent<Button>();

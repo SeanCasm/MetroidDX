@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+public interface IPooleable{
+    Transform parent{get;set;}
+}
 public interface IDamageable<T>
 {
     void AddDamage(T damage);

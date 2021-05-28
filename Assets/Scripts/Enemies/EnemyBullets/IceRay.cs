@@ -4,11 +4,6 @@ using UnityEngine;
 using Enemy.Weapons;
 public class IceRay : Weapon
 {
-    // Start is called before the first frame update
-    new void Start()
-    {
-        base.Start();
-    }
     new void Awake() {
         base.Awake();
     }

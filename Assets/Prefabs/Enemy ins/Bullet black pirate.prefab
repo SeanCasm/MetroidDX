@@ -12,16 +12,16 @@ GameObject:
   - component: {fileID: 7850892007866917484}
   - component: {fileID: 611970273770673783}
   - component: {fileID: 871590976663888570}
-  - component: {fileID: 1609593745528352080}
   - component: {fileID: -1031029753031275818}
   - component: {fileID: -4322647036232896918}
+  - component: {fileID: 2830983331644734376}
   m_Layer: 6
   m_Name: Bullet black pirate
   m_TagString: EnemyBeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7850892007866917485
 Transform:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 4032523234889608778, guid: e1feb40f77132884f94bb96692afca50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,26 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2430971, y: 0.043153014}
   m_EdgeRadius: 0
---- !u!114 &1609593745528352080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850892007866917487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e367a2100fac644b9e9b8728ab82ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 35
-  livingTime: 5
-  startSound: {fileID: 7119153977521584086, guid: 7a220b2ce8382d44fa0dc1509b38d1bc, type: 3}
-  speed: 2
-  direction: {x: 0, y: 0, z: 0}
-  weaponType: 1
-  timeTillHit: 0
-  rigid: {fileID: 611970273770673783}
 --- !u!114 &-1031029753031275818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,3 +243,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2830983331644734376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850892007866917487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe2ccd08fff5d34e937064b56c3dd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  livingTime: 3
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  speed: 2
+  timeTillHit: 0
+  rigid: {fileID: 611970273770673783}
+  pooleable: 1

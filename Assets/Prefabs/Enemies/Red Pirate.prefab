@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 4797035500508930269}
   - component: {fileID: 5526882113270997002}
   - component: {fileID: -1298895998081663749}
+  - component: {fileID: -4301795562785522963}
   m_Layer: 9
   m_Name: Red Pirate
   m_TagString: Untagged
@@ -269,7 +270,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 7550931354876384427, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -433,10 +434,7 @@ MonoBehaviour:
   speed: 0.5
   detectPlayer: 1
   playerDetector: {fileID: 8227876180117315737}
-  bulletPrefab: {fileID: 9138191430410896773, guid: 60534814d7dd78d4cb6af9721c607633, type: 3}
-  firePoints:
-  - {fileID: 4797035500108285593}
-  - {fileID: 8327087444589706009}
+  bulletsPool: {fileID: -4301795562785522963}
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -454,7 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.32
-  slopeAware: 0.2
+  slopeAware: 0.32
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -471,6 +469,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4301795562785522963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797035500508930263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4cd2113123a1044a4c2cec9cec952f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab:
+    m_AssetGUID: 60534814d7dd78d4cb6af9721c607633
+    m_SubObjectName: 
+    m_SubObjectType: 
+  shootPoint:
+  - {fileID: 4797035500108285593}
+  - {fileID: 8327087444589706009}
+  poolSize: 4
 --- !u!1 &6732649003242619652
 GameObject:
   m_ObjectHideFlags: 0

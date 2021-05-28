@@ -176,7 +176,6 @@ GameObject:
   - component: {fileID: 8536013034009556836}
   - component: {fileID: -6380387193741091920}
   - component: {fileID: 3973270139181115035}
-  - component: {fileID: -1743643209348403932}
   m_Layer: 9
   m_Name: "Pi\xF1a espina 3"
   m_TagString: Untagged
@@ -241,7 +240,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 4512039784604304544, guid: 4c9d05226bb9e774d97d73263f34e009, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -340,18 +339,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundPoint: {fileID: 2564731354876577826}
---- !u!114 &-1743643209348403932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968883911979778829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7705301335545073502
 BoxCollider2D:
   m_ObjectHideFlags: 0

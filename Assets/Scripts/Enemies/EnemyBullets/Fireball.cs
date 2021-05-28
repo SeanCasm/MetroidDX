@@ -11,11 +11,6 @@ public class Fireball : Weapon
     {
         base.Awake();
     }
-    // Start is called before the first frame update
-    new void Start()
-    {
-        base.Start();
-    }
     new void FixedUpdate()
     {
         base.FixedUpdate();

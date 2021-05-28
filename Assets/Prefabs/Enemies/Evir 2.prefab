@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 3397262156515532076}
   - component: {fileID: 5784545773561439731}
   - component: {fileID: 3321255240231215337}
+  - component: {fileID: 1416498950106354793}
   m_Layer: 9
   m_Name: Evir 2
   m_TagString: Untagged
@@ -136,7 +137,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: -6928433598062014053, guid: 4c9d05226bb9e774d97d73263f34e009, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,10 +164,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   detectPlayer: 0
-  bulletPrefab: {fileID: 6590577412675561554, guid: b7448810fc9b70a4d89867c4d29c85e6, type: 3}
   shootPoint: {fileID: 5607615885678904052}
   detector: {fileID: 411671856217675862}
   collision: {fileID: 3729106962491798407}
+  bulletsPool: {fileID: 1416498950106354793}
 --- !u!50 &6538083526776160633
 Rigidbody2D:
   serializedVersion: 4
@@ -245,6 +246,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1416498950106354793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041281617450859888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4cd2113123a1044a4c2cec9cec952f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab:
+    m_AssetGUID: b7448810fc9b70a4d89867c4d29c85e6
+    m_SubObjectName: 
+    m_SubObjectType: 
+  shootPoint:
+  - {fileID: 5607615885678904052}
+  poolSize: 4
 --- !u!61 &3472232415086333466
 BoxCollider2D:
   m_ObjectHideFlags: 0

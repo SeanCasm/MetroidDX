@@ -7,10 +7,13 @@ public class References : MonoBehaviour
 {
     [SerializeField] Tilemap map;
     [SerializeField] Transform playerIcon;
+    [SerializeField] GameObject player;
     public static Transform myPlayerIcon { get; set; }
     public static Tilemap myMap { get; set; }
+    public static GameObject Player{get;private set;}
     void OnEnable()
     {
+        Player=player;
         myMap = map;
         myPlayerIcon = playerIcon;
     }

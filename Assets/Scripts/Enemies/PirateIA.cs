@@ -8,8 +8,7 @@ public class PirateIA : EnemyBase
     #region Properties
     [Header("Pirate settings")]
     [SerializeField] private Collider2D playerDetector;
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform[] firePoints;
+    [SerializeField] Enemy.BulletPool.Pool bulletsPool;
     Transform playerTransform;
     private float currentSpeed, horizontalVelocity;
     private GroundChecker efd;
@@ -88,8 +87,9 @@ public class PirateIA : EnemyBase
     }
     public void ShootEvent()
     {
-        foreach(Transform element in firePoints){
-            Instantiate(bulletPrefab,element.position,Quaternion.identity,null);
+        foreach(Transform element in bulletsPool.ShootPoint){
+            
+            bulletsPool.ActiveNextPoolObject();
         }
     }
 }

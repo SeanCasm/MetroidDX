@@ -317,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.3
-  slopeAware: 0
+  slopeAware: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

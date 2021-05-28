@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 1578709582}
   - component: {fileID: 4921098635597488340}
   - component: {fileID: -4963613191072335354}
+  - component: {fileID: -2637492250937147470}
   m_Layer: 9
   m_Name: Ice Pirate
   m_TagString: Untagged
@@ -182,7 +183,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -372623362407159152, guid: 3efbe7aed5dfb334aab2f81bd48a143d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -229,10 +230,7 @@ MonoBehaviour:
   speed: 0.5
   detectPlayer: 1
   playerDetector: {fileID: 164532759414163993}
-  bulletPrefab: {fileID: 8641265933110768516, guid: b7a6bc19c5705ca4490f12a0bfca9ff0, type: 3}
-  firePoints:
-  - {fileID: 164532760072587563}
-  - {fileID: 164532759282534580}
+  bulletsPool: {fileID: -2637492250937147470}
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -271,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.32
-  slopeAware: 0.2
+  slopeAware: 0.32
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -288,6 +286,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2637492250937147470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164532759450319849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4cd2113123a1044a4c2cec9cec952f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab:
+    m_AssetGUID: b7a6bc19c5705ca4490f12a0bfca9ff0
+    m_SubObjectName: 
+    m_SubObjectType: 
+  shootPoint:
+  - {fileID: 164532760072587563}
+  - {fileID: 164532759282534580}
+  poolSize: 4
 --- !u!1 &164532760072587562
 GameObject:
   m_ObjectHideFlags: 0

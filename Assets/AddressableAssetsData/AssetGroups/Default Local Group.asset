@@ -515,6 +515,78 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: d7bc03ec1b1c4bc46bb3b2c966f0ff24
+    m_Address: Enemy ins/Bullet black pirate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8558d56c18a1fa145ac9337cad46db36
+    m_Address: Assets/Prefabs/Enemy ins/GadoraBlast.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 38a651ad823c8b149bab66549f69948d
+    m_Address: "Enemy ins/Pi\xF1a projectil 1.prefab"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 60534814d7dd78d4cb6af9721c607633
+    m_Address: Enemy ins/Big Bullet 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 7a93c7dd3b551814c993742aba74f5db
+    m_Address: Enemy ins/Big Claw.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8e540229e66b1244aafcb223fe45069e
+    m_Address: Assets/Prefabs/Enemy ins/Fireball.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b7a6bc19c5705ca4490f12a0bfca9ff0
+    m_Address: Enemy ins/Ice blast.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 10e6a91394913144694fc4ecfd2cc27d
+    m_Address: Enemy ins/Kraid craw.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a73f6de1d576098418a9b5df77c20295
+    m_Address: "Enemy ins/Pi\xF1a projectil 2.prefab"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: da0e46845dbb9d64fb2cad818f4afcbb
+    m_Address: "Enemy ins/Pi\xF1a projectil.prefab"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c0006296d903ff747a7acf43e23f82ab
+    m_Address: Enemy ins/Turret bullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b7448810fc9b70a4d89867c4d29c85e6
+    m_Address: Enemy ins/Evir projectil.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4192fab993b12ba48878343d399f62c1, type: 2}
   m_SchemaSet:

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9138191430410896779}
   - component: {fileID: -2801550449270846129}
   - component: {fileID: 1913049029026918759}
-  - component: {fileID: 15830920957797844}
   - component: {fileID: 3348553636281658572}
   - component: {fileID: 7986096400916726299}
+  - component: {fileID: 4593833422528152798}
   m_Layer: 6
   m_Name: Big Bullet 1
   m_TagString: EnemyBeam
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 3183309564062010967, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,26 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2694236, y: 0.08995575}
   m_EdgeRadius: 0
---- !u!114 &15830920957797844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9138191430410896773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e367a2100fac644b9e9b8728ab82ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 23
-  livingTime: 5
-  startSound: {fileID: 7119153977521584086, guid: 7a220b2ce8382d44fa0dc1509b38d1bc, type: 3}
-  speed: 2
-  direction: {x: 0, y: 0, z: 0}
-  weaponType: 1
-  timeTillHit: 0
-  rigid: {fileID: -2801550449270846129}
 --- !u!114 &3348553636281658572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,3 +243,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4593833422528152798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138191430410896773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe2ccd08fff5d34e937064b56c3dd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 17
+  livingTime: 3
+  startSound: {fileID: 7119153977521584086, guid: 7a220b2ce8382d44fa0dc1509b38d1bc, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  speed: 2
+  timeTillHit: 0
+  rigid: {fileID: -2801550449270846129}
+  pooleable: 1

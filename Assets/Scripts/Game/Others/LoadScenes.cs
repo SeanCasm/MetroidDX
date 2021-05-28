@@ -59,7 +59,7 @@ public class LoadScenes : MonoBehaviour
     IEnumerator CheckRoomLoad(){
         GameObject room=Instantiate(initialRoom);
         while(room==null){
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(.01f);
         }
         GameEvents.enablePlayer.Invoke();
     }

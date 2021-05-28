@@ -21,27 +21,27 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -9074950365889637116, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.05
+    - time: 0.06666667
       value: {fileID: -8470869266865083524, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.11666667
+    - time: 0.15555556
       value: {fileID: 8458855657149517808, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.18333334
+    - time: 0.24444444
       value: {fileID: 5378678591507872243, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.23333333
+    - time: 0.31111112
       value: {fileID: -4478679023960963216, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.28333333
+    - time: 0.37777779
       value: {fileID: 1351850435809316440, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.33333334
+    - time: 0.44444445
       value: {fileID: 1801376385491092600, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.38333333
+    - time: 0.51111114
       value: {fileID: 1801376385491092600, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
-    - time: 0.5
+    - time: 0.6666667
       value: {fileID: 1801376385491092600, guid: 6dcac50c00a3a2b49ab7ee0fb0d62442, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 45
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -70,7 +70,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.6888889
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,14 +90,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.36666667
+  - time: 0.4888889
     functionName: ShootEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.6666667
     functionName: StopShoot
     data: 
     objectReferenceParameter: {fileID: 0}

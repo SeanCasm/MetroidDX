@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Enemy;
+using Enemy.BulletPool;
 public class EvirIA : EnemyBase
 {
-    [SerializeField]GameObject bulletPrefab;
     [SerializeField]Transform shootPoint;
     [SerializeField]BoxCollider2D detector,collision;
+    [SerializeField]Pool bulletsPool;
     private Transform player;
     private float currentSpeed;
     private bool playerDetected;
@@ -50,7 +51,7 @@ public class EvirIA : EnemyBase
     }
     public void Shoot()
     {
-        GameObject mb = Instantiate(bulletPrefab,shootPoint.position, Quaternion.identity, null);
+        bulletsPool.ActiveNextPoolObject();
     }
     private void OnTriggerExit2D(Collider2D col)
     {

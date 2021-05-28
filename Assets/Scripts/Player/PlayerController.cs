@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
         set 
         { 
             screwing = value;
-            print(screwing);
             if (screwing){ skin?.SetScrewAttack(true);playerFX.ScrewAttack(true);}
             else {skin?.SetScrewAttack(false);playerFX.ScrewAttack(false); }
         }

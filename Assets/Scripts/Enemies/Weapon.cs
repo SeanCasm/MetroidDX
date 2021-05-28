@@ -1,76 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Enemy.Weapon;
 namespace Enemy.Weapons
 {
-    public class Weapon : WeaponBase<int>
+    public class Weapon : WeaponBase<int>,IPooleable
     {
         [SerializeField]float speed;
-        [SerializeField] protected Vector3 direction;
-        [SerializeField] WeaponType weaponType;
         [SerializeField] float timeTillHit;
         [SerializeField]Rigidbody2D rigid;
-        Transform player;
-        protected Vector3 target;
+        [SerializeField]bool pooleable;
+        protected Transform player;
+        public Transform parent{get;set;}
+        private Vector3 target;
+
         public float Damage { get { return damage; } }
         public Vector3 Direction{get{return direction;}set{direction=value;}}
-        public enum WeaponType
-        {
-            Standard,LookPlayerFirst,PlayerDirection,ShooterDirection,Parabolic
-        }
+      
         new void Awake()
         {
             base.Awake();
         }
-        protected void Start()
-        {
-            switch (weaponType)
-            {
-                case WeaponType.LookPlayerFirst:
-                    player = GameObject.FindGameObjectWithTag("Player").transform.parent;
-                    SetDirectionAndRotation(transform);
-                    break;
-                case WeaponType.PlayerDirection:
-                    player = GameObject.FindGameObjectWithTag("Player").transform.parent;
-                    SetDirection(transform);
-                    break;
-                case WeaponType.ShooterDirection:
-                    direction=transform.right;
-                    break;
-            }
-            Destroy(gameObject, livingTime);
+        protected void OnEnable() {
+            Invoke("BackToShootPoint", livingTime);
         }
         protected void OnBecameInvisible()
         {
-            Destroy(gameObject);
+            BackToShootPoint();
         }
-        protected void OnTriggerEnter2D(Collider2D collision)
-        {
-            switch(collision.tag){
-                case "Player":
-                    GameEvents.damagePlayer.Invoke(damage, transform.position.x);
-                    Destroy(gameObject);
-                break;
-                case "Suelo":Destroy(gameObject);
-                break;
-            }
+        protected void BackToShootPoint(){
+            if(!pooleable)Destroy(gameObject);
+            transform.position=parent.position;
+            gameObject.SetActive(false);
         }
-        protected void FixedUpdate()
+        public void SetDirectionAndRotation()
         {
-            rigid.MovePosition(transform.position + direction * Time.deltaTime*speed);
-        }
-        protected void SetDirection(Transform myTransform)
-        {
-            if (player != null)
-            {
-                target = player.position;
-                direction = (target - myTransform.position).normalized;
-            }
-        }
-        protected void SetDirectionAndRotation(Transform myTransform)
-        {
-            SetDirection(myTransform);
+            SetDirection();
             Vector2 direction = player.transform.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -111,7 +75,34 @@ namespace Enemy.Weapons
                     transform.Rotate(new Vector3(0f, 0f, 315));
                     direction = Vector2.down + Vector2.right;
                     break;
-                 
+
+            }
+        }
+        protected void OnTriggerEnter2D(Collider2D collision)
+        {
+            switch(collision.tag){
+                case "Player":
+                    GameEvents.damagePlayer.Invoke(damage, transform.position.x);
+                    BackToShootPoint();
+                break;
+                case "Suelo":BackToShootPoint();
+                break;
+            }
+        }
+        protected void FixedUpdate()
+        {
+            rigid.MovePosition(transform.position + direction * Time.deltaTime*speed);
+        }
+        /// <summary>
+        /// Sets the weapon direction toward the player.
+        /// </summary>
+        /// <param name="myTransform"></param>
+        protected void SetDirection()
+        {
+            if (player != null)
+            {
+                target = player.position;
+                direction = (target - transform.position).normalized;
             }
         }
         /// <summary>
@@ -136,7 +127,7 @@ namespace Enemy.Weapons
         protected void DoDrop()
         {
             GameEvents.drop.Invoke(transform.position);
-            Destroy(gameObject);
+            BackToShootPoint();
         }
     }
 }

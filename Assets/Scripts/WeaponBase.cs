@@ -7,6 +7,9 @@ public class WeaponBase<T> : MonoBehaviour
     [SerializeField] protected T damage;
     [SerializeField] protected float livingTime;
     [SerializeField] protected GameObject startSound;
+
+    [SerializeField] protected Vector3 direction;
+
     //protected IDoDamage damageType;
     protected void Awake() {
         if(startSound!=null)Instantiate(startSound);

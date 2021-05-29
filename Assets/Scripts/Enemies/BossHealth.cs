@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossHealth : Health<float>, IDamageable<float>,IInvulnerable
 {
-    [SerializeField] bool invMissiles, invSuperMissiles, invBeams, invBombs, invSuperBombs, invFreeze;
+    [SerializeField] bool invMissiles, invSuperMissiles, invBeams, invBombs, invSuperBombs, invFreeze,invPlasma;
     [SerializeField] Materials materials;
     [SerializeField] SpriteRenderer[] sprites;
     [SerializeField] Colors bossColors;
@@ -13,6 +13,7 @@ public class BossHealth : Health<float>, IDamageable<float>,IInvulnerable
     private Boss boss;
     public bool Damaged{get;set;}
     public bool onInvulnerable{get;set;}
+    public bool InvPlasma=>invPlasma;
     private float totalHealth;
     public float TotalHealth{get=>totalHealth;}
 

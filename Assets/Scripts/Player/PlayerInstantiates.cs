@@ -8,29 +8,24 @@ public class PlayerInstantiates : MonoBehaviour
 {
     [SerializeField] Transform firePoint;
     [SerializeField] Beams beams;
+    [SerializeField] Pool pool;
     private GameObject chargingLoad;
     private PlayerInventory inventory;
     public GameObject beamToShoot{get;set;}
     public static int countableID;
+    private int shoots;
     void Awake()
     {
         chargingLoad = transform.GetChild(0).gameObject;
         inventory = GetComponentInParent<PlayerInventory>();
     }
     private void OnEnable() {
+        shoots=0;
         GameEvents.playerFire += GunShoot;
     }
     private void OnDisable() {
         GameEvents.playerFire -= GunShoot;
-    }
-    #region Private methods
-    private void ShootPrefab(GameObject prefab)
-    {
-        GameObject mb = Instantiate(prefab, firePoint.position, firePoint.rotation,null) as GameObject;
-        Beam bulletComponent = mb.GetComponent<Beam>();
-        bulletComponent.Direction=transform.right;
-    }
-    #endregion
+    } 
     #region Public methods
     public void Charge(bool value)
     {
@@ -41,19 +36,17 @@ public class PlayerInstantiates : MonoBehaviour
         var ammo = inventory.limitedAmmoSearch;
         if(countableID==2)countableID=-999;
         if(inventory.canShootBeams){
-            if(!isCharging) ShootPrefab(beamToShoot);
+            if(!isCharging) pool.ActiveNextPoolObject();
             else{
                 int id=beamToShoot.GetComponent<Beam>().ID;
                 beamToShoot = beams.GetAmmoPrefab(id * -1);
-                ShootPrefab(beamToShoot);
                 //back to normal beam
                 beamToShoot=beams.GetAmmoPrefab(id);
             }
         }else{
             if (ammo.ContainsKey(countableID))
             {
-                var ammoPos = ammo[countableID];
-                ShootPrefab(ammoPos.ammoPrefab);
+                var ammoPos = ammo[countableID]; 
                 ammoPos.ActualAmmoCount(-1);
                 if (ammoPos.actualAmmo <= 0) inventory.canShootBeams = true;
             }

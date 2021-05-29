@@ -69,9 +69,9 @@ GameObject:
   - component: {fileID: 214334721228101722}
   - component: {fileID: -5163445564074679926}
   - component: {fileID: -1844601815530174820}
-  - component: {fileID: 8323485611605656311}
   - component: {fileID: 874773458401594461}
   - component: {fileID: 4498655152013896861}
+  - component: {fileID: 5507844977502476305}
   m_Layer: 6
   m_Name: Missile
   m_TagString: Missile
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -3532125607399209406, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -193,30 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13103406, y: 0.042839568}
   m_EdgeRadius: 0
---- !u!114 &8323485611605656311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4774927664216399705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7854421be1b8ee54bbc9a5e519d189b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  livingTime: 4
-  startSound: {fileID: 1269435714947100089, guid: 3553b7564a3ab144e87e09c406a70e4a, type: 3}
-  hotPoints: 12
-  iD: 0
-  beamType: 0
-  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
-  impactClip: {fileID: 7114939317887804706, guid: 07759624580da1c43b6b18596dbfbb47, type: 3}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 3.5
-  impactPrefab: {fileID: 1348372828345004991, guid: 7b487cc353ca4ae45b0e8763f25a8967, type: 3}
-  floorCol: {fileID: 784617802298546509}
 --- !u!95 &874773458401594461
 Animator:
   serializedVersion: 3
@@ -332,3 +308,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5507844977502476305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774927664216399705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbd930aa3f68b14883e813172157894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 6
+  livingTime: 4
+  startSound: {fileID: 1269435714947100089, guid: 3553b7564a3ab144e87e09c406a70e4a, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  hotPoints: 12
+  iD: 0
+  beamType: 0
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
+  impactClip: {fileID: 7114939317887804706, guid: 07759624580da1c43b6b18596dbfbb47, type: 3}
+  speed: 3.5
+  impactPrefab: {fileID: 1348372828345004991, guid: 7b487cc353ca4ae45b0e8763f25a8967, type: 3}
+  floorCol: {fileID: 784617802298546509}
+  rigid: {fileID: -5163445564074679926}
+  damageCol: {fileID: -1844601815530174820}
+  pooleable: 0

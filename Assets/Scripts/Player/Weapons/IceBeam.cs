@@ -10,9 +10,11 @@ public class IceBeam : Beam
     new private void Awake() {
         base.Awake();
     }
-    new void Start()
-    {
-        base.Start();
+    new void OnDisable() {
+        base.OnDisable();
+    }
+    new void OnEnable() {
+        base.OnEnable();
     }
     new void FixedUpdate() {
        base.FixedUpdate(); 
@@ -25,17 +27,14 @@ public class IceBeam : Beam
             if (ifreeze != null && health != null)
             {
                 TryDoFreeze(health, ifreeze, iInvulnerable);
-                if (!rejected) { Instantiate(impactPrefab, transform.position, Quaternion.identity, null); Destroy(gameObject); }
-                else
-                {
-                    Reject();
-                }
+                if (!rejected) { Instantiate(impactPrefab, transform.position, Quaternion.identity, null); base.BackToGun(); }
+                else Reject();
             }
         }else if ((other.IsTouching(floorCol) && other.tag == "Suelo"))FloorCollision();
     }
-    private void OnBecameInvisible()
+    new void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        base.OnBecameInvisible();
     }
     #endregion
     private void TryDoFreeze(IDamageable<float> healthManager, IFreezeable ifreeze, IInvulnerable iInvulnerable)

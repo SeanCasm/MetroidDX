@@ -9,6 +9,7 @@ public class LoadScenes : MonoBehaviour
 {
     [SerializeField]GameObject initialRoom;
     [SerializeField]EnableAllPlayer playerEnabler;
+    [SerializeField]GameObject spawnPoint;
     public void StartLoadingScene(int sceneIndex){
         SceneManager.LoadSceneAsync(sceneIndex,LoadSceneMode.Single);
     }
@@ -24,7 +25,7 @@ public class LoadScenes : MonoBehaviour
     /// <summary>
     /// Load async the scene 1 and unload the scene 0, only when starts new game.
     /// </summary>
-    public void UnloadCurrentScene()
+    public void LoadStartScene()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
         StartCoroutine(CheckUnload(operation));
@@ -48,12 +49,6 @@ public class LoadScenes : MonoBehaviour
         {
             yield return null;
         }
-        /*
-        AsyncOperation unloadOperation=SceneManager.UnloadSceneAsync(0);
-        while (!unloadOperation.isDone)
-        {
-            yield return null;
-        }*/
         StartCoroutine(CheckRoomLoad());
     }
     IEnumerator CheckRoomLoad(){
@@ -61,6 +56,7 @@ public class LoadScenes : MonoBehaviour
         while(room==null){
             yield return new WaitForSeconds(.01f);
         }
+        playerEnabler.transform.position=spawnPoint.transform.position;
         GameEvents.enablePlayer.Invoke();
     }
     public void LoadScene(int sceneIndex)

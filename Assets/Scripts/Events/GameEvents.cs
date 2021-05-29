@@ -65,4 +65,5 @@ public static class GameEvents
     /// Sets the background the parallax effect.
     /// </summary>
     public static Action<Transform> parallax;
+
 }

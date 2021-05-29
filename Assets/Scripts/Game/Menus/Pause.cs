@@ -13,7 +13,6 @@ public class Pause : MonoBehaviour
     [SerializeField]Transform canvas;
     [SerializeField]GameObject pauseMenuPrefab,settings,allObjectsContainer;
     [SerializeField]OptionsMenu optionsMenu;
-    [SerializeField] TMPro.TextMeshProUGUI text;
     [SerializeField] Interactions menuFirst;
     GameObject pause;
     public static System.Action<bool> touchpadPaused;

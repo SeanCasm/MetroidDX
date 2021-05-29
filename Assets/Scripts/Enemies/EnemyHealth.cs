@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulnerable
 {
-    [SerializeField] bool invMissiles, invSuperMissiles, invBeams, invBombs, invSuperBombs, invFreeze;
+    [SerializeField] bool invMissiles, invSuperMissiles, invBeams, invBombs, invSuperBombs, invFreeze,invPlasma;
     [SerializeField] Materials materials;
     [SerializeField]GameObject deathClip;
     private float totalHealth;
@@ -13,7 +13,7 @@ public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulne
     private Behaviour[] components;
     private Collider2D box;
     public bool freezed { get;set; }
-
+    public bool InvPlasma=>invPlasma;
     public bool InvMissiles => invMissiles;public bool InvSuperMissiles => invSuperMissiles;
     public bool InvBeams => invBeams;public bool InvBombs => invBombs;
     public bool InvSuperBombs => invSuperBombs;public bool InvFreeze => invFreeze;

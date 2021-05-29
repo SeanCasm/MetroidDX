@@ -8,7 +8,7 @@ public class PirateIA : EnemyBase
     #region Properties
     [Header("Pirate settings")]
     [SerializeField] private Collider2D playerDetector;
-    [SerializeField] Enemy.BulletPool.Pool bulletsPool;
+    [SerializeField] Enemy.Weapon.Pool bulletsPool;
     Transform playerTransform;
     private float currentSpeed, horizontalVelocity;
     private GroundChecker efd;

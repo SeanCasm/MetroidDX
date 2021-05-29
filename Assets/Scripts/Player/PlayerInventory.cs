@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System;
 using Player;
 using Items;
+using Player.Weapon;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -110,6 +111,7 @@ public class PlayerInventory : MonoBehaviour
     public class Item : Inventory
     {
         public static int[] beamsID { get; } = { 1, 2, 10 };
+        public Beam beam{get;set;}
         public Item(bool selected, int iD) : base(selected, iD)
         {
             this.iD = iD;
@@ -124,6 +126,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] Beams beams;
     [SerializeField] BaseData baseData;
     [SerializeField] ButtonUtilities buttonEssentials;
+    [SerializeField]Pool pool;
     [SerializeField] PlayerInstantiates playerInstantiates;
     private GameData data;
     private PlayerController playerController;
@@ -316,7 +319,9 @@ public class PlayerInventory : MonoBehaviour
             }
             else Ammo.ammoSelected = 4;//ice
         }
-        playerInstantiates.beamToShoot = beams.GetAmmoPrefab(Ammo.ammoSelected);
+        var gObj=beams.GetAmmoPrefab(Ammo.ammoSelected);
+        pool.SetBeamToPool(gObj);
+        playerInstantiates.beamToShoot = gObj;
     }
     #endregion
     private void OnRetry(){

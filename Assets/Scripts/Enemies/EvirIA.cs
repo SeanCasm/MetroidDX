@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Enemy;
-using Enemy.BulletPool;
+using Enemy.Weapon;
 public class EvirIA : EnemyBase
 {
     [SerializeField]Transform shootPoint;

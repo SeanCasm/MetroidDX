@@ -16,6 +16,7 @@ public class Retry : MonoBehaviour
     [SerializeField]AssetReference retryMenuPrefab;
     [SerializeField] Interactions menuFirst;
     [SerializeField]GameObject hud,player;
+    [SerializeField] LoadScenes sceneLoader;
     private GameObject retryMenu,retryReference;
     private Button retry,mainMenu;
     #endregion
@@ -72,8 +73,9 @@ public class Retry : MonoBehaviour
     }
     private void VoidData()
     {
-        SceneManager.LoadScene(1);
         AudioListener.pause = false;
+        SaveAndLoad.newGame = true;
+        sceneLoader.LoadStartScene();
     }
     public void DesactivePause()
     {

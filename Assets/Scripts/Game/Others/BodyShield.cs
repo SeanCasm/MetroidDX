@@ -5,10 +5,11 @@ namespace Enemy
 {
     public class BodyShield : MonoBehaviour, IInvulnerable
     {
-        [SerializeField]bool invMissile,invSuperMissile,invBomb,invSuperBomb,invFreeze,invBeam;
+        [SerializeField]bool invMissile,invSuperMissile,invBomb,invSuperBomb,invFreeze,invBeam,invPlasma;
         public bool InvMissiles => invMissile;
 
         public bool InvSuperMissiles => invSuperMissile;
+        public bool InvPlasma=>invPlasma;
 
         public bool InvBeams => invBeam;
 

@@ -16,6 +16,7 @@ public interface IInvulnerable{
     bool InvBombs { get; }
     bool InvSuperBombs { get; }
     bool InvFreeze { get; }
+    bool InvPlasma{get;}
 }
 public interface IBeamsInvulnerable{
 

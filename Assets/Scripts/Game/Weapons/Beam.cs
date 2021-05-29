@@ -3,83 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player.Weapon;
 namespace Player.Weapon{
-    public class Beam : Weapon,IRejectable
+    public class Beam : Projectil
     {
-        [SerializeField]GameObject reject,impactClip;
-        [SerializeField] protected Vector3 direction;
-        [SerializeField] protected float speed;
-        [Tooltip("When beam collides generates this impact.")]
-        [SerializeField] protected GameObject impactPrefab;
-        [SerializeField] protected BoxCollider2D floorCol;
-        private BoxCollider2D damageCol;
-        public Vector3 Direction { get { return direction; } set { direction = value; } }
-
 
         #region Unity methods
         new private void Awake() {
             base.Awake();
         }
-        // Start is called before the first frame update
-        protected void Start()
-        {
-            damageCol=GetComponent<BoxCollider2D>();
-            rigid = GetComponent<Rigidbody2D>();
-            Destroy(gameObject, livingTime);
-            GameEvents.overHeatAction.Invoke(hotPoints);
+        new void OnEnable() {
+            base.OnEnable();
+            base.NoPlasmaOnTrigger += base.BackToGun;
         }
-        protected void FixedUpdate()
+        protected void OnDisable()
         {
-            if(!rejected)rigid.velocity = direction.normalized * speed;
+            base.NoPlasmaOnTrigger -= base.BackToGun;
         }
-        protected void OnTriggerEnter2D(Collider2D collision)
+        new void FixedUpdate()
         {
-            if (collision.CompareTag("Enemy") && collision.IsTouching(damageCol))
-            {
-                IDamageable<float> health = collision.GetComponent<IDamageable<float>>();
-                IInvulnerable iInvulnerable=collision.GetComponent<IInvulnerable>();
-                if(health==null && iInvulnerable!=null){
-                    //in this case, beams collides with a body shield, and inmediatly rejected
-                    Reject();
-                }
-                if (health!=null&& iInvulnerable!= null)
-                {
-                    TryDoDamage(damage, health, beamType,iInvulnerable);
-                    if (!rejected){ 
-                        Instantiate(impactPrefab, transform.position, Quaternion.identity,null);
-                        if(beamType !=WeaponType.Plasma){
-                            Destroy(gameObject);
-                        }
-                    }
-                    else Reject();
-                }
-            }else if ((collision.IsTouching(floorCol) && collision.tag=="Suelo"))FloorCollision();
-            else if(collision.CompareTag("EnemyBeam")){
-                IDrop iDrop = collision.GetComponent<IDrop>();
-                if(iDrop!=null)FloorCollision();
-            }
+            base.FixedUpdate();
         }
-        protected void FloorCollision(){
-            if(impactClip)Instantiate(impactClip);
-            Instantiate(impactPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        private void OnBecameInvisible()
+        new void OnTriggerEnter2D(Collider2D collision)
         {
-            Destroy(gameObject);
+            base.OnTriggerEnter2D(collision);
+        }
+        public new void OnBecameInvisible()
+        {
+            base.OnBecameInvisible();
         }
         #endregion
-        public void Reject()
+        new public void Reject()
         {
-            Instantiate(reject);
-            if(beamType == WeaponType.Missile || beamType == WeaponType.SuperMissile){
-                rigid.bodyType = RigidbodyType2D.Dynamic;
-                rigid.constraints = RigidbodyConstraints2D.None;
-                speed=0;
-                rigid.gravityScale = 7f;
-                GetComponent<BoxCollider2D>().isTrigger = false;
-            }else{
-                Destroy(gameObject);
-            }
+            base.Reject();
         }
     }
 }

@@ -15,7 +15,7 @@ public class Beams : ScriptableObject
     /// <returns></returns>
     public GameObject GetAmmoPrefab(int iD){
         foreach(GameObject element in beams){
-            if(element.GetComponent<Beam>().ID==iD){
+            if(element.GetComponent<Weapon>().ID==iD){
                 return element;
             }
         }

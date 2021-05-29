@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -224264422132340645, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,15 +150,17 @@ MonoBehaviour:
   damage: 4
   livingTime: 3
   startSound: {fileID: 4389104937895887863, guid: 5f3cf6df8fc17e84eaddd378d64345b3, type: 3}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 10
   iD: 4
   beamType: 3
   reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
   speed: 3
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 6084092682897317121}
+  rigid: {fileID: 8214025503367416801}
+  damageCol: {fileID: 3871242767676758864}
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!82 &-7239575696142420760
 AudioSource:

@@ -10,7 +10,6 @@ namespace Player.Weapon
         [SerializeField] protected int iD;
         [SerializeField] protected WeaponType beamType;
         public WeaponType BeamType=>beamType;
-        protected Rigidbody2D rigid;
         protected bool rejected;
         public int ID{get=>iD;}
 
@@ -23,7 +22,7 @@ namespace Player.Weapon
                     else rejected=true;
                     break;
                 case WeaponType.Plasma:
-                    if (!iInvulnerable.InvBeams) healthManager.AddDamage(damage);
+                    if (!iInvulnerable.InvPlasma) healthManager.AddDamage(damage);
                     else rejected = true;
                     break;
                 case WeaponType.Missile:

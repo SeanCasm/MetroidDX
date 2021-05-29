@@ -69,9 +69,9 @@ GameObject:
   - component: {fileID: 3720900225580075898}
   - component: {fileID: 4483522929926000219}
   - component: {fileID: 1270553173580402753}
-  - component: {fileID: 7063518772362421061}
   - component: {fileID: 7421228041264983426}
   - component: {fileID: -971342426667908339}
+  - component: {fileID: 7995079969118721875}
   m_Layer: 6
   m_Name: SuperMissiles
   m_TagString: SuperMissile
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: 1340418249766201452, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.08}
+    oldSize: {x: 0.2, y: 0.08}
     newSize: {x: 0.14, y: 0.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -193,30 +193,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7063518772362421061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3256416437917347827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7854421be1b8ee54bbc9a5e519d189b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 12
-  livingTime: 3
-  startSound: {fileID: 7119153977521584086, guid: 7f2e0c8c54deb6c44aebc2f957df0ce4, type: 3}
-  hotPoints: 20
-  iD: 1
-  beamType: 1
-  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
-  impactClip: {fileID: 4461508904645531800, guid: b60ed1da80de53742b8d9c37b597d0f0, type: 3}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 3.5
-  impactPrefab: {fileID: 1402059906027353583, guid: 89025be6ef7841e4b9ae9e4551a0de8d, type: 3}
-  floorCol: {fileID: 5648460672891638883}
 --- !u!95 &7421228041264983426
 Animator:
   serializedVersion: 3
@@ -332,3 +308,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7995079969118721875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256416437917347827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbd930aa3f68b14883e813172157894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 12
+  livingTime: 3
+  startSound: {fileID: 7119153977521584086, guid: 7f2e0c8c54deb6c44aebc2f957df0ce4, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  hotPoints: 20
+  iD: 1
+  beamType: 1
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
+  impactClip: {fileID: 4461508904645531800, guid: b60ed1da80de53742b8d9c37b597d0f0, type: 3}
+  speed: 3.5
+  impactPrefab: {fileID: 1402059906027353583, guid: 89025be6ef7841e4b9ae9e4551a0de8d, type: 3}
+  floorCol: {fileID: 5648460672891638883}
+  rigid: {fileID: 1270553173580402753}
+  damageCol: {fileID: 4483522929926000219}
+  pooleable: 0

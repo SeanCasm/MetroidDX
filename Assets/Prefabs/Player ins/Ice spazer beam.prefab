@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4120045488245001556}
   - component: {fileID: 3250625369613735621}
   - component: {fileID: 7345460437616521600}
+  - component: {fileID: 7762966579023931561}
   m_Layer: 6
   m_Name: Ice spazer beam (1)
   m_TagString: Beam
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -8470403037619771882, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,16 +149,21 @@ MonoBehaviour:
   damage: 3
   livingTime: 3
   startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 3
-  reject: {fileID: 8300000, guid: 6fd3399cc6a5a6349b37bcde78899f04, type: 3}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 2
+  speed: 3
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 3211231406620061468}
-  freezeClip: {fileID: 3031397718826181704, guid: 4e15429ac66bc2345aa128da8e59dde9, type: 3}
+  rigid: {fileID: 7345460437616521600}
+  damageCol: {fileID: 4120045488245001556}
+  pooleable: 0
+  isSpazer: 0
+  spazerChild: 0
+  freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!50 &7345460437616521600
 Rigidbody2D:
   serializedVersion: 4
@@ -179,6 +185,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7762966579023931561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009267120441656360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 853792333049753948}
+  localProjectil: {fileID: 3250625369613735621}
+  behaviours:
+  - {fileID: 4120045488245001556}
+  - {fileID: 3250625369613735621}
+  - {fileID: 8478097677254426524}
+  yAxisRelativeToParent: 0.085
+  spriteRenderer: {fileID: 6281038985555258404}
+  rb2d: {fileID: 7345460437616521600}
 --- !u!1 &1438073731551295706
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +277,7 @@ GameObject:
   - component: {fileID: 3481649950684441751}
   - component: {fileID: 4975269296991883997}
   - component: {fileID: 4991545093331342582}
+  - component: {fileID: 8486804781723715}
   m_Layer: 6
   m_Name: Ice spazer beam
   m_TagString: Beam
@@ -311,7 +339,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -8470403037619771882, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -384,16 +412,21 @@ MonoBehaviour:
   damage: 3
   livingTime: 3
   startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 3
-  reject: {fileID: 8300000, guid: 6fd3399cc6a5a6349b37bcde78899f04, type: 3}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 2
+  speed: 3
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 9025332382089919120}
-  freezeClip: {fileID: 3031397718826181704, guid: 4e15429ac66bc2345aa128da8e59dde9, type: 3}
+  rigid: {fileID: 4991545093331342582}
+  damageCol: {fileID: 3481649950684441751}
+  pooleable: 0
+  isSpazer: 0
+  spazerChild: 0
+  freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!50 &4991545093331342582
 Rigidbody2D:
   serializedVersion: 4
@@ -415,6 +448,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8486804781723715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740310517554306464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 853792333049753948}
+  localProjectil: {fileID: 4975269296991883997}
+  behaviours:
+  - {fileID: 3654007780418494650}
+  - {fileID: 3481649950684441751}
+  - {fileID: 4975269296991883997}
+  yAxisRelativeToParent: -0.085
+  spriteRenderer: {fileID: 9034245518809700926}
+  rb2d: {fileID: 4991545093331342582}
 --- !u!1 &2712678908356313092
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1356410057152398768
 Transform:
   m_ObjectHideFlags: 0
@@ -608,7 +662,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -8470403037619771882, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -715,15 +769,20 @@ MonoBehaviour:
   damage: 3
   livingTime: 3
   startSound: {fileID: 4389104937895887863, guid: 5f3cf6df8fc17e84eaddd378d64345b3, type: 3}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 27
   iD: 5
   beamType: 3
   reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
   speed: 3
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 8235671014930943904}
+  rigid: {fileID: 4463664850828288969}
+  damageCol: {fileID: 12152963436924501}
+  pooleable: 1
+  isSpazer: 0
+  spazerChild: 0
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!82 &7465182800218616743
 AudioSource:

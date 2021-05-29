@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2327593197199774457}
   - component: {fileID: 1055149746606238709}
   - component: {fileID: 4610892867955104268}
+  - component: {fileID: 1799229353447571507}
   m_Layer: 6
   m_Name: Spazer beam (1)
   m_TagString: Beam
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -4187057815155954561, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -168,16 +169,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4
   livingTime: 3
-  startSound: {fileID: 8300000, guid: a4f8ddda5626ace4c82dd4a57b040d92, type: 3}
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 2
-  reject: {fileID: 0}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 1.2
+  speed: 3.5
   impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
   floorCol: {fileID: 2317937067423339891}
+  rigid: {fileID: 1055149746606238709}
+  damageCol: {fileID: 6473689719588076358}
+  pooleable: 1
+  isSpazer: 0
+  spazerChild: 1
+--- !u!114 &1799229353447571507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787037970272559582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 2390618568734741061}
+  localProjectil: {fileID: 4610892867955104268}
+  behaviours:
+  - {fileID: 4610892867955104268}
+  - {fileID: 2327593197199774457}
+  - {fileID: 6473689719588076358}
+  yAxisRelativeToParent: 0.085
+  spriteRenderer: {fileID: 5405026501037640600}
+  rb2d: {fileID: 1055149746606238709}
 --- !u!1 &4273454815939645713
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &813454106324070075
 Transform:
   m_ObjectHideFlags: 0
@@ -427,7 +454,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -4187057815155954561, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -521,15 +548,20 @@ MonoBehaviour:
   damage: 4
   livingTime: 3
   startSound: {fileID: 6051933038019189946, guid: 1bd5c655935a62c4f90661eef2a1de61, type: 3}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 15
   iD: 7
   beamType: 2
   reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
   speed: 3.5
   impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
   floorCol: {fileID: 9134126565867446823}
+  rigid: {fileID: 7227095410706027308}
+  damageCol: {fileID: 7908505851473167409}
+  pooleable: 1
+  isSpazer: 1
+  spazerChild: 0
 --- !u!82 &144824538297612128
 AudioSource:
   m_ObjectHideFlags: 0
@@ -640,6 +672,7 @@ GameObject:
   - component: {fileID: 7894402281668018426}
   - component: {fileID: 4795754713990812607}
   - component: {fileID: 813610934314851523}
+  - component: {fileID: 3923273983058194939}
   m_Layer: 6
   m_Name: Spazer beam
   m_TagString: Beam
@@ -701,7 +734,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -4187057815155954561, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -794,13 +827,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4
   livingTime: 3
-  startSound: {fileID: 8300000, guid: a4f8ddda5626ace4c82dd4a57b040d92, type: 3}
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 2
-  reject: {fileID: 0}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 1.2
+  speed: 3.5
   impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
   floorCol: {fileID: 2193741298846429015}
+  rigid: {fileID: 4795754713990812607}
+  damageCol: {fileID: 2779563014322021885}
+  pooleable: 1
+  isSpazer: 0
+  spazerChild: 1
+--- !u!114 &3923273983058194939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816333517911930717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 2390618568734741061}
+  localProjectil: {fileID: 813610934314851523}
+  behaviours:
+  - {fileID: 813610934314851523}
+  - {fileID: 7894402281668018426}
+  - {fileID: 2779563014322021885}
+  yAxisRelativeToParent: -0.085
+  spriteRenderer: {fileID: 4704199125596659461}
+  rb2d: {fileID: 4795754713990812607}

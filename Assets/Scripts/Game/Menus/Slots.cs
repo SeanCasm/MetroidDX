@@ -8,7 +8,6 @@ using TMPro;
 public class Slots : MonoBehaviour
 {
     [SerializeField] GameObject[] buttonGames, energySlots, missileSlots, superMissileSlots, superBombSlots;
-    [SerializeField]Transform spawnPoint;
     [SerializeField] RectTransform[] energyUISlots;
     [SerializeField]LoadScenes sceneLoader;
     [SerializeField]SaveAndLoad saveLoad;
@@ -79,9 +78,8 @@ public class Slots : MonoBehaviour
     }
     private void NewGameData()
     {
-        player.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y,0f);
         SaveAndLoad.newGame=true;
-        sceneLoader.UnloadCurrentScene();
+        sceneLoader.LoadStartScene();
     }
     public void SetData(int loadSlot)
     {

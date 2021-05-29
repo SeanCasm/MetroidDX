@@ -183,16 +183,21 @@ MonoBehaviour:
   damage: 3.5
   livingTime: 3
   startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 3
-  reject: {fileID: 8300000, guid: 6fd3399cc6a5a6349b37bcde78899f04, type: 3}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
   speed: 2
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 3788288777120808477}
-  freezeClip: {fileID: 3031397718826181704, guid: 4e15429ac66bc2345aa128da8e59dde9, type: 3}
+  rigid: {fileID: 8076162896016766882}
+  damageCol: {fileID: 5502364957530216808}
+  pooleable: 0
+  isSpazer: 0
+  spazerChild: 0
+  freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!1 &2950322049571986289
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +276,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -3008786985731672919, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -365,15 +370,20 @@ MonoBehaviour:
   damage: 3.5
   livingTime: 3
   startSound: {fileID: 4389104937895887863, guid: 5f3cf6df8fc17e84eaddd378d64345b3, type: 3}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 35
   iD: -5
   beamType: 3
   reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
   speed: 3
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 3327496489573889271}
+  rigid: {fileID: 2950322049571986293}
+  damageCol: {fileID: 2950322049571986294}
+  pooleable: 0
+  isSpazer: 0
+  spazerChild: 0
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!82 &3209590409056653015
 AudioSource:
@@ -1023,13 +1033,18 @@ MonoBehaviour:
   damage: 3.5
   livingTime: 3
   startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 3
-  reject: {fileID: 8300000, guid: 6fd3399cc6a5a6349b37bcde78899f04, type: 3}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
   speed: 2
   impactPrefab: {fileID: 1767709753732197920, guid: 42ef9b281033cae4bba51ecc771b45d7, type: 3}
   floorCol: {fileID: 701398132621092013}
-  freezeClip: {fileID: 3031397718826181704, guid: 4e15429ac66bc2345aa128da8e59dde9, type: 3}
+  rigid: {fileID: 4667911480548011321}
+  damageCol: {fileID: 3356331310013543489}
+  pooleable: 0
+  isSpazer: 0
+  spazerChild: 0
+  freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}

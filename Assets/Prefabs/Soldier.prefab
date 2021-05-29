@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8898891342875543825}
   beams: {fileID: 11400000, guid: 88f1c8eabe8ff2a47a83a76cd83e5b3f, type: 2}
+  pool: {fileID: 3881644217251450263}
 --- !u!1 &8898891342960035920
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +201,7 @@ GameObject:
   - component: {fileID: 978456424407916437}
   - component: {fileID: 5876600726841306740}
   - component: {fileID: 210899527}
+  - component: {fileID: 3881644217251450263}
   - component: {fileID: 210899530}
   - component: {fileID: 210899536}
   m_Layer: 8
@@ -267,7 +269,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -2311659948842064771, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -445,13 +447,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e666c0b5a5ffdd647b0055f54f1f7f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFX: {fileID: 11400000, guid: 18ad7081560d2b948b1996fcaac646ad, type: 2}
-  morphball:
-    morphJumpRef:
-      m_AssetGUID: 
-      m_SubObjectName: 
-      m_SubObjectType: 
-    audioTime: 0
+  morphJumpRef:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  normalJump:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  morphballed:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  screwAttack:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  screwAttackLoop:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  stepRef:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  rollJumpLoop:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  hyperJumpRef:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  playerSteps: []
 --- !u!95 &6185344611131457504
 Animator:
   serializedVersion: 3
@@ -701,7 +729,23 @@ MonoBehaviour:
   beams: {fileID: 11400000, guid: 88f1c8eabe8ff2a47a83a76cd83e5b3f, type: 2}
   baseData: {fileID: 11400000, guid: 6a01ece67ea3b1a4dbe2b2a45cc65d66, type: 2}
   buttonEssentials: {fileID: 0}
+  pool: {fileID: 3881644217251450263}
   playerInstantiates: {fileID: 3995245244221401216}
+--- !u!114 &3881644217251450263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898891342960035920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7daf535a12d0c4746a4b005038671644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beams: {fileID: 11400000, guid: 88f1c8eabe8ff2a47a83a76cd83e5b3f, type: 2}
+  shootPoint: {fileID: 8898891342875543825}
+  poolSize: 14
 --- !u!114 &210899530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,6 +993,7 @@ MonoBehaviour:
   health: {fileID: 210899530}
   player: {fileID: 8898891342960035913}
   animator: {fileID: 6185344611131457504}
+  playerFX: {fileID: 0}
 --- !u!82 &6494764425435648262
 AudioSource:
   m_ObjectHideFlags: 0

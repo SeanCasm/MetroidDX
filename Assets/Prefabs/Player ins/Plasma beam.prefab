@@ -68,17 +68,17 @@ GameObject:
   - component: {fileID: 7732796515086214951}
   - component: {fileID: 7732796515086214944}
   - component: {fileID: 7732796515086214946}
-  - component: {fileID: 7732796515086214945}
   - component: {fileID: 5315201622987498651}
   - component: {fileID: 3591577372322195583}
   - component: {fileID: 4825134128353058808}
+  - component: {fileID: 1437093721664702972}
   m_Layer: 6
   m_Name: Plasma beam
   m_TagString: Beam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7732796515086214951
 Transform:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1555915593380633493, guid: f63baa0c70e446545a21122af2802dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -165,30 +165,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7732796515086214945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7732796515086214950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7854421be1b8ee54bbc9a5e519d189b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  livingTime: 3
-  startSound: {fileID: 7119153977521584086, guid: 8a3457c5508498546a0fbf856bf07b7f, type: 3}
-  hotPoints: 25
-  iD: 6
-  beamType: 4
-  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
-  impactClip: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  speed: 3.5
-  impactPrefab: {fileID: 3572002787624661053, guid: f8e379169839f5142a998b8dc2ea53b7, type: 3}
-  floorCol: {fileID: 4512916242142705901}
 --- !u!50 &5315201622987498651
 Rigidbody2D:
   serializedVersion: 4
@@ -332,3 +308,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1437093721664702972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732796515086214950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782f715254821dd4787581ce8d6e1cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  livingTime: 3
+  startSound: {fileID: 7119153977521584086, guid: 8a3457c5508498546a0fbf856bf07b7f, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  hotPoints: 25
+  iD: 6
+  beamType: 4
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
+  impactClip: {fileID: 0}
+  speed: 3.5
+  impactPrefab: {fileID: 3572002787624661053, guid: f8e379169839f5142a998b8dc2ea53b7, type: 3}
+  floorCol: {fileID: 4512916242142705901}
+  rigid: {fileID: 5315201622987498651}
+  damageCol: {fileID: 3591577372322195583}
+  pooleable: 1

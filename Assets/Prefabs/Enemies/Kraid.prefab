@@ -78,6 +78,7 @@ MonoBehaviour:
   invSuperBomb: 1
   invFreeze: 1
   invBeam: 1
+  invPlasma: 1
 --- !u!1 &219372878814750858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1682,7 @@ MonoBehaviour:
   invBombs: 1
   invSuperBombs: 1
   invFreeze: 1
+  invPlasma: 0
   materials: {fileID: 11400000, guid: 57f0750b5c65c8944a3209add1eaf321, type: 2}
   sprites:
   - {fileID: 5826830013719154146}

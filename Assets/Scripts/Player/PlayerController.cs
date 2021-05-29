@@ -553,8 +553,63 @@ public class PlayerController : MonoBehaviour
         aimUp = aimDown = false;
         if (xInput != 0) aimDiagonalDown = aimDiagonal = false;
     }
-    
-    #if UNITY_ANDROID
+
+#if UNITY_ANDROID
+    public void PlayerJumping_Mobile(bool triggered)
+    {
+        if (!inventory.CheckItem(9))//gravity jump
+        {
+            if (triggered && isGrounded && !crouch && !IsJumping && movement)
+            {
+                IsJumping = true;
+                if (balled) playerFX.BallJump();
+                else
+                {
+                    if (xInput != 0)
+                    {
+                        if (inventory.CheckItem(5)) Screwing = true; //screw
+                        else OnRoll = true;//no gravity jump
+                    }
+                    else
+                    {
+                        if (hyperJumpCharged && yInput > 0) { HyperJumping = true; }
+                        else if (!hyperJumpCharged) { onJumpingState = true; gravityJump = OnRoll = false; }
+                    }
+                }
+                jumpTimeCounter = jumpTime;
+            }
+        }
+        else
+        {
+            if (xInput != 0)
+            {
+                if (triggered && !crouch && movement)
+                {
+                    airShoot = false;
+                    if (inventory.CheckItem(5)) gravityJump = Screwing = true;//screw
+                    else { onJumpingState = OnRoll = false; gravityJump = true; }
+                    jumpTimeCounter = jumpTime;
+                    IsJumping = true;
+                }
+            }
+            else
+            {
+                if (hyperJumpCharged && yInput > 0) { HyperJumping = true; }
+                else if (!hyperJumpCharged && isGrounded)
+                {
+                    onJumpingState = true; gravityJump = OnRoll = false;
+                    jumpTimeCounter = jumpTime; IsJumping = true;
+                }
+            }
+        }
+        if (!triggered) IsJumping = false;
+        if (triggered && onRoll && CheckWallJump())
+        {
+            wallJumping = OnRoll = true;
+            Invoke("DisableWallJump", 0.25f);
+            jumpTimeCounter = jumpTime;
+        }
+    }
     private void MobileMovement()
     {
         if (joystick.Horizontal < -0.25) xInput = -1;

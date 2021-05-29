@@ -2134,7 +2134,6 @@ MonoBehaviour:
   settings: {fileID: 9018063271651815036}
   allObjectsContainer: {fileID: 2030108188}
   optionsMenu: {fileID: 9018063271651815037}
-  text: {fileID: 0}
   menuFirst: {fileID: 1925283452}
   player: {fileID: 210899525}
   playerMenu: {fileID: 881477260}
@@ -2190,6 +2189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialRoom: {fileID: 5922225402975987311, guid: 65e8e108deb43aa44aa4100e3e676c4a, type: 3}
   playerEnabler: {fileID: 210899536}
+  spawnPoint: {fileID: 1925283441}
 --- !u!82 &128693698
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8785,6 +8785,10 @@ PrefabInstance:
       propertyPath: buttonEssentials
       value: 
       objectReference: {fileID: 1925283449}
+    - target: {fileID: 3881644217251450263, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: poolSize
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5876600726841306740, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
       propertyPath: suit
       value: 
@@ -8951,7 +8955,7 @@ GameObject:
   - component: {fileID: 602988491}
   - component: {fileID: 602988490}
   - component: {fileID: 602988489}
-  - component: {fileID: 602988492}
+  - component: {fileID: 602988493}
   m_Layer: 5
   m_Name: Jump
   m_TagString: Untagged
@@ -9061,7 +9065,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602988487}
   m_CullTransparentMesh: 1
---- !u!114 &602988492
+--- !u!114 &602988493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9070,10 +9074,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 602988487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Gamepad>/buttonSouth
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 210899529}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: PlayerJumping_Mobile
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 210899529}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: PlayerJumping_Mobile
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &630918229
 GameObject:
   m_ObjectHideFlags: 0
@@ -21051,7 +21087,6 @@ MonoBehaviour:
   - {fileID: 3486603997073800538}
   - {fileID: 6532590648513822096}
   - {fileID: 5468683802045223137}
-  spawnPoint: {fileID: 1925283443}
   energyUISlots:
   - {fileID: 1504792402}
   - {fileID: 1500938871}
@@ -23917,6 +23952,7 @@ MonoBehaviour:
   menuFirst: {fileID: 1925283452}
   hud: {fileID: 8407729404374444544}
   player: {fileID: 210899525}
+  sceneLoader: {fileID: 128693697}
 --- !u!4 &1925283443
 Transform:
   m_ObjectHideFlags: 0
@@ -30681,7 +30717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110.1, y: -6.4}
+  m_AnchoredPosition: {x: 73.81781, y: 0.9133265}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5477157332800073782
@@ -30732,7 +30768,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -31281,7 +31317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -124, y: -17.8}
+  m_AnchoredPosition: {x: -102.220856, y: -21.47755}
   m_SizeDelta: {x: 0, y: 15}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &5477157332992928283

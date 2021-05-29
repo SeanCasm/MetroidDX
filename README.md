@@ -1,11 +1,16 @@
  
 # MetroidDX
 Technique demo based on metroid 2d games.
-Its finished, but need more improvements and a few IA bug fixes.
-I started this project in july 2020 and I finished him in november 2020, until at this date I only added some code improvements and fixes.
-The months of development were learning Unity and applying what I learned.
-
-The only mechanic I additional added is the overheat bar, at the top-righ corner on the screen, next to mini map, to prevent famous spam of beams to kill all enemy possible in a few seconds, in other words, to make the game more difficult and frustrating xd. 
+The only mechanic I additional added is the overheat bar, at the top-righ corner in the screen, next to mini map, to prevent the famous spam of beams to kill enemies in a few seconds, in other words, to make the game a little more difficult xd. 
+## Half of 2021 Update
+<li>More improvements are applied to the game, like object pooling for some enemy bullets and player beams.</li>
+<li>Android version perfectly playable and optimized.</li>
+<li>Added the time counter.</li>
+<li></li>
+## Things I'll probable add in a future (if I can code them)
+<li>New bosses: Serris and Crocomire</li>
+<li>Hard IA to space pirates (like they can jump throught platforms)</li>
+<li>Reincorpore the metroids</li>
 
 <p align="center"><img src="https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif" alt="animated"></p>
 

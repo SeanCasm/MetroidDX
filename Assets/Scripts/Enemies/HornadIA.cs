@@ -9,8 +9,11 @@ public class HornadIA : EnemyBase
     Vector2 direction;
     public float visionLenght=2f;
     bool facingRight;
-    private bool attacking = true;
+    private bool attacking = true,doJump=false;
     public LayerMask wallLayer,playerLayer;
+    private float currentSpeed;
+    public GameObject bulletPrefab;
+    public Transform _firePoint;
     // Start is called before the first frame update
     new void Awake()
     {
@@ -18,8 +21,8 @@ public class HornadIA : EnemyBase
     }
     void Start()
     {
-        if (transform.localScale.x > 0) facingRight = true;
-        else facingRight = false;
+        if (transform.localScale.x > 0){facingRight = true;currentSpeed=speed;}
+        else{currentSpeed=-speed; facingRight = false;}
     }
 
     // Update is called once per frame
@@ -48,22 +51,16 @@ public class HornadIA : EnemyBase
             {
                 attacking = false;
             }
-            if (!IsInvoking("MovingRandom"))Invoke("MovingRandom", 2f);
+            if (!IsInvoking("RandomMovement"))Invoke("RandomMovement", 2f);
         }
         
     }
-    
-    bool moving;
-   void MovingRandom()
+   void RandomMovement()
     {
         int i = Random.Range(1, 5);
         if(i==1 || i == 2)
         {
-            moving = true;
-        }
-        else
-        {
-            moving = false;
+            anim.SetTrigger("Moving");
         }
     }
     Transform playerTransform;
@@ -82,31 +79,36 @@ public class HornadIA : EnemyBase
             attacking = false;
         }
     }
-    
     void LateUpdate()
     {
-        anim.SetBool("Moving", moving);
         anim.SetBool("DetectedClose", attacking);
+    }
+    private void FixedUpdate() {
+        if(doJump){
+            rigid.gravityScale=0;
+            rigid.SetVelocity(speed* Time.deltaTime,jumpForce*Time.deltaTime);
+        }else{
+            rigid.gravityScale = 1;
+        }
     }
     void Flip()
     {
         facingRight =! facingRight;
         float localScaleX = transform.localScale.x;
         localScaleX = localScaleX * -1f;
+        currentSpeed*=-1f;
 
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
     public float jumpForce=2f;
-    public void AddForceToY()
+    public void Jump()
     {
-        rigid.AddForce(Vector2.up*jumpForce, ForceMode2D.Impulse);
+        doJump=!doJump;
     }
-    public GameObject bulletPrefab;
-    public Transform _firePoint;
     public void Shoot()
     {
         GameObject myBullet = Instantiate(bulletPrefab, _firePoint.position, Quaternion.identity) as GameObject;
-        Weapon bulletComponent = myBullet.GetComponent<Weapon>();
-        bulletComponent.Throw(_firePoint, playerTransform);
+        Throw bulletComponent = myBullet.GetComponent<Throw>();
+        bulletComponent.ThrowPrefab(_firePoint, playerTransform);
     }
 }

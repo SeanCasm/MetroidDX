@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501145075105693757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.028837204, y: -0.1256198, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.1256198, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2439020459736602655}
@@ -187,9 +187,6 @@ MonoBehaviour:
   detectPlayer: 1
   playerDetector: {fileID: 2326665076300626814}
   bulletsPool: {fileID: 8950548213099278661}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!50 &2474954557359816546
 Rigidbody2D:
   serializedVersion: 4
@@ -326,6 +323,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundPoint: {fileID: 1982864463083147163}
+  slopeDownOffset: {x: -0.0415, y: -0.2015}
+  slopeUpOffset: {x: 0.02, y: -0.1256198}
 --- !u!114 &-2514605281337610504
 MonoBehaviour:
   m_ObjectHideFlags: 0

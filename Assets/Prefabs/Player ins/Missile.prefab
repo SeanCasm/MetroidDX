@@ -335,3 +335,5 @@ MonoBehaviour:
   rigid: {fileID: -5163445564074679926}
   damageCol: {fileID: -1844601815530174820}
   pooleable: 0
+  isSpazer: 0
+  spazerChild: 0

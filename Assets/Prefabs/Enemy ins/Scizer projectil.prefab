@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2604744191709347508}
   - component: {fileID: 4588563539238940485}
   - component: {fileID: 8389197191560062863}
-  - component: {fileID: 2751179541329545437}
   - component: {fileID: -6683485858076690520}
+  - component: {fileID: 7752085863559780317}
   m_Layer: 6
   m_Name: Scizer projectil
   m_TagString: EnemyBeam
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 1423989094042197486, guid: e1feb40f77132884f94bb96692afca50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,26 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.04
---- !u!114 &2751179541329545437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2604744191709347511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e367a2100fac644b9e9b8728ab82ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 22
-  livingTime: 4
-  startSound: {fileID: 0}
-  speed: 2
-  direction: {x: 0, y: 0, z: 0}
-  weaponType: 4
-  timeTillHit: 1.1
-  rigid: {fileID: 4588563539238940485}
 --- !u!114 &-6683485858076690520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +136,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7752085863559780317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2604744191709347511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5985107c6550b24c84106a386c0c03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 22
+  livingTime: 4
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  speed: 1
+  rigid: {fileID: 4588563539238940485}
+  pooleable: 0
+  timeTillHit: 0.3

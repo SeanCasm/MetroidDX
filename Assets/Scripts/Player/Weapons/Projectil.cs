@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Player.Weapon
 {
-    public class Projectil : Weapon, IRejectable, IPooleable
+    public class Projectil : Weapon, IRejectable, IPooleable,IPlayerWeapon
     {
         [SerializeField] protected GameObject reject, impactClip;
         [SerializeField] protected float speed;
@@ -35,7 +35,6 @@ namespace Player.Weapon
             Invoke("BackToGun", livingTime);
             GameEvents.overHeatAction.Invoke(hotPoints);
             direction = transform.parent.right;
-
         }   
         protected void FixedUpdate()
         {
@@ -49,15 +48,14 @@ namespace Player.Weapon
                 iInvulnerable = collision.GetComponent<IInvulnerable>();
                 if (health == null && iInvulnerable != null)
                 {
-                    //in this case, beams collides with a body shield, and inmediatly rejected
                     Reject();
                 }
                 if (health != null && iInvulnerable != null)
                 {
                     TryDoDamage(damage, health, beamType, iInvulnerable);
+                    Instantiate(impactPrefab, transform.position, Quaternion.identity, null);
                     if (!rejected)
                     {
-                        Instantiate(impactPrefab, transform.position, Quaternion.identity, null);
                         NoPlasmaOnTrigger?.Invoke();
                     }
                     else Reject();
@@ -72,8 +70,9 @@ namespace Player.Weapon
         }
         protected void BackToGun()
         {
-            if (!pooleable) Destroy(gameObject);
-            if (!spazerChild)
+            if (!pooleable){
+                Destroy(gameObject);
+            }else if (!spazerChild)
             {
                 transform.SetParent(parent);
                 transform.position = parent.position;
@@ -86,7 +85,7 @@ namespace Player.Weapon
         protected void FloorCollision()
         {
             if (impactClip) Instantiate(impactClip);
-            Instantiate(impactPrefab, transform.position, Quaternion.identity);
+            Instantiate(impactPrefab, transform.position, Quaternion.identity,null);
             BackToGun();
         }
         protected void OnBecameInvisible()

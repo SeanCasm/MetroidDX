@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool crouch, fall, wallJumping, airShoot, movingOnAir,isJumping, runBooster,damaged,moveOnFloor,aimDiagonalDown,
        onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded,screwing,hyperJumping,onRoll, onSlope,aimDiagonal;
     private PhysicsMaterial2D material;
+    public System.Action OnJump;
     int pressCount = 0;
     int[] animatorHash = new int[27];
     public bool gravityJump { get; set; }public float currentSpeed { get; set; }
@@ -146,6 +147,7 @@ public class PlayerController : MonoBehaviour
     #region Unity methods
     void Awake()
     {
+        OnJump += OnNormalJump;
         playerFX = GetComponent<SomePlayerFX>();
         instantiates = GetComponentInChildren<PlayerInstantiates>();
         inventory = GetComponent<PlayerInventory>();
@@ -492,50 +494,53 @@ public class PlayerController : MonoBehaviour
         }
         if (context.canceled){currentSpeed = speed; speedJump = RunBooster = false;}
     }
-    public void PlayerJumping(InputAction.CallbackContext context)
-    {
-        if (!inventory.CheckItem(9))//gravity jump
+     
+    public void OnGravityJump(){
+        if (xInput != 0)
         {
-            if (context.started && isGrounded && !crouch && !IsJumping && movement)
+            if (!crouch && movement)
             {
-                IsJumping = true;
-                if (balled)playerFX.BallJump();
-                else
-                {
-                    if (xInput != 0)
-                    {
-                        if (inventory.CheckItem(5))Screwing = true; //screw
-                        else OnRoll = true;//no gravity jump
-                    }
-                    else
-                    {
-                        if (hyperJumpCharged && yInput > 0) { HyperJumping = true;  }
-                        else if (!hyperJumpCharged) { onJumpingState = true; gravityJump = OnRoll = false; }
-                    }
-                }
+                airShoot = false;
+                if (inventory.CheckItem(5)) gravityJump = Screwing = true;//screw
+                else { onJumpingState = OnRoll = false; gravityJump = true; }
                 jumpTimeCounter = jumpTime;
+                IsJumping = true;
             }
         }
         else
         {
-            if (xInput != 0)
+            if (hyperJumpCharged && yInput > 0) { HyperJumping = true; }
+            else if (!hyperJumpCharged && isGrounded)
             {
-                if (context.started && !crouch && movement)
-                {
-                    airShoot=false;
-                    if (inventory.CheckItem(5)) gravityJump = Screwing = true;//screw
-                    else { onJumpingState = OnRoll = false; gravityJump = true; }
-                    jumpTimeCounter = jumpTime;
-                    IsJumping = true;
-                }
-            }
-            else
-            {
-                if (hyperJumpCharged && yInput > 0) { HyperJumping = true; }
-                else if (!hyperJumpCharged && isGrounded) { onJumpingState = true; gravityJump = OnRoll = false; 
-                    jumpTimeCounter = jumpTime;IsJumping = true;}
+                onJumpingState = true; gravityJump = OnRoll = false;
+                jumpTimeCounter = jumpTime; IsJumping = true;
             }
         }
+    }
+    public void OnNormalJump(){
+        if (isGrounded && !crouch && !IsJumping && movement)
+        {
+            IsJumping = true;
+            if (balled) playerFX.BallJump();
+            else
+            {
+                if (xInput != 0)
+                {
+                    if (inventory.CheckItem(5)) Screwing = true; //screw
+                    else OnRoll = true;//no gravity jump
+                }
+                else
+                {
+                    if (hyperJumpCharged && yInput > 0) { HyperJumping = true; }
+                    else if (!hyperJumpCharged) { onJumpingState = true; gravityJump = OnRoll = false; }
+                }
+            }
+            jumpTimeCounter = jumpTime;
+        }
+    }
+    public void PlayerJumping(InputAction.CallbackContext context)
+    {
+        OnJump.Invoke();
         if (context.canceled) IsJumping = false;
         if (context.started && onRoll && CheckWallJump())
         {

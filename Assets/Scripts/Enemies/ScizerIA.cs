@@ -8,11 +8,18 @@ public class ScizerIA : EnemyBase
     [SerializeField]BoxCollider2D boxCollider;
     [SerializeField]GameObject scizerBulltet;
     [SerializeField]Transform[] shootPoints;
-    Weapon pF;
+    Throw pF;
+    private GroundChecker efd;
     Transform player;
+    bool attacking;
     new void Awake()
     {
         base.Awake();
+        efd = GetComponent<GroundChecker>();
+    }
+    private void FixedUpdate() {
+        if(!attacking)efd.SetOnGroundVelocity(speed);
+        else rigid.SetVelocity(0f, 0f);
     }
     public void Attack()
     {
@@ -21,14 +28,14 @@ public class ScizerIA : EnemyBase
             if (player.position.x < transform.position.x)
             {
                 GameObject mb = Instantiate(scizerBulltet, shootPoints[1].position, Quaternion.identity) as GameObject;
-                pF = mb.GetComponent<Weapon>();
-                pF.Throw(shootPoints[1], player);
+                pF = mb.GetComponent<Throw>();
+                pF.ThrowPrefab(shootPoints[1], player);
             }
             else if (player.position.x > transform.position.x)
             {
                 GameObject mb = Instantiate(scizerBulltet, shootPoints[0].position, Quaternion.identity) as GameObject;
-                pF = mb.GetComponent<Weapon>();
-                pF.Throw(shootPoints[0], player);
+                pF = mb.GetComponent<Throw>();
+                pF.ThrowPrefab(shootPoints[0], player);
             }
         }
     }
@@ -37,9 +44,10 @@ public class ScizerIA : EnemyBase
         if (col.tag == "Player" && !eh.freezed)
         {
             player = col.transform;
+            attacking=true;
             if (col.IsTouching(boxCollider))
             {
-                anim.SetBool("Attacking", true);
+                anim.SetBool("Attacking", attacking);
             }
         }
     }
@@ -49,8 +57,9 @@ public class ScizerIA : EnemyBase
         {
             if (!col.IsTouching(boxCollider))
             {
+                attacking=false;
                 player = null;
-                anim.SetBool("Attacking", false);
+                anim.SetBool("Attacking", attacking);
             }
         }
     }

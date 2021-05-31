@@ -13,15 +13,12 @@ public class RidleyIA : Boss
     private PathFollower path;
     float currentSpeed,pathSpeed;
     BossHealth health;
-    Rigidbody2D rb;
     bool attacking,ulti,onUltimate;
     GameObject roomCenter;
     // Start is called before the first frame update
     void Awake()
     {
-        
         path = GetComponent<PathCreation.Examples.PathFollower>();
-        rb = GetComponent<Rigidbody2D>();
         health = GetComponentInChildren<BossHealth>();
     }
     new void Start()

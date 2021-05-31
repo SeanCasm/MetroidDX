@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4943558043069164461
 Transform:
   m_ObjectHideFlags: 0
@@ -161,6 +161,9 @@ MonoBehaviour:
   floorCol: {fileID: 6084092682897317121}
   rigid: {fileID: 8214025503367416801}
   damageCol: {fileID: 3871242767676758864}
+  pooleable: 1
+  isSpazer: 0
+  spazerChild: 0
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!82 &-7239575696142420760
 AudioSource:

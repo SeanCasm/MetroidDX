@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253096269774914219}
   m_Layer: 0
-  m_Name: FloorCorner1
+  m_Name: ground point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51908306221678187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0.08, y: -0.042246398, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2775370865536261731}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7035980016951647804}
-  - component: {fileID: 3022290429998264702}
+  - component: {fileID: 8235280720751829814}
   m_Layer: 9
   m_Name: col
   m_TagString: Untagged
@@ -117,8 +117,8 @@ Transform:
   m_Father: {fileID: 2775370865536261731}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3022290429998264702
-BoxCollider2D:
+--- !u!70 &8235280720751829814
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,18 +131,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.34, y: 0.25}
-    newSize: {x: 0.34, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.23, y: 0.13758121}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.2, y: 0.12}
+  m_Direction: 1
 --- !u!1 &6382456235544104552
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,10 +245,10 @@ GameObject:
   - component: {fileID: 2775370865536261731}
   - component: {fileID: 1125959557177263514}
   - component: {fileID: 4165269250544351963}
-  - component: {fileID: 5855246020332823711}
   - component: {fileID: 6508352632883495193}
   - component: {fileID: 832765022750713564}
   - component: {fileID: -5293619601175776749}
+  - component: {fileID: 8204384134163644616}
   m_Layer: 9
   m_Name: Scizer
   m_TagString: Untagged
@@ -325,7 +315,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: -3767346054613260661, guid: e1feb40f77132884f94bb96692afca50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -357,23 +347,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5855246020332823711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8403556570265012511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed5c3fcf5aef3c4d8c79085b398013b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  floorAware: 0.18
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!50 &6508352632883495193
 Rigidbody2D:
   serializedVersion: 4
@@ -389,7 +362,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -407,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa7d577951a994fac747a4bacad765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.3
   detectPlayer: 1
   boxCollider: {fileID: 8706384054128557399}
   scizerBulltet: {fileID: 2604744191709347511, guid: d34c768be95c87946b32272ee608c2b3, type: 3}
@@ -426,6 +399,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8204384134163644616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403556570265012511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d466ff41eb6d8141a0579ac563f9693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallAware: 0.15
+  floorAware: 0.32
+  slopeAware: 0.32
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundPoint: {fileID: 253096269774914219}
 --- !u!1001 &221265109106624293
 PrefabInstance:
   m_ObjectHideFlags: 0

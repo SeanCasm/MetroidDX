@@ -11,6 +11,8 @@ namespace Enemy{
         [SerializeField] LayerMask groundLayer;
         [Tooltip("Checks if front slope is downing or upping")]
         [SerializeField] Transform groundPoint;
+        [SerializeField]Vector2 slopeDownOffset;
+        [SerializeField]Vector2 slopeUpOffset;
         private bool facingRight;
         private float spriteWitdh, slopeAngle;
         public bool FacingRight { get { return facingRight; } }
@@ -89,10 +91,12 @@ namespace Enemy{
                 {
                     if (facingRight) rigid.SetVelocity(amount, amount);
                     else rigid.SetVelocity(-amount, amount);
+                    groundPoint.localPosition=new Vector3(slopeUpOffset.x,slopeUpOffset.y,0);
                 }
                  
                 else
                 {
+                    groundPoint.localPosition=new Vector3(slopeDownOffset.x,slopeDownOffset.y,0);
                     if (facingRight) rigid.SetVelocity(amount, -amount);
                     else rigid.SetVelocity(-amount, -amount);
                 }

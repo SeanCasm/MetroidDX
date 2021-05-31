@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 public interface IPooleable{
     Transform parent{get;set;}
 }
+public interface IBossFreezeable{
+
+}
+public interface IFreezeUndamageable{
+    
+}
 public interface IDamageable<T>
 {
     void AddDamage(T damage);

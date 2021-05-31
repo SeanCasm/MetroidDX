@@ -21,7 +21,7 @@ public class SpawnBoss : MonoBehaviour
             }
             bossComponent.SetDoors();
 
-            if(iD==1){//ridley
+            if(iD==1 || iD==2){//ridley
                 PathCreation.Examples.PathFollower ridleyPathFollower=boss.GetComponent<PathCreation.Examples.PathFollower>();
                 ridleyPathFollower.pathCreator=ridleyPath;
             }

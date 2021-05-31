@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 29168715530883719}
   - component: {fileID: 29168715530883718}
   - component: {fileID: 29168715530883717}
-  - component: {fileID: 29168715530883712}
   - component: {fileID: 29168715530883713}
   - component: {fileID: 2757069017147216401}
   - component: {fileID: 8205633225489191450}
+  - component: {fileID: 7267144785861871086}
   m_Layer: 6
   m_Name: Turret bullet
   m_TagString: EnemyBeam
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 75
   m_Sprite: {fileID: -7205194000228689161, guid: 386b1d0083c2c33459327f05442a5fe0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,26 +104,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.06, y: 0.02}
   m_Direction: 1
---- !u!114 &29168715530883712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29168715530883716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e367a2100fac644b9e9b8728ab82ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  livingTime: 2
-  startSound: {fileID: 0}
-  speed: 1.1
-  direction: {x: 0, y: 0, z: 0}
-  weaponType: 0
-  timeTillHit: 0
-  rigid: {fileID: 2757069017147216401}
 --- !u!95 &29168715530883713
 Animator:
   serializedVersion: 3
@@ -176,3 +156,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7267144785861871086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29168715530883716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe2ccd08fff5d34e937064b56c3dd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 11
+  livingTime: 2
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  speed: 1.1
+  rigid: {fileID: 2757069017147216401}
+  pooleable: 0

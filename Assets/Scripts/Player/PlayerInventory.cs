@@ -163,7 +163,10 @@ public class PlayerInventory : MonoBehaviour
         int id = item.iD;
         items.Add(id);
         playerItems.Add(id, item);
-        if(id==7)ChangeJumpForce();//high jump
+        if(id==9)SetGravityJump(id);
+        else if(id==5)SetScrewJump(id);
+        else if(id==7)ChangeJumpForce();//high jump
+
         foreach (int element in Item.beamsID)
         {
             if (id == element)DisableIncompatibleBeams(id);
@@ -177,7 +180,7 @@ public class PlayerInventory : MonoBehaviour
         buttonEssentials.SetButton(itemID, selected);
     }
     /// <summary>
-    /// Disable other beam when combinations are invalid.
+    /// Disable other beams when the combinations are invalid.
     /// </summary>
     /// <param name="itemID"></param>
     public void DisableIncompatibleBeams(int itemID)
@@ -237,7 +240,7 @@ public class PlayerInventory : MonoBehaviour
         foreach(var element in data.selectItems){
             if(element.Key!=4){
                 bool value=element.Value;
-                playerItems.Add(element.Key,new Item(value,element.Key));
+                AddToItems(new Item(value,element.Key));
                 buttonEssentials.SetButton(element.Key,value);
                 DisableIncompatibleBeams(element.Key);
             }
@@ -275,15 +278,20 @@ public class PlayerInventory : MonoBehaviour
         return 0;
     }
     #region Mobile Methods
+    #if UNITY_ANDROID
     public void AmmoSelection_Mobile(int index){
         var lAmmo=limitedAmmoSearch[index];
         lAmmo.Select(!lAmmo.selected);
         PlayerInstantiates.countableID = index;
         canShootBeams=!lAmmo.selected;
         foreach(var item in limitedAmmoSearch){
-            if(item.Key!=index)item.Value.Select(false);
+            if(item.Key!=index){
+                item.Value.Select(false);
+                playerInstantiates.beamToShoot=item.Value.ammoPrefab;
+            }
         }
     } 
+    #endif
     #endregion
     /// <summary>
     /// Disable all ammo UI.
@@ -291,6 +299,17 @@ public class PlayerInventory : MonoBehaviour
     public void AmmoSelection()
     {
         foreach(var element in limitedAmmo)if(element!=null)element.Select(false);
+    }
+    public void SetGravityJump(int index){
+        playerController.OnJump -= playerController.OnNormalJump;
+        playerController.OnJump+=playerController.OnGravityJump;
+        CheckJumps(index);
+    }
+    public void SetScrewJump(int index){
+        playerController.OnJump -= playerController.OnGravityJump;
+        playerController.OnJump += playerController.OnNormalJump;
+        CheckJumps(index);
+
     }
     /// <summary>
     /// Change the player jump force, is called in a unity button event.
@@ -324,6 +343,15 @@ public class PlayerInventory : MonoBehaviour
         playerInstantiates.beamToShoot = gObj;
     }
     #endregion
+    private void CheckJumps(int id){
+        if ((id == 9 && playerItems.ContainsKey(5)) || (id == 5 && playerItems.ContainsKey(9)))
+        {
+            playerController.OnJump -= playerController.OnNormalJump;
+            playerController.OnJump -= playerController.OnGravityJump;
+            playerController.OnJump += playerController.OnNormalJump;
+            playerController.OnJump += playerController.OnGravityJump;
+        }
+    }
     private void OnRetry(){
         if(!SaveAndLoad.newGame){
             LoadInventory(data);

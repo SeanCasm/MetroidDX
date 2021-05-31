@@ -14,7 +14,6 @@ public class PirateIA : EnemyBase
     private GroundChecker efd;
     private bool idleShooting;
     private const float minAltitude = 0.5f;
-    public LayerMask playerLayer;
     #endregion
     #region Unity Methods
     new void Awake()

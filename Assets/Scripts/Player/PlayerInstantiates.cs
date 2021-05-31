@@ -47,6 +47,8 @@ public class PlayerInstantiates : MonoBehaviour
             if (ammo.ContainsKey(countableID))
             {
                 var ammoPos = ammo[countableID]; 
+                var obj=Instantiate(ammoPos.ammoPrefab,transform.position,transform.rotation,transform);
+                obj.transform.SetParent(null);
                 ammoPos.ActualAmmoCount(-1);
                 if (ammoPos.actualAmmo <= 0) inventory.canShootBeams = true;
             }

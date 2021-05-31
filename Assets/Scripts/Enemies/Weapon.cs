@@ -6,8 +6,7 @@ namespace Enemy.Weapons
     public class Weapon : WeaponBase<int>,IPooleable
     {
         [SerializeField]float speed;
-        [SerializeField] float timeTillHit;
-        [SerializeField]Rigidbody2D rigid;
+        [SerializeField]protected Rigidbody2D rigid;
         [SerializeField]bool pooleable;
         protected Transform player;
         public Transform parent{get;set;}
@@ -28,9 +27,12 @@ namespace Enemy.Weapons
             BackToShootPoint();
         }
         protected void BackToShootPoint(){
-            if(!pooleable)Destroy(gameObject);
-            transform.position=parent.position;
-            gameObject.SetActive(false);
+            if(!pooleable){
+                Destroy(gameObject);
+            }else{
+                transform.position = parent.position;
+                gameObject.SetActive(false);
+            }
         }
         public void SetDirectionAndRotation()
         {
@@ -105,25 +107,7 @@ namespace Enemy.Weapons
                 direction = (target - transform.position).normalized;
             }
         }
-        /// <summary>
-        /// Make a parabolic trajectory through the bullet throw point and target
-        /// </summary>
-        /// <param name="throwPoint">transform of throw point</param>
-        /// <param name="target">transform of the target point</param>
-        public void Throw(Transform throwPoint, Transform target)
-        {
-            float xdistance;
-            xdistance = target.position.x - throwPoint.position.x;
-            float ydistance;
-            ydistance = target.position.y - throwPoint.position.y;
-            float throwAngle;
-            throwAngle = Mathf.Atan((ydistance + 4.905f * (timeTillHit * timeTillHit)) / xdistance);
-            float totalVelo = xdistance / (Mathf.Cos(throwAngle) * timeTillHit);
-            float xVelo, yVelo;
-            xVelo = totalVelo * Mathf.Cos(throwAngle);
-            yVelo = totalVelo * Mathf.Sin(throwAngle);
-            rigid.velocity = new Vector2(xVelo, yVelo);
-        }
+         
         protected void DoDrop()
         {
             GameEvents.drop.Invoke(transform.position);

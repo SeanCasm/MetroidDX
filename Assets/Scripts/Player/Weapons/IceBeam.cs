@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player.Weapon;
-public class IceBeam : Beam
+public class IceBeam : Beam,IBossFreezeable
 {
     [Tooltip("When ice beam freezed a enemy play this clip.")]
     [SerializeField]AudioClip freezeClip;

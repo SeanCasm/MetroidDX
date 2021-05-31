@@ -15,7 +15,7 @@ namespace Player.Weapon
         {
             base.Awake();
         }
-        // Start is called before the first frame update
+        
         private void OnDisable() {
             base.NoPlasmaOnTrigger -= base.BackToGun;
         }
@@ -33,10 +33,12 @@ namespace Player.Weapon
             Instantiate(impactPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-         
+        private void DestroySelf(){
+            Destroy(gameObject);
+        }
         new void OnBecameInvisible()
         {
-            base.OnBecameInvisible();
+            Destroy(gameObject);
         }
         #endregion
         new void Reject()

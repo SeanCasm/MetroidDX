@@ -42,4 +42,4 @@ Three bosses are implemented.
 
 <li><a href="https://imgur.com/a/oXrtPnB">Kraid</a></li>
 <li><a href="https://imgur.com/a/gon88Nl">Ridley</a></li>
-<li>Serris</li>
+<li><a href="https://imgur.com/a/89Ix0Et">Serris</a></li>

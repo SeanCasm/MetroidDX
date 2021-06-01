@@ -10,9 +10,7 @@ public class FireballEventAnim : MonoBehaviour
     {
         if (!stop)
         {
-            GameObject fire = Instantiate(fireBall, firePoint.transform.position, Quaternion.identity);
-            fire.transform.eulerAngles = new Vector2(0, transform.eulerAngles.y);
-            fire.transform.SetParent(null);
+            Instantiate(fireBall, firePoint.transform.position, Quaternion.identity);
             Invoke("StopLaunching", 0.4f);
         }
     }

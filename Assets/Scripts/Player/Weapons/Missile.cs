@@ -15,9 +15,12 @@ namespace Player.Weapon
         {
             base.Awake();
         }
-        
+        new void OnEnable() {
+            base.OnEnable();
+            base.NoPlasmaOnTrigger+=DestroySelf;
+        }
         private void OnDisable() {
-            base.NoPlasmaOnTrigger -= base.BackToGun;
+            base.NoPlasmaOnTrigger -= DestroySelf;
         }
         new void FixedUpdate()
         {

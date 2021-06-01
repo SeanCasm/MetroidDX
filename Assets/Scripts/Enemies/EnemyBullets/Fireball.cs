@@ -10,7 +10,11 @@ public class Fireball : Weapon
     new void Awake()
     {
         base.Awake();
+        player=References.Player.transform;
+        transform.SetParent(null);
+        base.SetDirectionAndRotation();
     }
+    
     new void FixedUpdate()
     {
         base.FixedUpdate();

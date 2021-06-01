@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossToSpawn: {fileID: 1367119139870366977, guid: f2625e797b6f4fd4f8e2b193b6b40c56, type: 3}
-  doors: []
+  doors:
+  - {fileID: 4551983178934998526}
   ridleyPath: {fileID: 1618837719999177715}
 --- !u!1 &2874283218041737329
 GameObject:
@@ -3066,6 +3067,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1522148314186653894, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
   m_PrefabInstance: {fileID: 6002842610244738336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4551983178934998526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7810795474416175326, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+  m_PrefabInstance: {fileID: 6002842610244738336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6002842610387256474
 PrefabInstance:
   m_ObjectHideFlags: 0

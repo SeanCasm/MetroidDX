@@ -8,7 +8,7 @@ namespace Enemy.Weapons{
             base.Awake();
             player = References.Player.transform;
         }
-        new void OnEnable() {
+        protected new void OnEnable() {
             base.OnEnable();
             base.SetDirectionAndRotation();
         }

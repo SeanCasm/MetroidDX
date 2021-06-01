@@ -8417,7 +8417,6 @@ MonoBehaviour:
   - {fileID: 5477157333468021233}
   mobileButtons:
   - {fileID: 664040894}
-  - {fileID: 5477157333468021235}
   ammoUI:
   - {fileID: 1645002113}
   - {fileID: 828068765}
@@ -14854,7 +14853,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.4222223, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

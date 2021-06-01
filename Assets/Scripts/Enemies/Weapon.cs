@@ -8,7 +8,7 @@ namespace Enemy.Weapons
         [SerializeField]float speed;
         [SerializeField]protected Rigidbody2D rigid;
         [SerializeField]bool pooleable;
-        protected Transform player;
+        public Transform player{get;set;}
         public Transform parent{get;set;}
         private Vector3 target;
 
@@ -34,6 +34,9 @@ namespace Enemy.Weapons
                 gameObject.SetActive(false);
             }
         }
+        /// <summary>
+        /// Looks to the player.
+        /// </summary>
         public void SetDirectionAndRotation()
         {
             SetDirection();

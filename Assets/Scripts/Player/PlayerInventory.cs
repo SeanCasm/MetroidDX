@@ -129,7 +129,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]Pool pool;
     [SerializeField] PlayerInstantiates playerInstantiates;
     private GameData data;
-    private PlayerController playerController;
+    private PlayerController pCont;
     public Dictionary<int, Item> playerItems { get; set; }= new Dictionary<int, Item>();
     public List<int> reserve { get; set; }=new List<int>();
     public List<int> items { get; set; }=new List<int>();
@@ -141,7 +141,7 @@ public class PlayerInventory : MonoBehaviour
     #region Unity methods
     void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        pCont = GetComponent<PlayerController>();
         baseData.SetInventoryData(this);
         buttonEssentials.SetButton(4, true);
         interactions.SetButtonNavigation();
@@ -163,9 +163,8 @@ public class PlayerInventory : MonoBehaviour
         int id = item.iD;
         items.Add(id);
         playerItems.Add(id, item);
-        if(id==9)SetGravityJump(id);
-        else if(id==5)SetScrewJump(id);
-        else if(id==7)ChangeJumpForce();//high jump
+        SetJumpType(id);
+        if(id==7)ChangeJumpForce();//high jump
 
         foreach (int element in Item.beamsID)
         {
@@ -300,16 +299,36 @@ public class PlayerInventory : MonoBehaviour
     {
         foreach(var element in limitedAmmo)if(element!=null)element.Select(false);
     }
-    public void SetGravityJump(int index){
-        playerController.OnJump -= playerController.OnNormalJump;
-        playerController.OnJump+=playerController.OnGravityJump;
-        CheckJumps(index);
-    }
-    public void SetScrewJump(int index){
-        playerController.OnJump -= playerController.OnGravityJump;
-        playerController.OnJump += playerController.OnNormalJump;
-        CheckJumps(index);
-
+    public void SetJumpType(int id)
+    {
+        if (id == 9)
+        {
+            pCont.OnJump -= pCont.OnNormalJump;
+            pCont.OnJump -= pCont.OnGravityJump;
+            if (CheckItem(5))
+            {
+                pCont.OnJump += pCont.OnNormalJump;
+                pCont.OnJump += pCont.OnGravityJump;
+            }
+            else
+            {
+                pCont.OnJump += pCont.OnGravityJump;
+                pCont.OnJump -= pCont.OnNormalJump;
+            }
+        }
+        else if (id == 5)
+        {
+            if (CheckItem(9))
+            {
+                pCont.OnJump += pCont.OnNormalJump;
+                pCont.OnJump += pCont.OnGravityJump;
+            }
+            else
+            {
+                pCont.OnJump -= pCont.OnGravityJump;
+                pCont.OnJump += pCont.OnNormalJump;
+            }
+        }
     }
     /// <summary>
     /// Change the player jump force, is called in a unity button event.
@@ -318,8 +337,8 @@ public class PlayerInventory : MonoBehaviour
     public void ChangeJumpForce()
     {
         if(playerItems.ContainsKey(7)){
-            if (playerItems[7].selected) playerController.currentJumpForce = baseData.jumpForceUp;
-            else playerController.currentJumpForce = baseData.jumpForce;
+            if (playerItems[7].selected) pCont.currentJumpForce = baseData.jumpForceUp;
+            else pCont.currentJumpForce = baseData.jumpForce;
         }
     }
     public void SetBeamToShoot()
@@ -343,15 +362,7 @@ public class PlayerInventory : MonoBehaviour
         playerInstantiates.beamToShoot = gObj;
     }
     #endregion
-    private void CheckJumps(int id){
-        if ((id == 9 && playerItems.ContainsKey(5)) || (id == 5 && playerItems.ContainsKey(9)))
-        {
-            playerController.OnJump -= playerController.OnNormalJump;
-            playerController.OnJump -= playerController.OnGravityJump;
-            playerController.OnJump += playerController.OnNormalJump;
-            playerController.OnJump += playerController.OnGravityJump;
-        }
-    }
+     
     private void OnRetry(){
         if(!SaveAndLoad.newGame){
             LoadInventory(data);

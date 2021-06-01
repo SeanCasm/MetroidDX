@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3114208148307041603}
   - component: {fileID: 3114208148307041605}
   - component: {fileID: 5498820071888639719}
-  - component: {fileID: 5516021121502656259}
   - component: {fileID: -9056825036666632886}
+  - component: {fileID: 9154046463297135193}
   m_Layer: 6
   m_Name: Hornad proyectil
   m_TagString: EnemyBeam
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 676941767884002775, guid: 4c663316d14ee6a42901fb40be88436c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,33 +117,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5516021121502656259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3114208148307041601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e367a2100fac644b9e9b8728ab82ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 12
-  livingTime: 4
-  startSound: {fileID: 0}
-  speed: 1.2
-  direction: {x: 0, y: 0, z: 0}
-  weaponType: 4
-  timeTillHit: 1.1
-  rigid: {fileID: 5498820071888639719}
 --- !u!114 &-9056825036666632886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +136,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9154046463297135193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114208148307041601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5985107c6550b24c84106a386c0c03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 12
+  livingTime: 3
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  speed: 1.2
+  rigid: {fileID: 5498820071888639719}
+  pooleable: 0
+  timeTillHit: 0.35

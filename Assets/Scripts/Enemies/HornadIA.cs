@@ -5,55 +5,63 @@ using Enemy.Weapons;
 using Enemy;
 public class HornadIA : EnemyBase
 {
-    public GameObject playerDetector;
-    Vector2 direction;
-    public float visionLenght=2f;
-    bool facingRight;
-    private bool attacking = true,doJump=false;
+    [SerializeField]Collider2D closeDetector,playerDetector;
+    private Jumper jumper;
+    public float jumpForce = 2f;
+
+    private bool attacking = true,detectedClose;
     public LayerMask wallLayer,playerLayer;
-    private float currentSpeed;
+    Transform playerTransform;
+
     public GameObject bulletPrefab;
     public Transform _firePoint;
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        jumper.OnJump += OnJump;
+        jumper.OutJump += OutJump;
+    }
+    private void OnDisable()
+    {
+        jumper.OnJump -= OnJump;
+        jumper.OutJump -= OutJump;
+    }
     new void Awake()
     {
         base.Awake();
+        jumper=GetComponent<Jumper>();
     }
     void Start()
     {
-        if (transform.localScale.x > 0){facingRight = true;currentSpeed=speed;}
-        else{currentSpeed=-speed; facingRight = false;}
+        if (transform.localScale.x > 0){jumper.facingRight = true;}
+        else{jumper.facingRight = false;}
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (!eh.freezed)
         {
-            if (!facingRight) { direction = Vector2.left; }
-            else { direction = Vector2.right; }
-
-            if (Physics2D.Raycast(transform.position, direction, 0.2f, wallLayer))
-            {
-                Flip();
+            if (Physics2D.Raycast(transform.position, jumper.direction, 0.2f, wallLayer))SwapDirection();
+            if (Physics2D.Raycast(transform.position, jumper.direction * -1f, 0.6f, playerLayer))SwapDirection();
+            if(detectedClose){
+                if (playerTransform.position.x < transform.position.x && jumper.facingRight)SwapDirection();
+                else if (playerTransform.position.x > transform.position.x && !jumper.facingRight)SwapDirection();
             }
-            if (Physics2D.Raycast(transform.position, direction * -1f, 0.6f, playerLayer))
-            {
-                Flip();
-            }
-
-            if (Physics2D.Raycast(transform.position, direction, visionLenght, playerLayer)
-            && Physics2D.Raycast(transform.position, Vector2.down, 0.2f, wallLayer))
-            {
-                attacking = true;
-            }
-            else
-            {
-                attacking = false;
-            }
-            if (!IsInvoking("RandomMovement"))Invoke("RandomMovement", 2f);
+             
+            if (!IsInvoking("RandomMovement") && !detectedClose && !attacking)Invoke("RandomMovement", 2f);
+            if(attacking)anim.SetTrigger("Moving");
         }
         
+    }
+    private void SwapDirection(){
+        jumper.Flip();
+        speed *= -1;
+    }
+    private void OnJump()
+    {
+        rigid.gravityScale = 0;
+    }
+    private void OutJump()
+    {
+        rigid.gravityScale = 1;
     }
    void RandomMovement()
     {
@@ -63,52 +71,46 @@ public class HornadIA : EnemyBase
             anim.SetTrigger("Moving");
         }
     }
-    Transform playerTransform;
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && !GetComponentInChildren<EnemyHealth>().freezed)
+        if (col.CompareTag("Player") && !eh.freezed)
         {
-            playerTransform = col.transform;
-            attacking = true;
+            if(col.IsTouching(playerDetector)){
+                attacking = true;
+            }
         }
     }
-    void OntriggerExit2D(Collider2D col)
-    {
-        if (col.CompareTag("Player") )
-        {
+    private void OnTriggerStay2D(Collider2D other) {
+        if(other.CompareTag("Player")&&other.IsTouching(closeDetector)){
             attacking = false;
+            playerTransform = other.transform;
+            detectedClose = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            if(col.IsTouching(playerDetector)){
+                detectedClose=attacking = false;
+            }
         }
     }
     void LateUpdate()
     {
-        anim.SetBool("DetectedClose", attacking);
+        anim.SetBool("DetectedClose", detectedClose);
     }
     private void FixedUpdate() {
-        if(doJump){
-            rigid.gravityScale=0;
+        if(jumper.doJump){
             rigid.SetVelocity(speed* Time.deltaTime,jumpForce*Time.deltaTime);
-        }else{
-            rigid.gravityScale = 1;
         }
     }
-    void Flip()
-    {
-        facingRight =! facingRight;
-        float localScaleX = transform.localScale.x;
-        localScaleX = localScaleX * -1f;
-        currentSpeed*=-1f;
-
-        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
-    }
-    public float jumpForce=2f;
-    public void Jump()
-    {
-        doJump=!doJump;
-    }
+  
     public void Shoot()
     {
         GameObject myBullet = Instantiate(bulletPrefab, _firePoint.position, Quaternion.identity) as GameObject;
         Throw bulletComponent = myBullet.GetComponent<Throw>();
+        print(_firePoint);
         bulletComponent.ThrowPrefab(_firePoint, playerTransform);
     }
 }

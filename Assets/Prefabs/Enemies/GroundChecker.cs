@@ -10,13 +10,11 @@ namespace Enemy{
         [Tooltip("Add a offset to transform.position.x to detect slopes on up or down before start climb/down")]
         [SerializeField] LayerMask groundLayer;
         [Tooltip("Checks if front slope is downing or upping")]
-        [SerializeField] Transform groundPoint;
-        [SerializeField]Vector2 slopeDownOffset;
-        [SerializeField]Vector2 slopeUpOffset;
+        [SerializeField] Transform frontGroundPoint,backGroundPoint;
         private bool facingRight;
         private float spriteWitdh, slopeAngle;
         public bool FacingRight { get { return facingRight; } }
-        bool onSlope, onGround, slopeUp;
+        bool onSlope, onGround, slopeUp,slopeDown;
         public bool OnGround { get { return onGround; } }
         private Rigidbody2D rigid;
 
@@ -45,10 +43,22 @@ namespace Enemy{
             }
             SlopeChecker();
         }
-        RaycastHit2D hit,slopeHit;
+        RaycastHit2D frontHit,backHit;
+        float backSlopeAngle,frontSlopeAngle;
         private void SlopeChecker()
         {
-            hit = Physics2D.Raycast(groundPoint.position, -transform.up, floorAware, groundLayer);
+            frontHit = Physics2D.Raycast(frontGroundPoint.position, -transform.up, slopeAware, groundLayer);
+            frontSlopeAngle=Vector2.Angle(frontHit.normal,Vector2.up);
+            backHit = Physics2D.Raycast(backGroundPoint.position, -transform.up, slopeAware, groundLayer);
+            backSlopeAngle = Vector2.Angle(backHit.normal, Vector2.up);
+            if (frontSlopeAngle!=0) { slopeDown = false; slopeUp = true; }
+            else
+            {
+                slopeUp = false;
+                if (backSlopeAngle != 0)slopeDown = true;
+                else slopeDown=false;
+            }
+            /*hit = Physics2D.Raycast(groundPoint.position, -transform.up, floorAware, groundLayer);
             if (hit)
             {
                 slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
@@ -59,9 +69,8 @@ namespace Enemy{
                     slopeHit =Physics2D.Raycast(groundPoint.position, transform.right, slopeAware, groundLayer);
                     if (slopeHit) slopeUp = true;
                 }
-            }
+            }*/
         }
-        private bool canCheck=true;
         public void Flip()
         {
             float yRotation;
@@ -80,7 +89,7 @@ namespace Enemy{
         }
         public void SetOnGroundVelocity(float amount)
         {
-            if (!onSlope)
+            if (!slopeDown && !slopeUp)
             {
                 if (facingRight) rigid.SetVelocity(amount, rigid.velocity.y);
                 else rigid.SetVelocity(-amount, rigid.velocity.y);
@@ -90,13 +99,11 @@ namespace Enemy{
                 if (slopeUp)
                 {
                     if (facingRight) rigid.SetVelocity(amount, amount);
-                    else rigid.SetVelocity(-amount, amount);
-                    groundPoint.localPosition=new Vector3(slopeUpOffset.x,slopeUpOffset.y,0);
+                    else rigid.SetVelocity(-amount, amount); 
                 }
                  
                 else
-                {
-                    groundPoint.localPosition=new Vector3(slopeDownOffset.x,slopeDownOffset.y,0);
+                { 
                     if (facingRight) rigid.SetVelocity(amount, -amount);
                     else rigid.SetVelocity(-amount, -amount);
                 }

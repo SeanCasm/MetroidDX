@@ -16,6 +16,7 @@ public class Throw : Weapon
         base.OnBecameInvisible();
     }
     new void FixedUpdate() {
+        
     }
     // <summary>
     /// Make a parabolic trajectory through the bullet throw point and target

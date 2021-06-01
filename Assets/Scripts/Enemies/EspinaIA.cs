@@ -14,11 +14,11 @@ public class EspinaIA : EnemyBase
     new void Awake()
     {
         base.Awake();
+        efd = GetComponent<GroundChecker>();
     }
     void Start()
     {
         currentSpeed = speed;
-        efd = GetComponent<GroundChecker>();
     }
     void Update()
     {

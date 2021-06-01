@@ -65,7 +65,7 @@ namespace EnemyBoss.Serris{
         }
         public void FreezeMe()
         {
-            if(!serrisIA.invulnerable){
+            if(!serrisIA.invulnerable && bodyHealth>0){
                 invMissiles=invSuperMissiles=invBeams=invBombs=invSuperBombs=invPlasma=false;
                 CancelInvoke("Unfreeze");
                 StopAllCoroutines();

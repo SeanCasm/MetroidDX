@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1242320194917814387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8863577454475592304}
+  m_Layer: 9
+  m_Name: frontpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8863577454475592304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242320194917814387}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0467, y: -0.1149, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5968883911979778834}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2148619835260098274
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +87,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4410999, y: 0.7402487}
   m_EdgeRadius: 0
---- !u!1 &3769714915758277534
+--- !u!1 &3508498709807641553
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,27 +95,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2564731354876577826}
+  - component: {fileID: 2914168510633237998}
   m_Layer: 9
-  m_Name: groundpoint
+  m_Name: backpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2564731354876577826
+--- !u!4 &2914168510633237998
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3769714915758277534}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.1, z: 0}
+  m_GameObject: {fileID: 3508498709807641553}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0467, y: -0.1149, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5968883911979778834}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5484101059773652197
 GameObject:
@@ -113,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484101059773652197}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.077, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0838, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5968883911979778834}
@@ -148,7 +178,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.099851504}
+  m_Offset: {x: -0.0036342144, y: 0.09961651}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -159,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.09029699}
+  m_Size: {x: 0.14273158, y: 0.09076696}
   m_EdgeRadius: 0
 --- !u!1 &5968883911979778829
 GameObject:
@@ -197,7 +227,8 @@ Transform:
   - {fileID: 2271883455372247101}
   - {fileID: 4488869019787877935}
   - {fileID: 5681694752617119096}
-  - {fileID: 2564731354876577826}
+  - {fileID: 8863577454475592304}
+  - {fileID: 2914168510633237998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,7 +272,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
   m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingOrder: 29
   m_Sprite: {fileID: 4512039784604304544, guid: 4c9d05226bb9e774d97d73263f34e009, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -334,11 +365,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.11
   floorAware: 0.3
-  slopeAware: 0.15
+  slopeAware: 0.085
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  groundPoint: {fileID: 2564731354876577826}
+  frontGroundPoint: {fileID: 8863577454475592304}
+  backGroundPoint: {fileID: 2914168510633237998}
 --- !u!61 &7705301335545073502
 BoxCollider2D:
   m_ObjectHideFlags: 0

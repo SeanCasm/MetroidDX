@@ -8803,7 +8803,7 @@ PrefabInstance:
       objectReference: {fileID: 1472145272}
     - target: {fileID: 8898891342960035920, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
       propertyPath: m_Name
-      value: Soldier
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8898891342960035921, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
       propertyPath: m_RootOrder
@@ -29694,7 +29694,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 210899527}
         m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
-        m_MethodName: SetScrewJump
+        m_MethodName: SetJumpType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34135,7 +34135,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 210899527}
         m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
-        m_MethodName: SetGravityJump
+        m_MethodName: SetJumpType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

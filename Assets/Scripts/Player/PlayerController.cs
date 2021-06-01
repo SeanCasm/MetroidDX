@@ -496,13 +496,13 @@ public class PlayerController : MonoBehaviour
     }
      
     public void OnGravityJump(){
-        if (xInput != 0)
+        if (xInput != 0 && !isGrounded && !balled)
         {
             if (!crouch && movement)
             {
                 airShoot = false;
                 if (inventory.CheckItem(5)) gravityJump = Screwing = true;//screw
-                else { onJumpingState = OnRoll = false; gravityJump = true; }
+                else { Screwing=onJumpingState = OnRoll = false; gravityJump = true; }
                 jumpTimeCounter = jumpTime;
                 IsJumping = true;
             }
@@ -527,7 +527,7 @@ public class PlayerController : MonoBehaviour
                 if (xInput != 0)
                 {
                     if (inventory.CheckItem(5)) Screwing = true; //screw
-                    else OnRoll = true;//no gravity jump
+                    else{Screwing=false; OnRoll = true;}//no gravity jump
                 }
                 else
                 {

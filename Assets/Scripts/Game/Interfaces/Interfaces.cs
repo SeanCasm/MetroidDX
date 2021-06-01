@@ -48,9 +48,6 @@ public interface IFreezeable
 public interface IRejectable{
     void Reject();
 }
-/// <summary>
-/// Used like a tag
-/// </summary>
 public interface ICollecteable{
     
 }

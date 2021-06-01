@@ -1,7 +1,6 @@
  
 # MetroidDX
 Technique demo based on metroid 2d games.
-The only mechanic I additional added is the overheat bar, at the top-righ corner in the screen, next to mini map, to prevent the famous spam of beams to kill enemies in a few seconds, in other words, to make the game a little more difficult xd. 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif" alt="animated"></p>
 
@@ -43,3 +42,6 @@ Three bosses are implemented.
 <li><a href="https://imgur.com/a/oXrtPnB">Kraid</a></li>
 <li><a href="https://imgur.com/a/gon88Nl">Ridley</a></li>
 <li><a href="https://imgur.com/a/89Ix0Et">Serris</a></li>
+
+### Original
+<li>Overheat bar</li>

@@ -12,17 +12,20 @@ namespace Enemy{
         [Tooltip("Checks if front slope is downing or upping")]
         [SerializeField] Transform frontGroundPoint,backGroundPoint;
         private bool facingRight;
-        private float spriteWitdh, slopeAngle;
+        private float spriteWitdh;
         public bool FacingRight { get { return facingRight; } }
-        bool onSlope, onGround, slopeUp,slopeDown;
+        bool onGround, slopeUp,slopeDown;
         public bool OnGround { get { return onGround; } }
+        public float FloorAware=>floorAware;
+        public LayerMask GroundLayer=>groundLayer;
+        public float dir{get;private set;}
         private Rigidbody2D rigid;
 
         private void Awake()
         {
             spriteWitdh = GetComponent<SpriteRenderer>().bounds.extents.x;
             rigid = GetComponent<Rigidbody2D>();
-        }
+        } 
         private void Start()
         {
             if (transform.eulerAngles.y == 0)facingRight = true;
@@ -58,18 +61,6 @@ namespace Enemy{
                 if (backSlopeAngle != 0)slopeDown = true;
                 else slopeDown=false;
             }
-            /*hit = Physics2D.Raycast(groundPoint.position, -transform.up, floorAware, groundLayer);
-            if (hit)
-            {
-                slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                if (slopeAngle != 0) onSlope = true;
-                else slopeUp = onSlope = false;
-                if (onSlope)
-                {
-                    slopeHit =Physics2D.Raycast(groundPoint.position, transform.right, slopeAware, groundLayer);
-                    if (slopeHit) slopeUp = true;
-                }
-            }*/
         }
         public void Flip()
         {
@@ -91,8 +82,8 @@ namespace Enemy{
         {
             if (!slopeDown && !slopeUp)
             {
-                if (facingRight) rigid.SetVelocity(amount, rigid.velocity.y);
-                else rigid.SetVelocity(-amount, rigid.velocity.y);
+                if (facingRight){dir=1; rigid.SetVelocity(amount, rigid.velocity.y);}
+                else {rigid.SetVelocity(-amount, rigid.velocity.y);dir=-1;}
             }
             else
             {

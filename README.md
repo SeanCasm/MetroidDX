@@ -12,7 +12,7 @@ The only mechanic I additional added is the overheat bar, at the top-righ corner
 <li>Added new boss: Serris</li>
 
 ## Things I'll probable add in a future (if I can code them)
-<li>New bosses: Crocomire</li>
+<li>New boss: Space pirate commander (original)</li>
 <li>Better IA to space pirates (like they can jump throught platforms)</li>
 
 ## Content
@@ -40,6 +40,6 @@ The only mechanic I additional added is the overheat bar, at the top-righ corner
 
 Three bosses are implemented.
 
-<a href="https://imgur.com/a/oXrtPnB">Kraid</a>, Ridley and Serris
-
-Crocomire and Spore spawn are eliminated (because they're uglies xd [and I dont coded them well xddd])
+<li><a href="https://imgur.com/a/oXrtPnB">Kraid</a></li>
+<li><a href="https://imgur.com/a/gon88Nl">Ridley</a></li>
+<li>Serris</li>

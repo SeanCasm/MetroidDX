@@ -128,6 +128,8 @@ Transform:
   - {fileID: 1982864463083147163}
   - {fileID: 7775453553570468583}
   - {fileID: 1470386816482929019}
+  - {fileID: 6744542874716412730}
+  - {fileID: 5169257023212971392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -218,6 +220,12 @@ MonoBehaviour:
   detectPlayer: 1
   playerDetector: {fileID: 2326665076300626814}
   bulletsPool: {fileID: 8950548213099278661}
+  platformDetector: {fileID: 6744542874716412730}
+  fallDetector: {fileID: 5169257023212971392}
+  floorDistance: 0.6
+  jumpForce: 11.2
+  horizontalSpeed: 2.2
+  jumpTime: 0.5
 --- !u!50 &2474954557359816546
 Rigidbody2D:
   serializedVersion: 4
@@ -447,6 +455,36 @@ Transform:
   m_Father: {fileID: 2439020459736602655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4316805818317647654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6744542874716412730}
+  m_Layer: 9
+  m_Name: platform detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6744542874716412730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316805818317647654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.677, y: 0.04100001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2439020459736602655}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4668569377116002123
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +559,36 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.1367855, y: 0.41308156}
   m_Direction: 0
+--- !u!1 &6159653997120074475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5169257023212971392}
+  m_Layer: 9
+  m_Name: fall detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5169257023212971392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159653997120074475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.541, y: 0.041, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2439020459736602655}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8799873652277123899
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,13 +746,13 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3596199957748888741, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
---- !u!1 &1392956416362816797 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5308001063827605019, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
-  m_PrefabInstance: {fileID: 6556406129570554630}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5605886154411666914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1671138251056074468, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+  m_PrefabInstance: {fileID: 6556406129570554630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1392956416362816797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5308001063827605019, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
   m_PrefabInstance: {fileID: 6556406129570554630}
   m_PrefabAsset: {fileID: 0}

@@ -9,10 +9,10 @@ The only mechanic I additional added is the overheat bar, at the top-righ corner
 <li>More improvements are applied to the game, like object pooling for some enemy bullets and player beams.</li>
 <li>Android version perfectly playable and optimized.</li>
 <li>Added the time counter.</li>
-<li></li>
+<li>Added new boss: Serris</li>
 
 ## Things I'll probable add in a future (if I can code them)
-<li>New bosses: Serris and Crocomire</li>
+<li>New bosses: Crocomire</li>
 <li>Better IA to space pirates (like they can jump throught platforms)</li>
 
 ## Content
@@ -38,8 +38,8 @@ The only mechanic I additional added is the overheat bar, at the top-righ corner
 
 ### Bosses
 
-Only two bosses are implemented.
+Three bosses are implemented.
 
-<a href="https://imgur.com/a/oXrtPnB">Kraid</a>, and Ridley
+<a href="https://imgur.com/a/oXrtPnB">Kraid</a>, Ridley and Serris
 
 Crocomire and Spore spawn are eliminated (because they're uglies xd [and I dont coded them well xddd])

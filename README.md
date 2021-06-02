@@ -9,10 +9,12 @@ Technique demo based on metroid 2d games.
 <li>Android version perfectly playable and optimized.</li>
 <li>Added the time counter.</li>
 <li>Added new boss: Serris</li>
- 
+
 ## Things I'll probable add in a future (if I can code them)
 <li>:clock9: A new boss </li>
 <li>:heavy_check_mark: Better IA to space pirates (like they can jump on platforms)</li>
+<li>:clock9: Transitions at door entering. (currently in development)</li>
+<li>:clock9: The grappling beam.</li>
 
 ## Content
 

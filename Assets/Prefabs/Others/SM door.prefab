@@ -105,9 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff52d3d1162b3c48ac73b7993616258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unloadCurrentScene: 0
-  onlyLoadSaveRoom: 0
-  nextSceneIndex: 0
   nextzone:
     m_AssetGUID: 
     m_SubObjectName: 
@@ -150,9 +147,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 930449575
+  m_SortingLayerID: 2181901
   m_SortingLayer: 2
-  m_SortingOrder: 50
+  m_SortingOrder: 102
   m_Sprite: {fileID: -8784149345001395665, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -311,8 +308,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
-  m_SortingOrder: 11
+  m_SortingLayer: 2
+  m_SortingOrder: 102
   m_Sprite: {fileID: -6709996260003573752, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

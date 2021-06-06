@@ -58,7 +58,7 @@ public static class GameEvents
     /// <summary>
     /// Enable the transition when player enters to a door.
     /// </summary>
-    public static Action<bool> doorTransition;
+    public static Action<CameraTransition> DoorTransition;
     public static Action<bool> timeCounter;
     public static Action<bool> pauseTimeCounter;
     /// <summary>

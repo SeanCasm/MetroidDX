@@ -7,6 +7,9 @@ namespace Player.Weapon
         Missile, SuperMissile, Beam, IceBeam,Plasma,Bomb, SuperBomb,All
     }
 }
+public enum CameraTransition{
+    Left,Right,Up,Down
+}
 namespace Enemy.Weapon{
     public enum WeaponEffects{
         None,Freeze

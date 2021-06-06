@@ -13,7 +13,6 @@ public class Parallax : MonoBehaviour
     private void OnEnable() {
         GameEvents.parallax+=PutBackgroundOnParallaxList;
         clearList+=ClearBackGroundsList;
-        print("1");
     }
     private void OnDisable() {
         GameEvents.parallax -= PutBackgroundOnParallaxList;

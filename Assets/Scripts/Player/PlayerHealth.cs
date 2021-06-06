@@ -55,6 +55,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
             StopAllCoroutines();
             Invoke("Unfreeze", 4f);
             _renderer.material = materials.freeze;
+            player.Freeze();
             rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
             SetEnableComponentsAtFreeze(false);
             freezed=freezeInvulnerablility = true;

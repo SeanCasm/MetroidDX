@@ -305,7 +305,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -1915,7 +1915,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
   m_SortingLayer: 2
-  m_SortingOrder: 100
+  m_SortingOrder: 90
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2494,6 +2494,10 @@ PrefabInstance:
       propertyPath: nextzone
       value: 
       objectReference: {fileID: 6512815536920120954, guid: 2e654ec46bdeb584aad591e314860864, type: 3}
+    - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+      propertyPath: cameraTransition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: nextzone.m_AssetGUID
       value: 2e654ec46bdeb584aad591e314860864

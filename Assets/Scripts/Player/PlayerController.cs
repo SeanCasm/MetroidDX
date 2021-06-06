@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Properties
-    [SerializeField]CapsuleCollider2D capsule;
     [SerializeField] BoxCollider2D floorChecker;
     [SerializeField] LayerMask groundLayer;
     [SerializeField]Transform feetPosition;
@@ -236,7 +235,6 @@ public class PlayerController : MonoBehaviour
     }
     void OnAir()
     {
-        slopeUp = onSlope=moveOnFloor=false;
         if (balled) anim.SetFloat(animatorHash[23], 1);
         else if (onJumpingState && xInput != 0) currentSpeed = speed / 2;
         
@@ -264,9 +262,9 @@ public class PlayerController : MonoBehaviour
     {
         if (xInput != 0f)
         {
+            OnSlope();
             material.friction = 0f;
-            if (balled) anim.SetFloat(animatorHash[23], 1);
-            else if (runBooster)
+            if (runBooster)
             {
                 rb.gravityScale = 2;
                 currentSpeed += speedIncreaseOverTime;
@@ -276,11 +274,9 @@ public class PlayerController : MonoBehaviour
             if (yInput > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
             else if (yInput < 0) { aimDiagonalDown = true; aimUp = aimDown = aimDiagonal = false; }
             if (!moveOnFloor) Invoke("enableWalking", 0.05f);
-            OnSlope();
         }
         else
         {
-            if (balled) anim.SetFloat(animatorHash[23], 0);
             rb.velocity = new Vector2(0, 0);
             material.friction = 100;
         }
@@ -352,7 +348,7 @@ public class PlayerController : MonoBehaviour
     }
     public void FalseAnyAnimStateAtAir(){
         rb.gravityScale = 1;
-        onSlope = RunBooster = ShootOnWalk = moveOnFloor = false;
+        slopeUp = onSlope = RunBooster = ShootOnWalk = moveOnFloor = false;
     }
     public void ResetState()
     {
@@ -365,7 +361,9 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
     bool aiming;
-    
+    public void Freeze(){
+        xInput=yInput=0;
+    }
     public void OnAim(InputAction.CallbackContext context){
         if(movement){
             float aim = context.ReadValue<float>();
@@ -680,7 +678,6 @@ public class PlayerController : MonoBehaviour
         aiming=aimDiagonal = aimUp = aimDown = aimDiagonalDown = false;
     }
 #endif
-     
     private void CheckAirShoot(){
         if(!aimDown && !aimUp && !aiming && !balled){
             airShoot=true;

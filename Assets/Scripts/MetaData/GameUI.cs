@@ -60,7 +60,6 @@ public class GameUI : MonoBehaviour
                 ammo[i].StablishUI();
             }
         }
-        print(healthImage);
         GameEvents.playerHealth.Invoke(pHealth.MyHealth,pHealth.Tanks);
     }
     public void AddAndSubscribe(int iD)

@@ -11,9 +11,8 @@ public class References : MonoBehaviour
     public static Transform myPlayerIcon { get; set; }
     public static Tilemap myMap { get; set; }
     public static GameObject Player{get;private set;}
-    void OnEnable()
-    {
-        Player=player;
+    private void Awake() {
+        Player = player;
         myMap = map;
         myPlayerIcon = playerIcon;
     }

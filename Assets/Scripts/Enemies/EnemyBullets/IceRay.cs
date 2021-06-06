@@ -6,9 +6,15 @@ public class IceRay : Weapon
 {
     new void Awake() {
         base.Awake();
+        player = References.Player.transform;
     }
     new void FixedUpdate() {
         base.FixedUpdate();
+    }
+    new void OnEnable()
+    {
+        base.OnEnable();
+        base.SetDirectionAndRotation();
     }
     new private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
@@ -17,6 +23,6 @@ public class IceRay : Weapon
         }
     }
     new private void OnBecameInvisible() {
-        Destroy(gameObject);
+        base.OnBecameInvisible();
     }
 }

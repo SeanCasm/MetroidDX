@@ -7485,7 +7485,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
   m_SortingLayer: 2
-  m_SortingOrder: 100
+  m_SortingOrder: 90
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8573,11 +8573,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Pi\xF1a espina 2"
       objectReference: {fileID: 0}
+    - target: {fileID: 8094040256350370145, guid: 80bab29f87fd82442891ab32d5efd64f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80bab29f87fd82442891ab32d5efd64f, type: 3}
 --- !u!4 &4035813866249285533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3720790355299908124, guid: 80bab29f87fd82442891ab32d5efd64f, type: 3}
+  m_PrefabInstance: {fileID: 837933728997823873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8931551702948146400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8094040256350370145, guid: 80bab29f87fd82442891ab32d5efd64f, type: 3}
   m_PrefabInstance: {fileID: 837933728997823873}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &982242260428714392
@@ -8888,9 +8897,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: cameraTransition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
       propertyPath: nextzone.m_AssetGUID
       value: 65e8e108deb43aa44aa4100e3e676c4a
       objectReference: {fileID: 0}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: RoomObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: RoomObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8563997472767715185}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: RoomObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 6319579769137013066}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: RoomObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8399749864742805782}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: RoomObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 8931551702948146400}
+    - target: {fileID: 1522148314186653895, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
+      propertyPath: RoomObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 7743550082641435753}
     - target: {fileID: 4258986470057553991, guid: e48af5628365788498f4cdc18233dd3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47964668
@@ -9789,11 +9826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2139196174266745921, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.697435
+      value: 14.326
       objectReference: {fileID: 0}
     - target: {fileID: 2139196174266745921, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.87511444
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 2139196174266745921, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9831,11 +9868,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Concha fire
       objectReference: {fileID: 0}
+    - target: {fileID: 2139196174266745951, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
 --- !u!4 &7743550082641435767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2139196174266745921, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
+  m_PrefabInstance: {fileID: 8563997472408557622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7743550082641435753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2139196174266745951, guid: b9c7253d4838742448ede4915d98c0af, type: 3}
   m_PrefabInstance: {fileID: 8563997472408557622}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8563997472451599103
@@ -9893,11 +9939,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice Pirate
       objectReference: {fileID: 0}
+    - target: {fileID: 164532759450319849, guid: 3788f7b656d4c1b46a4a1621a709cdd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3788f7b656d4c1b46a4a1621a709cdd3, type: 3}
 --- !u!4 &8399749864742805785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 164532759450319846, guid: 3788f7b656d4c1b46a4a1621a709cdd3, type: 3}
+  m_PrefabInstance: {fileID: 8563997472451599103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8399749864742805782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 164532759450319849, guid: 3788f7b656d4c1b46a4a1621a709cdd3, type: 3}
   m_PrefabInstance: {fileID: 8563997472451599103}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8563997472611635662
@@ -10341,6 +10396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2543c853180e78f40b43195576a29d7a, type: 3}
+--- !u!1 &6319579769137013066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2407954665611401522, guid: 2543c853180e78f40b43195576a29d7a, type: 3}
+  m_PrefabInstance: {fileID: 8563997473111750776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6319579769137013057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2407954665611401529, guid: 2543c853180e78f40b43195576a29d7a, type: 3}
@@ -10400,6 +10460,10 @@ PrefabInstance:
     - target: {fileID: 6889940001584225962, guid: b175963e0d5c3fa4b94aa70a0bf5b770, type: 3}
       propertyPath: m_Name
       value: Concha
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889940001584225962, guid: b175963e0d5c3fa4b94aa70a0bf5b770, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b175963e0d5c3fa4b94aa70a0bf5b770, type: 3}

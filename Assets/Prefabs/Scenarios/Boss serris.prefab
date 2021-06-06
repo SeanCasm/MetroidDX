@@ -2304,7 +2304,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
   m_SortingLayer: 2
-  m_SortingOrder: 100
+  m_SortingOrder: 90
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2944,7 +2944,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
   m_SortingLayer: 2
-  m_SortingOrder: 88
+  m_SortingOrder: 91
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3043,6 +3043,10 @@ PrefabInstance:
     - target: {fileID: 1522148314186653894, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+      propertyPath: cameraTransition
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: nextzone.m_AssetGUID

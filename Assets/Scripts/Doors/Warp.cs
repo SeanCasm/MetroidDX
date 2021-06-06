@@ -1,22 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
+
 public class Warp : MonoBehaviour
 {
-    [SerializeField] bool unloadCurrentScene,onlyLoadSaveRoom;
-    [SerializeField] int nextSceneIndex;
     [SerializeField] AssetReference nextzone;
-    private float playerYPoint,exitXPoint;
+    private CameraTransition cameraTransition;
+    private float playerYPoint;
+    private Vector2 exit;
     private GameObject currentZone,nextRoom;
+    public static System.Action OnWarp;
     private PlayerController playerC;
 
     void Start()
     {
-        exitXPoint = transform.GetChild(transform.childCount-1).position.x;
-        if (!unloadCurrentScene)currentZone = transform.parent.gameObject;
+        exit = transform.GetChild(transform.childCount-1).position;
+        currentZone = transform.parent.gameObject;
         nextzone.LoadAssetAsync<GameObject>().Completed += OnLoadDone;
+        if(transform.eulerAngles.z!=0){
+            if(transform.eulerAngles.z<0)cameraTransition=CameraTransition.Up;
+            else cameraTransition=CameraTransition.Down;
+        }else{
+            if(transform.localScale.x>0)cameraTransition=CameraTransition.Left;
+            else cameraTransition=CameraTransition.Right;
+        }
     }
     private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
     {
@@ -27,28 +35,23 @@ public class Warp : MonoBehaviour
         if (other.CompareTag("PlayerDetect")){
             playerC = other.GetComponentInParent<PlayerController>();
             playerYPoint=playerC.transform.position.y;
-            GameEvents.doorTransition.Invoke(true);
-            SetPause();
+            GameEvents.DoorTransition.Invoke(cameraTransition);
+            StartCoroutine("Resume");
+            Pause.PausePlayer(playerC);
         }
-    }
-    void SetPause()
-    {
-        playerC.gameObject.transform.position = new Vector2(exitXPoint, playerYPoint);
-        StartCoroutine("Resume");
-        Pause.PausePlayer(playerC);
     }
     IEnumerator Resume()
     {
-        if (unloadCurrentScene)
-        {
-            SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
-
-        }else Instantiate(nextRoom);
-
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(.5f);
+        playerC.gameObject.transform.position = new Vector2(exit.x, playerYPoint);
+        transform.SetParent(null);
+        currentZone.SetActive(false);
+        Instantiate(nextRoom);
+        yield return new WaitForSecondsRealtime(1f);
+        OnWarp?.Invoke();
         Parallax.clearList.Invoke();
-        if(!unloadCurrentScene) Destroy(currentZone);
-        GameEvents.doorTransition.Invoke(false);
         Pause.UnpausePlayer(playerC);
+        Destroy(currentZone);
+        Destroy(gameObject);
     }
 }

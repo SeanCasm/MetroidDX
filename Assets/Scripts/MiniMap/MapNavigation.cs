@@ -14,10 +14,20 @@ public class MapNavigation : MonoBehaviour
     [SerializeField]Transform mapCursor,playerIcon;
     [SerializeField] RenderTexture camRender;
     Camera mapCamera;
+    bool canMove;
     public float SpeedNavigation{get=>speedTroughtNavigation;set=>speedTroughtNavigation=value;}
     void Awake()
     {
         mapCamera = GetComponent<Camera>();
+    }
+    private void Start() {
+        print("XD");
+    }
+    private void OnEnable() {
+        canMove=true;
+    }
+    private void OnDisable() {
+        canMove=false;
     }
     public void CameraSetOutputTexture()
     {

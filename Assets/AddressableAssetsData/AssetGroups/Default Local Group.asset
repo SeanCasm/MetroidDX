@@ -53,12 +53,6 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 78233161f08a05847ba49204129d3037
-    m_Address: Assets/Prefabs/UI/PC/Map UI.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 496800b04d018ba4dbb23e29af3db3be
     m_Address: Assets/Prefabs/UI/PC/Acq message.prefab
     m_ReadOnly: 0

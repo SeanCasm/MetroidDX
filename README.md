@@ -2,7 +2,7 @@
 # MetroidDX
 Technique demo based on metroid 2d games.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/51692672/111498947-3226b480-8721-11eb-8085-c0a00b50c878.gif" alt="animated"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/51692672/120400439-e04aff00-c30b-11eb-90df-8f645c00e7aa.gif" alt="animated"></p>
 
 ## Half of 2021 Update
 <li>More improvements are applied to the game, like object pooling for some enemy bullets and player beams.</li>
@@ -11,8 +11,10 @@ Technique demo based on metroid 2d games.
 <li>Added new boss: Serris</li>
 
 ## Things I'll probable add in a future (if I can code them)
-<li>New boss: Space pirate commander (original)</li>
-<li>Better IA to space pirates (like they can jump throught platforms)</li>
+<li>:clock9: A new boss </li>
+<li>:heavy_check_mark: Better IA to space pirates (like they can jump on platforms)</li>
+<li>:clock9: Transitions at door entering. (currently in development)</li>
+<li>:clock9: The grappling beam.</li>
 
 ## Content
 

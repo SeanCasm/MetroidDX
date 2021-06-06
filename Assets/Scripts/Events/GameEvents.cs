@@ -42,7 +42,8 @@ public static class GameEvents
     /// Displays the save message when is using the save station.
     /// </summary>
     public static Action saveMessage;
-    public static Action<float,float,Vector3Int,Tile> miniMap;
+    public static Action<MiniMap> miniMap;
+    public static Action<MiniMap> xd;
     /// <summary>
     /// Verifies the registry of reserve and items in the collector manager.
     /// </summary>

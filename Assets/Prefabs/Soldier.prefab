@@ -294,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96939387ec6514d689034d4f0e4a907a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capsule: {fileID: 6061818792502005122}
   floorChecker: {fileID: 1214313358528198564}
   groundLayer:
     serializedVersion: 2
@@ -912,7 +911,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898891343954988871}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

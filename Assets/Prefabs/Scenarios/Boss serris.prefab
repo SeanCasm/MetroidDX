@@ -328,7 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemArea: 0
   bossArea: 0
-  mapTile: {fileID: 11400000, guid: 0d1f90aaa6118534393365c7a9c2929c, type: 2}
+  mapTile: {fileID: 11400000, guid: 6bf3b45ae6223b74db8ce2a62e932f7e, type: 2}
+  unexploredTile: {fileID: 11400000, guid: 9cd6ac80514ec5f46b0c195a796321c6, type: 2}
 --- !u!61 &6002842610072084693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -401,7 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemArea: 0
   bossArea: 0
-  mapTile: {fileID: 11400000, guid: 03bbdbc9a8d89cd46a5c2fed17c17435, type: 2}
+  mapTile: {fileID: 11400000, guid: 834621e20400b8240bbcf54c81db3c98, type: 2}
+  unexploredTile: {fileID: 11400000, guid: 4e17c71848a8419409b80384ebb1c386, type: 2}
 --- !u!61 &6002842610462775230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -457,8 +459,8 @@ Transform:
   m_LocalPosition: {x: 8.195801, y: -115.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6002842610654058010}
   - {fileID: 6002842611158340880}
+  - {fileID: 6002842610654058010}
   - {fileID: 5067007385797230054}
   - {fileID: 5610050621254129942}
   - {fileID: 6002842611107760338}
@@ -526,7 +528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6002842610630277730}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &6002842610654058015
 Tilemap:
@@ -2983,7 +2985,7 @@ Transform:
   - {fileID: 6002842610072084692}
   - {fileID: 6002842610462775225}
   m_Father: {fileID: 6002842610630277730}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6002842610244738336
 PrefabInstance:

@@ -93,7 +93,7 @@ Transform:
   - {fileID: 6385350735938653702}
   - {fileID: 1220647002034700008}
   m_Father: {fileID: 1329454616152066585}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329454615405352106
 GameObject:
@@ -141,7 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemArea: 0
   bossArea: 0
-  mapTile: {fileID: 11400000, guid: 217dbae8851a56e4383f0c724d71d72d, type: 2}
+  mapTile: {fileID: 11400000, guid: be7684e59e880cf4996fecdb1eb5baaa, type: 2}
+  unexploredTile: {fileID: 11400000, guid: f4169fa6c3ff42e4fb9d8cb884fafc68, type: 2}
 --- !u!61 &1329454615405352108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329454616152066585}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1329454615819470527
 Tilemap:
@@ -2160,7 +2161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemArea: 0
   bossArea: 0
-  mapTile: {fileID: 11400000, guid: be7684e59e880cf4996fecdb1eb5baaa, type: 2}
+  mapTile: {fileID: 11400000, guid: 7c481b3a2c23bf84081911c54e3f198d, type: 2}
+  unexploredTile: {fileID: 11400000, guid: e83158c5adc1abf43822f78cc3193e4d, type: 2}
 --- !u!61 &1329454616001495278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2215,8 +2217,8 @@ Transform:
   m_LocalPosition: {x: 8.195801, y: -115.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1329454615819470525}
   - {fileID: 1329454615146513109}
+  - {fileID: 1329454615819470525}
   - {fileID: 1329454615560758538}
   - {fileID: 535060008005415451}
   - {fileID: 569986582011914231}
@@ -2331,7 +2333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemArea: 0
   bossArea: 0
-  mapTile: {fileID: 11400000, guid: 4016c1d82005705459a77653ecc9ae1c, type: 2}
+  mapTile: {fileID: 11400000, guid: 23d7f63a0462f064a8becbb1a9335666, type: 2}
+  unexploredTile: {fileID: 11400000, guid: ac8ff79204d97db4d838d9b7a1052ab0, type: 2}
 --- !u!61 &4349525053461640014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2404,7 +2407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemArea: 0
   bossArea: 0
-  mapTile: {fileID: 11400000, guid: 8f88304276282bc4c889ce9a8b6fdbb4, type: 2}
+  mapTile: {fileID: 11400000, guid: 93861d2b4cfc7904a8d106fe78048384, type: 2}
+  unexploredTile: {fileID: 11400000, guid: 6bf57da0863c8884cb070b5bb0e24700, type: 2}
 --- !u!61 &5049635862372107268
 BoxCollider2D:
   m_ObjectHideFlags: 0

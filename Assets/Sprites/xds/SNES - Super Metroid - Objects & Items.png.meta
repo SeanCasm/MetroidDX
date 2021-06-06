@@ -170,6 +170,27 @@ TextureImporter:
   - first:
       213: 8227986413772207028
     second: SNES - Super Metroid - Objects & Items_14
+  - first:
+      213: 4944866180020501164
+    second: SNES - Super Metroid - Objects & Items_15
+  - first:
+      213: 848112955086998302
+    second: SNES - Super Metroid - Objects & Items_16
+  - first:
+      213: 4885791308427191209
+    second: SNES - Super Metroid - Objects & Items_17
+  - first:
+      213: 7250735866035218967
+    second: SNES - Super Metroid - Objects & Items_18
+  - first:
+      213: -749557119928366212
+    second: SNES - Super Metroid - Objects & Items_19
+  - first:
+      213: -5783698737293472190
+    second: SNES - Super Metroid - Objects & Items_20
+  - first:
+      213: -4840942174738585013
+    second: SNES - Super Metroid - Objects & Items_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -275,11 +296,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,11 +317,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -317,11 +338,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 222
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,11 +359,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 373
-        y: 257
+        y: 287
         width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -359,11 +380,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 413
-        y: 257
+        y: 287
         width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -380,11 +401,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6
-        y: 176
+        y: 206
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -401,11 +422,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 176
+        y: 206
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,11 +443,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 293
-        y: 225
+        y: 255
         width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,11 +464,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 333
-        y: 225
+        y: 255
         width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,11 +485,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 372
-        y: 226
+        y: 256
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,11 +506,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 412
-        y: 226
+        y: 256
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,11 +527,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 213
-        y: 185
+        y: 215
         width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -527,11 +548,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 253
-        y: 185
+        y: 215
         width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -548,11 +569,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 292
-        y: 185
+        y: 215
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -569,11 +590,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 332
-        y: 185
+        y: 215
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -590,11 +611,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 372
-        y: 185
+        y: 215
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -611,11 +632,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 412
-        y: 185
+        y: 215
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -632,11 +653,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 58
+        y: 88
         width: 32
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -653,11 +674,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 70
-        y: 91
+        y: 121
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -674,11 +695,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 130
-        y: 91
+        y: 121
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -695,11 +716,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 213
-        y: 147
+        y: 177
         width: 14
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -716,11 +737,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 253
-        y: 147
+        y: 177
         width: 14
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -737,11 +758,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 292
-        y: 145
+        y: 175
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -758,11 +779,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 332
-        y: 145
+        y: 175
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -779,11 +800,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 372
-        y: 145
+        y: 175
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -800,11 +821,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 412
-        y: 145
+        y: 175
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -821,11 +842,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 214
-        y: 107
+        y: 137
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -842,11 +863,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 254
-        y: 107
+        y: 137
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -863,11 +884,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 292
-        y: 105
+        y: 135
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -884,11 +905,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 332
-        y: 105
+        y: 135
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -905,11 +926,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 372
-        y: 105
+        y: 135
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -926,11 +947,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 412
-        y: 105
+        y: 135
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -947,11 +968,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 51
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -967,12 +988,12 @@ TextureImporter:
       name: SNES - Super Metroid - Objects & Items_69
       rect:
         serializedVersion: 2
-        x: 91
-        y: 63
+        x: 92
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -989,11 +1010,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 131
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1010,11 +1031,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 171
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1031,11 +1052,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 211
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1052,11 +1073,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 251
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1073,11 +1094,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 291
-        y: 63
-        width: 15
+        y: 93
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1090,36 +1111,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SNES - Super Metroid - Objects & Items_75
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 72
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08e0d6643034da7d0800000000000000
-      internalID: -2905592503238586752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SNES - Super Metroid - Objects & Items_76
       rect:
         serializedVersion: 2
         x: 331
-        y: 63
-        width: 15
+        y: 93
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1132,36 +1132,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SNES - Super Metroid - Objects & Items_77
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 72
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6c4b84a2f05c5380800000000000000
-      internalID: -8981214553810711444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SNES - Super Metroid - Objects & Items_78
       rect:
         serializedVersion: 2
         x: 371
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1178,11 +1157,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 411
-        y: 63
+        y: 93
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1199,11 +1178,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1220,11 +1199,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 31
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1241,11 +1220,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 45
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1262,11 +1241,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 123
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1283,11 +1262,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 136
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1304,11 +1283,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1325,11 +1304,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 234
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1346,11 +1325,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 247
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1367,11 +1346,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 261
-        y: 246
+        y: 276
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1388,11 +1367,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 176
+        y: 206
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1409,11 +1388,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 31
-        y: 176
+        y: 206
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1430,11 +1409,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 45
-        y: 176
+        y: 206
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1442,6 +1421,153 @@ TextureImporter:
       bones: []
       spriteID: 4b3f1a1bc0eaf2270800000000000000
       internalID: 8227986413772207028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaf6f97791bf9440800000000000000
+      internalID: 4944866180020501164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_16
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b0e593d3a15cb00800000000000000
+      internalID: 848112955086998302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_17
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 44
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a36e791f41ddc340800000000000000
+      internalID: 4885791308427191209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_18
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 54
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71aa637aad9cf9460800000000000000
+      internalID: 7250735866035218967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_19
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 54
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b0ecf45c90995f0800000000000000
+      internalID: -749557119928366212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_20
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 55
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e4fbb44ac2cbfa0800000000000000
+      internalID: -5783698737293472190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Metroid - Objects & Items_21
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 55
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4aef709db481dcb0800000000000000
+      internalID: -4840942174738585013
       vertices: []
       indices: 
       edges: []

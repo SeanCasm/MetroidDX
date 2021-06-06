@@ -212,7 +212,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool(animatorHash[5], crouch);
             anim.SetBool(animatorHash[6], leftLook);
             anim.SetBool(animatorHash[7], aimUp);
-            anim.SetBool(animatorHash[8], isGrounded && xInput == 0);
+            anim.SetBool(animatorHash[8], isGrounded && xInput == 0);//idle
             anim.SetBool(animatorHash[10], onRoll);
             anim.SetBool(animatorHash[11], aimDown);
             anim.SetBool(animatorHash[13], airShoot || (holdingFire && !isGrounded));
@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector2(0, 0);
+            rb.velocity = Vector2.zero;
             material.friction = 100;
         }
         if (!balled)
@@ -354,8 +354,8 @@ public class PlayerController : MonoBehaviour
     {
         StopAllCoroutines();
         CancelInvoke();
-        crouch= fall= wallJumping= airShoot= movingOnAir= isJumping= runBooster=moveOnFloor=gravityJump=
-        onJumpingState= charged= holdingFire= ShootOnWalk = isGrounded= Screwing= hyperJumping=balled=
+        crouch= fall= wallJumping= airShoot= movingOnAir= isJumping= RunBooster=moveOnFloor=gravityJump=
+        onJumpingState= charged= holdingFire= ShootOnWalk = IsGrounded= Screwing= HyperJumping=Balled=
         movement = canInstantiate=OnRoll=false;
         xInput=yInput=0;
         rb.velocity = Vector2.zero;
@@ -432,7 +432,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-        }else{
+        }else if(!movement){
             if (xInput == 0)InputX();
             if(yInput==0)InputY();
         }

@@ -15,6 +15,7 @@ public class GameData
     public Dictionary<string, List<int>> tilesX, tilesY;
     public List<int> bossesDefeated;//boss id and name
     public Dictionary<float,float> tilesRegistered=new Dictionary<float, float>();
+    public List<int> mappers=new List<int>();
     public int[] time=new int[4];
     public bool[] miniMapItem = new bool[40];
     public GameData(PlayerInventory inventory,PlayerHealth energy,MapSaveSystem map,float[] pos,string sectorName)
@@ -42,9 +43,10 @@ public class GameData
         tanks = energy.Tanks;
         position[0] = pos[0];
         position[1] = pos[1];
+        mappers=new List<int>(map.mappers);
         tilesX =new Dictionary<string, List<int>> ( map.tilesX);
         tilesY =new Dictionary<string, List<int>> (map.tilesY);
-        tilesRegistered = new Dictionary<float, float>(map.tilesRegistered);
+        tilesRegistered = new Dictionary<float, float>(MapSaveSystem.tilesRegistered);
         miniMapItem = map.miniMapItem;
     }
     void SelectItemsData(PlayerInventory inventory)

@@ -3,9 +3,6 @@ guid: fb929a0a5240e1346b82095eb939b30a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8506138666385694479
-    second: Map tiles doors_0
-  - first:
       213: 8664948733038719710
     second: Map tiles doors_1
   - first:
@@ -558,6 +555,9 @@ TextureImporter:
       213: -4448971736561605190
     second: Map tiles doors_184
   - first:
+      213: -8506138666385694479
+    second: Map tiles doors_0
+  - first:
       213: 7496647117199827441
     second: Map tiles doors_185
   - first:
@@ -604,7 +604,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -615,9 +615,9 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 0
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -633,11 +633,11 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 256
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: 7
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -645,11 +645,11 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 256
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: 7
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -657,14 +657,14 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 256
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: 49
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
-    androidETC2FallbackOverride: 2
+    androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
@@ -674,11 +674,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -695,11 +695,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 9
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -716,11 +716,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -737,11 +737,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 27
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -758,11 +758,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 36
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -779,11 +779,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 45
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -800,11 +800,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 54
-        y: 142
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -820,12 +820,12 @@ TextureImporter:
       name: Map tiles doors_7
       rect:
         serializedVersion: 2
-        x: 88
-        y: 142
+        x: 72
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -841,12 +841,12 @@ TextureImporter:
       name: Map tiles doors_8
       rect:
         serializedVersion: 2
-        x: 97
-        y: 142
+        x: 81
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -862,12 +862,12 @@ TextureImporter:
       name: Map tiles doors_9
       rect:
         serializedVersion: 2
-        x: 106
-        y: 142
+        x: 90
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -883,12 +883,12 @@ TextureImporter:
       name: Map tiles doors_10
       rect:
         serializedVersion: 2
-        x: 115
-        y: 142
+        x: 99
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -904,12 +904,12 @@ TextureImporter:
       name: Map tiles doors_11
       rect:
         serializedVersion: 2
-        x: 124
-        y: 142
+        x: 108
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -925,12 +925,12 @@ TextureImporter:
       name: Map tiles doors_12
       rect:
         serializedVersion: 2
-        x: 133
-        y: 142
+        x: 117
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -946,12 +946,12 @@ TextureImporter:
       name: Map tiles doors_13
       rect:
         serializedVersion: 2
-        x: 142
-        y: 142
+        x: 126
+        y: 140
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -968,11 +968,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -989,11 +989,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 9
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1010,11 +1010,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1031,11 +1031,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 27
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1052,11 +1052,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 36
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1073,11 +1073,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 45
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1094,11 +1094,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 54
-        y: 133
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1114,12 +1114,12 @@ TextureImporter:
       name: Map tiles doors_21
       rect:
         serializedVersion: 2
-        x: 88
-        y: 133
+        x: 72
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1135,12 +1135,12 @@ TextureImporter:
       name: Map tiles doors_22
       rect:
         serializedVersion: 2
-        x: 97
-        y: 133
+        x: 81
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1156,12 +1156,12 @@ TextureImporter:
       name: Map tiles doors_23
       rect:
         serializedVersion: 2
-        x: 106
-        y: 133
+        x: 90
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1177,12 +1177,12 @@ TextureImporter:
       name: Map tiles doors_24
       rect:
         serializedVersion: 2
-        x: 115
-        y: 133
+        x: 99
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1198,12 +1198,12 @@ TextureImporter:
       name: Map tiles doors_25
       rect:
         serializedVersion: 2
-        x: 124
-        y: 133
+        x: 108
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1219,12 +1219,12 @@ TextureImporter:
       name: Map tiles doors_26
       rect:
         serializedVersion: 2
-        x: 142
-        y: 133
+        x: 117
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1240,12 +1240,12 @@ TextureImporter:
       name: Map tiles doors_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 124
+        x: 126
+        y: 131
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1261,12 +1261,12 @@ TextureImporter:
       name: Map tiles doors_28
       rect:
         serializedVersion: 2
-        x: 9
-        y: 124
+        x: 0
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1282,12 +1282,12 @@ TextureImporter:
       name: Map tiles doors_29
       rect:
         serializedVersion: 2
-        x: 18
-        y: 124
+        x: 9
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1303,12 +1303,12 @@ TextureImporter:
       name: Map tiles doors_30
       rect:
         serializedVersion: 2
-        x: 27
-        y: 124
+        x: 18
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1324,12 +1324,12 @@ TextureImporter:
       name: Map tiles doors_31
       rect:
         serializedVersion: 2
-        x: 36
-        y: 124
+        x: 27
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1345,12 +1345,12 @@ TextureImporter:
       name: Map tiles doors_32
       rect:
         serializedVersion: 2
-        x: 45
-        y: 124
+        x: 36
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1366,12 +1366,12 @@ TextureImporter:
       name: Map tiles doors_33
       rect:
         serializedVersion: 2
-        x: 54
-        y: 124
+        x: 45
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1387,12 +1387,12 @@ TextureImporter:
       name: Map tiles doors_34
       rect:
         serializedVersion: 2
-        x: 88
-        y: 124
+        x: 54
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1408,12 +1408,12 @@ TextureImporter:
       name: Map tiles doors_35
       rect:
         serializedVersion: 2
-        x: 97
-        y: 124
+        x: 72
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1429,12 +1429,12 @@ TextureImporter:
       name: Map tiles doors_36
       rect:
         serializedVersion: 2
-        x: 106
-        y: 124
+        x: 81
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1450,12 +1450,12 @@ TextureImporter:
       name: Map tiles doors_37
       rect:
         serializedVersion: 2
-        x: 115
-        y: 124
+        x: 90
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1471,12 +1471,12 @@ TextureImporter:
       name: Map tiles doors_38
       rect:
         serializedVersion: 2
-        x: 124
-        y: 124
+        x: 99
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1492,12 +1492,12 @@ TextureImporter:
       name: Map tiles doors_39
       rect:
         serializedVersion: 2
-        x: 133
-        y: 124
+        x: 108
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1513,12 +1513,12 @@ TextureImporter:
       name: Map tiles doors_40
       rect:
         serializedVersion: 2
-        x: 142
-        y: 124
+        x: 117
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1534,12 +1534,12 @@ TextureImporter:
       name: Map tiles doors_41
       rect:
         serializedVersion: 2
-        x: 0
-        y: 115
+        x: 126
+        y: 122
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1555,12 +1555,12 @@ TextureImporter:
       name: Map tiles doors_42
       rect:
         serializedVersion: 2
-        x: 9
-        y: 115
+        x: 0
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1576,12 +1576,12 @@ TextureImporter:
       name: Map tiles doors_43
       rect:
         serializedVersion: 2
-        x: 18
-        y: 115
+        x: 9
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1597,12 +1597,12 @@ TextureImporter:
       name: Map tiles doors_44
       rect:
         serializedVersion: 2
-        x: 27
-        y: 115
+        x: 18
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1618,12 +1618,12 @@ TextureImporter:
       name: Map tiles doors_45
       rect:
         serializedVersion: 2
-        x: 36
-        y: 115
+        x: 27
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1639,12 +1639,12 @@ TextureImporter:
       name: Map tiles doors_46
       rect:
         serializedVersion: 2
-        x: 45
-        y: 115
+        x: 36
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1660,12 +1660,12 @@ TextureImporter:
       name: Map tiles doors_47
       rect:
         serializedVersion: 2
-        x: 54
-        y: 115
+        x: 45
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1681,12 +1681,12 @@ TextureImporter:
       name: Map tiles doors_48
       rect:
         serializedVersion: 2
-        x: 88
-        y: 115
+        x: 54
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1702,12 +1702,12 @@ TextureImporter:
       name: Map tiles doors_49
       rect:
         serializedVersion: 2
-        x: 97
-        y: 115
+        x: 72
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1723,12 +1723,12 @@ TextureImporter:
       name: Map tiles doors_50
       rect:
         serializedVersion: 2
-        x: 106
-        y: 115
+        x: 81
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1744,12 +1744,12 @@ TextureImporter:
       name: Map tiles doors_51
       rect:
         serializedVersion: 2
-        x: 115
-        y: 115
+        x: 90
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1765,12 +1765,12 @@ TextureImporter:
       name: Map tiles doors_52
       rect:
         serializedVersion: 2
-        x: 124
-        y: 115
+        x: 99
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1786,12 +1786,12 @@ TextureImporter:
       name: Map tiles doors_53
       rect:
         serializedVersion: 2
-        x: 133
-        y: 115
+        x: 108
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1807,12 +1807,12 @@ TextureImporter:
       name: Map tiles doors_54
       rect:
         serializedVersion: 2
-        x: 142
-        y: 115
+        x: 117
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1828,12 +1828,12 @@ TextureImporter:
       name: Map tiles doors_55
       rect:
         serializedVersion: 2
-        x: 0
-        y: 106
+        x: 126
+        y: 113
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1849,12 +1849,12 @@ TextureImporter:
       name: Map tiles doors_56
       rect:
         serializedVersion: 2
-        x: 9
-        y: 106
+        x: 0
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1870,12 +1870,12 @@ TextureImporter:
       name: Map tiles doors_57
       rect:
         serializedVersion: 2
-        x: 18
-        y: 106
+        x: 9
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1891,12 +1891,12 @@ TextureImporter:
       name: Map tiles doors_58
       rect:
         serializedVersion: 2
-        x: 27
-        y: 106
+        x: 18
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1912,12 +1912,12 @@ TextureImporter:
       name: Map tiles doors_59
       rect:
         serializedVersion: 2
-        x: 36
-        y: 106
+        x: 27
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1933,12 +1933,12 @@ TextureImporter:
       name: Map tiles doors_60
       rect:
         serializedVersion: 2
-        x: 45
-        y: 106
+        x: 36
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1954,12 +1954,12 @@ TextureImporter:
       name: Map tiles doors_61
       rect:
         serializedVersion: 2
-        x: 54
-        y: 106
+        x: 45
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1975,12 +1975,12 @@ TextureImporter:
       name: Map tiles doors_62
       rect:
         serializedVersion: 2
-        x: 88
-        y: 106
+        x: 54
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1996,12 +1996,12 @@ TextureImporter:
       name: Map tiles doors_63
       rect:
         serializedVersion: 2
-        x: 97
-        y: 106
+        x: 72
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2017,12 +2017,12 @@ TextureImporter:
       name: Map tiles doors_64
       rect:
         serializedVersion: 2
-        x: 106
-        y: 106
+        x: 81
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2038,12 +2038,12 @@ TextureImporter:
       name: Map tiles doors_65
       rect:
         serializedVersion: 2
-        x: 115
-        y: 106
+        x: 90
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2059,12 +2059,12 @@ TextureImporter:
       name: Map tiles doors_66
       rect:
         serializedVersion: 2
-        x: 124
-        y: 106
+        x: 99
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2080,12 +2080,12 @@ TextureImporter:
       name: Map tiles doors_67
       rect:
         serializedVersion: 2
-        x: 133
-        y: 106
+        x: 108
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2101,12 +2101,12 @@ TextureImporter:
       name: Map tiles doors_68
       rect:
         serializedVersion: 2
-        x: 0
-        y: 97
+        x: 117
+        y: 104
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2122,12 +2122,12 @@ TextureImporter:
       name: Map tiles doors_69
       rect:
         serializedVersion: 2
-        x: 9
-        y: 97
+        x: 0
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2143,12 +2143,12 @@ TextureImporter:
       name: Map tiles doors_70
       rect:
         serializedVersion: 2
-        x: 18
-        y: 97
+        x: 9
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2164,12 +2164,12 @@ TextureImporter:
       name: Map tiles doors_71
       rect:
         serializedVersion: 2
-        x: 27
-        y: 97
+        x: 18
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2185,12 +2185,12 @@ TextureImporter:
       name: Map tiles doors_72
       rect:
         serializedVersion: 2
-        x: 36
-        y: 97
+        x: 27
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2206,12 +2206,12 @@ TextureImporter:
       name: Map tiles doors_73
       rect:
         serializedVersion: 2
-        x: 45
-        y: 97
+        x: 36
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2227,12 +2227,12 @@ TextureImporter:
       name: Map tiles doors_74
       rect:
         serializedVersion: 2
-        x: 54
-        y: 97
+        x: 45
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2248,12 +2248,12 @@ TextureImporter:
       name: Map tiles doors_75
       rect:
         serializedVersion: 2
-        x: 88
-        y: 97
+        x: 54
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2269,12 +2269,12 @@ TextureImporter:
       name: Map tiles doors_76
       rect:
         serializedVersion: 2
-        x: 97
-        y: 97
+        x: 72
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2290,12 +2290,12 @@ TextureImporter:
       name: Map tiles doors_77
       rect:
         serializedVersion: 2
-        x: 106
-        y: 97
+        x: 81
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2311,12 +2311,12 @@ TextureImporter:
       name: Map tiles doors_78
       rect:
         serializedVersion: 2
-        x: 115
-        y: 97
+        x: 90
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2332,12 +2332,12 @@ TextureImporter:
       name: Map tiles doors_79
       rect:
         serializedVersion: 2
-        x: 124
-        y: 97
+        x: 99
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2353,12 +2353,12 @@ TextureImporter:
       name: Map tiles doors_80
       rect:
         serializedVersion: 2
-        x: 133
-        y: 97
+        x: 108
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2374,12 +2374,12 @@ TextureImporter:
       name: Map tiles doors_81
       rect:
         serializedVersion: 2
-        x: 0
-        y: 88
+        x: 117
+        y: 95
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2395,12 +2395,12 @@ TextureImporter:
       name: Map tiles doors_82
       rect:
         serializedVersion: 2
-        x: 9
-        y: 88
+        x: 0
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2416,12 +2416,12 @@ TextureImporter:
       name: Map tiles doors_83
       rect:
         serializedVersion: 2
-        x: 18
-        y: 88
+        x: 9
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2437,12 +2437,12 @@ TextureImporter:
       name: Map tiles doors_84
       rect:
         serializedVersion: 2
-        x: 27
-        y: 88
+        x: 18
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2458,12 +2458,12 @@ TextureImporter:
       name: Map tiles doors_85
       rect:
         serializedVersion: 2
-        x: 36
-        y: 88
+        x: 27
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2479,12 +2479,12 @@ TextureImporter:
       name: Map tiles doors_86
       rect:
         serializedVersion: 2
-        x: 45
-        y: 88
+        x: 36
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2500,12 +2500,12 @@ TextureImporter:
       name: Map tiles doors_87
       rect:
         serializedVersion: 2
-        x: 54
-        y: 88
+        x: 45
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2521,12 +2521,12 @@ TextureImporter:
       name: Map tiles doors_88
       rect:
         serializedVersion: 2
-        x: 88
-        y: 88
+        x: 54
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2542,12 +2542,12 @@ TextureImporter:
       name: Map tiles doors_89
       rect:
         serializedVersion: 2
-        x: 97
-        y: 88
+        x: 72
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2563,12 +2563,12 @@ TextureImporter:
       name: Map tiles doors_90
       rect:
         serializedVersion: 2
-        x: 106
-        y: 88
+        x: 81
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2584,12 +2584,12 @@ TextureImporter:
       name: Map tiles doors_91
       rect:
         serializedVersion: 2
-        x: 124
-        y: 88
+        x: 90
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2605,12 +2605,12 @@ TextureImporter:
       name: Map tiles doors_92
       rect:
         serializedVersion: 2
-        x: 133
-        y: 88
+        x: 99
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2626,12 +2626,12 @@ TextureImporter:
       name: Map tiles doors_93
       rect:
         serializedVersion: 2
-        x: 0
-        y: 79
+        x: 108
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2647,12 +2647,12 @@ TextureImporter:
       name: Map tiles doors_94
       rect:
         serializedVersion: 2
-        x: 9
-        y: 79
+        x: 117
+        y: 86
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2668,12 +2668,12 @@ TextureImporter:
       name: Map tiles doors_95
       rect:
         serializedVersion: 2
-        x: 18
-        y: 79
+        x: 0
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2689,12 +2689,12 @@ TextureImporter:
       name: Map tiles doors_96
       rect:
         serializedVersion: 2
-        x: 27
-        y: 79
+        x: 9
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2710,12 +2710,12 @@ TextureImporter:
       name: Map tiles doors_97
       rect:
         serializedVersion: 2
-        x: 36
-        y: 79
+        x: 18
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2731,12 +2731,12 @@ TextureImporter:
       name: Map tiles doors_98
       rect:
         serializedVersion: 2
-        x: 45
-        y: 79
+        x: 27
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2752,12 +2752,12 @@ TextureImporter:
       name: Map tiles doors_99
       rect:
         serializedVersion: 2
-        x: 54
-        y: 79
+        x: 36
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2773,12 +2773,12 @@ TextureImporter:
       name: Map tiles doors_100
       rect:
         serializedVersion: 2
-        x: 88
-        y: 79
+        x: 45
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2794,12 +2794,12 @@ TextureImporter:
       name: Map tiles doors_101
       rect:
         serializedVersion: 2
-        x: 97
-        y: 79
+        x: 54
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2815,12 +2815,12 @@ TextureImporter:
       name: Map tiles doors_102
       rect:
         serializedVersion: 2
-        x: 106
-        y: 79
+        x: 72
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2836,12 +2836,12 @@ TextureImporter:
       name: Map tiles doors_103
       rect:
         serializedVersion: 2
-        x: 115
-        y: 79
+        x: 81
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2857,12 +2857,12 @@ TextureImporter:
       name: Map tiles doors_104
       rect:
         serializedVersion: 2
-        x: 124
-        y: 79
+        x: 90
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2878,12 +2878,12 @@ TextureImporter:
       name: Map tiles doors_105
       rect:
         serializedVersion: 2
-        x: 133
-        y: 79
+        x: 99
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2899,12 +2899,12 @@ TextureImporter:
       name: Map tiles doors_106
       rect:
         serializedVersion: 2
-        x: 0
-        y: 70
+        x: 108
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2920,12 +2920,12 @@ TextureImporter:
       name: Map tiles doors_107
       rect:
         serializedVersion: 2
-        x: 9
-        y: 70
+        x: 117
+        y: 77
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2941,12 +2941,12 @@ TextureImporter:
       name: Map tiles doors_108
       rect:
         serializedVersion: 2
-        x: 18
-        y: 70
+        x: 0
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2962,12 +2962,12 @@ TextureImporter:
       name: Map tiles doors_109
       rect:
         serializedVersion: 2
-        x: 27
-        y: 70
+        x: 9
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2983,12 +2983,12 @@ TextureImporter:
       name: Map tiles doors_110
       rect:
         serializedVersion: 2
-        x: 54
-        y: 70
+        x: 18
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3004,12 +3004,12 @@ TextureImporter:
       name: Map tiles doors_111
       rect:
         serializedVersion: 2
-        x: 88
-        y: 70
+        x: 27
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3025,12 +3025,12 @@ TextureImporter:
       name: Map tiles doors_112
       rect:
         serializedVersion: 2
-        x: 97
-        y: 70
+        x: 54
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3046,12 +3046,12 @@ TextureImporter:
       name: Map tiles doors_113
       rect:
         serializedVersion: 2
-        x: 106
-        y: 70
+        x: 72
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3067,12 +3067,12 @@ TextureImporter:
       name: Map tiles doors_114
       rect:
         serializedVersion: 2
-        x: 115
-        y: 70
+        x: 81
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3088,12 +3088,12 @@ TextureImporter:
       name: Map tiles doors_115
       rect:
         serializedVersion: 2
-        x: 124
-        y: 70
+        x: 90
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3109,12 +3109,12 @@ TextureImporter:
       name: Map tiles doors_116
       rect:
         serializedVersion: 2
-        x: 133
-        y: 70
+        x: 99
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3130,12 +3130,12 @@ TextureImporter:
       name: Map tiles doors_117
       rect:
         serializedVersion: 2
-        x: 0
-        y: 61
+        x: 108
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3151,12 +3151,12 @@ TextureImporter:
       name: Map tiles doors_118
       rect:
         serializedVersion: 2
-        x: 9
-        y: 61
+        x: 117
+        y: 68
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3172,12 +3172,12 @@ TextureImporter:
       name: Map tiles doors_119
       rect:
         serializedVersion: 2
-        x: 18
-        y: 61
+        x: 0
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3193,12 +3193,12 @@ TextureImporter:
       name: Map tiles doors_120
       rect:
         serializedVersion: 2
-        x: 27
-        y: 61
+        x: 9
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3214,12 +3214,12 @@ TextureImporter:
       name: Map tiles doors_121
       rect:
         serializedVersion: 2
-        x: 88
-        y: 61
+        x: 18
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3235,12 +3235,12 @@ TextureImporter:
       name: Map tiles doors_122
       rect:
         serializedVersion: 2
-        x: 97
-        y: 61
+        x: 27
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3256,12 +3256,12 @@ TextureImporter:
       name: Map tiles doors_123
       rect:
         serializedVersion: 2
-        x: 106
-        y: 61
+        x: 36
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3277,12 +3277,12 @@ TextureImporter:
       name: Map tiles doors_124
       rect:
         serializedVersion: 2
-        x: 115
-        y: 61
+        x: 45
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3298,12 +3298,12 @@ TextureImporter:
       name: Map tiles doors_125
       rect:
         serializedVersion: 2
-        x: 124
-        y: 61
+        x: 54
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3319,12 +3319,12 @@ TextureImporter:
       name: Map tiles doors_126
       rect:
         serializedVersion: 2
-        x: 133
-        y: 61
+        x: 63
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3340,12 +3340,12 @@ TextureImporter:
       name: Map tiles doors_127
       rect:
         serializedVersion: 2
-        x: 0
-        y: 52
+        x: 72
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3361,12 +3361,12 @@ TextureImporter:
       name: Map tiles doors_128
       rect:
         serializedVersion: 2
-        x: 9
-        y: 52
+        x: 81
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3382,12 +3382,12 @@ TextureImporter:
       name: Map tiles doors_129
       rect:
         serializedVersion: 2
-        x: 18
-        y: 52
+        x: 90
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3403,12 +3403,12 @@ TextureImporter:
       name: Map tiles doors_130
       rect:
         serializedVersion: 2
-        x: 27
-        y: 52
+        x: 99
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3424,12 +3424,12 @@ TextureImporter:
       name: Map tiles doors_131
       rect:
         serializedVersion: 2
-        x: 88
-        y: 52
+        x: 108
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3445,12 +3445,12 @@ TextureImporter:
       name: Map tiles doors_132
       rect:
         serializedVersion: 2
-        x: 106
-        y: 52
+        x: 117
+        y: 59
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3466,12 +3466,12 @@ TextureImporter:
       name: Map tiles doors_133
       rect:
         serializedVersion: 2
-        x: 115
-        y: 52
+        x: 0
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3487,12 +3487,12 @@ TextureImporter:
       name: Map tiles doors_134
       rect:
         serializedVersion: 2
-        x: 133
-        y: 52
+        x: 9
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3508,12 +3508,12 @@ TextureImporter:
       name: Map tiles doors_135
       rect:
         serializedVersion: 2
-        x: 0
-        y: 43
+        x: 18
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3529,12 +3529,12 @@ TextureImporter:
       name: Map tiles doors_136
       rect:
         serializedVersion: 2
-        x: 9
-        y: 43
+        x: 27
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3550,12 +3550,12 @@ TextureImporter:
       name: Map tiles doors_137
       rect:
         serializedVersion: 2
-        x: 18
-        y: 43
+        x: 36
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3571,12 +3571,12 @@ TextureImporter:
       name: Map tiles doors_138
       rect:
         serializedVersion: 2
-        x: 27
-        y: 43
+        x: 45
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3592,12 +3592,12 @@ TextureImporter:
       name: Map tiles doors_139
       rect:
         serializedVersion: 2
-        x: 47
-        y: 44
+        x: 54
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3613,12 +3613,12 @@ TextureImporter:
       name: Map tiles doors_140
       rect:
         serializedVersion: 2
-        x: 56
-        y: 44
+        x: 63
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3634,12 +3634,12 @@ TextureImporter:
       name: Map tiles doors_141
       rect:
         serializedVersion: 2
-        x: 65
-        y: 44
+        x: 72
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3655,12 +3655,12 @@ TextureImporter:
       name: Map tiles doors_142
       rect:
         serializedVersion: 2
-        x: 74
-        y: 44
+        x: 81
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3676,12 +3676,12 @@ TextureImporter:
       name: Map tiles doors_143
       rect:
         serializedVersion: 2
-        x: 88
-        y: 43
+        x: 90
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3697,12 +3697,12 @@ TextureImporter:
       name: Map tiles doors_144
       rect:
         serializedVersion: 2
-        x: 106
-        y: 43
+        x: 99
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3718,12 +3718,12 @@ TextureImporter:
       name: Map tiles doors_145
       rect:
         serializedVersion: 2
-        x: 115
-        y: 43
+        x: 117
+        y: 50
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3739,12 +3739,12 @@ TextureImporter:
       name: Map tiles doors_146
       rect:
         serializedVersion: 2
-        x: 133
-        y: 43
+        x: 0
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3760,12 +3760,12 @@ TextureImporter:
       name: Map tiles doors_147
       rect:
         serializedVersion: 2
-        x: 0
-        y: 34
+        x: 9
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3781,12 +3781,12 @@ TextureImporter:
       name: Map tiles doors_148
       rect:
         serializedVersion: 2
-        x: 9
-        y: 34
+        x: 18
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3802,12 +3802,12 @@ TextureImporter:
       name: Map tiles doors_149
       rect:
         serializedVersion: 2
-        x: 18
-        y: 34
+        x: 27
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3823,12 +3823,12 @@ TextureImporter:
       name: Map tiles doors_150
       rect:
         serializedVersion: 2
-        x: 27
-        y: 34
+        x: 36
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3844,12 +3844,12 @@ TextureImporter:
       name: Map tiles doors_151
       rect:
         serializedVersion: 2
-        x: 47
-        y: 35
+        x: 45
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3865,12 +3865,12 @@ TextureImporter:
       name: Map tiles doors_152
       rect:
         serializedVersion: 2
-        x: 56
-        y: 35
+        x: 54
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3886,12 +3886,12 @@ TextureImporter:
       name: Map tiles doors_153
       rect:
         serializedVersion: 2
-        x: 65
-        y: 35
+        x: 63
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3907,12 +3907,12 @@ TextureImporter:
       name: Map tiles doors_154
       rect:
         serializedVersion: 2
-        x: 74
-        y: 35
+        x: 72
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3928,12 +3928,12 @@ TextureImporter:
       name: Map tiles doors_155
       rect:
         serializedVersion: 2
-        x: 88
-        y: 34
+        x: 81
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3949,12 +3949,12 @@ TextureImporter:
       name: Map tiles doors_156
       rect:
         serializedVersion: 2
-        x: 97
-        y: 34
+        x: 90
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3970,12 +3970,12 @@ TextureImporter:
       name: Map tiles doors_157
       rect:
         serializedVersion: 2
-        x: 106
-        y: 34
+        x: 99
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3991,12 +3991,12 @@ TextureImporter:
       name: Map tiles doors_158
       rect:
         serializedVersion: 2
-        x: 115
-        y: 34
+        x: 117
+        y: 41
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4012,12 +4012,12 @@ TextureImporter:
       name: Map tiles doors_159
       rect:
         serializedVersion: 2
-        x: 133
-        y: 34
+        x: 0
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4033,12 +4033,12 @@ TextureImporter:
       name: Map tiles doors_160
       rect:
         serializedVersion: 2
-        x: 47
-        y: 26
+        x: 9
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4054,12 +4054,12 @@ TextureImporter:
       name: Map tiles doors_161
       rect:
         serializedVersion: 2
-        x: 56
-        y: 26
+        x: 18
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4075,12 +4075,12 @@ TextureImporter:
       name: Map tiles doors_162
       rect:
         serializedVersion: 2
-        x: 65
-        y: 26
+        x: 27
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4096,12 +4096,12 @@ TextureImporter:
       name: Map tiles doors_163
       rect:
         serializedVersion: 2
-        x: 74
-        y: 26
+        x: 36
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4117,12 +4117,12 @@ TextureImporter:
       name: Map tiles doors_164
       rect:
         serializedVersion: 2
-        x: 88
-        y: 25
+        x: 45
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4138,12 +4138,12 @@ TextureImporter:
       name: Map tiles doors_165
       rect:
         serializedVersion: 2
-        x: 97
-        y: 25
+        x: 54
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4159,12 +4159,12 @@ TextureImporter:
       name: Map tiles doors_166
       rect:
         serializedVersion: 2
-        x: 106
-        y: 25
+        x: 63
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4180,12 +4180,12 @@ TextureImporter:
       name: Map tiles doors_167
       rect:
         serializedVersion: 2
-        x: 115
-        y: 25
+        x: 72
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4201,12 +4201,12 @@ TextureImporter:
       name: Map tiles doors_168
       rect:
         serializedVersion: 2
-        x: 133
-        y: 25
+        x: 81
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4222,12 +4222,12 @@ TextureImporter:
       name: Map tiles doors_169
       rect:
         serializedVersion: 2
-        x: 47
-        y: 17
+        x: 90
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4243,12 +4243,12 @@ TextureImporter:
       name: Map tiles doors_170
       rect:
         serializedVersion: 2
-        x: 56
-        y: 17
+        x: 99
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4264,12 +4264,12 @@ TextureImporter:
       name: Map tiles doors_171
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
+        x: 117
+        y: 32
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4285,12 +4285,12 @@ TextureImporter:
       name: Map tiles doors_172
       rect:
         serializedVersion: 2
-        x: 74
-        y: 17
+        x: 36
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4306,12 +4306,12 @@ TextureImporter:
       name: Map tiles doors_173
       rect:
         serializedVersion: 2
-        x: 88
-        y: 16
+        x: 45
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4327,12 +4327,12 @@ TextureImporter:
       name: Map tiles doors_174
       rect:
         serializedVersion: 2
-        x: 97
-        y: 16
+        x: 54
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4348,12 +4348,12 @@ TextureImporter:
       name: Map tiles doors_175
       rect:
         serializedVersion: 2
-        x: 106
-        y: 16
+        x: 63
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4369,12 +4369,12 @@ TextureImporter:
       name: Map tiles doors_176
       rect:
         serializedVersion: 2
-        x: 115
-        y: 16
+        x: 72
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4390,12 +4390,12 @@ TextureImporter:
       name: Map tiles doors_177
       rect:
         serializedVersion: 2
-        x: 47
-        y: 8
+        x: 81
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4411,12 +4411,12 @@ TextureImporter:
       name: Map tiles doors_178
       rect:
         serializedVersion: 2
-        x: 56
-        y: 8
+        x: 90
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4432,12 +4432,12 @@ TextureImporter:
       name: Map tiles doors_179
       rect:
         serializedVersion: 2
-        x: 65
-        y: 8
+        x: 99
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4453,12 +4453,12 @@ TextureImporter:
       name: Map tiles doors_180
       rect:
         serializedVersion: 2
-        x: 74
-        y: 8
+        x: 117
+        y: 23
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4474,12 +4474,12 @@ TextureImporter:
       name: Map tiles doors_181
       rect:
         serializedVersion: 2
-        x: 88
-        y: 7
+        x: 72
+        y: 14
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4495,12 +4495,12 @@ TextureImporter:
       name: Map tiles doors_182
       rect:
         serializedVersion: 2
-        x: 97
-        y: 7
+        x: 81
+        y: 14
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4516,12 +4516,12 @@ TextureImporter:
       name: Map tiles doors_183
       rect:
         serializedVersion: 2
-        x: 106
-        y: 7
+        x: 90
+        y: 14
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4537,12 +4537,12 @@ TextureImporter:
       name: Map tiles doors_184
       rect:
         serializedVersion: 2
-        x: 115
-        y: 7
+        x: 99
+        y: 14
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4558,12 +4558,12 @@ TextureImporter:
       name: Map tiles doors_185
       rect:
         serializedVersion: 2
-        x: 115
-        y: 88
+        x: 72
+        y: 5
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4579,12 +4579,12 @@ TextureImporter:
       name: Map tiles doors_186
       rect:
         serializedVersion: 2
-        x: 97
-        y: 52
+        x: 81
+        y: 5
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4600,12 +4600,12 @@ TextureImporter:
       name: Map tiles doors_187
       rect:
         serializedVersion: 2
-        x: 97
-        y: 43
+        x: 90
+        y: 5
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4621,12 +4621,12 @@ TextureImporter:
       name: Map tiles doors_188
       rect:
         serializedVersion: 2
-        x: 133
-        y: 133
+        x: 99
+        y: 5
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4641,7 +4641,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 4e80bc0c4ef0c5d44acfd1a137b6a25c
     internalID: 0
     vertices: []
     indices: 

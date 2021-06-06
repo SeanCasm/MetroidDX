@@ -23703,7 +23703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1717830704024340085, guid: d22d7e136c1a7504b9ac4e80c3356879, type: 3}
+  m_Sprite: {fileID: 7894611863853227128, guid: d22d7e136c1a7504b9ac4e80c3356879, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24725,6 +24725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMap: {fileID: 7012533267687539497}
+  mappers: 
 --- !u!82 &1925283447
 AudioSource:
   m_ObjectHideFlags: 0

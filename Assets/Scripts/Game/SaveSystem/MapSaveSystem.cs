@@ -8,10 +8,16 @@ public class MapSaveSystem : MonoBehaviour
 {
     #region Properties
     [SerializeField] Tilemap tileMap;
+    /// <summary>
+    /// Saves the x position of tiles by name. 
+    /// </summary>
+    /// <value></value>
     public Dictionary<string, List<int>> tilesX { get; set; }
     public Dictionary<string, List<int>> tilesY { get; set; }
     public bool[] miniMapItem { get; set; }
-    public Dictionary<float,float> tilesRegistered{get;set;}//x,y
+    public static Dictionary<float,float> tilesRegistered{get;set;}//x,y
+
+    public List<int> mappers=new List<int>();
     #endregion
     #region Unity Methods
     void Awake()
@@ -23,18 +29,25 @@ public class MapSaveSystem : MonoBehaviour
     }
     void OnEnable(){
         GameEvents.miniMap+=HandleRegistryTile;
+        GameEvents.xd+=xd;
     }
     private void OnDisable() {
         GameEvents.miniMap-=HandleRegistryTile;
+        GameEvents.xd -= xd;
     }
     #endregion
     #region Private Methods
-    private void HandleRegistryTile(float xPosition,float yPosition,Vector3Int cellPos,Tile mapTile){
-        if (!tilesRegistered.ContainsKey(xPosition)
-         && !tilesRegistered.ContainsValue(yPosition))
+    private void HandleRegistryTile(MiniMap miniMap){
+            print("XD");
+            tileMap.SetTile(miniMap.cellPos, miniMap.currentTile);
+            SaveMap(miniMap.currentTile,miniMap.cellPos);
+    }
+    void xd(MiniMap miniMap){
+        if (tileMap.GetTile(tileMap.WorldToCell(miniMap.newTrans)) == null  )
         {
-            tileMap.SetTile(cellPos, mapTile);
-            SaveMap(mapTile,cellPos);
+            print("XD");
+            tileMap.SetTile(miniMap.cellPos, miniMap.currentTile);
+            SaveMap(miniMap.currentTile, miniMap.cellPos);
         }
     }
     private void SaveMap(Tile mapTile,Vector3Int cellPos)
@@ -54,7 +67,7 @@ public class MapSaveSystem : MonoBehaviour
     }
     /// <summary>
     /// Load the tilemap game Map, loading the tiles from the Resources folder and checking if
-    /// the name of the saved tiles on dictionarys match with tiles name from Resources folder.
+    /// the name of the saved tiles in dictionarys match with tiles name from Resources folder.
     /// The variable tilesX is used like a reference to get the total tiles registered.
     /// </summary>
     private void SetTilesToTilemap()
@@ -65,9 +78,16 @@ public class MapSaveSystem : MonoBehaviour
         var blueDoors= Resources.LoadAll("BlueTilesD",typeof(Tile)).Cast<Tile>().ToArray();
         //Load tiles with save icon
         var saveTiles=Resources.LoadAll("SaveTiles",typeof(Tile)).Cast<Tile>().ToArray();
+        //Load unexplored tiles with doors
+        var unDoors=Resources.LoadAll("UnTilesD",typeof(Tile)).Cast<Tile>().ToArray();
+        //Load unexplored tiles without doors
+        var unNoDoors = Resources.LoadAll("UnTilesND", typeof(Tile)).Cast<Tile>().ToArray();
         Dictionary<string, Tile> tilesND = new Dictionary<string, Tile>();
         Dictionary<string, Tile> tilesD = new Dictionary<string, Tile>();
         Dictionary<string, Tile> saves = new Dictionary<string, Tile>();
+        Dictionary<string,Tile> tileUND=new Dictionary<string, Tile>();
+        Dictionary<string, Tile> tileUD = new Dictionary<string, Tile>();
+        
         foreach (Tile element in blueNoDoors)
         {
             tilesND.Add(element.name, element);
@@ -77,6 +97,14 @@ public class MapSaveSystem : MonoBehaviour
         }
         foreach(Tile element in saveTiles){
             saves.Add(element.name,element);
+        }
+        foreach (Tile element in unDoors)
+        {
+            tileUD.Add(element.name, element);
+        }
+        foreach (Tile element in unNoDoors)
+        {
+            tileUND.Add(element.name, element);
         }
         Vector3Int coordinates = new Vector3Int();
         List<int> tilesX_Temp = new List<int>();
@@ -112,6 +140,28 @@ public class MapSaveSystem : MonoBehaviour
                 }
             }else if(saves.ContainsKey(tilesX_Keys[i])){
                 mapTile = saves[tilesX_Keys[i]];
+                tilesX_Temp = tilesX[tilesX_Keys[i]];
+                tilesY_Temp = tilesY[tilesY_Keys[i]];
+                for (int j = 0; j < tilesX_Temp.Count; j++)
+                {
+                    coordinates.x = tilesX_Temp[j];
+                    coordinates.y = tilesY_Temp[j];
+                    tileMap.SetTile(coordinates, mapTile);
+                }
+            }else if (tileUND.ContainsKey(tilesX_Keys[i]))
+            {
+                mapTile = tileUND[tilesX_Keys[i]];
+                tilesX_Temp = tilesX[tilesX_Keys[i]];
+                tilesY_Temp = tilesY[tilesY_Keys[i]];
+                for (int j = 0; j < tilesX_Temp.Count; j++)
+                {
+                    coordinates.x = tilesX_Temp[j];
+                    coordinates.y = tilesY_Temp[j];
+                    tileMap.SetTile(coordinates, mapTile);
+                }
+            }else if (tileUD.ContainsKey(tilesX_Keys[i]))
+            {
+                mapTile = tileUD[tilesX_Keys[i]];
                 tilesX_Temp = tilesX[tilesX_Keys[i]];
                 tilesY_Temp = tilesY[tilesY_Keys[i]];
                 for (int j = 0; j < tilesX_Temp.Count; j++)

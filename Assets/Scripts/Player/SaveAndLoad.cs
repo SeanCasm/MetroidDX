@@ -51,6 +51,7 @@ public class SaveAndLoad : MonoBehaviour
         LoadToCollectorManager(data);
         TimeCounter.SetTimeAfterLoad(data.time);
         inventory.LoadInventory(data);
+        MapRevealer.mappers=new List<int>(data.mappers);
     }
     IEnumerator CheckSceneLoaded(AsyncOperation operation,GameData data){
         while(!operation.isDone){

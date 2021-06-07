@@ -26,6 +26,6 @@ public class MiniMap : MonoBehaviour
         currentTile=unexploredTile;
         newTrans=new Vector2(transform.position.x+8.195801f,transform.position.y+-115.62f);
         cellPos = References.myMap.WorldToCell(newTrans);
-        GameEvents.xd.Invoke(this);
+        GameEvents.UnexploredMap.Invoke(this);
     } 
 }

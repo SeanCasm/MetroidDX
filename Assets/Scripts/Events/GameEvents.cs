@@ -43,7 +43,7 @@ public static class GameEvents
     /// </summary>
     public static Action saveMessage;
     public static Action<MiniMap> miniMap;
-    public static Action<MiniMap> xd;
+    public static Action<MiniMap> UnexploredMap;
     /// <summary>
     /// Verifies the registry of reserve and items in the collector manager.
     /// </summary>

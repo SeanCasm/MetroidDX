@@ -29,11 +29,11 @@ public class MapSaveSystem : MonoBehaviour
     }
     void OnEnable(){
         GameEvents.miniMap+=HandleRegistryTile;
-        GameEvents.xd+=xd;
+        GameEvents.UnexploredMap+=xd;
     }
     private void OnDisable() {
         GameEvents.miniMap-=HandleRegistryTile;
-        GameEvents.xd -= xd;
+        GameEvents.UnexploredMap -= xd;
     }
     #endregion
     #region Private Methods

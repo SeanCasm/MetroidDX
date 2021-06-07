@@ -21,6 +21,7 @@ public class TimeCounter : MonoBehaviour
         GameEvents.pauseTimeCounter+=StartPauseCounter;
     }
     private void OnDisable() {
+        ResetTime();
         GameEvents.timeCounter -= StartCounter;
         GameEvents.pauseTimeCounter -= StartPauseCounter;
     }
@@ -29,6 +30,10 @@ public class TimeCounter : MonoBehaviour
         minutes= time[1];
         seconds= time[2];
         miliseconds= time[3];
+    }
+    private void ResetTime(){
+        miliseconds=seconds=minutes=hours=0;
+        currentTime="00:00:00.0";
     }
     private void StartCounter(bool start){
         StopAllCoroutines();

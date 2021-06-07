@@ -8,6 +8,7 @@ public class MapRevealer : MonoBehaviour
 {
     [SerializeField]List<GameObject> roomMaps=new List<GameObject>();
     [SerializeField]Collider2D col2D;
+    [SerializeField]Animator light;
     private int id;
     private bool active=true;
     private Animator animator,pAnim;
@@ -47,6 +48,7 @@ public class MapRevealer : MonoBehaviour
     }
     private void PassMapData(){
         animator.SetTrigger("Detected");
+        light.SetTrigger("Activated");
         var map=References.myMap;
         roomMap.ForEach(item=>{
             item.SetTile();

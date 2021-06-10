@@ -1,6 +1,6 @@
  
 # MetroidDX
-Technique demo based on metroid 2d games.
+Technique demo based in metroid 2d games.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/51692672/120400439-e04aff00-c30b-11eb-90df-8f645c00e7aa.gif" alt="animated"></p>
 
@@ -8,12 +8,15 @@ Technique demo based on metroid 2d games.
 <li>More improvements are applied to the game, like object pooling for some enemy bullets and player beams.</li>
 <li>Android version perfectly playable and optimized.</li>
 <li>Added the time counter.</li>
-<li>Added new boss: Serris</li>
+<li>Added a new boss: Serris</li>
+<li>Added the map updater</li>
+<li>Speed Booster updated, now the player can jump to: up,righ,left and upper diagonals</li>
+<li>Better IA to space pirates</li>
+<li>Transitions at doors entering</li>
+
 
 ## Things I'll probable add in a future (if I can code them)
-<li>:clock9: A new boss </li>
-<li>:heavy_check_mark: Better IA to space pirates (like they can jump on platforms)</li>
-<li>:clock9: Transitions at door entering. (currently in development)</li>
+<li>:clock9: A new boss: Spore spawn </li>
 <li>:clock9: The grappling beam.</li>
 
 ## Content
@@ -47,3 +50,4 @@ Three bosses are implemented.
 
 ### Original
 <li>Overheat bar</li>
+<li>Space pirate who can freeze the player</li>

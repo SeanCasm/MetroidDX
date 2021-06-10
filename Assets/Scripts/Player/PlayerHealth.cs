@@ -29,7 +29,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        _renderer = GetComponent<SpriteRenderer>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GetComponent<PlayerController>();
         audioPlayer = GetComponent<AudioSource>();
@@ -105,7 +105,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     /// <param name="amount">amount of damage received</param>
     public void AddDamage(int amount)
     {
-        if (!player.speedJump && !player.Screwing && !invulnerability && !player.HyperJumping)
+        if (!player.inSBVelo && !player.Screwing && !invulnerability && !player.HyperJumping)
         {
             invulnerability = true;
             SetDamage(amount);

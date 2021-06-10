@@ -11,7 +11,7 @@ public class EnemyPool : MonoBehaviour
     public bool MoveT { get { return moveTowards; } set { moveTowards = value; } }
     Transform target;
     public Transform Target { get { return target; } }
-    bool invoked = false, detected;
+    bool invoked = false;
     void ins()
     {
         invoked = false;
@@ -24,7 +24,6 @@ public class EnemyPool : MonoBehaviour
     {
         if (col.CompareTag("PlayerDetect") )
         {
-            detected = true;
             target = col.GetComponent<Transform>();
             if (col.transform.position.x > transform.position.x && !invoked)
             {
@@ -46,7 +45,6 @@ public class EnemyPool : MonoBehaviour
         if (col.CompareTag("PlayerDetect")) {
             CancelInvoke("instantiateEnemy");
             CancelInvoke("instantiateEnemy2");
-            detected = false;
         }
     }
     void instantiateEnemy()

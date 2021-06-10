@@ -145,6 +145,9 @@ public class PlayerInventory : MonoBehaviour
         baseData.SetInventoryData(this);
         buttonEssentials.SetButton(4, true);
         interactions.SetButtonNavigation();
+        pCont.OnJump+=pCont.SpeedBoosterChecker;
+        if (CheckItem(8)) { pCont.OnSpeedBooster += pCont.SpeedBoosterChecker; pCont.MaxSpeed = pCont.SpeedBS; }
+        else { pCont.OnSpeedBooster -= pCont.SpeedBoosterChecker; pCont.MaxSpeed = pCont.RunningSpeed; }
         SetBeamToShoot();
     }
     private void OnEnable() {
@@ -164,8 +167,11 @@ public class PlayerInventory : MonoBehaviour
         items.Add(id);
         playerItems.Add(id, item);
         SetJumpType(id);
-        if(id==7)ChangeJumpForce();//high jump
-
+        switch(id){
+            case 7:ChangeJumpForce();break;
+            case 8: SetSpeedBooster(); break;
+            case 3: SetSuit(); break;
+        }
         foreach (int element in Item.beamsID)
         {
             if (id == element)DisableIncompatibleBeams(id);
@@ -207,7 +213,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
     /// <summary>
-    /// Checks if item is selected, throught the dictionary of items.
+    /// Checks if a item is selected, throught the dictionary of items.
     /// 0=charge beam, 1=ice beam, 2=spazer beam, 3=gravity suit, 4=morfball,
     /// 5=screw attack, 6=bomb,7=high jump, 8=speed booster, 9=gravity jump </summary>
     /// <param name="itemID">item iD to search</param>
@@ -340,6 +346,10 @@ public class PlayerInventory : MonoBehaviour
             if (playerItems[7].selected) pCont.currentJumpForce = baseData.jumpForceUp;
             else pCont.currentJumpForce = baseData.jumpForce;
         }
+    }
+    public void SetSpeedBooster(){
+        if(!CheckItem(8)){pCont.OnSpeedBooster+=pCont.SpeedBoosterChecker;pCont.MaxSpeed=pCont.SpeedBS;}
+        else{ pCont.OnSpeedBooster -= pCont.SpeedBoosterChecker;pCont.MaxSpeed = pCont.RunningSpeed; }
     }
     public void SetBeamToShoot()
     {

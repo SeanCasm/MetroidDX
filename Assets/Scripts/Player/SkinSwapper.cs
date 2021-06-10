@@ -12,10 +12,10 @@ public class SkinSwapper : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool gravityEquiped;
     public bool Gravity{get=>gravityEquiped;}
-    private List<Sprite> sheetSuit=new List<Sprite>();
+    private Dictionary<int,Sprite> sheetSuit=new Dictionary<int, Sprite>();
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     public void SetPowerSuit()
     {
@@ -35,9 +35,9 @@ public class SkinSwapper : MonoBehaviour
     public void SetGravitySuit()
     {
         suit.sprite = playerSuits.gravitySuit;
-        sheetSuit= new List<Sprite>();
+        sheetSuit= new Dictionary<int, Sprite>();
         foreach(Sprite element in playerSuits.gravityCompleteSheet){
-            sheetSuit.Add(element);
+            sheetSuit.Add(int.Parse(element.name),element);
         }
         gravityEquiped = true;
     }

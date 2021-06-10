@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 public class Pause : MonoBehaviour
 {
     #region Properties
-    [SerializeField] UnityEvent unpauseEvent,pauseEvent;
+    [SerializeField] UnityEvent unpauseEvent,pauseEvent,quickMinimap;
     [SerializeField]GameSettings gameSettings;
     [SerializeField]Transform canvas;
     [SerializeField]GameObject pauseMenuPrefab,settings,allObjectsContainer;
@@ -31,7 +31,11 @@ public class Pause : MonoBehaviour
     {
         playerC = player.GetComponent<PlayerController>();
     }
+    private void OnEnable() {
+        GameEvents.MinimapShortcout+=QuickMinimap;
+    }
     private void OnDisable() {
+        GameEvents.MinimapShortcout-=QuickMinimap;
         onItemMenu=onMap=onSlots=gamePaused=onAnyMenu=onGame=onSave=false;
     }
     #endregion
@@ -61,9 +65,11 @@ public class Pause : MonoBehaviour
         playerC.canInstantiate = playerC.movement = true;
         Time.timeScale = 1f;
     }
+#if UNITY_ANDROID
     public void PauseOnMiniMapTouch_Mobile(){
         enterPause = true; EnterPause(true); pauseEvent.Invoke();
     }
+#endif
     public void QuitGame()
     {
         Application.Quit();
@@ -105,7 +111,18 @@ public class Pause : MonoBehaviour
         unpauseEvent.Invoke();
     }
     #endregion
-    
+    void QuickMinimap(){
+        enterPause = true;
+#if UNITY_STANDALONE
+        GameEvents.pauseTimeCounter.Invoke(true);
+        menuFirst.SetGameObjectToEventSystem(playerMenu.GetChild(1).GetChild(3).GetComponent<Button>());
+#endif
+#if UNITY_ANDROID
+        EnterPause(true); 
+#endif
+        quickMinimap.Invoke(); pauseEvent.Invoke();
+    }
+
     void EnterPause(bool onMobile)
     {
         if(!onMobile)playerMenu.SetActive(true);

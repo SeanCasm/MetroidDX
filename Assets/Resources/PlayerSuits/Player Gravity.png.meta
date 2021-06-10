@@ -926,6 +926,12 @@ TextureImporter:
   - first:
       213: -2332819971211670263
     second: 320
+  - first:
+      213: -1343237144059970136
+    second: Player Gravity_10
+  - first:
+      213: -8339354767854246604
+    second: Player Gravity_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -5881,8 +5887,8 @@ TextureImporter:
       name: 244
       rect:
         serializedVersion: 2
-        x: 828
-        y: 413
+        x: 827
+        y: 412
         width: 16
         height: 27
       alignment: 0
@@ -7490,6 +7496,48 @@ TextureImporter:
       bones: []
       spriteID: 90dcdf2989820afd0800000000000000
       internalID: -2332819971211670263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Gravity_10
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 84
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8adf13b2fecdb5de0800000000000000
+      internalID: -1343237144059970136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Gravity_11
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 84
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435661eb509a44c80800000000000000
+      internalID: -8339354767854246604
       vertices: []
       indices: 
       edges: []

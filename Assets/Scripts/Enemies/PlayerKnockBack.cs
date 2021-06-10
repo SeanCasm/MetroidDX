@@ -14,6 +14,7 @@ public class PlayerKnockBack : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SomePlayerFX playerFX;
     private EnemyHealth enemy;
+    private Vector2 knockBackDir;
     public int damageReceived { get; set; }
     #endregion
     #region Unity Methods
@@ -31,7 +32,7 @@ public class PlayerKnockBack : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             enemy = col.GetComponent<EnemyHealth>();
-            if (player.speedJump || player.Screwing || player.HyperJumping)
+            if (player.inSBVelo || player.Screwing || player.HyperJumping)
             {
                 enemy.AddDamage(999);
             }
@@ -39,16 +40,17 @@ public class PlayerKnockBack : MonoBehaviour
         else
         if (col.CompareTag("Suelo") && player.HyperJumping)
         {
-            player.HyperJumping = player.speedJump = player.hyperJumpCharged = false;
+            player.HyperJumping = player.inSBVelo = player.hyperJumpCharged = false;
             playerFX.StopLoopClips();
             health.AddDamage(20);
+            player.rb.gravityScale=1;
         }
     }
     #endregion
     #region Private Methods
     private void HandleHit(int damage, float xPosition)
     {
-        if (!player.speedJump && !player.Screwing && !player.HyperJumping && !health.invulnerability)
+        if (!player.inSBVelo && !player.Screwing && !player.HyperJumping && !health.invulnerability)
         {
             player.Damaged = true;
             damageReceived = damage;
@@ -67,8 +69,8 @@ public class PlayerKnockBack : MonoBehaviour
     /// <param name="collisionX">collision X position</param>
     private void Hitted(float myXPosition, float collisionX)
     {
-        if (collisionX >= myXPosition) { animator.SetTrigger("Hitted"); player.leftLook = false; }
-        else { animator.SetTrigger("HittedLeft"); player.leftLook = true; }
+        if (collisionX >= myXPosition) { animator.SetTrigger("Hitted"); player.leftLook = false; knockBackDir=new Vector2(-1.1f,1.1f);}
+        else { animator.SetTrigger("HittedLeft"); player.leftLook = true; knockBackDir=new Vector2(1.1f,1.1f);}
         StartCoroutine(KnockBack());
         floor.enabled = box.enabled = false; Invoke("EnableCollider", 0.95f);
         health.AddDamage(damageReceived);
@@ -78,13 +80,15 @@ public class PlayerKnockBack : MonoBehaviour
     {
         player.Damaged = player.hittedLeft = player.hitted = false;
         floor.enabled = player.movement = player.canInstantiate = true;
+        player.rb.gravityScale = 1;
     }
     IEnumerator KnockBack()
     {
+        player.rb.gravityScale=0;
         while (!player.movement)
         {
-            player.rb.SetVelocity(0, 1.1f);
-            yield return new WaitForSeconds(0.0001f);
+            player.rb.velocity=knockBackDir;
+            yield return null;
         }
     }
     #endregion

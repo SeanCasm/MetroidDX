@@ -8,6 +8,8 @@ public class References : MonoBehaviour
     [SerializeField] Tilemap map;
     [SerializeField] Transform playerIcon;
     [SerializeField] GameObject player;
+    [SerializeField]Transform canvas;
+    public static Transform Canvas{get;set;}
     public static Transform myPlayerIcon { get; set; }
     public static Tilemap myMap { get; set; }
     public static GameObject Player{get;private set;}
@@ -15,5 +17,6 @@ public class References : MonoBehaviour
         Player = player;
         myMap = map;
         myPlayerIcon = playerIcon;
+        Canvas=canvas;
     }
 }

@@ -25,6 +25,7 @@ namespace Player{
             inventory.limitedAmmo.Add(new PlayerInventory.CountableAmmo(false, 0, beams.limitedAmmo[0], missileAmmo, missileAmmo));
             inventory.limitedAmmoSearch.Add(0, inventory.limitedAmmo[0]);
             inventory.AddToItems(new PlayerInventory.Item(true, 4));//add the morfball item, initial game item by default.
+            inventory.AddToItems(new PlayerInventory.Item(true, 8));//add the speed booster item, for debug purposes.
             inventory.transform.position=spawn;
         }
         public void SetHealthData(PlayerHealth playerHealth){

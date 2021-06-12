@@ -7,7 +7,7 @@ using TMPro;
 /// </summary>
 public class MapUpdater : MonoBehaviour
 {
-    [SerializeField] List<GameObject> roomMaps = new List<GameObject>();
+    [SerializeField] MinimapTilesMapUpdater minimapTiles;
     [SerializeField] Collider2D col2D;
     [SerializeField] GameObject acqPanel;
     [SerializeField] Animator light;
@@ -16,7 +16,6 @@ public class MapUpdater : MonoBehaviour
     private bool active = true;
     private Animator animator, pAnim;
     private PlayerController pContr;
-    private List<MiniMap> miniMapRef = new List<MiniMap>();
     public static List<int> mappers = new List<int>();
     private void Awake()
     {
@@ -26,12 +25,11 @@ public class MapUpdater : MonoBehaviour
             if (item == id)
             {
                 active = false;
-                roomMaps.Clear();
                 ClearReferences();
                 return;
             }
         });
-        if (active) GetMiniMaps();
+        if(!active)minimapTiles=null;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -45,18 +43,7 @@ public class MapUpdater : MonoBehaviour
             PassMapData();
         }
     }
-    private void GetMiniMaps()
-    {
-        roomMaps.ForEach(item =>
-        {
-            GameObject[] childs = item.GetChilds();
-            for (int i = 0; i < childs.Length; i++)
-            {
-                miniMapRef.Add(childs[i].GetComponent<MiniMap>());
-            }
-        });
-        roomMaps.Clear();
-    }
+
     private void SetPlayer()
     {
         pContr.ResetState();
@@ -69,12 +56,11 @@ public class MapUpdater : MonoBehaviour
         animator.SetTrigger("Detected");
         light.SetTrigger("Activated");
         var map = References.myMap;
-        miniMapRef.ForEach(item =>
+        minimapTiles.minimapScripts.ForEach(item =>
         {
             item.SetTile();
         });
-        miniMapRef.Clear();
-
+        minimapTiles=null;
     }
     /// <summary>
     /// Called in animation event.

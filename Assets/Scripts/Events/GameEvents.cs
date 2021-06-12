@@ -66,5 +66,13 @@ public static class GameEvents
     /// Sets the background the parallax effect.
     /// </summary>
     public static Action<Transform> parallax;
+    /// <summary>
+    /// Go directly to the minimap, used in map updater.
+    /// </summary>
+    public static Action MinimapShortcout;
+    /// <summary>
+    /// Starts the transition animation.
+    /// </summary>
+    public static Func<float> StartTransition;
 
 }

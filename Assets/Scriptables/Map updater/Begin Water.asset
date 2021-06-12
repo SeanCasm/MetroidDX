@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a5d22695b5a94c8c50c35735bc07c, type: 3}
+  m_Name: Begin Water
+  m_EditorClassIdentifier: 
+  minimapScripts:
+  - {fileID: 9198422011188014301, guid: 6e87b90fdf7c75d4fb6fc7aea802ae5d, type: 3}
+  - {fileID: 7395723344293936231, guid: e51ac4f9ce4d15a438c64d94de97d6f5, type: 3}
+  - {fileID: 1140694401321536182, guid: feef3e3f7238a834db3bcc09e20e1416, type: 3}
+  - {fileID: 3537482031184926496, guid: cb591dbf480ebe048843085b462a3c67, type: 3}
+  - {fileID: 5295171182839248489, guid: 3b9ca05370cca13418dc2c53e11e8499, type: 3}
+  - {fileID: 1053275427495267700, guid: c3f4c4d26d487a74e9d4007e837ed624, type: 3}
+  - {fileID: 8274693298867982441, guid: f0e5f02e7e0c4ca4a81d379050264be7, type: 3}
+  - {fileID: 5320718031870346305, guid: d179d77add86e98489e0d53d360620af, type: 3}
+  - {fileID: 5441393835540944424, guid: 6a85fd98340430f40b6d12cff3e7de2c, type: 3}
+  - {fileID: 1467477568265693113, guid: ce7975e2848c6a1409eac3509ca1a720, type: 3}
+  - {fileID: 3938712537705869793, guid: 8cba74344eaf3ba4c8af52c9ff70ce96, type: 3}
+  - {fileID: 8090702701380508900, guid: 6abea1268046dae439e448bccee85532, type: 3}
+  - {fileID: 2456108487010508188, guid: 6e8e98af0746b0d4e971ea7f079bf6bf, type: 3}
+  - {fileID: 1016663308666925566, guid: 7183114dd71e82a4591b5efbaaa95a5d, type: 3}
+  - {fileID: 7656528155281545211, guid: d73edd89bbc73e84cbf284add5ff23f8, type: 3}
+  - {fileID: 3906952803686395947, guid: 43d1deec65df30b4cacf0562cb88a97a, type: 3}
+  - {fileID: 1619186371151047887, guid: 441490e7a0e9b03438ba86ad4a87fa87, type: 3}
+  - {fileID: 8254429606597842928, guid: df9bcb69c414f9d49bb09ad80bced5dc, type: 3}
+  - {fileID: 5058198667952457049, guid: e57cce622e35bc546bcf37eaaa1be0a1, type: 3}

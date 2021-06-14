@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     #region Properties
     [SerializeField] BoxCollider2D floorChecker;
+    [SerializeField]CapsuleCollider2D capsule;
+    [SerializeField]BoxCollider2D hurtBox;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform feetPosition;
     [Header("Running and Speed Booster config")]
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private PlayerInventory inventory;
     private SomePlayerFX playerFX;
+    private SpriteRenderer spriteRenderer;
     private PlayerInstantiates instantiates;
     private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, aimDiagonalDown,gravityJump,aimDown,aiming,running,aimUp,
        onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope,aimDiagonal,inHyperJumpDirection;
@@ -142,6 +145,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         OnJump += OnNormalJump;
+        spriteRenderer=GetComponentInChildren<SpriteRenderer>();
         playerFX = GetComponentInChildren<SomePlayerFX>();
         instantiates = GetComponentInChildren<PlayerInstantiates>();
         inventory = GetComponent<PlayerInventory>();
@@ -161,6 +165,8 @@ public class PlayerController : MonoBehaviour
     {
         if (movement)
         {
+            hurtBox.size=new Vector2(spriteRenderer.bounds.size.x/1.45f,spriteRenderer.bounds.size.y/transform.lossyScale.y);
+            capsule.size=new Vector2(.16f,spriteRenderer.bounds.size.y / transform.lossyScale.y);
             if (isGrounded) OnGround();
             else OnAir();
             if (xInput < 0) leftLook = true;

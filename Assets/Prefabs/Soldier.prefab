@@ -270,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8199000337012693979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0299986, y: -0.019002514, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 8898891343954988984}
@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorChecker: {fileID: 1214313358528198564}
+  capsule: {fileID: 6061818792502005122}
+  hurtBox: {fileID: 93741154669762153}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1163,7 +1165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21, y: 0.32}
+  m_Size: {x: 0.125, y: 0.32}
   m_EdgeRadius: 0
 --- !u!1001 &2001887999255364951
 PrefabInstance:

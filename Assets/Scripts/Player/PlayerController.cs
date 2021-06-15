@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Properties
-    [SerializeField] BoxCollider2D floorChecker;
     [SerializeField]CapsuleCollider2D capsule;
     [SerializeField]BoxCollider2D hurtBox;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask groundLayer,enemyLayer;
+    [Header("Floor config")]
     [SerializeField] Transform feetPosition;
+    [Range(.01f,.2f)]
+    [SerializeField]float groundDistance= 0.18f;
     [Header("Running and Speed Booster config")]
     [Tooltip("Standard running without any boost.")]
     [Range(0,115)]
@@ -22,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [Range(1, 3)]
     [SerializeField]float speedIncreaseOverTime=1.5f;
     private SkinSwapper skin;
-    private float groundDistance = 0.18f, jumpForce = 88, speed = 88,
+    private float jumpForce = 88, speed = 88,
         hyperJumpForceMultiplier = 1.8f, jumpTime = 0.35f;
     private float xInput = 0, yInput = 0, xVelocity, yVelocity, jumpTimeCounter,currentSpeed;
     public static Vector2 direction,hyperJumpDir;
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerInstantiates instantiates;
     private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, aimDiagonalDown,gravityJump,aimDown,aiming,running,aimUp,
-       onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope,aimDiagonal,inHyperJumpDirection;
+       onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope,aimDiagonal,inHyperJumpDirection,canCheckFloor=true;
     private PhysicsMaterial2D material;
     public System.Action OnJump,OnSpeedBooster;
     int pressCount = 0;
@@ -101,7 +103,7 @@ public class PlayerController : MonoBehaviour
             isJumping = value;
             if (isJumping)
             {
-                floorChecker.enabled = false;
+                canCheckFloor=false;
                 StartCoroutine(CheckFloor());
                 IsGrounded = moveOnFloor = false;
             }
@@ -111,7 +113,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator CheckFloor()
     {
         yield return new WaitForSecondsRealtime(0.1f);
-        floorChecker.enabled = true;
+        canCheckFloor=true;
+
     }
     public bool ShootOnWalk
     {
@@ -150,7 +153,7 @@ public class PlayerController : MonoBehaviour
         instantiates = GetComponentInChildren<PlayerInstantiates>();
         inventory = GetComponent<PlayerInventory>();
         rb = GetComponent<Rigidbody2D>();
-        material = rb.sharedMaterial;
+        material = rb.sharedMaterial; 
         anim = GetComponentInChildren<Animator>();
         skin = GetComponent<SkinSwapper>();
     }
@@ -165,8 +168,11 @@ public class PlayerController : MonoBehaviour
     {
         if (movement)
         {
-            hurtBox.size=new Vector2(spriteRenderer.bounds.size.x/1.45f,spriteRenderer.bounds.size.y/transform.lossyScale.y);
-            capsule.size=new Vector2(.16f,spriteRenderer.bounds.size.y / transform.lossyScale.y);
+            if(canCheckFloor)checkGrounded();
+            hurtBox.offset=capsule.offset=new Vector2(0,0);
+            hurtBox.size=new Vector2(.10f,spriteRenderer.bounds.size.y);
+            capsule.size=new Vector2(.10f,spriteRenderer.bounds.size.y / transform.lossyScale.y);
+
             if (isGrounded) OnGround();
             else OnAir();
             if (xInput < 0) leftLook = true;
@@ -176,6 +182,15 @@ public class PlayerController : MonoBehaviour
             MobileMovement();
 #endif
         }
+    }
+    void checkGrounded(){
+        RaycastHit2D raycastHit2D=Physics2D.BoxCast(capsule.bounds.center,capsule.bounds.size,0f,Vector2.down,groundDistance,groundLayer);
+        RaycastHit2D raycastHitEnemy=Physics2D.BoxCast(capsule.bounds.center, capsule.bounds.size, 0f, Vector2.down, groundDistance, enemyLayer);
+
+        if(raycastHit2D || raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed )isGrounded=true;
+        else isGrounded=false;
+        
+        Debug.DrawRay(capsule.bounds.center+new Vector3(capsule.bounds.extents.x,0),Vector2.down*(capsule.bounds.extents.y+groundDistance),Color.green);
     }
     void OnDisable()
     {
@@ -240,6 +255,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnAir()
     {
+        FalseAnyAnimStateAtAir();
         if (onJumpingState && xInput != 0) currentSpeed = speed / 2;
         if (xInput != 0f) movingOnAir = true;
         else movingOnAir = false;
@@ -264,6 +280,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnGround()
     {
+        FalseAnyAnimStateAtGrounding();
+        playerFX.StopLoopClips();
         if (xInput != 0f)
         {
             if(running){
@@ -279,7 +297,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
-            material.friction = 100;currentSpeed = speed;
+            //currentSpeed = speed;
         }
         if (!balled){
             OnSpeedBooster?.Invoke();
@@ -357,11 +375,11 @@ public class PlayerController : MonoBehaviour
     #endregion
     #endregion
     #region Public methods
-    public void FalseAnyAnimStateAtGrounding()
+    private void FalseAnyAnimStateAtGrounding()
     {
         airShoot = onJumpingState = Screwing = OnRoll = gravityJump = fall = movingOnAir = false;
     }
-    public void FalseAnyAnimStateAtAir()
+    private void FalseAnyAnimStateAtAir()
     {
         rb.gravityScale = 1;
         slopeUp = onSlope = ShootOnWalk = moveOnFloor = false;

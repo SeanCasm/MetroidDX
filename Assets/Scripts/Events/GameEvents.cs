@@ -74,5 +74,4 @@ public static class GameEvents
     /// Starts the transition animation.
     /// </summary>
     public static Func<float> StartTransition;
-
 }

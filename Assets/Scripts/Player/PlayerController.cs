@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]CapsuleCollider2D capsule;
     [SerializeField]BoxCollider2D hurtBox;
     [SerializeField] LayerMask groundLayer,enemyLayer;
+    [Range(.01f,1f)]
+    [SerializeField]float jumpTime= 0.35f;
     [Header("Floor config")]
     [SerializeField] Transform feetPosition;
     [Range(.01f,.2f)]
@@ -24,8 +26,7 @@ public class PlayerController : MonoBehaviour
     [Range(1, 3)]
     [SerializeField]float speedIncreaseOverTime=1.5f;
     private SkinSwapper skin;
-    private float jumpForce = 88, speed = 88,
-        hyperJumpForceMultiplier = 1.8f, jumpTime = 0.35f;
+    private float jumpForce = 88, speed = 88,hyperJumpForceMultiplier = 1.8f;
     private float xInput = 0, yInput = 0, xVelocity, yVelocity, jumpTimeCounter,currentSpeed;
     public static Vector2 direction,hyperJumpDir;
     private Animator anim;
@@ -103,16 +104,15 @@ public class PlayerController : MonoBehaviour
             isJumping = value;
             if (isJumping)
             {
-                canCheckFloor=false;
+                canCheckFloor = IsGrounded = moveOnFloor = false;
                 StartCoroutine(CheckFloor());
-                IsGrounded = moveOnFloor = false;
-            }
+            }else StopCoroutine(JumpCoroutine());
             material.friction = 0;
         }
     }
     IEnumerator CheckFloor()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+        yield return new WaitForSecondsRealtime(0.3f);
         canCheckFloor=true;
 
     }
@@ -184,13 +184,14 @@ public class PlayerController : MonoBehaviour
         }
     }
     void checkGrounded(){
-        RaycastHit2D raycastHit2D=Physics2D.BoxCast(capsule.bounds.center,capsule.bounds.size,0f,Vector2.down,groundDistance,groundLayer);
+        var size=capsule.bounds.size - new Vector3(.01f, 0f);
+        RaycastHit2D raycastHit2D=Physics2D.BoxCast(capsule.bounds.center,size,0f,Vector2.down,groundDistance,groundLayer);
         RaycastHit2D raycastHitEnemy=Physics2D.BoxCast(capsule.bounds.center, capsule.bounds.size, 0f, Vector2.down, groundDistance, enemyLayer);
 
-        if(raycastHit2D || raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed )isGrounded=true;
+        if(raycastHit2D || ( raycastHitEnemy.collider!=null && raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed ))isGrounded=true;
         else isGrounded=false;
         
-        Debug.DrawRay(capsule.bounds.center+new Vector3(capsule.bounds.extents.x,0),Vector2.down*(capsule.bounds.extents.y+groundDistance),Color.green);
+        Debug.DrawRay(capsule.bounds.center+new Vector3(capsule.bounds.extents.x,0),Vector2.down*(capsule.bounds.extents.y+groundDistance),Color.red);
     }
     void OnDisable()
     {
@@ -272,10 +273,9 @@ public class PlayerController : MonoBehaviour
             if (Physics2D.Raycast(transform.position, Vector2.up, 0.22f, groundLayer))
             {
                 jumpTimeCounter = 0f;
-                IsJumping = false;
+                fall = true;
+                onJumpingState=IsJumping=false;
             }
-            else if (jumpTimeCounter > 0f) jumpTimeCounter -= Time.deltaTime;
-            else IsJumping = false;
         }
     }
     void OnGround()
@@ -324,11 +324,29 @@ public class PlayerController : MonoBehaviour
             else slopeUp = onSlope = false;
         }
     }
+    IEnumerator JumpCoroutine(){
+        IsJumping=true;
+        while(jumpTimeCounter<=jumpTime){
+            jumpTimeCounter +=.01f;
+            yield return new WaitForSeconds(.01f);
+        }
+        IsJumping=false;
+        jumpTimeCounter=0;
+    }
     private bool CheckWallJump()
     {
         if (RayCast(Vector2.left, 0.28f, groundLayer) && xInput > 0) return true;
         else if (RayCast(Vector2.right, 0.28f, groundLayer) && xInput < 0) return true;
         return false;
+    }
+    private void FalseAnyAnimStateAtGrounding()
+    {
+        airShoot = onJumpingState = Screwing = OnRoll = gravityJump = fall = movingOnAir = false;
+    }
+    private void FalseAnyAnimStateAtAir()
+    {
+        rb.gravityScale = 1;
+        slopeUp = onSlope = ShootOnWalk = moveOnFloor = false;
     }
     private bool RayCast(Vector2 vector, float distance, LayerMask layer)
     {
@@ -375,15 +393,7 @@ public class PlayerController : MonoBehaviour
     #endregion
     #endregion
     #region Public methods
-    private void FalseAnyAnimStateAtGrounding()
-    {
-        airShoot = onJumpingState = Screwing = OnRoll = gravityJump = fall = movingOnAir = false;
-    }
-    private void FalseAnyAnimStateAtAir()
-    {
-        rb.gravityScale = 1;
-        slopeUp = onSlope = ShootOnWalk = moveOnFloor = false;
-    }
+     
     public void ResetState()
     {
         StopAllCoroutines();
@@ -570,8 +580,7 @@ public class PlayerController : MonoBehaviour
                 airShoot = false;
                 if (inventory.CheckItem(5)) gravityJump = Screwing = true;//screw
                 else { Screwing = onJumpingState = OnRoll = false; gravityJump = true; }
-                jumpTimeCounter = jumpTime;
-                IsJumping = true;
+                StartCoroutine(JumpCoroutine());
             }
         }
         else
@@ -580,15 +589,14 @@ public class PlayerController : MonoBehaviour
             else if (!hyperJumpCharged && isGrounded)
             {
                 onJumpingState = true; gravityJump = OnRoll = false;
-                jumpTimeCounter = jumpTime; IsJumping = true;
+                StartCoroutine(JumpCoroutine());
             }
         }
     }
     public void OnNormalJump()
     {
-        if (isGrounded && !crouch && !IsJumping && movement)
+        if (isGrounded && !crouch && !isJumping && movement)
         {
-            IsJumping = true;
             if (balled) playerFX.BallJump();
             else
             {
@@ -603,18 +611,18 @@ public class PlayerController : MonoBehaviour
                     else if (!hyperJumpCharged) { onJumpingState = true; gravityJump = OnRoll = false; }
                 }
             }
-            jumpTimeCounter = jumpTime;
+            StartCoroutine(JumpCoroutine());
         }
     }
     public void PlayerJumping(InputAction.CallbackContext context)
     {
-        OnJump.Invoke();
-        if (context.canceled) IsJumping = false;
+        if(context.performed)OnJump.Invoke();
+        else if (context.canceled){StopCoroutine(JumpCoroutine()); IsJumping = false;}
         if (context.started && onRoll && CheckWallJump())
         {
             wallJumping = OnRoll = true;
             Invoke("DisableWallJump", 0.25f);
-            jumpTimeCounter = jumpTime;
+            StartCoroutine(JumpCoroutine());
         }
     }
     #endregion
@@ -638,7 +646,7 @@ public class PlayerController : MonoBehaviour
         {
             wallJumping = OnRoll = true;
             Invoke("DisableWallJump", 0.25f);
-            jumpTimeCounter = jumpTime;
+            StartCoroutine(JumpCoroutine());
         }
         }
         if (!triggered) IsJumping = false;

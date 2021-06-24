@@ -5,39 +5,39 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Properties
-    [SerializeField]CapsuleCollider2D capsule;
-    [SerializeField]BoxCollider2D hurtBox;
-    [SerializeField] LayerMask groundLayer,enemyLayer;
-    [Range(.01f,1f)]
-    [SerializeField]float jumpTime= 0.35f;
+    [SerializeField] CapsuleCollider2D capsule;
+    [SerializeField] BoxCollider2D hurtBox;
+    [SerializeField] LayerMask groundLayer, enemyLayer;
+    [Range(.01f, 1f)]
+    [SerializeField] float jumpTime = 0.35f;
     [Header("Floor config")]
     [SerializeField] Transform feetPosition;
-    [Range(.01f,.2f)]
-    [SerializeField]float groundDistance= 0.18f;
+    [Range(.01f, .2f)]
+    [SerializeField] float groundDistance = 0.18f;
     [Header("Running and Speed Booster config")]
     [Tooltip("Standard running without any boost.")]
-    [Range(0,115)]
-    [SerializeField]float runningSpeed;
+    [Range(0, 115)]
+    [SerializeField] float runningSpeed;
     [Tooltip("Speed Booster max speed")]
-    [Range(130,150)]
-    [SerializeField]float speedBooster=130;
-    [Range(115,200)]
+    [Range(130, 150)]
+    [SerializeField] float speedBooster = 130;
+    [Range(115, 200)]
     [SerializeField] float maxSpeed;
     [Range(1, 3)]
-    [SerializeField]float speedIncreaseOverTime=1.5f;
+    [SerializeField] float speedIncreaseOverTime = 1.5f;
     private SkinSwapper skin;
-    private float jumpForce = 88, speed = 88,hyperJumpForceMultiplier = 1.8f;
-    private float xInput = 0, yInput = 0, xVelocity, yVelocity, jumpTimeCounter,currentSpeed;
-    public static Vector2 direction,hyperJumpDir;
+    private float jumpForce = 88, speed = 88, hyperJumpForceMultiplier = 1.8f;
+    private float xInput = 0, yInput = 0, xVelocity, yVelocity, jumpTimeCounter, currentSpeed;
+    public static Vector2 direction, hyperJumpDir;
     private Animator anim;
     private PlayerInventory inventory;
     private SomePlayerFX playerFX;
     private SpriteRenderer spriteRenderer;
     private PlayerInstantiates instantiates;
-    private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, aimDiagonalDown,gravityJump,aimDown,aiming,running,aimUp,
-       onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope,aimDiagonal,inHyperJumpDirection,canCheckFloor=true;
+    private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, gravityJump, aimDown, aiming, running, aimUp,
+       onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope, inHyperJumpDirection, canCheckFloor = true;
     private PhysicsMaterial2D material;
-    public System.Action OnJump,OnSpeedBooster;
+    public System.Action OnJump, OnSpeedBooster;
     int pressCount = 0;
     int[] animatorHash = new int[27];
     public float currentJumpForce { get; set; }
@@ -50,11 +50,11 @@ public class PlayerController : MonoBehaviour
             else playerFX.RollJump(false);
         }
     }
-    public float MaxSpeed{get=>maxSpeed;set=>maxSpeed =value;}
-    public float SpeedBS{get=>speedBooster;}
-    public float RunningSpeed{get=>runningSpeed;}
-    public bool hittedLeft{get;set;}
-    public bool hitted{get;set;}
+    public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
+    public float SpeedBS { get => speedBooster; }
+    public float RunningSpeed { get => runningSpeed; }
+    public bool hittedLeft { get; set; }
+    public bool hitted { get; set; }
     public bool inSBVelo { get; set; }
     public bool hyperJumpCharged { get; set; }
     public bool Damaged
@@ -73,14 +73,17 @@ public class PlayerController : MonoBehaviour
         {
             hyperJumping = value;
             skin.SetSpeedBooster(value); rb.isKinematic = value;
-            if (value){
+            if (value)
+            {
                 playerFX.HyperJump();
-                rb.gravityScale=0;
-                onJumpingState = inHyperJumpDirection=movement=canInstantiate=false;
-                
-                
-            }else{
-                movement=canInstantiate=true;
+                rb.gravityScale = 0;
+                onJumpingState = inHyperJumpDirection = movement = canInstantiate = false;
+
+
+            }
+            else
+            {
+                movement = canInstantiate = true;
             }
         }
     }
@@ -106,14 +109,15 @@ public class PlayerController : MonoBehaviour
             {
                 canCheckFloor = IsGrounded = moveOnFloor = false;
                 StartCoroutine(CheckFloor());
-            }else StopCoroutine(JumpCoroutine());
+            }
+            else{ StopCoroutine(JumpCoroutine());jumpTimeCounter=0;print(jumpTimeCounter);}
             material.friction = 0;
         }
     }
     IEnumerator CheckFloor()
     {
         yield return new WaitForSecondsRealtime(0.3f);
-        canCheckFloor=true;
+        canCheckFloor = true;
 
     }
     public bool ShootOnWalk
@@ -135,32 +139,33 @@ public class PlayerController : MonoBehaviour
             if (balled)
             {
                 playerFX.Balled();
-                Screwing = OnRoll = crouch = aimDiagonal = aimDown = aimUp = aimDiagonalDown = false;
+                aim = 0;
+                Screwing = OnRoll = crouch = aimDown = aimUp = false;
             }
             else anim.SetFloat(animatorHash[23], 1);
         }
     }
     public bool movement { get; set; }
     public Rigidbody2D rb { get; set; }
-    public bool IsGrounded{get => isGrounded;set{isGrounded = value;}}
+    public bool IsGrounded { get => isGrounded; set { isGrounded = value; } }
     #endregion
     #region Unity methods
     void Awake()
     {
         OnJump += OnNormalJump;
-        spriteRenderer=GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerFX = GetComponentInChildren<SomePlayerFX>();
         instantiates = GetComponentInChildren<PlayerInstantiates>();
         inventory = GetComponent<PlayerInventory>();
         rb = GetComponent<Rigidbody2D>();
-        material = rb.sharedMaterial; 
+        material = rb.sharedMaterial;
         anim = GetComponentInChildren<Animator>();
         skin = GetComponent<SkinSwapper>();
     }
     void Start()
     {
         movement = canInstantiate = true;
-        maxSpeed=runningSpeed;
+        maxSpeed = runningSpeed;
         for (int i = 0; i < anim.parameterCount - 2; i++) animatorHash[i] = Animator.StringToHash(anim.parameters[i].name);
         currentSpeed = speed; currentJumpForce = jumpForce;
     }
@@ -168,30 +173,31 @@ public class PlayerController : MonoBehaviour
     {
         if (movement)
         {
-            if(canCheckFloor)checkGrounded();
-            hurtBox.offset=capsule.offset=new Vector2(0,0);
-            hurtBox.size=new Vector2(.10f,spriteRenderer.bounds.size.y);
-            capsule.size=new Vector2(.10f,spriteRenderer.bounds.size.y / transform.lossyScale.y);
+            if (canCheckFloor) checkGrounded();
+            hurtBox.offset = capsule.offset = new Vector2(0, 0);
+            hurtBox.size = new Vector2(.10f, spriteRenderer.bounds.size.y);
+            capsule.size = new Vector2(.10f, spriteRenderer.bounds.size.y / transform.lossyScale.y);
 
             if (isGrounded) OnGround();
             else OnAir();
-            if (xInput < 0) leftLook = true;
-            else if (xInput > 0) leftLook = false;
+            if (xInput < 0){transform.localScale=new Vector2(-.86f,.86f); leftLook = true;}
+            else if (xInput > 0) {leftLook = false;transform.localScale = new Vector2(.86f, .86f); }
 
 #if UNITY_ANDROID
             MobileMovement();
 #endif
         }
     }
-    void checkGrounded(){
-        var size=capsule.bounds.size - new Vector3(.01f, 0f);
-        RaycastHit2D raycastHit2D=Physics2D.BoxCast(capsule.bounds.center,size,0f,Vector2.down,groundDistance,groundLayer);
-        RaycastHit2D raycastHitEnemy=Physics2D.BoxCast(capsule.bounds.center, capsule.bounds.size, 0f, Vector2.down, groundDistance, enemyLayer);
+    void checkGrounded()
+    {
+        var size = capsule.bounds.size - new Vector3(.01f, 0f);
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(capsule.bounds.center, size, 0f, Vector2.down, groundDistance, groundLayer);
+        RaycastHit2D raycastHitEnemy = Physics2D.BoxCast(capsule.bounds.center, capsule.bounds.size, 0f, Vector2.down, groundDistance, enemyLayer);
 
-        if(raycastHit2D || ( raycastHitEnemy.collider!=null && raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed ))isGrounded=true;
-        else isGrounded=false;
-        
-        Debug.DrawRay(capsule.bounds.center+new Vector3(capsule.bounds.extents.x,0),Vector2.down*(capsule.bounds.extents.y+groundDistance),Color.red);
+        if (raycastHit2D || (raycastHitEnemy.collider != null && raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed)) isGrounded = true;
+        else isGrounded = false;
+
+        Debug.DrawRay(capsule.bounds.center + new Vector3(capsule.bounds.extents.x, 0), Vector2.down * (capsule.bounds.extents.y + groundDistance), Color.red);
     }
     void OnDisable()
     {
@@ -204,7 +210,7 @@ public class PlayerController : MonoBehaviour
         {
             xVelocity = xInput * currentSpeed * Time.deltaTime;
             yVelocity = currentSpeed * Time.deltaTime;
-            if (isJumping && (movement || jumpTimeCounter > 0f))rb.velocity = Vector2.up * currentJumpForce * Time.deltaTime;
+            if (isJumping && (movement || jumpTimeCounter > 0f)) rb.velocity = Vector2.up * currentJumpForce * Time.deltaTime;
             if (wallJumping) rb.velocity = Vector2.up * (currentJumpForce / 1.2f) * Time.deltaTime;
             if (moveOnFloor)
             {
@@ -216,16 +222,17 @@ public class PlayerController : MonoBehaviour
                 }
             }
             else if (movingOnAir) rb.SetVelocity(xVelocity, rb.velocity.y);
-            else if(!movingOnAir)rb.SetVelocity(0, rb.velocity.y);
+            else if (!movingOnAir) rb.SetVelocity(0, rb.velocity.y);
         }
         else
-        if (hyperJumping) rb.velocity = hyperJumpDir * currentJumpForce*2.5f * hyperJumpForceMultiplier * Time.deltaTime;
+        if (hyperJumping) rb.velocity = hyperJumpDir * currentJumpForce * 2.5f * hyperJumpForceMultiplier * Time.deltaTime;
     }
     void LateUpdate()
     {
-        if(!hyperJumping){
-            anim.SetBool(animatorHash[0], aimDiagonalDown);
-            anim.SetBool(animatorHash[1], aimDiagonal);
+        if (!hyperJumping)
+        {
+            anim.SetBool(animatorHash[0], aim < 0);
+            anim.SetBool(animatorHash[1], aim > 0);
             anim.SetBool(animatorHash[3], moveOnFloor);
             anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded));
             anim.SetBool(animatorHash[5], crouch);
@@ -261,8 +268,7 @@ public class PlayerController : MonoBehaviour
         if (xInput != 0f) movingOnAir = true;
         else movingOnAir = false;
         if (!onJumpingState && !onRoll && !aimDown && !aimUp && !gravityJump && !isJumping && !damaged &&
-           !screwing && !airShoot && !balled && !hyperJumping && !holdingFire && !charged && !aimDiagonal &&
-           !aimDiagonalDown)
+           !screwing && !airShoot && !balled && !hyperJumping && !holdingFire && !charged && aim == 0)
         {
             fall = true;
         }
@@ -274,7 +280,7 @@ public class PlayerController : MonoBehaviour
             {
                 jumpTimeCounter = 0f;
                 fall = true;
-                onJumpingState=IsJumping=false;
+                onJumpingState = IsJumping = false;
             }
         }
     }
@@ -284,14 +290,16 @@ public class PlayerController : MonoBehaviour
         playerFX.StopLoopClips();
         if (xInput != 0f)
         {
-            if(running){
+            if (running)
+            {
                 currentSpeed += speedIncreaseOverTime;
                 if (currentSpeed >= speedBooster) { currentSpeed = speedBooster; inSBVelo = true; }
-            }else currentSpeed=speed;
+            }
+            else currentSpeed = speed;
             OnSlope();
             material.friction = 0f;
-            if (yInput > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
-            else if (yInput < 0) { aimDiagonalDown = true; aimUp = aimDown = aimDiagonal = false; }
+            /*if (yInput > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
+            else if (yInput < 0) { aimDiagonalDown = true; aimUp = aimDown = aimDiagonal = false; }*/
             if (!moveOnFloor) Invoke("enableWalking", 0.05f);
         }
         else
@@ -299,12 +307,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             //currentSpeed = speed;
         }
-        if (!balled){
+        if (!balled)
+        {
             OnSpeedBooster?.Invoke();
         }
         else inSBVelo = false;
     }
-    public void SpeedBoosterChecker(){
+    public void SpeedBoosterChecker()
+    {
         if (inSBVelo && yInput < 0 && !hyperJumpCharged) { hyperJumpCharged = true; inSBVelo = false; skin?.SetSpeedBooster(true); }
         if (hyperJumpCharged && !IsInvoking("HyperJumpTimeAction") && !hyperJumping) { Invoke("HyperJumpTimeAction", 2f); }
     }
@@ -324,14 +334,16 @@ public class PlayerController : MonoBehaviour
             else slopeUp = onSlope = false;
         }
     }
-    IEnumerator JumpCoroutine(){
-        IsJumping=true;
-        while(jumpTimeCounter<=jumpTime){
-            jumpTimeCounter +=.01f;
+    IEnumerator JumpCoroutine()
+    {
+        IsJumping = true;
+        while ((jumpTimeCounter <= jumpTime) && isJumping)
+        {
+            jumpTimeCounter += .01f;
             yield return new WaitForSeconds(.01f);
         }
-        IsJumping=false;
-        jumpTimeCounter=0;
+        IsJumping = false;
+        jumpTimeCounter = 0;
     }
     private bool CheckWallJump()
     {
@@ -385,21 +397,22 @@ public class PlayerController : MonoBehaviour
     void HyperJumpTimeAction()
     {
         hyperJumpCharged = inSBVelo = false;
-        if(!hyperJumping)skin.SetSpeedBooster(false);
+        if (!hyperJumping) skin.SetSpeedBooster(false);
     }
-    void ResetSBVelo(){
-        inSBVelo=false;
+    void ResetSBVelo()
+    {
+        inSBVelo = false;
     }
     #endregion
     #endregion
     #region Public methods
-     
+
     public void ResetState()
     {
         StopAllCoroutines();
         CancelInvoke();
-        inSBVelo=crouch = fall = wallJumping = airShoot = movingOnAir = isJumping = moveOnFloor = gravityJump =
-        hyperJumpCharged=onJumpingState = charged = holdingFire = ShootOnWalk = IsGrounded = Screwing = HyperJumping = Balled =
+        inSBVelo = crouch = fall = wallJumping = airShoot = movingOnAir = IsJumping = moveOnFloor = gravityJump =
+        hyperJumpCharged = onJumpingState = charged = holdingFire = ShootOnWalk = IsGrounded = Screwing = HyperJumping = Balled =
         movement = canInstantiate = OnRoll = false;
         xInput = yInput = 0;
         rb.velocity = Vector2.zero;
@@ -408,33 +421,42 @@ public class PlayerController : MonoBehaviour
     {
         xInput = yInput = 0;
     }
+    float aim, prevAim;
     public void OnAim(InputAction.CallbackContext context)
     {
         if (movement)
         {
-            float aim = context.ReadValue<float>();
+            prevAim = aim;//previous value of aim
+            aim = context.ReadValue<float>();
             if (context.performed)
             {
-                if (aim > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; 
-                    if(inHyperJumpDirection){
-                        if(leftLook){
+                if (aim > 0)
+                {
+                    aimUp = aimDown = false;
+                    if (inHyperJumpDirection)
+                    {
+                        if (leftLook)
+                        {
                             HyperJumping = true;
-                            hyperJumpDir=Vector2.left+Vector2.up;
+                            hyperJumpDir = Vector2.left + Vector2.up;
                             anim.SetTrigger("HyperJump L");
-                        }else{
+                        }
+                        else
+                        {
                             HyperJumping = true;
                             hyperJumpDir = Vector2.right + Vector2.up;
                             anim.SetTrigger("HyperJump R");
                         }
                     }
                 }
-                else if (aim < 0) { aimUp = aimDown = aimDiagonal = false; aimDiagonalDown = true; }
+                else if (aim < 0) { aimUp = aimDown = false; }
+
                 aiming = true; gravityJump = Screwing = ShootOnWalk = false;
                 CheckAirShoot();
             }
             else if (context.canceled)
             {
-                if (aim == 0) aimUp = aimDown = aimDiagonal = aimDiagonalDown = false;
+                if (aim == 0) aimUp = aimDown = false;
                 aiming = false;
             }
         }
@@ -457,55 +479,52 @@ public class PlayerController : MonoBehaviour
             if (xInput == 0) InputX();
             else
             {
-                if(!inHyperJumpDirection){
+                if (!inHyperJumpDirection)
+                {
                     crouch = false;
-                    if (xInput < 0) direction = Vector2.left;
-                    else if (xInput > 0) direction = Vector2.right;
-                }else{
-                    hyperJumpDir=direction;
-                    if(xInput<0)anim.SetTrigger("HyperJump L");
+                    if (xInput < 0){ direction = Vector2.left;SkinSwapper.OnLeft.Invoke(true);}
+                    else if (xInput > 0) {direction = Vector2.right;SkinSwapper.OnLeft.Invoke(false);}
+                }
+                else
+                {
+                    hyperJumpDir = direction;
+                    if (xInput < 0) anim.SetTrigger("HyperJump L");
                     else if (xInput > 0) anim.SetTrigger("HyperJump R");
-                    HyperJumping=true;  
+                    HyperJumping = true;
                 }
             }
             if (yInput == 0) InputY();
             else
             {
-                if(!inHyperJumpDirection){
-                    if (!balled && !crouch)
-                    {
-                        if (yInput < 0f && !isGrounded) { aimDown = true; aimDiagonal = aimDiagonalDown = aimUp = false; }
-                        if (yInput > 0f && xInput == 0f && !aiming) { aimUp = true; aimDiagonalDown = aimDiagonal = aimDown = false; }
-                        gravityJump = Screwing = false;
-                    }
-                    if (isGrounded && context.started)
-                    {
-                        if (crouch)
+                if (!inHyperJumpDirection)
+                {
+                    if(context.started){
+                        if (!balled && !crouch) gravityJump = Screwing = false;
+                        if (yInput > 0f)
                         {
-                            if (yInput > 0) crouch = false;
-                            else if (yInput < 0 && inventory.CheckItem(4)) Balled = true;
-                        }
-                        else
-                        {
-                            if (balled) { if (yInput > 0) { crouch = true; Balled = false; } }
-                            else { if (yInput < 0) crouch = true; }
-                        }
-                    }
-                    else
-                    {
-                        if (balled)
-                        {
-                            if (yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
+                            if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
+                            if (crouch) crouch = false;
+                            else
+                            if (balled && isGrounded) { crouch = true; Balled = false; }
+                            else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
                             {
                                 Balled = false;
+                                aimUp = true;
                             }
                         }
+                        else if (yInput < 0f)
+                        {
+                            if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = false; aim = 0; aimDown = true; }
+                            if (inventory.CheckItem(4) && crouch) Balled = true;
+                            if (!balled) crouch = true;
+                        }
                     }
-                }else{
-                    if(yInput>0){hyperJumpDir=Vector2.up;anim.SetTrigger("HyperJump up");}
-                    HyperJumping=true; 
                 }
-                 
+                else
+                {
+                    if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
+                    HyperJumping = true;
+                }
             }
         }
         else if (!movement)
@@ -564,11 +583,11 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRunning(InputAction.CallbackContext context)
     {
-        if (isGrounded && !balled && context.performed && movement && xInput!=0)
+        if (isGrounded && !balled && context.performed && movement && xInput != 0)
         {
-            rb.gravityScale = 2;running=true;
+            rb.gravityScale = 2; running = true;
         }
-        if (context.canceled && isGrounded && !balled) { currentSpeed = speed; running=false; rb.gravityScale = 1;Invoke("ResetSBVelo",.5f); }
+        if (context.canceled && isGrounded && !balled) { currentSpeed = speed; running = false; rb.gravityScale = 1; Invoke("ResetSBVelo", .5f); }
     }
     #region Player jumping Methods
     public void OnGravityJump()
@@ -585,7 +604,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (hyperJumpCharged ) { onJumpingState = inHyperJumpDirection = true; }
+            if (hyperJumpCharged) { onJumpingState = inHyperJumpDirection = true; }
             else if (!hyperJumpCharged && isGrounded)
             {
                 onJumpingState = true; gravityJump = OnRoll = false;
@@ -616,8 +635,8 @@ public class PlayerController : MonoBehaviour
     }
     public void PlayerJumping(InputAction.CallbackContext context)
     {
-        if(context.performed)OnJump.Invoke();
-        else if (context.canceled){StopCoroutine(JumpCoroutine()); IsJumping = false;}
+        if (context.performed) OnJump.Invoke();
+        if (context.canceled)IsJumping = false;
         if (context.started && onRoll && CheckWallJump())
         {
             wallJumping = OnRoll = true;
@@ -629,12 +648,11 @@ public class PlayerController : MonoBehaviour
     private void InputX()
     {
         CancelInvoke("enableWalking");
-        movingOnAir=ShootOnWalk = moveOnFloor = false;
+        movingOnAir = ShootOnWalk = moveOnFloor = false;
     }
     private void InputY()
     {
         aimUp = aimDown = false;
-        if (xInput != 0) aimDiagonalDown = aimDiagonal = false;
     }
 
 #if UNITY_ANDROID

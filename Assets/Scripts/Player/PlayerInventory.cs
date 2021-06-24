@@ -121,7 +121,6 @@ public class PlayerInventory : MonoBehaviour
     #endregion
 
     #region Properties
-    [SerializeField] SkinSwapper playerSkin;
     [SerializeField]Interactions interactions;
     [SerializeField] Beams beams;
     [SerializeField] BaseData baseData;
@@ -254,8 +253,8 @@ public class PlayerInventory : MonoBehaviour
     }
     public void SetSuit()
     {
-        if(CheckItem(3))playerSkin.SetGravitySuit();
-        else playerSkin.SetPowerSuit();
+        if(CheckItem(3))GameEvents.EquipGravity.Invoke();
+        else GameEvents.EquipPower.Invoke();
     }
     /// <summary>
     /// Dynamically select the correct ammo UI.

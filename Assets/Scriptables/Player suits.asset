@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c1c14da3641f84283557af52bb20b9, type: 3}
   m_Name: Player suits
   m_EditorClassIdentifier: 
-  sprite1: {fileID: -2311659948842064771, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
-  sprite2: {fileID: -6320537741774142358, guid: a1bb42275d8f2cb42a8b005f3829bcdb, type: 3}
+  sprite1: {fileID: 8080261073154107344, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
+  sprite2: {fileID: 8080261073154107344, guid: 2ae94626e767f1a48b7162d1f0087594, type: 3}
   sprite3: {fileID: 0}

@@ -7,19 +7,42 @@ public class SkinSwapper : MonoBehaviour
 {
     [Tooltip("Menu player suit in background image")]
     [SerializeField] Image suit;
-    [SerializeField] Player.BaseData playerSuits;
+    [SerializeField] Suit power,gravity,corrupt; 
     [SerializeField] Materials materials;
     private SpriteRenderer spriteRenderer;
     private bool gravityEquiped;
     public bool Gravity{get=>gravityEquiped;}
-    private Dictionary<int,Sprite> sheetSuit=new Dictionary<int, Sprite>();
+    public static System.Action<bool> OnLeft;
+    private List<Sprite> suitLeft=new List<Sprite>();
+    private List<Sprite> suitRight = new List<Sprite>();
+    private List<Sprite> currentSide=new List<Sprite>();
+    private void OnEnable() {
+        GameEvents.EquipPower+=SetPowerSuit;
+        GameEvents.EquipGravity+=SetGravitySuit;
+        OnLeft+=SetSide;
+    }
+    private void OnDisable() {
+        GameEvents.EquipPower -= SetPowerSuit;
+        GameEvents.EquipGravity -= SetGravitySuit;
+        OnLeft -= SetSide;
+    }
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     public void SetPowerSuit()
     {
-        suit.sprite = playerSuits.powerSuit;
+        suit.sprite = power.portait;
+        suitLeft = new List<Sprite>();
+        suitRight = new List<Sprite>();
+        foreach (Sprite element in power.suitRight)
+        {
+            suitRight.Add(element);
+        }
+        foreach (Sprite element in power.suitLeft)
+        {
+            suitLeft.Add(element);
+        }
         gravityEquiped = false;
     }
     public void SetSpeedBooster(bool value)
@@ -34,19 +57,26 @@ public class SkinSwapper : MonoBehaviour
     }
     public void SetGravitySuit()
     {
-        suit.sprite = playerSuits.gravitySuit;
-        sheetSuit= new Dictionary<int, Sprite>();
-        foreach(Sprite element in playerSuits.gravityCompleteSheet){
-            sheetSuit.Add(int.Parse(element.name),element);
+        suit.sprite = gravity.portait;
+        suitLeft= new List<Sprite>();
+        suitRight=new List<Sprite>();
+        foreach(Sprite element in gravity.suitRight){
+            suitRight.Add(element);
+        }
+        foreach(Sprite element in gravity.suitLeft){
+            suitLeft.Add(element);
         }
         gravityEquiped = true;
     }
+    private void SetSide(bool left){
+        if(left)currentSide=new List<Sprite>(suitLeft);
+        else currentSide = new List<Sprite>();
+    }
     void LateUpdate()
     {
-        if (gravityEquiped)
-        {
-            int sprite = int.Parse(spriteRenderer.sprite.name);
-            spriteRenderer.sprite = sheetSuit[sprite];
+        if(currentSide.Count>0){
+            int index = int.Parse(spriteRenderer.sprite.name);
+            spriteRenderer.sprite = currentSide[index];
         }
     }
 }

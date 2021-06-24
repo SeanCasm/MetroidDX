@@ -23,7 +23,7 @@ public static class GameEvents
     /// </summary>
     public static Action<float> overHeatAction;
     /// <summary>
-    /// Update the player health, when receiving damage and getting health.
+    /// Updates the player health, when receiving damage and getting health.
     /// </summary>
     public static Action<int,int> playerHealth;
     public static Action healthTank;
@@ -32,14 +32,14 @@ public static class GameEvents
     /// </summary>
     public static Action refullAll;
     /// <summary>
-    /// Event at damage the player. Its neccesary the damage value (int) and
+    /// Event when the player is injured. Its neccesary the damage value (int) and
     /// the world position to set a knock back. 
     /// </summary>
     public static Action<int, float> damagePlayer;
     public static Action<Vector2> drop;
     public static Action<SaveStation> save;
     /// <summary>
-    /// Displays the save message when is using the save station.
+    /// Displays the save message when player is using the save station.
     /// </summary>
     public static Action saveMessage;
     public static Action<MiniMap> miniMap;
@@ -53,25 +53,34 @@ public static class GameEvents
     /// </summary>
     public static Action enablePlayer;
     /// <summary>
-    /// Enables or disables the item buttons in the player item menu.
+    /// Enables or disables the item buttons on the player item menu.
     /// </summary>
     public static Action<int, bool> setItemButton;
     /// <summary>
-    /// Enable the transition when player enters to a door.
+    /// Enables the transition when player enters to a door.
     /// </summary>
     public static Action<CameraTransition> DoorTransition;
     public static Action<bool> timeCounter;
     public static Action<bool> pauseTimeCounter;
     /// <summary>
-    /// Sets the background the parallax effect.
+    /// Sets to the background the parallax effect.
     /// </summary>
     public static Action<Transform> parallax;
     /// <summary>
-    /// Go directly to the minimap, used in map updater.
+    /// Goes directly to the minimap, used in map updater.
     /// </summary>
     public static Action MinimapShortcout;
     /// <summary>
     /// Starts the transition animation.
     /// </summary>
     public static Func<float> StartTransition;
+    /// <summary>
+    /// Sets the player left side animation spritesheet.
+    /// </summary>
+    public static Action LeftSide;
+    /// <summary>
+    /// Sets the player right side animation spritesheet.
+    /// </summary>
+    public static Action RightSide;
+    public static Action EquipPower,EquipGravity,EquipCorrupt;
 }

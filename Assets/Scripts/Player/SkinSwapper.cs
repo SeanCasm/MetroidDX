@@ -70,7 +70,7 @@ public class SkinSwapper : MonoBehaviour
     }
     private void SetSide(bool left){
         if(left)currentSide=new List<Sprite>(suitLeft);
-        else currentSide = new List<Sprite>();
+        else currentSide = new List<Sprite>(suitRight);
     }
     void LateUpdate()
     {

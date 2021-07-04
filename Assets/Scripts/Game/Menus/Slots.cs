@@ -23,6 +23,7 @@ public class Slots : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Pause.OnPause?.Invoke(true);
         Pause.onGame=false;
         string rebinds=PlayerPrefs.GetString("rebinds",string.Empty);
         if(!string.IsNullOrEmpty(rebinds)){
@@ -91,6 +92,7 @@ public class Slots : MonoBehaviour
                 else NewGameData();
             }
         }
+        Pause.OnPause?.Invoke(false);
         GameEvents.timeCounter.Invoke(true);
     }
     void OnDisable()

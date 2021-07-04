@@ -28,12 +28,20 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
             ""id"": ""86af2413-deea-437c-a67b-9767eed3eb34"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""AD"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf654486-1673-4d90-8798-4242b475e9f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WS"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""8340da99-aa70-4389-87f2-490c068e7fca"",
+                    ""id"": ""cafcabd9-6965-4b50-81d2-07c40410a60d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Fire"",
@@ -256,116 +264,6 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""efa9482f-0d93-4600-8e67-bb5c85d1ddb2"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""e1bc8a16-56da-47ae-ade6-35d74d75be59"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""0ec4aa71-8939-444b-a139-dc689284c7ba"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""35d39f2c-7264-4384-acc2-54e5407fdb7d"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""dc127519-ce9a-4653-af28-f26d1d393506"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""gamepad"",
-                    ""id"": ""ab641458-3838-4733-a618-a4a1476218fd"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""43df8a04-6796-4b6c-bf72-3567e65ae72b"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1f0a84d3-23bd-4e40-a58d-c064fa6a3798"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""3d73e056-7116-41d8-88fc-0209222d2e0c"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""10212f27-e960-4328-b7f3-aa4da6319527"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""1D Axis"",
                     ""id"": ""e5668b33-3660-4af5-a88c-1f3fcf16a27e"",
                     ""path"": ""1DAxis"",
@@ -410,6 +308,17 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""positive"",
+                    ""id"": ""99a49f5a-f9cb-4a40-bf65-f901556dc670"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""negative"",
                     ""id"": ""0c1bb95d-b90c-467f-b616-e7a1021c8b5e"",
                     ""path"": ""<Gamepad>/leftShoulder"",
@@ -421,13 +330,134 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""1e03bee5-6293-42c1-badf-f1b9cd32764d"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WS"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""positive"",
-                    ""id"": ""99a49f5a-f9cb-4a40-bf65-f901556dc670"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""id"": ""1a4d1184-7412-4a64-9152-753a41fc0be8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""WS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""72bd6159-258b-4023-b815-0c13c908d6f8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""WS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""e6462232-d0bf-4e52-990a-04fae7cccf45"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AD"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3ed1bbcc-fbea-4f2a-8795-3e2e84bd69c5"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""AD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7ee894cc-133a-435a-bd0d-b332c237420d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""AD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""64ecbc8e-2fd3-41ac-b971-46a25461c19c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AD"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""345e21a3-647f-46b1-97fc-ec8d96371221"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Aim"",
+                    ""action"": ""AD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""3982df20-456b-43b5-b488-32ae36f02b7d"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""537ff590-cc28-4c7b-95f3-f71cb8ca8a2b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WS"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""adfc01d1-5bd6-4a0b-892e-d28e80147aa5"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""WS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8f4e8402-468a-4f9b-b59c-bf5f2e5bd811"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""WS"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -437,14 +467,6 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
             ""name"": ""UI"",
             ""id"": ""856f425e-b0a3-4e64-bc74-8f6fa679f296"",
             ""actions"": [
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""828a4c0e-3517-4e1a-9dd3-c2105dcbdba9"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
                 {
                     ""name"": ""Select"",
                     ""type"": ""Button"",
@@ -458,6 +480,14 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""65434b0d-3477-46be-b1b2-67a589db7925"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""568d4d34-7d00-46a7-942e-721ecf88a00c"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -509,111 +539,111 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""337d0702-53dd-4cf7-ae84-8e2fd827d9f6"",
+                    ""id"": ""d377184e-dca5-41ee-90c9-8e072670b081"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""498ecc45-a62e-4e2c-b742-aa77b82331b5"",
+                    ""id"": ""dc20b6b8-9685-4c7a-9518-bee9ea61b13b"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""68c3ed96-06f8-4de4-b6e0-e53276ee01a9"",
+                    ""id"": ""4987dfcb-cd46-4ee6-81e2-d272f4672f38"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""b3abbd01-e8e3-46a3-bdef-9bc63ee0f2fa"",
+                    ""id"": ""f14404c2-28cf-4b99-aaa1-1e13cf3b6763"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""0ea3cb12-c113-4c01-ad92-468951699642"",
+                    ""id"": ""1a13f134-68c4-4205-bbc7-7ae4a761ccb4"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""gamepad"",
-                    ""id"": ""27ffa0f7-669b-44fc-8bb6-914bea7f1810"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""37b60ee6-9938-4101-afa2-f6f42550c201"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""5a41d747-c68a-4864-ba6f-397032211781"",
+                    ""id"": ""ad382b39-149c-49ef-b554-d17538a4860c"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""43f61050-221d-43f6-8e63-e3c6d3c9a543"",
+                    ""id"": ""1b007da8-1273-47c1-9b0e-2dbf5f3833b9"",
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""79c9b3af-ca9f-4571-a744-a7933b80d9f5"",
+                    ""id"": ""b7815029-8dd0-41bb-b0c8-39dd6d63c751"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""621bdab9-37f5-4fdd-9cb5-209258ee05de"",
+                    ""id"": ""0d7f63b5-4bfe-4b9a-9371-ab1ce07bafe6"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -691,7 +721,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_AD = m_Player.FindAction("AD", throwIfNotFound: true);
+        m_Player_WS = m_Player.FindAction("WS", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_MorfBall = m_Player.FindAction("MorfBall", throwIfNotFound: true);
         m_Player_Running = m_Player.FindAction("Running", throwIfNotFound: true);
@@ -702,9 +733,9 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Movement = m_UI.FindAction("Movement", throwIfNotFound: true);
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
+        m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
         // NNN
         m_NNN = asset.FindActionMap("NNN", throwIfNotFound: true);
     }
@@ -766,7 +797,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_AD;
+    private readonly InputAction m_Player_WS;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_MorfBall;
     private readonly InputAction m_Player_Running;
@@ -779,7 +811,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
     {
         private @Metroid m_Wrapper;
         public PlayerActions(@Metroid wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @AD => m_Wrapper.m_Player_AD;
+        public InputAction @WS => m_Wrapper.m_Player_WS;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @MorfBall => m_Wrapper.m_Player_MorfBall;
         public InputAction @Running => m_Wrapper.m_Player_Running;
@@ -797,9 +830,12 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @AD.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAD;
+                @AD.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAD;
+                @AD.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAD;
+                @WS.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWS;
+                @WS.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWS;
+                @WS.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWS;
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
@@ -828,9 +864,12 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @AD.started += instance.OnAD;
+                @AD.performed += instance.OnAD;
+                @AD.canceled += instance.OnAD;
+                @WS.started += instance.OnWS;
+                @WS.performed += instance.OnWS;
+                @WS.canceled += instance.OnWS;
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
@@ -863,16 +902,16 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Movement;
     private readonly InputAction m_UI_Select;
     private readonly InputAction m_UI_Back;
+    private readonly InputAction m_UI_Move;
     public struct UIActions
     {
         private @Metroid m_Wrapper;
         public UIActions(@Metroid wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_UI_Movement;
         public InputAction @Select => m_Wrapper.m_UI_Select;
         public InputAction @Back => m_Wrapper.m_UI_Back;
+        public InputAction @Move => m_Wrapper.m_UI_Move;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -882,28 +921,28 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMovement;
                 @Select.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
                 @Select.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
                 @Select.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
                 @Back.started -= m_Wrapper.m_UIActionsCallbackInterface.OnBack;
                 @Back.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnBack;
                 @Back.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnBack;
+                @Move.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
                 @Back.started += instance.OnBack;
                 @Back.performed += instance.OnBack;
                 @Back.canceled += instance.OnBack;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
@@ -980,7 +1019,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnAD(InputAction.CallbackContext context);
+        void OnWS(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnMorfBall(InputAction.CallbackContext context);
         void OnRunning(InputAction.CallbackContext context);
@@ -992,9 +1032,9 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
     }
     public interface IUIActions
     {
-        void OnMovement(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
     public interface INNNActions
     {

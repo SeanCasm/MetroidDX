@@ -162,7 +162,7 @@ MonoBehaviour:
   damageCol: {fileID: 4120045488245001556}
   pooleable: 0
   isSpazer: 0
-  spazerChild: 0
+  spazerChild: 1
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!50 &7345460437616521600
 Rigidbody2D:
@@ -425,7 +425,7 @@ MonoBehaviour:
   damageCol: {fileID: 3481649950684441751}
   pooleable: 0
   isSpazer: 0
-  spazerChild: 0
+  spazerChild: 1
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!50 &4991545093331342582
 Rigidbody2D:
@@ -781,7 +781,7 @@ MonoBehaviour:
   rigid: {fileID: 4463664850828288969}
   damageCol: {fileID: 12152963436924501}
   pooleable: 1
-  isSpazer: 0
+  isSpazer: 1
   spazerChild: 0
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!82 &7465182800218616743

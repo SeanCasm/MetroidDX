@@ -16,10 +16,8 @@ namespace Player{
         public float jumpForce,jumpForceUp;
         [SerializeField] Beams beams;
         public void SetInventoryData(PlayerInventory inventory){
-            inventory.limitedAmmo.Add(new PlayerInventory.CountableAmmo(false, 0, beams.limitedAmmo[0], missileAmmo, missileAmmo));
-            inventory.limitedAmmoSearch.Add(0, inventory.limitedAmmo[0]);
-            inventory.AddToItems(new PlayerInventory.Item(true, 4));//add the morfball item, initial game item by default.
-            inventory.AddToItems(new PlayerInventory.Item(true, 8));//add the speed booster item, for debug purposes.
+            inventory.limitedAmmo[0]=new CountableAmmo(false, 0, beams.limitedAmmo[0], missileAmmo, missileAmmo);
+            inventory.AddToItems(new Item(true, 4));//add the morfball item, initial game item by default.
             inventory.transform.position=spawn;
             inventory.SetSuit();
         }

@@ -1,125 +1,121 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 using Player;
-using Items;
 using Player.Weapon;
-
-public class PlayerInventory : MonoBehaviour
+[System.Serializable]
+public class Inventory
 {
-    #region Encapsulated classes
-    public class Inventory
+    public bool selected { get; set; }
+    public int iD { get; set; }
+    public Inventory(bool selected, int iD)
     {
-        public bool selected { get; set; }
-        public int iD { get; set; }
-        public Inventory(bool selected, int iD)
-        {
-            this.selected = selected;
-            this.iD = iD;
-        }
-        public Inventory(){}
+        this.selected = selected;
+        this.iD = iD;
     }
-    public class Ammo : Inventory
+}
+[System.Serializable]
+public class Ammo : Inventory
+{
+    public GameObject ammoPrefab { get; set; }
+    public static int ammoSelected;
+    public Ammo(bool selected, int iD, GameObject ammoPrefab) : base(selected, iD)
     {
-        public GameObject ammoPrefab { get; set; }
-        public static int ammoSelected;
-        public Ammo(bool selected, int iD,GameObject ammoPrefab) : base(selected, iD)
-        {
-            this.ammoPrefab = ammoPrefab;
-        }
+        this.ammoPrefab = ammoPrefab;
     }
-    public class CountableAmmo : Ammo
+}
+[System.Serializable]
+public class CountableAmmo : Ammo
+{
+    #region Properties
+    public int maxAmmo { get; set; }
+    public int actualAmmo { get; set; }
+
+    #endregion
+    public CountableAmmo(bool selected, int iD, GameObject ammoPrefab,
+        int maxAmmo, int actualAmmo) : base(selected, iD, ammoPrefab)
     {
-        #region Properties
-        public int maxAmmo { get; set; }
-        public int actualAmmo { get; set; }
-        public event Action<int, int> ammoText;
-        public event Action<int, bool> toggleUI;
-        public event Action<int> enableUI;
-        #endregion
-        public CountableAmmo(bool selected, int iD, GameObject ammoPrefab,
-            int maxAmmo,int actualAmmo) : base(selected,  iD, ammoPrefab)
-        {
-            this.selected = selected; 
-            this.iD = iD;this.ammoPrefab = ammoPrefab;
-            this.maxAmmo = maxAmmo;this.actualAmmo = actualAmmo;
-            GameEvents.refullAll += HandleRefullAll;
-            
-        }
-        /// <summary>
-        /// Creates the object after load the game.
-        /// </summary>
-        public CountableAmmo(bool selected, int iD, GameObject ammoPrefab,
-            int maxAmmo) : base(selected, iD, ammoPrefab)
-        {
-            this.selected = false;
-            this.maxAmmo = this.actualAmmo = maxAmmo;
-            this.ammoPrefab = ammoPrefab;
-            GameEvents.refullAll += HandleRefullAll;
-        }
-        #region Public methods
-        public void StablishUI()
-        {
-            ammoText.Invoke(iD, actualAmmo);
-            enableUI.Invoke(iD);
-        }
-        public void AddCapacity(int amount)
-        {
-            maxAmmo += amount; actualAmmo += amount;
-            ammoText.Invoke(iD, maxAmmo);
-        }
-        public void ActualAmmoCount(int amount)
-        {
-            actualAmmo += amount;
-            if (actualAmmo >= maxAmmo) actualAmmo = maxAmmo;
-            else if (actualAmmo <= 0)
-            {
-                actualAmmo = 0; Select(false);
-            }
-            ammoText.Invoke(iD, actualAmmo);
-        }
-        public void Select(bool select)
-        {
-            toggleUI.Invoke(iD, select);
-            this.selected = select;
-            ammoSelected=iD;
-        }
-        public bool CheckAmmo()
-        {
-            if (actualAmmo > 0) return true;
-            else return false;
-        }
-        /// <summary>
-        /// Checks if actual ammo is lower than max ammo.
-        /// </summary>
-        /// <returns>true if actual ammo is lower tran max ammo, false if actual ammo is equals to maxAmmo</returns>
-        public bool CheckCapacity(){
-            if(actualAmmo<maxAmmo)return true;
-            else return false;
-        }
-        private void HandleRefullAll()
-        {
-            this.actualAmmo=maxAmmo;
-            ammoText.Invoke(iD, maxAmmo);
-        }
-        public void Unsubcribe(){
-            GameEvents.refullAll-=HandleRefullAll;
-        }
-        #endregion
+        this.selected = selected;
+        this.iD = iD; this.ammoPrefab = ammoPrefab;
+        this.maxAmmo = maxAmmo; this.actualAmmo = actualAmmo;
+        GameUI.enableUI.Invoke(iD);
+        GameUI.ammoText.Invoke(iD, actualAmmo);
+        GameEvents.refullAll += HandleRefullAll;
+
     }
+    /// <summary>
+    /// Creates the object after load the game.
+    /// </summary>
+    public CountableAmmo(bool selected, int iD, GameObject ammoPrefab,
+        int maxAmmo) : base(selected, iD, ammoPrefab)
+    {
+        this.selected = false;
+        this.maxAmmo = this.actualAmmo = maxAmmo;
+        this.ammoPrefab = ammoPrefab;
+        GameUI.enableUI.Invoke(iD);
+        GameUI.ammoText.Invoke(iD, actualAmmo);
+        GameEvents.refullAll += HandleRefullAll;
+    }
+    #region Public methods
+    public void AddCapacity(int amount)
+    {
+        maxAmmo += amount; actualAmmo += amount;
+        GameUI.ammoText.Invoke(iD, maxAmmo);
+    }
+    public void ActualAmmoCount(int amount)
+    {
+        actualAmmo += amount;
+        if (actualAmmo >= maxAmmo) actualAmmo = maxAmmo;
+        else if (actualAmmo <= 0)
+        {
+            actualAmmo = 0; Select(false);
+        }
+        GameUI.ammoText.Invoke(iD, actualAmmo);
+    }
+    public void Select(bool select)
+    {
+        GameUI.toggleUI.Invoke(iD, select);
+        this.selected = select;
+        ammoSelected = iD;
+    }
+    public bool CheckAmmo()
+    {
+        if (actualAmmo > 0) return true;
+        else return false;
+    }
+    /// <summary>
+    /// Checks if actual ammo is lower than max ammo.
+    /// </summary>
+    /// <returns>true if actual ammo is lower tran max ammo, false if actual ammo is equals to maxAmmo</returns>
+    public bool CheckCapacity()
+    {
+        if (actualAmmo < maxAmmo) return true;
+        else return false;
+    }
+    private void HandleRefullAll()
+    {
+        this.actualAmmo = maxAmmo;
+        GameUI.ammoText.Invoke(iD, maxAmmo);
+    }
+    public void Unsubcribe()
+    {
+        GameEvents.refullAll -= HandleRefullAll;
+    }
+    #endregion
+}
+    [System.Serializable]
     public class Item : Inventory
     {
         public static int[] beamsID { get; } = { 1, 2, 10 };
-        public Beam beam{get;set;}
+        public Beam beam { get; set; }
         public Item(bool selected, int iD) : base(selected, iD)
         {
             this.iD = iD;
             this.selected = selected;
         }
     }
-    #endregion
-
+ 
+public class PlayerInventory : MonoBehaviour
+{
     #region Properties
     [SerializeField]Interactions interactions;
     [SerializeField] Beams beams;
@@ -134,10 +130,10 @@ public class PlayerInventory : MonoBehaviour
     public List<int> items { get; set; }=new List<int>();
     public bool canShootBeams { get ;set ; }=true;
     //0: missiles, 1: super missiles, 2: super bombs
-    public List<CountableAmmo> limitedAmmo { get; set; }= new List<CountableAmmo>();
-    public Dictionary<int, CountableAmmo> limitedAmmoSearch { get; set; } = new Dictionary<int, CountableAmmo>();
+    public CountableAmmo[] limitedAmmo { get; set; }= new CountableAmmo[4];
     #endregion
     #region Unity methods
+     
     void Start()
     {
         pCont = GetComponent<PlayerController>();
@@ -226,6 +222,14 @@ public class PlayerInventory : MonoBehaviour
             else return false;
         }else return false;
     }
+    public bool CheckLimitedAmmo(int id){
+        for(int i=0;i<limitedAmmo.Length;i++){
+            if(limitedAmmo[i]!=null){
+                if(limitedAmmo[i].iD == id)return true;
+            }
+        }
+        return false;
+    }
     public void LoadInventory(GameData data)//List<int> MSB, List<int> item, Dictionary<int,bool> selectItems,Dictionary<int,int> ammoMunition)
     {
         this.data=data;
@@ -235,8 +239,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (data.ammoMunition.ContainsKey(i))ammo =ammoMn[i];
             CountableAmmo lAmmo=new CountableAmmo(false, i, beams.limitedAmmo[i], ammo);
-            limitedAmmo.Add(lAmmo);
-            limitedAmmoSearch.Add(lAmmo.iD,lAmmo);
+            limitedAmmo[i]=lAmmo;
         }
         limitedAmmo[0].maxAmmo = limitedAmmo[0].actualAmmo=ammoMn[0];
         reserve = new List<int>(data.reserve);
@@ -262,14 +265,17 @@ public class PlayerInventory : MonoBehaviour
     /// <param name="itemIndex">the ammo index to show</param>
     public int AmmoSelection(int itemIndex)
     {
-        for (int i = itemIndex - 1; i < limitedAmmo.Count; i++)
+        for (int i = itemIndex; i < limitedAmmo.Length; i++)
         {
-            if(i-1>=0)limitedAmmo[i - 1].Select(false);//previous ammo selected
-            if (limitedAmmo[i].CheckAmmo())
+            if (itemIndex - 1 >= 0 && limitedAmmo[itemIndex - 1] != null) limitedAmmo[itemIndex - 1].Select(false);//previous ammo selected
+            if (limitedAmmo[i]!=null && limitedAmmo[i].CheckAmmo())
             {
-                if (i > 0) limitedAmmo[i - 1].Select(false);//previous ammo selected
+                if (itemIndex - 1 >= 0 && limitedAmmo[itemIndex - 1] != null) limitedAmmo[itemIndex - 1].Select(false);//previous ammo selected
                 limitedAmmo[i].Select(true);
-                if (i!=2) canShootBeams = false;
+                if (i!=2){
+                    canShootBeams = false;
+                    pool.SetBeamToPool(limitedAmmo[i].ammoPrefab);
+                }
                 PlayerInstantiates.countableID = i;
                 return itemIndex;
             }
@@ -278,24 +284,21 @@ public class PlayerInventory : MonoBehaviour
                 itemIndex++;//next position in the list
             }
         }
-        canShootBeams = true;AmmoSelection();
-        return 0;
+        canShootBeams=true;AmmoSelection();
+        return -1;
     }
     #region Mobile Methods
-    #if UNITY_ANDROID
+#if UNITY_ANDROID
     public void AmmoSelection_Mobile(int index){
         var lAmmo=limitedAmmoSearch[index];
         lAmmo.Select(!lAmmo.selected);
-        PlayerInstantiates.countableID = index;
-        canShootBeams=!lAmmo.selected;
-        foreach(var item in limitedAmmoSearch){
-            if(item.Key!=index){
-                item.Value.Select(false);
-                playerInstantiates.beamToShoot=item.Value.ammoPrefab;
-            }
-        }
+        canShootBeams = lAmmo.selected;
+        if(lAmmo.selected){
+            PlayerInstantiates.countableID = index;
+            pool.SetBeamToPool(lAmmo.ammoPrefab);
+        }else AmmoSelection();
     } 
-    #endif
+#endif
     #endregion
     /// <summary>
     /// Disable all ammo UI.
@@ -303,6 +306,7 @@ public class PlayerInventory : MonoBehaviour
     public void AmmoSelection()
     {
         foreach(var element in limitedAmmo)if(element!=null)element.Select(false);
+        SetBeamToShoot();
     }
     public void SetJumpType(int id)
     {
@@ -366,6 +370,7 @@ public class PlayerInventory : MonoBehaviour
             }
             else Ammo.ammoSelected = 4;//ice
         }
+        if(CheckItem(0))pool.SetChargedBeamToPool(beams.GetAmmoPrefab(-Ammo.ammoSelected));
         var gObj=beams.GetAmmoPrefab(Ammo.ammoSelected);
         pool.SetBeamToPool(gObj);
         playerInstantiates.beamToShoot = gObj;

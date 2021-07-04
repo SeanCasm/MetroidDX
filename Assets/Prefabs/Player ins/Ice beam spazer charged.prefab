@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6251411695404413827}
   - component: {fileID: 8076162896016766882}
   - component: {fileID: 36727740940705293}
+  - component: {fileID: 146842027021965789}
   m_Layer: 6
   m_Name: Ice beam spazer charged (1)
   m_TagString: Beam
@@ -196,8 +197,29 @@ MonoBehaviour:
   damageCol: {fileID: 5502364957530216808}
   pooleable: 0
   isSpazer: 0
-  spazerChild: 0
+  spazerChild: 1
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
+--- !u!114 &146842027021965789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015271050541418377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 597375515122172766}
+  localProjectil: {fileID: 36727740940705293}
+  behaviours:
+  - {fileID: 6251411695404413827}
+  - {fileID: 36727740940705293}
+  - {fileID: 5502364957530216808}
+  yAxisRelativeToParent: 0.085
+  spriteRenderer: {fileID: 6226225830681010221}
+  rb2d: {fileID: 8076162896016766882}
 --- !u!1 &2950322049571986289
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2950322049571986292
 Transform:
   m_ObjectHideFlags: 0
@@ -381,8 +403,8 @@ MonoBehaviour:
   floorCol: {fileID: 3327496489573889271}
   rigid: {fileID: 2950322049571986293}
   damageCol: {fileID: 2950322049571986294}
-  pooleable: 0
-  isSpazer: 0
+  pooleable: 1
+  isSpazer: 1
   spazerChild: 0
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
 --- !u!82 &3209590409056653015
@@ -490,7 +512,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3181954333720157983}
-  - component: {fileID: 8166768323706431262}
   - component: {fileID: 701398132621092013}
   - component: {fileID: 7859480160089536251}
   m_Layer: 6
@@ -514,18 +535,6 @@ Transform:
   m_Father: {fileID: 5162818073893571741}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8166768323706431262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3962029000992045185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee6b36f70234154cab06fc0ffc08189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &701398132621092013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -613,7 +622,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 853152413293016012}
-  - component: {fileID: 5395622652591584645}
   - component: {fileID: 3327496489573889271}
   - component: {fileID: 8916207305229374377}
   m_Layer: 6
@@ -637,18 +645,6 @@ Transform:
   m_Father: {fileID: 2950322049571986292}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5395622652591584645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4327527166164733243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee6b36f70234154cab06fc0ffc08189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &3327496489573889271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -736,7 +732,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4860299072407397063}
-  - component: {fileID: 9089766536808923180}
   - component: {fileID: 3788288777120808477}
   - component: {fileID: 479558173685313670}
   m_Layer: 6
@@ -760,18 +755,6 @@ Transform:
   m_Father: {fileID: 2899730908884267566}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9089766536808923180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6244560173870982572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee6b36f70234154cab06fc0ffc08189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &3788288777120808477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -865,6 +848,7 @@ GameObject:
   - component: {fileID: 1204894400059073394}
   - component: {fileID: 4667911480548011321}
   - component: {fileID: 2044932905343283179}
+  - component: {fileID: 5228912576296385475}
   m_Layer: 6
   m_Name: Ice beam spazer charged
   m_TagString: Beam
@@ -1046,5 +1030,26 @@ MonoBehaviour:
   damageCol: {fileID: 3356331310013543489}
   pooleable: 0
   isSpazer: 0
-  spazerChild: 0
+  spazerChild: 1
   freezeClip: {fileID: 8300000, guid: a0e8685c5abc9ad48a924eb121b2f90e, type: 3}
+--- !u!114 &5228912576296385475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044745316227916786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 597375515122172766}
+  localProjectil: {fileID: 2044932905343283179}
+  behaviours:
+  - {fileID: 2044932905343283179}
+  - {fileID: 1204894400059073394}
+  - {fileID: 3356331310013543489}
+  yAxisRelativeToParent: -0.085
+  spriteRenderer: {fileID: 6965093127239466911}
+  rb2d: {fileID: 4667911480548011321}

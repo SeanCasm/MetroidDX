@@ -46,6 +46,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -73,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 5089372662547995063, guid: 981930d929d229b41a10dc6bcb4c12dc, type: 3}
+  m_Sprite: {fileID: -2723041990060876650, guid: a3aabbe5c7828094bacaf556dc4a97eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -164,3 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2dacb48f424fa4089014142d053894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tags: []
+  blockType: 0

@@ -37,7 +37,7 @@ public class Warp : MonoBehaviour
             playerYPoint=playerC.transform.position.y;
             GameEvents.DoorTransition.Invoke(cameraTransition);
             StartCoroutine("Resume");
-            Pause.PausePlayer(playerC);
+            Pause.PausePlayer(playerC,true);
         }
     }
     IEnumerator Resume()

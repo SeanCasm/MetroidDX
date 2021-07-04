@@ -38,14 +38,12 @@ public class MapSaveSystem : MonoBehaviour
     #endregion
     #region Private Methods
     private void HandleRegistryTile(MiniMap miniMap){
-            print("XD");
             tileMap.SetTile(miniMap.cellPos, miniMap.currentTile);
             SaveMap(miniMap.currentTile,miniMap.cellPos);
     }
     void xd(MiniMap miniMap){
         if (tileMap.GetTile(tileMap.WorldToCell(miniMap.newTrans)) == null  )
         {
-            print("XD");
             tileMap.SetTile(miniMap.cellPos, miniMap.currentTile);
             SaveMap(miniMap.currentTile, miniMap.cellPos);
         }

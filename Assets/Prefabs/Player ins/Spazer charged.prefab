@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 6062142900114670838}
   - component: {fileID: 4636349472133787892}
   - component: {fileID: 3152725311988813020}
+  - component: {fileID: 5385955199019020022}
   m_Layer: 6
   m_Name: Spazer charged (1)
   m_TagString: Untagged
@@ -282,21 +283,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4.8
   livingTime: 3
-  startSound: {fileID: 8300000, guid: a4f8ddda5626ace4c82dd4a57b040d92, type: 3}
+  startSound: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 2
-  reject: {fileID: 0}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  speed: 1.2
+  speed: 3.5
   impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
   floorCol: {fileID: 8518311899456646267}
-  rigid: {fileID: 0}
-  damageCol: {fileID: 0}
-  pooleable: 0
+  rigid: {fileID: 6062142900114670838}
+  damageCol: {fileID: 4636349472133787892}
+  pooleable: 1
   isSpazer: 0
-  spazerChild: 0
+  spazerChild: 1
+--- !u!114 &5385955199019020022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917113889642548728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 8252551850284780779}
+  localProjectil: {fileID: 3152725311988813020}
+  behaviours:
+  - {fileID: 4410252707463062583}
+  - {fileID: 4636349472133787892}
+  - {fileID: 3152725311988813020}
+  yAxisRelativeToParent: 0.085
+  spriteRenderer: {fileID: 49639482278490235}
+  rb2d: {fileID: 6062142900114670838}
 --- !u!1 &6387839492721655346
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,14 +390,13 @@ GameObject:
   - component: {fileID: 4312700504762056292}
   - component: {fileID: 8860508394759861626}
   - component: {fileID: 8252551850284780779}
-  - component: {fileID: -8784101098038738732}
   m_Layer: 6
   m_Name: Spazer charged
   m_TagString: Beam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5244430373393653650
 Transform:
   m_ObjectHideFlags: 0
@@ -537,105 +558,9 @@ MonoBehaviour:
   floorCol: {fileID: 2876707614798261528}
   rigid: {fileID: 4049995367481819663}
   damageCol: {fileID: 8860508394759861626}
-  pooleable: 0
-  isSpazer: 0
+  pooleable: 1
+  isSpazer: 1
   spazerChild: 0
---- !u!82 &-8784101098038738732
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6549151509881346881}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -1120751543545626003, guid: 1cb8508d9c02e1e47a453e37ea200dfd, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &8350146737107156022
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +575,7 @@ GameObject:
   - component: {fileID: 6462254966280752246}
   - component: {fileID: 6476369106049251443}
   - component: {fileID: 7069371103614954476}
+  - component: {fileID: 1887027447206173902}
   m_Layer: 6
   m_Name: Spazer charged
   m_TagString: Untagged
@@ -804,18 +730,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4.8
   livingTime: 3
-  startSound: {fileID: 8300000, guid: a4f8ddda5626ace4c82dd4a57b040d92, type: 3}
+  startSound: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   hotPoints: 0
   iD: 0
   beamType: 2
-  reject: {fileID: 0}
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
   impactClip: {fileID: 0}
-  speed: 1.2
+  speed: 3.5
   impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
   floorCol: {fileID: 3593839294610998737}
-  rigid: {fileID: 0}
-  damageCol: {fileID: 0}
-  pooleable: 0
+  rigid: {fileID: 6462254966280752246}
+  damageCol: {fileID: 6476369106049251443}
+  pooleable: 1
   isSpazer: 0
-  spazerChild: 0
+  spazerChild: 1
+--- !u!114 &1887027447206173902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350146737107156022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c5b6de3d9e0994ca772d4eb6254905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 8252551850284780779}
+  localProjectil: {fileID: 7069371103614954476}
+  behaviours:
+  - {fileID: 965398788441552096}
+  - {fileID: 6476369106049251443}
+  - {fileID: 7069371103614954476}
+  yAxisRelativeToParent: -0.085
+  spriteRenderer: {fileID: 7017403631331285626}
+  rb2d: {fileID: 6462254966280752246}

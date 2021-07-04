@@ -15,13 +15,11 @@ public class MapNavigation : MonoBehaviour
     [SerializeField] RenderTexture camRender;
     Camera mapCamera;
     bool canMove;
+    float verticalAxis,horizontalAxis;
     public float SpeedNavigation{get=>speedTroughtNavigation;set=>speedTroughtNavigation=value;}
     void Awake()
     {
         mapCamera = GetComponent<Camera>();
-    }
-    private void Start() {
-        print("XD");
     }
     private void OnEnable() {
         canMove=true;
@@ -34,28 +32,41 @@ public class MapNavigation : MonoBehaviour
         if (mapCamera.targetTexture) mapCamera.targetTexture = null;
         else mapCamera.targetTexture = camRender;
     }
-    public void Movement(InputAction.CallbackContext context)
+    public void MoveVer(InputAction.CallbackContext context)
     {
-        if (context.performed && mapCursor.gameObject.activeSelf)
+        if (context.performed && Pause.onMap)
         {
-            float verticalAxis = context.ReadValue<Vector2>().y;
-            float horizontalAxis = context.ReadValue<Vector2>().x;
-            if (verticalAxis < 0)
-            {
-                mapCursor.localPosition = new Vector3(mapCursor.localPosition.x, mapCursor.localPosition.y - speedTroughtNavigation, 0f);
-            }
-            else if (verticalAxis > 0)
-            {
-                mapCursor.localPosition = new Vector3(mapCursor.localPosition.x, mapCursor.localPosition.y + speedTroughtNavigation, 0f);
-            }else
-            if (horizontalAxis < 0)
-            {
-                mapCursor.localPosition = new Vector3(mapCursor.localPosition.x - speedTroughtNavigation, mapCursor.localPosition.y, 0f);
-            }
-            else if (horizontalAxis > 0)
-            {
-                mapCursor.localPosition = new Vector3(mapCursor.localPosition.x + speedTroughtNavigation, mapCursor.localPosition.y, 0f);
-            }
+            verticalAxis = context.ReadValue<float>();
+            StartCoroutine(VerticalCamMovement());
+        }else if (context.canceled && Pause.onMap)
+        {
+            verticalAxis=0;
+            StopCoroutine(VerticalCamMovement());
         }
-    } 
+    }
+    public void MoveHor(InputAction.CallbackContext context)
+    {
+        if (context.performed && Pause.onMap)
+        {
+            horizontalAxis = context.ReadValue<float>();
+            StartCoroutine(HorizontalCamMovement());
+        }else if(context.canceled && Pause.onMap){
+            horizontalAxis=0;
+            StopCoroutine(HorizontalCamMovement());
+        }
+    }
+    IEnumerator HorizontalCamMovement(){
+        while(horizontalAxis!=0){
+            mapCursor.localPosition=new Vector3(mapCursor.localPosition.x + speedTroughtNavigation*horizontalAxis, mapCursor.localPosition.y, 0f);
+            yield return new WaitForSecondsRealtime(.05f);
+        }
+    }
+    IEnumerator VerticalCamMovement()
+    {
+        while (verticalAxis != 0)
+        {
+            mapCursor.localPosition = new Vector3(mapCursor.localPosition.x, mapCursor.localPosition.y + speedTroughtNavigation * verticalAxis, 0f);
+            yield return new WaitForSecondsRealtime(.05f);
+        }
+    }
 }

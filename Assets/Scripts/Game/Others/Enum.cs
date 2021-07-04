@@ -7,6 +7,10 @@ namespace Player.Weapon
         Missile, SuperMissile, Beam, IceBeam,Plasma,Bomb, SuperBomb,All
     }
 }
+public enum Input
+{
+    Select, Back
+}
 public enum CameraTransition{
     Left,Right,Up,Down
 }
@@ -18,7 +22,7 @@ namespace Enemy.Weapon{
 namespace Items{
     public enum ReserveType
     {
-        Missile, SuperMissile, SuperBomb, EnergyTank
+        Missile, SuperMissile, SuperBomb, EnergyTank,BouncingBomb
     }
     public enum ItemType
     {

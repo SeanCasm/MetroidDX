@@ -508,7 +508,7 @@ AudioMixerController:
   - {fileID: 24500006}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
-  m_EnableSuspend: 0
+  m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: a01a49af302aa5545a95a1fc6d448a5b
@@ -516,46 +516,9 @@ AudioMixerController:
   m_AudioMixerGroupViews:
   - guids:
     - 28e59372f3272304baca9098f8b9350f
-    - 24fa643000302fb4d829213afed3950b
-    - f4c7f3ea46949ae4784ef0ce957700d9
-    - 805e9c88d1790a24e9be728b27f30aa4
-    - e1d527c25f2e28c4895b3ea3512ca09e
-    - c12c6cc891d47874c8f52a1c34254b08
-    - eddbafb01b784114292552cbb93b9050
-    - 86aac4a02baafbf47bb4b64f3d6153be
-    - e53a575cc0f9b1347a3303e4f2d0fbe6
-    - 225bfc3570cf2ea45b793570d4f0f035
     name: View
   - guids:
     - 28e59372f3272304baca9098f8b9350f
-    - 24fa643000302fb4d829213afed3950b
-    - f4c7f3ea46949ae4784ef0ce957700d9
-    - 805e9c88d1790a24e9be728b27f30aa4
-    - e1d527c25f2e28c4895b3ea3512ca09e
-    - c12c6cc891d47874c8f52a1c34254b08
-    - eddbafb01b784114292552cbb93b9050
-    - 86aac4a02baafbf47bb4b64f3d6153be
-    - e53a575cc0f9b1347a3303e4f2d0fbe6
-    - 225bfc3570cf2ea45b793570d4f0f035
-    - 8a88f2cf347fe1e44a1c9b75884fd97d
-    - a5edbe2e0c5e2df4fbb219d887feb3ad
-    - 9577c37e8cb7f144cbb8c2b0528eb309
-    - 4d81251a47ba0a44ca7dedd10ead8551
-    - e2055a1a6bc4f964b9592529b63409de
-    - 14908cdc0e5522948a9f7628f0c14f8b
-    - 757d4af7e5440f14f91dac18cf8010d8
-    - 5374b0d5adea70e47b91762f2ecfd319
-    - 32f28e43dc4d96b49bc01616f38b9c2e
-    - aea42b0609595ef488acc773069a7e52
-    - fc62531a74a43524097bfa81bebad81f
-    - 0a98412aab58b4f43b2011c4a10511b9
-    - abab0dafb730b7c4bb98a59cf0af68fb
-    - 22b06e6fc0014dd4c8a550b60f084f07
-    - 08c824654c5d04841842792074c95037
-    - faad94fcfbaa93943b8a24ac4549f238
-    - 773e8b5cfac47dd49a53d97ec6ba5d0f
-    - 6aa3dbe689207204084d8c3e7ddde271
-    - 3383a651992461445978adcfac25996d
     name: View - Copy
   m_CurrentViewIndex: 1
   m_TargetSnapshot: {fileID: 24500006}
@@ -568,35 +531,7 @@ AudioMixerGroupController:
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 28e59372f3272304baca9098f8b9350f
-  m_Children:
-  - {fileID: 8465788652116707668}
-  - {fileID: -3141338288130537143}
-  - {fileID: -2096419086329890022}
-  - {fileID: 5517045415410364825}
-  - {fileID: -4603500819061440795}
-  - {fileID: 6112893791636633953}
-  - {fileID: 166632601376657572}
-  - {fileID: -3712465155013880017}
-  - {fileID: -7071112548167382764}
-  - {fileID: 3136953375695174736}
-  - {fileID: 6171933835917866955}
-  - {fileID: -1120751543545626003}
-  - {fileID: -3822361192630168165}
-  - {fileID: 3936438035193778823}
-  - {fileID: 6847285612784185613}
-  - {fileID: 1650028269004899859}
-  - {fileID: -4524797985216415889}
-  - {fileID: -4159741065995169725}
-  - {fileID: 4698477207811695502}
-  - {fileID: -4231307461855781328}
-  - {fileID: 1335363731571270300}
-  - {fileID: 7203777364430379052}
-  - {fileID: -7371386481861549039}
-  - {fileID: -9086746807456494538}
-  - {fileID: -1288401571560660904}
-  - {fileID: 1313707770154928946}
-  - {fileID: -8687797930281988939}
-  - {fileID: -7036829653495032454}
+  m_Children: []
   m_Volume: a01a49af302aa5545a95a1fc6d448a5b
   m_Pitch: 568b8a68b1eccf8489f6427741da09a7
   m_Send: 00000000000000000000000000000000
@@ -656,7 +591,7 @@ AudioMixerSnapshotController:
     a9b733cd55158de45ad3bc917b57818a: 6.7923827
     e1b7c57e2b00f084e94139ad90ae7a35: 11.135803
     21ef898e7eb470d4e9ecfccdbffd9f45: 5.545087
-    a01a49af302aa5545a95a1fc6d448a5b: 20
+    a01a49af302aa5545a95a1fc6d448a5b: 0
   m_TransitionOverrides: {}
 --- !u!243 &166632601376657572
 AudioMixerGroupController:

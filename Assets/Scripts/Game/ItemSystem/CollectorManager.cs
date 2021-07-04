@@ -14,10 +14,10 @@ public class CollectorManager : MonoBehaviour
     [SerializeField] UnityEvent Pickup;
     [SerializeField]Interactions interactions;
     [SerializeField] AudioClip reserveAcquired, itemAcquired;
-    [SerializeField] GameObject player,suitUI,acquiredPanel,canvas;
+    [SerializeField] GameObject player,acquiredPanel,canvas;
+    [SerializeField] Image suitUI;
+    [SerializeField] Suit gravity,corrupt;
     [SerializeField] GameObject[] defaultAmmoPrefabs;
-    [SerializeField] Sprites playerSuits;
-    [SerializeField] GameUI hudUI;
     [SerializeField] ButtonUtilities buttonEssentials;
     [SerializeField] AudioMixerGroup mixerToMute;
 
@@ -52,7 +52,7 @@ public class CollectorManager : MonoBehaviour
         inventory.reserve.Add(reserve.ID);
     }
     private void AddToPlayerInventory(ItemAcquired item){
-        inventory.AddToItems(new PlayerInventory.Item(true, item.ID));
+        inventory.AddToItems(new Item(true, item.ID));
         buttonEssentials.SetButton(item.ID, true);
         interactions.SetButtonNavigation();
     }
@@ -60,7 +60,7 @@ public class CollectorManager : MonoBehaviour
     {
         mixerToMute.audioMixer.GetFloat("SE volume",out audioAux);
         mixerToMute.audioMixer.SetFloat("SE volume", -80);
-        Pause.PausePlayer(playerC);
+        Pause.PausePlayer(playerC,true);
     }
     #endregion
     #region Unity Methods
@@ -85,47 +85,50 @@ public class CollectorManager : MonoBehaviour
     {
         itemGot = reserve.gameObject;
         var ammo = inventory.limitedAmmo;
-        var ammoSearch = inventory.limitedAmmoSearch;
         switch (reserve.ItemType)
         {
             case ReserveType.Missile:
                 ammo[0].AddCapacity(999);
                 break;
             case ReserveType.SuperMissile:
-            //Check if is the first time on get the item.
-                if (!ammoSearch.ContainsKey(1))
+                 //Check if is the first time on get the item.
+                if (!inventory.CheckLimitedAmmo(1))
                 {
-                    PlayerInventory.CountableAmmo newAmmo =
-                        new PlayerInventory.CountableAmmo(false, 1, defaultAmmoPrefabs[0], 0, 0);
-                    ammoSearch.Add(1, newAmmo);
-                    if(ammo.Count>1){
-                        List<PlayerInventory.CountableAmmo> aux=new List<PlayerInventory.CountableAmmo>();
-                        aux.Add(ammo[0]);
-                        aux.Add(newAmmo);
-                        aux.Add(ammo[1]);
-                        inventory.limitedAmmo =aux;
-                    }else{
-                        ammo.Add(newAmmo);
-                    }
-                    hudUI.AddAndSubscribe(1);
+                    CountableAmmo newAmmo =new CountableAmmo(false, 1, defaultAmmoPrefabs[0], 2, 2);
+                    ammo[1]=newAmmo;
+                    GameUI.enableUI.Invoke(1);
+                    GameUI.ammoText.Invoke(1,2);
+                }else{
+                    ammo[1].AddCapacity(2);
+                    GameUI.enableUI.Invoke(1);
+                    GameUI.ammoText.Invoke(1, ammo[1].actualAmmo);
                 }
-                ammoSearch[1].AddCapacity(999);
                 break;
             case ReserveType.SuperBomb:
                 //Check if is the first time on get the item.
-                if (!ammoSearch.ContainsKey(2))
+                if (!inventory.CheckLimitedAmmo(2))
                 {
-                    PlayerInventory.CountableAmmo newAmmo =
-                        new PlayerInventory.CountableAmmo(false, 2, defaultAmmoPrefabs[1], 0, 0);
-                    ammoSearch.Add(2, newAmmo);
-                    ammo.Add(newAmmo);
-                    hudUI.AddAndSubscribe(2);
+                    CountableAmmo newAmmo =new CountableAmmo(false, 2, defaultAmmoPrefabs[1], 2, 2); 
+                    ammo[2]=newAmmo;
+                    GameUI.enableUI.Invoke(2);
+                    GameUI.ammoText.Invoke(2, 2);
+                }else{
+                    ammo[2].AddCapacity(2);
+                    GameUI.enableUI.Invoke(2);
+                    GameUI.ammoText.Invoke(2, ammo[2].actualAmmo);
                 }
-                ammoSearch[2].AddCapacity(20);
                 break;
             case ReserveType.EnergyTank:
                 GameEvents.healthTank.Invoke();
                 break;
+            case ReserveType.BouncingBomb:
+                //Check if is the first time on get the item.
+                if (!inventory.CheckLimitedAmmo(3))
+                {
+                    CountableAmmo newAmmo =new CountableAmmo(false, 3, defaultAmmoPrefabs[2], 0, 0);
+                    ammo[3]=newAmmo;
+                }
+            break;
         }
         AddToPlayerInventory(reserve);
         audioPlayer.ClipAndPlay(reserveAcquired);
@@ -136,7 +139,7 @@ public class CollectorManager : MonoBehaviour
     {
         if (item.iType == ItemType.Suit)
         {
-            suitUI.GetComponent<Image>().sprite = playerSuits.sprite2;
+            suitUI.sprite = gravity.portait;
             skin=player.GetComponent<SkinSwapper>();
             skin.SetGravitySuit();
         }
@@ -152,7 +155,7 @@ public class CollectorManager : MonoBehaviour
     {
         Pickup.Invoke();
         ItemAcquired(itemS);
-        StartCoroutine(Resume(itemAcquired.length));
+        StartCoroutine(Resume(2f));
     }
     public void HandlePickupReserve(ReserveAcquired reserveItem)
     {

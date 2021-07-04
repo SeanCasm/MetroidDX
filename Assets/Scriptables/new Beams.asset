@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 4774927664216399705, guid: 0032efe936d5a37478d98eb2a70b563a, type: 3}
   - {fileID: 3256416437917347827, guid: 237659fdefafb87408ab6ecbf6e2e1b6, type: 3}
   - {fileID: 351056426103883310, guid: 475d84b72c17dd643bed303973b5dd77, type: 3}
+  - {fileID: 4374123270714136259, guid: 6dfefe5eba8d2194c992ca9383042d5a, type: 3}
   beams:
   - {fileID: 9138191430410896773, guid: 3d246caa22ec54917a285457f0736c2f, type: 3}
   - {fileID: 6549151509881346881, guid: 1ab8d14060f5ce64499efbfabfceadd7, type: 3}

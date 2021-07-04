@@ -10,17 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 580490080782545521}
   - component: {fileID: 6516793536166622961}
-  - component: {fileID: 5521475921685223052}
   - component: {fileID: 3954072510289040696}
   - component: {fileID: 5049428115256470316}
-  - component: {fileID: -1279984916587596029}
+  - component: {fileID: 1527652175399917295}
   m_Layer: 6
   m_Name: Charged Beam
   m_TagString: Beam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &580490080782545521
 Transform:
   m_ObjectHideFlags: 0
@@ -88,32 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5521475921685223052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972333102740077268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7854421be1b8ee54bbc9a5e519d189b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 9
-  livingTime: 3
-  startSound: {fileID: 5581565508754413713, guid: 79ea7e457b2098946a9490c650b23d59, type: 3}
-  direction: {x: 0, y: 0, z: 0}
-  hotPoints: 22
-  iD: -3
-  beamType: 2
-  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
-  impactClip: {fileID: 0}
-  speed: 3.5
-  impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
-  floorCol: {fileID: 917580196073906170}
-  rigid: {fileID: 3954072510289040696}
-  damageCol: {fileID: 5049428115256470316}
 --- !u!50 &3954072510289040696
 Rigidbody2D:
   serializedVersion: 4
@@ -161,102 +134,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26869112, y: 0.12415622}
   m_EdgeRadius: 0
---- !u!82 &-1279984916587596029
-AudioSource:
+--- !u!114 &1527652175399917295
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972333102740077268}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 8465788652116707668, guid: 1cb8508d9c02e1e47a453e37ea200dfd, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7854421be1b8ee54bbc9a5e519d189b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 9
+  livingTime: 3
+  startSound: {fileID: 5581565508754413713, guid: 79ea7e457b2098946a9490c650b23d59, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  hotPoints: 22
+  iD: -3
+  beamType: 2
+  reject: {fileID: 1269435714947100089, guid: 1526e6a0d59e4104091250b4d03d7a52, type: 3}
+  impactClip: {fileID: 0}
+  speed: 3.5
+  impactPrefab: {fileID: 4592220869597079597, guid: e3315b239f61a1b4d9384c489df00d0c, type: 3}
+  floorCol: {fileID: 917580196073906170}
+  rigid: {fileID: 3954072510289040696}
+  damageCol: {fileID: 5049428115256470316}
+  pooleable: 1
+  isSpazer: 0
+  spazerChild: 0
 --- !u!1 &2442504078553705277
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +173,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4168856462685606733}
   - component: {fileID: 917580196073906170}
-  - component: {fileID: 5249226782519353439}
   m_Layer: 6
   m_Name: FloorCollider
   m_TagString: Beam
@@ -315,15 +220,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24743344, y: 0.058344513}
   m_EdgeRadius: 0
---- !u!114 &5249226782519353439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2442504078553705277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee6b36f70234154cab06fc0ffc08189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

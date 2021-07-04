@@ -83,4 +83,5 @@ public static class GameEvents
     /// </summary>
     public static Action RightSide;
     public static Action EquipPower,EquipGravity,EquipCorrupt;
+    public static Action<string, Input> OnInputBinded;
 }

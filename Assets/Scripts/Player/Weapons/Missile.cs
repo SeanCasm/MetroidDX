@@ -17,10 +17,6 @@ namespace Player.Weapon
         }
         new void OnEnable() {
             base.OnEnable();
-            base.NoPlasmaOnTrigger+=DestroySelf;
-        }
-        private void OnDisable() {
-            base.NoPlasmaOnTrigger -= DestroySelf;
         }
         new void FixedUpdate()
         {
@@ -30,18 +26,9 @@ namespace Player.Weapon
         {
             base.OnTriggerEnter2D(collision);
         }
-        new void FloorCollision()
-        {
-            if (impactClip) Instantiate(impactClip);
-            Instantiate(impactPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        private void DestroySelf(){
-            Destroy(gameObject);
-        }
         new void OnBecameInvisible()
         {
-            Destroy(gameObject);
+            base.OnBecameInvisible();
         }
         #endregion
         new void Reject()

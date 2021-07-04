@@ -22,7 +22,7 @@ public class GameData
     {
         actualSector = sectorName;
         var limitedAmmo = inventory.limitedAmmo;
-        for (int i = 0; i < limitedAmmo.Count; i++)
+        for (int i = 0; i < limitedAmmo.Length; i++)
         {
             if (limitedAmmo[i].maxAmmo > 0)
             {

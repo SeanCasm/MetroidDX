@@ -15,7 +15,7 @@ public class ScriptableDrop : ScriptableObject
     /// <returns></returns>
     private bool CheckForDrop(PlayerInventory playerI)
     {
-        for (int i = 0; i < playerI.limitedAmmo.Count; i++)
+        for (int i = 0; i < playerI.limitedAmmo.Length; i++)
         {
             return playerI.limitedAmmo[i].CheckCapacity();
         }
@@ -32,10 +32,10 @@ public class ScriptableDrop : ScriptableObject
     }
     private GameObject SendAmmoDrop(PlayerInventory playerInventory)
     {
-        var countableAmmo=playerInventory.limitedAmmoSearch;
+        var countableAmmo=playerInventory.limitedAmmo;
         List<GameObject> ammoOnInventory=new List<GameObject>();
         for(int i=0;i<3;i++){
-            if (countableAmmo.ContainsKey(i)){
+            if (playerInventory.CheckLimitedAmmo(i)){
                 var ammo=countableAmmo[i];
                 if(ammo.actualAmmo<ammo.maxAmmo) ammoOnInventory.Add(ammoPrefabs[i]);
             }

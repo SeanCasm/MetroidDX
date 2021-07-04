@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5623516860472700998}
   - component: {fileID: 5540940185404766966}
   - component: {fileID: 1406436920213527098}
-  - component: {fileID: 4854892405750459780}
   - component: {fileID: 6745648979894113190}
   - component: {fileID: 3212225609320430776}
   - component: {fileID: 2773168149740860086}
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4374123270714136259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 34
   m_Sprite: {fileID: 8355768043526351301, guid: 522c0ecdb90e82d4ab4778a76d64faee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,31 +118,11 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.04
---- !u!250 &4854892405750459780
-PointEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4374123270714136259}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4352
-  m_ForceMagnitude: 32
-  m_ForceVariation: 0
-  m_DistanceScale: 1
-  m_ForceSource: 0
-  m_ForceTarget: 0
-  m_ForceMode: 0
-  m_Drag: 0
-  m_AngularDrag: 0
 --- !u!50 &6745648979894113190
 Rigidbody2D:
   serializedVersion: 4
@@ -275,8 +254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   livingTime: 0.27
-  startSound: {fileID: 8300000, guid: 4c0ceed5880f00b45bceb5e1e9e4be1a, type: 3}
+  startSound: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
   hotPoints: 12
   iD: 0
   beamType: 5
   bombExplosion: {fileID: 8300000, guid: f325906721929da48bbd0cc05e3d666d, type: 3}
+  timeToExplode: 1.5

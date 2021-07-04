@@ -33,54 +33,44 @@ public class PlayerInstantiates : MonoBehaviour
     }
     private void GunShoot(bool isCharging)
     {
-        var ammo = inventory.limitedAmmoSearch;
+        var ammo = inventory.limitedAmmo;
         if(countableID==2)countableID=-999;
         if(inventory.canShootBeams){
             if(!isCharging) pool.ActiveNextPoolObject();
             else{
                 int id=beamToShoot.GetComponent<Beam>().ID;
                 beamToShoot = beams.GetAmmoPrefab(id * -1);
+                pool.ActiveNextChargedPoolObject();
                 //back to normal beam
                 beamToShoot=beams.GetAmmoPrefab(id);
             }
         }else{
-            if (ammo.ContainsKey(countableID))
+            if (inventory.CheckLimitedAmmo(countableID))
             {
-                var ammoPos = ammo[countableID]; 
-                var obj=Instantiate(ammoPos.ammoPrefab,transform.position,transform.rotation,transform);
-                obj.transform.SetParent(null);
+                var ammoPos = ammo[countableID];
+                pool.ActiveNextPoolObject();
                 ammoPos.ActualAmmoCount(-1);
                 if (ammoPos.actualAmmo <= 0) inventory.canShootBeams = true;
             }
         }
     }
-    PlayerInventory.CountableAmmo ammo;
+    CountableAmmo ammo;
     private bool canInstantiate = true; 
     public void SetBomb()
     {
-        bool ins=false;;
-        if (inventory.limitedAmmoSearch.ContainsKey(2))
-        {
-            
-            ammo = inventory.limitedAmmoSearch[2];
-            if(ammo.selected)ins=true;
-        }
-        else
-        {
-            ammo = null;
-        }
-        if(ins){
-            if (ammo != null && ammo.CheckAmmo())
+        ammo=null;
+        if(inventory.CheckLimitedAmmo(2))ammo=inventory.limitedAmmo[2];
+        if(ammo!=null){
+            if (ammo.CheckAmmo() && ammo.selected)
             {
                 GameObject mb = Instantiate(ammo.ammoPrefab, firePoint.position, Quaternion.identity) as GameObject;
                 ammo.ActualAmmoCount(-1);
             }
-            else if (inventory.CheckItem(6) && canInstantiate)//bomb
-            {
-                GameObject mb = Instantiate(beams.bomb, firePoint.transform.position, Quaternion.identity);
-                canInstantiate = false;
-                Invoke("InsBomb", 1f);
-            }
+        }
+        if((ammo==null || !ammo.CheckAmmo()) && inventory.CheckItem(6) && canInstantiate){
+            GameObject mb = Instantiate(beams.bomb, firePoint.transform.position, Quaternion.identity);
+            canInstantiate = false;
+            Invoke("InsBomb", .5f);
         }
     }
     void InsBomb()

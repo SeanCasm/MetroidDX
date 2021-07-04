@@ -26,21 +26,7 @@ public class ReserveAcquired : MonoBehaviour,ICollecteable
     }
     private void OnEnable()
     {
-        switch (reserveType)
-        {
-            case ReserveType.Missile:
-                nameItem = "Missile";
-                break;
-            case ReserveType.SuperBomb:
-                nameItem = "Super bomb";
-                break;
-            case ReserveType.SuperMissile:
-                nameItem = "Super missile";
-                break;
-            case ReserveType.EnergyTank:
-                nameItem = "Energy tank";
-                break;
-        }
+        nameItem=gameObject.name;
         GameEvents.verifyRegistry.Invoke(this);
     }
     private void OnTriggerEnter2D(Collider2D collision)

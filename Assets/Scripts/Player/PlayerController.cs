@@ -8,37 +8,36 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CapsuleCollider2D capsule;
     [SerializeField] BoxCollider2D hurtBox;
     [SerializeField] LayerMask groundLayer, enemyLayer;
-    [Range(.01f, 1f)]
-    [SerializeField] float jumpTime = 0.35f;
+    [SerializeField] Transform shootpoint;
+    [SerializeField] Joystick joystick;
+    [SerializeField, Range(.01f, 1f)] float jumpTime = 0.35f;
     [Header("Floor config")]
-    [SerializeField] Transform feetPosition;
-    [Range(.01f, .2f)]
-    [SerializeField] float groundDistance = 0.18f;
+    [SerializeField, Range(.01f, .2f)] float groundDistance = 0.18f;
+    [SerializeField, Range(.01f, .2f)] float slopeFrontRay = 0.08f;
+    [SerializeField, Range(.01f, .2f)] float slopeBackRay = 0.08f;
+    [SerializeField,Range(.01f,1f)] float groundHitSlope; 
     [Header("Running and Speed Booster config")]
     [Tooltip("Standard running without any boost.")]
-    [Range(0, 115)]
-    [SerializeField] float runningSpeed;
+    [SerializeField, Range(0, 115)] float runningSpeed=100;
     [Tooltip("Speed Booster max speed")]
-    [Range(130, 150)]
-    [SerializeField] float speedBooster = 130;
-    [Range(115, 200)]
-    [SerializeField] float maxSpeed;
-    [Range(1, 3)]
-    [SerializeField] float speedIncreaseOverTime = 1.5f;
+    [SerializeField, Range(100, 130)] float speedBooster = 115;
+    [SerializeField, Range(0, 200)] float maxSpeed;
+    [SerializeField, Range(1, 3)] float speedIncreaseOverTime = 1.5f;
+    private Vector2 posFrontRay,posBackRay,slopePerp; 
+    private RaycastHit2D frontHit,backHit;
     private SkinSwapper skin;
-    private float jumpForce = 88, speed = 88, hyperJumpForceMultiplier = 1.8f;
-    private float xInput = 0, yInput = 0, xVelocity, yVelocity, jumpTimeCounter, currentSpeed;
+    private float jumpForce = 88, speed = 88, hyperJumpForceMultiplier = 1.8f,frontAngle,backAngle;
+    private float xInput = 0, yInput = 0, xVelocity, jumpTimeCounter, currentSpeed,slopeAngle;
     public static Vector2 direction, hyperJumpDir;
     private Animator anim;
     private PlayerInventory inventory;
     private SomePlayerFX playerFX;
     private SpriteRenderer spriteRenderer;
     private PlayerInstantiates instantiates;
-    private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, gravityJump, aimDown, aiming, running, aimUp,
+    private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, gravityJump, aimDown, aiming, running, aimUp, firstLand,
        onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope, inHyperJumpDirection, canCheckFloor = true;
-    private PhysicsMaterial2D material;
     public System.Action OnJump, OnSpeedBooster;
-    int pressCount = 0;
+    int pressCount = -1;
     int[] animatorHash = new int[27];
     public float currentJumpForce { get; set; }
     private bool OnRoll
@@ -53,8 +52,6 @@ public class PlayerController : MonoBehaviour
     public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
     public float SpeedBS { get => speedBooster; }
     public float RunningSpeed { get => runningSpeed; }
-    public bool hittedLeft { get; set; }
-    public bool hitted { get; set; }
     public bool inSBVelo { get; set; }
     public bool hyperJumpCharged { get; set; }
     public bool Damaged
@@ -78,13 +75,8 @@ public class PlayerController : MonoBehaviour
                 playerFX.HyperJump();
                 rb.gravityScale = 0;
                 onJumpingState = inHyperJumpDirection = movement = canInstantiate = false;
-
-
             }
-            else
-            {
-                movement = canInstantiate = true;
-            }
+            else movement = canInstantiate = true;
         }
     }
     public bool canInstantiate { get; set; }
@@ -110,15 +102,13 @@ public class PlayerController : MonoBehaviour
                 canCheckFloor = IsGrounded = moveOnFloor = false;
                 StartCoroutine(CheckFloor());
             }
-            else{ StopCoroutine(JumpCoroutine());jumpTimeCounter=0;print(jumpTimeCounter);}
-            material.friction = 0;
+            else { StopCoroutine(JumpCoroutine()); jumpTimeCounter = 0; }
         }
     }
     IEnumerator CheckFloor()
     {
         yield return new WaitForSecondsRealtime(0.3f);
         canCheckFloor = true;
-
     }
     public bool ShootOnWalk
     {
@@ -140,9 +130,12 @@ public class PlayerController : MonoBehaviour
             {
                 playerFX.Balled();
                 aim = 0;
+                shootpoint.eulerAngles = new Vector3(0, 0, 0);
                 Screwing = OnRoll = crouch = aimDown = aimUp = false;
+            }else{ 
+                anim.SetFloat(animatorHash[18], 1);
+                spriteRenderer.flipX = false;
             }
-            else anim.SetFloat(animatorHash[23], 1);
         }
     }
     public bool movement { get; set; }
@@ -158,7 +151,6 @@ public class PlayerController : MonoBehaviour
         instantiates = GetComponentInChildren<PlayerInstantiates>();
         inventory = GetComponent<PlayerInventory>();
         rb = GetComponent<Rigidbody2D>();
-        material = rb.sharedMaterial;
         anim = GetComponentInChildren<Animator>();
         skin = GetComponent<SkinSwapper>();
     }
@@ -177,11 +169,23 @@ public class PlayerController : MonoBehaviour
             hurtBox.offset = capsule.offset = new Vector2(0, 0);
             hurtBox.size = new Vector2(.10f, spriteRenderer.bounds.size.y);
             capsule.size = new Vector2(.10f, spriteRenderer.bounds.size.y / transform.lossyScale.y);
-
+            if(capsule.size.y>.42f)capsule.size=new Vector2(.10f, .42f);
             if (isGrounded) OnGround();
             else OnAir();
-            if (xInput < 0){transform.localScale=new Vector2(-.86f,.86f); leftLook = true;}
-            else if (xInput > 0) {leftLook = false;transform.localScale = new Vector2(.86f, .86f); }
+
+            if (xInput < 0) { 
+                transform.localScale = new Vector2(-.86f, .86f);
+                    if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 180);
+                    else if (aim > 0) AimUp();
+                    else AimDown();
+
+            }
+            else if (xInput > 0) {
+                transform.localScale = new Vector2(.86f, .86f);
+                if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 0);
+                else if (aim > 0) AimUp();
+                else AimDown();
+            }
 
 #if UNITY_ANDROID
             MobileMovement();
@@ -194,10 +198,12 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(capsule.bounds.center, size, 0f, Vector2.down, groundDistance, groundLayer);
         RaycastHit2D raycastHitEnemy = Physics2D.BoxCast(capsule.bounds.center, capsule.bounds.size, 0f, Vector2.down, groundDistance, enemyLayer);
 
-        if (raycastHit2D || (raycastHitEnemy.collider != null && raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed)) isGrounded = true;
+        if (raycastHit2D || (raycastHitEnemy.collider != null && raycastHitEnemy.collider.gameObject.GetComponent<EnemyHealth>().freezed))
+        {
+            if (!firstLand) firstLand = true;
+            isGrounded = true;
+        }
         else isGrounded = false;
-
-        Debug.DrawRay(capsule.bounds.center + new Vector3(capsule.bounds.extents.x, 0), Vector2.down * (capsule.bounds.extents.y + groundDistance), Color.red);
     }
     void OnDisable()
     {
@@ -209,16 +215,17 @@ public class PlayerController : MonoBehaviour
         if (!damaged && !hyperJumping)
         {
             xVelocity = xInput * currentSpeed * Time.deltaTime;
-            yVelocity = currentSpeed * Time.deltaTime;
             if (isJumping && (movement || jumpTimeCounter > 0f)) rb.velocity = Vector2.up * currentJumpForce * Time.deltaTime;
             if (wallJumping) rb.velocity = Vector2.up * (currentJumpForce / 1.2f) * Time.deltaTime;
             if (moveOnFloor)
             {
-                if (!onSlope) rb.SetVelocity(xVelocity, 0);
+                if (!onSlope) rb.SetVelocity(xVelocity, rb.velocity.y);
                 else
                 {
-                    if (slopeUp) rb.SetVelocity(xVelocity, yVelocity / 1.2f);
-                    else rb.SetVelocity(xVelocity, -yVelocity);
+                    rb.SetVelocity(-xVelocity *slopePerp.x,-xVelocity *slopePerp.y);
+                }
+                if((frontAngle==0 && backAngle!=frontAngle) && (frontHit.point.y>backHit.point.y) && backAngle!=0){
+                    rb.SetVelocity(rb.velocity.x,0f);
                 }
             }
             else if (movingOnAir) rb.SetVelocity(xVelocity, rb.velocity.y);
@@ -226,6 +233,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         if (hyperJumping) rb.velocity = hyperJumpDir * currentJumpForce * 2.5f * hyperJumpForceMultiplier * Time.deltaTime;
+
     }
     void LateUpdate()
     {
@@ -234,7 +242,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool(animatorHash[0], aim < 0);
             anim.SetBool(animatorHash[1], aim > 0);
             anim.SetBool(animatorHash[3], moveOnFloor);
-            anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded));
+            anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded && moveOnFloor));
             anim.SetBool(animatorHash[5], crouch);
             anim.SetBool(animatorHash[6], leftLook);
             anim.SetBool(animatorHash[7], aimUp);
@@ -243,7 +251,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool(animatorHash[11], aimDown);
             anim.SetBool(animatorHash[13], airShoot || (holdingFire && !isGrounded));
             anim.SetBool(animatorHash[14], screwing);
-            //anim.SetBool(animatorHash[15], hyperJumping);
             anim.SetBool(animatorHash[15], onJumpingState);
             anim.SetBool(animatorHash[16], fall);
             anim.SetBool(animatorHash[17], gravityJump);
@@ -251,8 +258,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool(animatorHash[9], isGrounded);
         }
         anim.SetFloat(animatorHash[12], rb.velocity.y);
-
-
     }
     #endregion
     #region Private methods
@@ -264,6 +269,7 @@ public class PlayerController : MonoBehaviour
     void OnAir()
     {
         FalseAnyAnimStateAtAir();
+        if (balled) anim.SetFloat(animatorHash[18], 1);
         if (onJumpingState && xInput != 0) currentSpeed = speed / 2;
         if (xInput != 0f) movingOnAir = true;
         else movingOnAir = false;
@@ -278,7 +284,6 @@ public class PlayerController : MonoBehaviour
         {
             if (Physics2D.Raycast(transform.position, Vector2.up, 0.22f, groundLayer))
             {
-                jumpTimeCounter = 0f;
                 fall = true;
                 onJumpingState = IsJumping = false;
             }
@@ -286,31 +291,30 @@ public class PlayerController : MonoBehaviour
     }
     void OnGround()
     {
+        OnSlope();
         FalseAnyAnimStateAtGrounding();
         playerFX.StopLoopClips();
         if (xInput != 0f)
         {
+            if (balled){
+                anim.SetFloat(animatorHash[18], 1);
+                if(xInput<0)spriteRenderer.flipX = true;
+                else spriteRenderer.flipX = false;
+            }
+
             if (running)
             {
                 currentSpeed += speedIncreaseOverTime;
                 if (currentSpeed >= speedBooster) { currentSpeed = speedBooster; inSBVelo = true; }
             }
             else currentSpeed = speed;
-            OnSlope();
-            material.friction = 0f;
-            /*if (yInput > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
-            else if (yInput < 0) { aimDiagonalDown = true; aimUp = aimDown = aimDiagonal = false; }*/
             if (!moveOnFloor) Invoke("enableWalking", 0.05f);
         }
-        else
-        {
+        else{
+            if (balled) anim.SetFloat(animatorHash[18], 0);
             rb.velocity = Vector2.zero;
-            //currentSpeed = speed;
         }
-        if (!balled)
-        {
-            OnSpeedBooster?.Invoke();
-        }
+        if (!balled) OnSpeedBooster?.Invoke();
         else inSBVelo = false;
     }
     public void SpeedBoosterChecker()
@@ -318,24 +322,36 @@ public class PlayerController : MonoBehaviour
         if (inSBVelo && yInput < 0 && !hyperJumpCharged) { hyperJumpCharged = true; inSBVelo = false; skin?.SetSpeedBooster(true); }
         if (hyperJumpCharged && !IsInvoking("HyperJumpTimeAction") && !hyperJumping) { Invoke("HyperJumpTimeAction", 2f); }
     }
-    float slopeAngle = 0; bool slopeUp;
     private void OnSlope()
     {
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, 0.3f, groundLayer);
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, groundHitSlope, groundLayer);
         if (hit2D)
         {
             slopeAngle = Vector2.Angle(hit2D.normal, Vector2.up);
-            if (slopeAngle != 0)
-            {
-                onSlope = true;
-                if (Physics2D.Raycast(feetPosition.position, direction, 0.2f, groundLayer)) slopeUp = true;
-                else slopeUp = false;
-            }
-            else slopeUp = onSlope = false;
+            slopePerp=Vector2.Perpendicular(hit2D.normal).normalized;
+            if((slopePerp.y<0 && xInput<0) || (slopePerp.y>0 && xInput>0))slopeAngle*=-1;
+            if(slopeAngle!=0)onSlope=true; 
+            else onSlope=false;
+            /*
+            Debug.DrawRay(transform.position,Vector2.down*0.3f,Color.red);
+            Debug.DrawRay(hit2D.point, slopePerp*0.3f, Color.blue);
+            Debug.DrawRay(hit2D.point, hit2D.normal * 0.3f, Color.green);
+            */
         }
+        posFrontRay=new Vector2(transform.position.x+((capsule.size.x/2)*direction.x),capsule.bounds.min.y+.025f);
+        posBackRay=new Vector2(transform.position.x - ((capsule.size.x/2) * direction.x),capsule.bounds.min.y+ .025f);
+        frontHit=Physics2D.Raycast(posFrontRay,Vector2.down,slopeFrontRay,groundLayer);
+        backHit = Physics2D.Raycast(posBackRay, Vector2.down, slopeBackRay, groundLayer);
+        if(frontHit && backHit){
+            frontAngle=Vector2.Angle(frontHit.normal,Vector2.up);
+            backAngle=Vector2.Angle(backHit.normal,Vector2.up);
+        }
+        /*Debug.DrawRay(posFrontRay, Vector2.down * slopeFrontRay, Color.yellow);
+        Debug.DrawRay(posBackRay, Vector2.down * slopeBackRay, Color.cyan);*/
     }
     IEnumerator JumpCoroutine()
     {
+        jumpTimeCounter = 0;
         IsJumping = true;
         while ((jumpTimeCounter <= jumpTime) && isJumping)
         {
@@ -353,12 +369,14 @@ public class PlayerController : MonoBehaviour
     }
     private void FalseAnyAnimStateAtGrounding()
     {
+
+        if (!firstLand) aimUp = aimDown = false;
         airShoot = onJumpingState = Screwing = OnRoll = gravityJump = fall = movingOnAir = false;
     }
     private void FalseAnyAnimStateAtAir()
     {
         rb.gravityScale = 1;
-        slopeUp = onSlope = ShootOnWalk = moveOnFloor = false;
+        firstLand = onSlope = ShootOnWalk = moveOnFloor = false;
     }
     private bool RayCast(Vector2 vector, float distance, LayerMask layer)
     {
@@ -421,122 +439,152 @@ public class PlayerController : MonoBehaviour
     {
         xInput = yInput = 0;
     }
-    float aim, prevAim;
+    float aim;
     public void OnAim(InputAction.CallbackContext context)
     {
         if (movement)
         {
-            prevAim = aim;//previous value of aim
             aim = context.ReadValue<float>();
             if (context.performed)
             {
-                if (aim > 0)
-                {
-                    aimUp = aimDown = false;
-                    if (inHyperJumpDirection)
-                    {
-                        if (leftLook)
-                        {
-                            HyperJumping = true;
-                            hyperJumpDir = Vector2.left + Vector2.up;
-                            anim.SetTrigger("HyperJump L");
-                        }
-                        else
-                        {
-                            HyperJumping = true;
-                            hyperJumpDir = Vector2.right + Vector2.up;
-                            anim.SetTrigger("HyperJump R");
-                        }
-                    }
-                }
-                else if (aim < 0) { aimUp = aimDown = false; }
-
+                if (aim > 0) AimUp();
+                else if (aim < 0) AimDown();
                 aiming = true; gravityJump = Screwing = ShootOnWalk = false;
-                CheckAirShoot();
-            }
-            else if (context.canceled)
+            }else
+            if (context.canceled)
             {
-                if (aim == 0) aimUp = aimDown = false;
-                aiming = false;
+                LeftRightShootPoint(180,0);
+                aiming=aimUp = aimDown = false;
             }
         }
+    }
+    private void LeftRightShootPoint(float angleLeft,float angleRight){
+        if (leftLook) shootpoint.eulerAngles = new Vector3(0, 0, angleLeft);
+        else shootpoint.eulerAngles = new Vector3(0, 0, angleRight);
+    }
+    private void AimUp()
+    {
+        LeftRightShootPoint(135,45);
+        aimUp = aimDown = false;
+        if (inHyperJumpDirection)
+        {
+            if (leftLook)
+            {
+                HyperJumping = true;
+                hyperJumpDir = Vector2.left + Vector2.up;
+                anim.SetTrigger("HyperJump L");
+            }
+            else
+            {
+                HyperJumping = true;
+                hyperJumpDir = Vector2.right + Vector2.up;
+                anim.SetTrigger("HyperJump R");
+            }
+        }
+    }
+    private void AimDown()
+    {
+        LeftRightShootPoint(-135,-45);
+        aimUp = aimDown = false;
     }
     public void SelectingAmmo(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             pressCount++;
             pressCount = inventory.AmmoSelection(pressCount);
-            if (pressCount == 4) pressCount = 0;
+            if (pressCount == 3) pressCount = -1;
         }
     }
-    public void Movement(InputAction.CallbackContext context)
+    public void MovementHor(InputAction.CallbackContext context)
     {
         if (movement)
         {
-            xInput = context.ReadValue<Vector2>().x;
-            yInput = context.ReadValue<Vector2>().y;
-            if (xInput == 0) InputX();
-            else
+            xInput = context.ReadValue<float>();
+            if (!inHyperJumpDirection)
             {
-                if (!inHyperJumpDirection)
+                crouch = false;
+                if (xInput < 0 && context.performed)
                 {
-                    crouch = false;
-                    if (xInput < 0){ direction = Vector2.left;SkinSwapper.OnLeft.Invoke(true);}
-                    else if (xInput > 0) {direction = Vector2.right;SkinSwapper.OnLeft.Invoke(false);}
+                    leftLook=true;
+                    shootpoint.localScale = new Vector3(-1, 1, 0);
+ 
+                    direction = Vector2.left; SkinSwapper.OnLeft.Invoke(true);
                 }
-                else
+                else if (xInput > 0 && context.performed)
                 {
-                    hyperJumpDir = direction;
-                    if (xInput < 0) anim.SetTrigger("HyperJump L");
-                    else if (xInput > 0) anim.SetTrigger("HyperJump R");
-                    HyperJumping = true;
+                    leftLook=false;
+                    shootpoint.localScale = new Vector3(1, 1, 0);
+ 
+                    direction = Vector2.right; SkinSwapper.OnLeft.Invoke(false);
                 }
             }
-            if (yInput == 0) InputY();
             else
             {
-                if (!inHyperJumpDirection)
-                {
-                    if(context.started){
-                        if (!balled && !crouch) gravityJump = Screwing = false;
-                        if (yInput > 0f)
-                        {
-                            if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
-                            if (crouch) crouch = false;
-                            else
-                            if (balled && isGrounded) { crouch = true; Balled = false; }
-                            else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
-                            {
-                                Balled = false;
-                                aimUp = true;
-                            }
-                        }
-                        else if (yInput < 0f)
-                        {
-                            if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = false; aim = 0; aimDown = true; }
-                            if (inventory.CheckItem(4) && crouch) Balled = true;
-                            if (!balled) crouch = true;
-                        }
-                    }
-                }
-                else
-                {
-                    if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
-                    HyperJumping = true;
-                }
+                hyperJumpDir = direction;
+                if (xInput < 0) anim.SetTrigger("HyperJump L");
+                else if (xInput > 0) anim.SetTrigger("HyperJump R");
+                HyperJumping = true;
+            }
+            if (context.canceled)
+            {
+                xInput = 0;
+                if(aim>0)AimUp();
+                else if(aim<0)AimDown();
+                else LeftRightShootPoint(180,0);
+                CancelInvoke("enableWalking");
+                movingOnAir = ShootOnWalk = moveOnFloor = false;
             }
         }
-        else if (!movement)
+    }
+    public void MovementVer(InputAction.CallbackContext context)
+    {
+        if (movement)
         {
-            if (xInput == 0) InputX();
-            if (yInput == 0) InputY();
+            yInput = context.ReadValue<float>();
+            if (!inHyperJumpDirection)
+            {
+                if (!balled && !crouch) gravityJump = Screwing = false;
+                if (yInput > 0f)
+                {
+                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, 90);
+                    if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
+                    if (crouch) crouch = false;
+                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = true; aim = 0; aimDown = false; }
+                    else if (balled && isGrounded) { crouch = true; Balled = false; }
+                    else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
+                    {
+                        Balled = false;
+                        aimUp = true;
+                    }
+                }
+                else if (yInput < 0f)
+                {
+                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = false; aim = 0; aimDown = true; }
+                    if (inventory.CheckItem(4) && crouch) Balled = true;
+                    if (!balled && isGrounded) crouch = true;
+                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, -90);
+                }
+            }
+            else
+            {
+                if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
+                HyperJumping = true;
+            }
+            if (yInput == 0)
+            {
+                yInput = 0;
+                aimUp = aimDown = false;
+                if (leftLook) shootpoint.eulerAngles = new Vector3(0, 0, 180);
+                else shootpoint.eulerAngles = new Vector3(0, 0, 0);
+            }
         }
     }
     public void InstantMorfBall(InputAction.CallbackContext context)
     {
         if (context.started && movement && inventory.CheckItem(4))
         {
+
             ShootOnWalk = false;
             if (balled)
             {
@@ -636,7 +684,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerJumping(InputAction.CallbackContext context)
     {
         if (context.performed) OnJump.Invoke();
-        if (context.canceled)IsJumping = false;
+        if (context.canceled) IsJumping = false;
         if (context.started && onRoll && CheckWallJump())
         {
             wallJumping = OnRoll = true;
@@ -645,99 +693,115 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-    private void InputX()
-    {
-        CancelInvoke("enableWalking");
-        movingOnAir = ShootOnWalk = moveOnFloor = false;
-    }
-    private void InputY()
-    {
-        aimUp = aimDown = false;
-    }
 
 #if UNITY_ANDROID
     public void PlayerJumping_Mobile(bool triggered)
     {
-        if(triggered){
-            OnJump.Invoke();
-            if(onRoll && CheckWallJump())
+        if (triggered)
         {
-            wallJumping = OnRoll = true;
-            Invoke("DisableWallJump", 0.25f);
-            StartCoroutine(JumpCoroutine());
-        }
+            OnJump.Invoke();
+            if (onRoll && CheckWallJump())
+            {
+                wallJumping = OnRoll = true;
+                Invoke("DisableWallJump", 0.25f);
+                StartCoroutine(JumpCoroutine());
+            }
         }
         if (!triggered) IsJumping = false;
-         
     }
     private void MobileMovement()
     {
-        if (joystick.Horizontal < -0.25) xInput = -1;
-        else if (joystick.Horizontal > 0.25) xInput = 1;
-        else { xInput = 0; InputX(); }
+        if (joystick.Horizontal < -0.25) { xInput = -1; direction = Vector2.left; }
+        else if (joystick.Horizontal > 0.25) { xInput = 1; direction = Vector2.right; }
+        else
+        {
+            xInput = 0; moveOnFloor = false; xInput = 0;
+            CancelInvoke("enableWalking");
+            movingOnAir = ShootOnWalk = moveOnFloor = false;
+        }
         if (joystick.Vertical < -0.25) yInput = -1;
         else if (joystick.Vertical > 0.25) yInput = 1;
-        else { yInput = 0; InputY(); }
-
-        if (xInput == 0) InputX();
-        else
+        else { yInput = 0; }
+        if (!inHyperJumpDirection)
         {
             crouch = false;
-            if (xInput < 0) direction = Vector2.left;
-            else if (xInput > 0) direction = Vector2.right;
-        }
-        if (yInput == 0) InputY();
-        else
-        {
-            if (!balled && !crouch)
+            if (xInput < 0)
             {
-                //if (yInput < 0f && !isGrounded) { aimDown = true; aimDiagonal = aimDiagonalDown = aimUp = false; }
-                //if (yInput > 0f && xInput == 0f && !aiming) { aimUp = true; aimDiagonalDown = aimDiagonal = aimDown = false; }
-                gravityJump = screwing = false;
+                shootpoint.localScale = new Vector3(-1, 1, 0);
+                if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 180);
+                direction = Vector2.left; SkinSwapper.OnLeft.Invoke(true);
             }
-            if (isGrounded)
+            else if (xInput > 0)
             {
-                if (crouch)
+                shootpoint.localScale = new Vector3(1, 1, 0);
+                if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 0);
+                direction = Vector2.right; SkinSwapper.OnLeft.Invoke(false);
+            }
+            if(xInput==0){
+                if (yInput > 0f)
                 {
-                    if (yInput > 0) crouch = false;
-                    //else if (yInput < 0 && inventory.CheckItem(4)) Balled = true;
+                    if (!balled && !crouch) gravityJump = Screwing = false;
+                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, 90);
+                    if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
+                    if (crouch) crouch = false;
+                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = true; aim = 0; aimDown = false; }
+                    else if (balled && isGrounded) { crouch = true; Balled = false; }
+                    else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
+                    {
+                        Balled = false;
+                        aimUp = true;
+                    }
+                }
+                else if (yInput < 0f)
+                {
+                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = false; aim = 0; aimDown = true; }
+                    if (inventory.CheckItem(4) && crouch) Balled = true;
+                    if (!balled && isGrounded) crouch = true;
+                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, -90);
                 }
                 else
                 {
-                    if (balled) { if (yInput > 0) { crouch = true; Balled = false; } }
-                    //else { if (yInput < 0) crouch = true; }
-                }
-            }
-            else
-            {
-                if (balled)
-                {
-                    if (yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
-                    {
-                        Balled = false;
+                    aimUp = aimDown = false;
+                    if(aim==0){
+                        if (leftLook) shootpoint.eulerAngles = new Vector3(0, 0, 180);
+                        else shootpoint.eulerAngles = new Vector3(0, 0, 0);
                     }
                 }
             }
         }
-    }
-    public void Diagonal_Mobile(int value){
-        if (movement)
+        else
         {
-            if (value > 0) { aimDiagonal = true; aimUp = aimDown = aimDiagonalDown = false; }
-            else if (value < 0) { aimUp = aimDown = aimDiagonal = false; aimDiagonalDown = true; }
-            aiming = true; gravityJump = screwing = ShootOnWalk = false;
-            CheckAirShoot();
-            CancelInvoke("DisableAimDiagonal");
-            Invoke("DisableAimDiagonal",3);
+            hyperJumpDir = direction;
+            if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
+            else if (xInput < 0) anim.SetTrigger("HyperJump L");
+            else if (xInput > 0) anim.SetTrigger("HyperJump R");
+            HyperJumping = true;
         }
     }
-    private void DisableAimDiagonal(){
-        aiming=aimDiagonal = aimUp = aimDown = aimDiagonalDown = false;
+    public void Diagonal_Mobile(int value)
+    {
+        if (movement)
+        {
+            aim=value;
+            if (value > 0)AimUp();
+            else if (value < 0)AimDown();
+            
+            aiming = true; gravityJump = Screwing = ShootOnWalk = false;
+            CheckAirShoot();
+            CancelInvoke("DisableAimDiagonal");
+            Invoke("DisableAimDiagonal", 3);
+        }
+    }
+    private void DisableAimDiagonal()
+    {
+        LeftRightShootPoint(180, 0);
+        aiming = aimUp = aimDown = false;
+        aim = 0;
     }
 #endif
     private void CheckAirShoot()
     {
-        if (!aimDown && !aimUp && !aiming && !balled)
+        if (!balled && !isGrounded)
         {
             airShoot = true;
             CancelAndInvoke("StopPlayerFire", 1f);

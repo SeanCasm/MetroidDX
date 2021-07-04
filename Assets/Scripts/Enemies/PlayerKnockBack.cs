@@ -8,7 +8,7 @@ using System;
 public class PlayerKnockBack : MonoBehaviour
 {
     #region Properties
-    [SerializeField] BoxCollider2D box, floor;
+    [SerializeField] BoxCollider2D box;
     [SerializeField] PlayerHealth health;
     [SerializeField] PlayerController player;
     [SerializeField] Animator animator;
@@ -72,14 +72,14 @@ public class PlayerKnockBack : MonoBehaviour
         if (collisionX >= myXPosition) { animator.SetTrigger("Hitted"); player.leftLook = false; knockBackDir=new Vector2(-1.1f,1.1f);}
         else { animator.SetTrigger("HittedLeft"); player.leftLook = true; knockBackDir=new Vector2(1.1f,1.1f);}
         StartCoroutine(KnockBack());
-        floor.enabled = box.enabled = false; Invoke("EnableCollider", 0.95f);
+        box.enabled = false; Invoke("EnableCollider", 0.95f);
         health.AddDamage(damageReceived);
         Invoke("EnableMovement", 0.25f);
     }
     void EnableMovement()
     {
-        player.Damaged = player.hittedLeft = player.hitted = false;
-        floor.enabled = player.movement = player.canInstantiate = true;
+        player.Damaged =  false;
+        player.movement = player.canInstantiate = true;
         player.rb.gravityScale = 1;
     }
     IEnumerator KnockBack()

@@ -12,44 +12,38 @@ public class GameSettings : MonoBehaviour
     [SerializeField] Slider soundSlider, musicSlider;
     [SerializeField] AudioClip sampleClip;
     private AudioSource audioS;
-    private bool setMute;
+    private bool mute;
     private float volumeLevel, musicLevel;
     private const string soundVolume="SE volume"; 
     private const string musicVolume="MU volume";
     private void Start()
     {
         audioS = GetComponent<AudioSource>();
-        setMute = true;
-        if (SaveSystem.LoadSettings()!=null){
-            GlobalGameData data = SaveSystem.LoadSettings();
-            soundSlider.value = volumeLevel = data.fXVolume;
-            musicSlider.value = musicLevel = data.musicVolume;
-            SetEffectsVolume();
-            SetMusicVolume();
-        }
-        else
-        {
-            audioMixer.SetFloat(soundVolume, initialVolumeLevel);
-            onPause.SetFloat(soundVolume,initialVolumeLevel);
-            musicMixer.SetFloat(musicVolume, initialVolumeLevel);
-        }
+        mute = true;
+        if(PlayerPrefs.HasKey(soundVolume)){
+            audioMixer.SetFloat(soundVolume, volumeLevel);
+            soundSlider.value = volumeLevel = PlayerPrefs.GetFloat(soundVolume);
+
+        }else audioMixer.SetFloat(soundVolume, Mathf.Log10(initialVolumeLevel) * 20);
+
+        if(PlayerPrefs.HasKey(musicVolume)){
+            musicSlider.value = musicLevel=PlayerPrefs.GetFloat(musicVolume);
+            musicMixer.SetFloat(musicVolume,musicLevel);
+            
+        }else musicMixer.SetFloat(musicVolume, Mathf.Log10(initialVolumeLevel) * 20);
     }
     #region Sounds volume
-    private void SetEffectsVolume(){
-        onPause.SetFloat(soundVolume, volumeLevel);
-        audioMixer.SetFloat(soundVolume, volumeLevel);
-    }
+   
     public void SetEffectsVolume(float volume)
     {
-        if (CheckVolumeLevel(volume)){
-            onPause.SetFloat(soundVolume,volumeLevel=volume);
-            audioMixer.SetFloat(soundVolume, volumeLevel=volume);
-            if(!setMute)audioS.ClipAndPlay(sampleClip);
-        }
-        SaveSystem.SaveSettings(volumeLevel,musicLevel);
+        mute = false;
+        float newVol=Mathf.Log10(volume)*20;
+        audioMixer.SetFloat(soundVolume, volumeLevel=newVol);
+        if(!mute)audioS.ClipAndPlay(sampleClip);
+        mute = true;
     }
     public void SetEffectsVolume(bool mute){
-        if(mute)audioMixer.SetFloat(soundVolume, -80);
+        if(mute)audioMixer.SetFloat(soundVolume,0);
         else audioMixer.SetFloat(soundVolume, volumeLevel);
     }
     #endregion
@@ -60,28 +54,14 @@ public class GameSettings : MonoBehaviour
     }
     public void SetMusicVolume(float volume)
     {
-        if (CheckVolumeLevel(volume)){
-            musicMixer.SetFloat(musicVolume, musicLevel = volume);
-            if(!setMute)audioS.ClipAndPlay(sampleClip);
-        }
-        setMute=false;
-        SaveSystem.SaveSettings(volumeLevel, musicLevel);
-    }
-    private void SetMusicVolume()
-    {
-        musicMixer.SetFloat(musicVolume, musicLevel);
-    }
+        mute = false;
+        float newVol = Mathf.Log10(volume)*20;
+        musicMixer.SetFloat(musicVolume, musicLevel = newVol);
+        if(!mute)audioS.ClipAndPlay(sampleClip);
+        mute=true;
+    } 
     #endregion
-    /// <summary>
-    /// Checks the actual volume level.
-    /// </summary>
-    /// <param name="amount">total volume to change</param>
-    /// <returns></returns>
-    private static bool CheckVolumeLevel(float amount)
-    {
-        if(amount<=20 && amount >= -80)return true;
-        else return false;
-    }
+   
     public void SetFullScreen(bool value)
     {
         Screen.fullScreen = value;

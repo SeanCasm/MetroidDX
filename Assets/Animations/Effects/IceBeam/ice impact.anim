@@ -20,18 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -8204936619063497717, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
-    - time: 0.033333335
-      value: {fileID: -2052598285069592152, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
-    - time: 0.06666667
-      value: {fileID: 4454885599160133496, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
+      value: {fileID: 8817977406967765923, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
     - time: 0.1
-      value: {fileID: 6746188202004656479, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
+      value: {fileID: -1516040816275084962, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
+    - time: 0.2
+      value: {fileID: -6174633646890610932, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
+    - time: 0.3
+      value: {fileID: -3253011167072160759, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -8204936619063497717, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
-    - {fileID: -2052598285069592152, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
-    - {fileID: 4454885599160133496, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
-    - {fileID: 6746188202004656479, guid: d200384d628e1b54cb7dfda3e2804259, type: 3}
+    - {fileID: 8817977406967765923, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
+    - {fileID: -1516040816275084962, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
+    - {fileID: -6174633646890610932, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
+    - {fileID: -3253011167072160759, guid: 6405cd0c116285e4f9565ffb7f2eac88, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.11666667
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -75,7 +75,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.11666667
+  - time: 0.35
     functionName: DestroyPrefab
     data: 
     objectReferenceParameter: {fileID: 0}

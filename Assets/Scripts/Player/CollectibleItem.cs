@@ -37,10 +37,10 @@ public class CollectibleItem : MonoBehaviour
                         ammo[2].ActualAmmoCount(pointsRestoration);
                         break;
                 }
-                Instantiate(collectibleSound);
             }else{
                 GameEvents.refullAll.Invoke();
             }
+            Instantiate(collectibleSound);
             Destroy(gameObject);
         }
     }

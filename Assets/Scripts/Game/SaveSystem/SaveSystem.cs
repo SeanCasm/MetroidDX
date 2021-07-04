@@ -22,16 +22,6 @@ public static class SaveSystem
             return null;
         }
     }
-    public static void SaveSettings(float volumeLevel,float musicLevel)
-    {
-        string slotPath = "/config.globalxd";
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + slotPath;
-        FileStream stream = new FileStream(path, FileMode.Create);
-        GlobalGameData data = new GlobalGameData(volumeLevel, musicLevel);
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
     public static void SavePlayerSlot(PlayerInventory inventory, PlayerHealth energy,
         MapSaveSystem map,float[] pos, string sectorName, int slotIndex)
     {

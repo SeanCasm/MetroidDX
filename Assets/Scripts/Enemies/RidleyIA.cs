@@ -9,17 +9,16 @@ public class RidleyIA : Boss
     [SerializeField] float speed;
     [SerializeField] Animator animHead, animNeck;
     [SerializeField] List<SpriteRenderer> ridleyAllRenderers;
-    
+    Transform player;
     private PathFollower path;
     float currentSpeed,pathSpeed;
     BossHealth health;
     bool attacking,ulti,onUltimate;
-    GameObject roomCenter;
-    // Start is called before the first frame update
     void Awake()
     {
         path = GetComponent<PathCreation.Examples.PathFollower>();
         health = GetComponentInChildren<BossHealth>();
+        player=References.Player.transform;
     }
     new void Start()
     {
@@ -31,6 +30,8 @@ public class RidleyIA : Boss
     // Update is called once per frame
     void Update()
     {
+        if(player.transform.position.x>transform.position.x)transform.localScale=new Vector3(1,1);
+        else transform.localScale = new Vector3(-1, 1);
         if (RandomMove(0, 400) == 51 && !attacking && !ulti)
         {
             attacking = true;

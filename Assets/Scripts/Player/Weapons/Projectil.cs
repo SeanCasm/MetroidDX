@@ -16,6 +16,7 @@ namespace Player.Weapon
         [SerializeField] bool isSpazer,spazerChild;
         protected IDamageable<float> health;
         public bool Pooleable => pooleable;
+        private bool poolRemoved;
         protected IInvulnerable iInvulnerable;
         public Vector3 Direction { get { return direction; } set { direction = value; } }
         public bool IsSpazer=>isSpazer;
@@ -30,11 +31,17 @@ namespace Player.Weapon
         {
             base.Awake();
         }
+        private void OnDisable() {
+            Pool.OnPoolChanged -= PoolChanged;
+        }
         protected void OnEnable()
         {
             Invoke("BackToGun", livingTime);
             GameEvents.overHeatAction.Invoke(hotPoints);
-            direction = transform.parent.right;
+            direction = parent.right;
+            transform.eulerAngles=parent.eulerAngles;
+            Pool.OnPoolChanged += PoolChanged;
+
         }   
         protected void FixedUpdate()
         {
@@ -46,10 +53,7 @@ namespace Player.Weapon
             {
                 health = collision.GetComponent<IDamageable<float>>();
                 iInvulnerable = collision.GetComponent<IInvulnerable>();
-                if (health == null && iInvulnerable != null)
-                {
-                    Reject();
-                }
+                if (health == null && iInvulnerable != null)Reject();
                 if (health != null && iInvulnerable != null)
                 {
                     TryDoDamage(damage, health, beamType, iInvulnerable);
@@ -68,8 +72,12 @@ namespace Player.Weapon
                 if (iDrop != null) FloorCollision();
             }
         }
+        private void PoolChanged(){
+            poolRemoved=true;
+        }
         protected void BackToGun()
         {
+            if(poolRemoved)Destroy(gameObject);
             if (!pooleable){
                 Destroy(gameObject);
             }else if (!spazerChild)

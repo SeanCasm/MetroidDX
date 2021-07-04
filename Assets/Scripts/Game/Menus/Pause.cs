@@ -16,6 +16,7 @@ public class Pause : MonoBehaviour
     [SerializeField] Interactions menuFirst;
     GameObject pause;
     public static System.Action<bool> touchpadPaused;
+    public static System.Action<bool> OnPause;
     public static bool onItemMenu,onMap,onSlots, gamePaused, onAnyMenu, onGame,onSave;
     public GameObject player;
     public GameObject playerMenu;
@@ -56,13 +57,15 @@ public class Pause : MonoBehaviour
             else{enterPause = true;EnterPause(false);pauseEvent.Invoke(); }
         }
     }
-    public static void PausePlayer(PlayerController playerC){
+    public static void PausePlayer(PlayerController playerC,bool calledfromItemOrWarp){
         playerC.canInstantiate=playerC.movement = false;
         playerC.rb.velocity = Vector2.zero;
+        if(!calledfromItemOrWarp)OnPause?.Invoke(true);
         Time.timeScale = 0f;
     }
     public static void UnpausePlayer(PlayerController playerC){
         playerC.canInstantiate = playerC.movement = true;
+        OnPause?.Invoke(false);
         Time.timeScale = 1f;
     }
 #if UNITY_ANDROID
@@ -83,6 +86,7 @@ public class Pause : MonoBehaviour
     #region UnityEvent
     private void GeneralPause()
     {
+        OnPause?.Invoke(true);
         touchpadPaused?.Invoke(false);
         gameSettings.SetEffectsVolume(true);
         gameSettings.SetMusicVolume(true);
@@ -93,6 +97,7 @@ public class Pause : MonoBehaviour
     }
     private void Unpause()
     {
+        OnPause?.Invoke(false);
         GameEvents.pauseTimeCounter.Invoke(false);
         touchpadPaused?.Invoke(true);
         gameSettings.SetEffectsVolume(false);

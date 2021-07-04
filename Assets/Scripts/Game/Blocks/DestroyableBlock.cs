@@ -6,7 +6,7 @@ using Blocks;
 public class DestroyableBlock : MonoBehaviour
 {
     #region Properties
-    [SerializeField] string[] canShowingTheBlock;
+    [SerializeField] string[] tags;
     [SerializeField] protected BlockType blockType;
     private SpriteRenderer spriteRenderer, childRenderer;
     protected Animator anim;
@@ -25,11 +25,11 @@ public class DestroyableBlock : MonoBehaviour
     }
     protected void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag(noIgnore))anim.SetBool("Disable", true);
+        if (col.CompareTag(noIgnore))anim.SetTrigger("Destroy");
         else CheckCollisionTag(col);
     }
     protected void CheckCollisionTag(Collider2D col){
-        foreach (string element in canShowingTheBlock)
+        foreach (string element in tags)
         {
             if (col.CompareTag(element)) anim.SetBool("Show", true);
         }
@@ -56,11 +56,6 @@ public class DestroyableBlock : MonoBehaviour
                 noIgnore = "SuperMissile";
                 break;
         }
-    }
-    /** Desactivates the gameObject from animation event*/
-    private void ShowHiddenBlock()
-    {
-        spriteRenderer.enabled = false;
     }
     private void DeactivatingBlock()
     {

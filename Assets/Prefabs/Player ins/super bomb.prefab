@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 351056426103883311}
   - component: {fileID: 7840002916660580489}
   - component: {fileID: 7931697060616659468}
-  - component: {fileID: 6988242944352355809}
+  - component: {fileID: 3108185349816868933}
   m_Layer: 6
   m_Name: super bomb
   m_TagString: SuperBomb
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2181901
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 60
   m_Sprite: {fileID: -1912643350613227332, guid: c9c84027e9b07b444bab03450c585e5e, type: 3}
   m_Color: {r: 0.93725497, g: 0.6117647, b: 0, a: 1}
@@ -218,7 +218,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00028959883, y: 0.00253888}
   m_Size: {x: 0.5217395, y: 0.2582576}
   m_Direction: 1
---- !u!114 &6988242944352355809
+--- !u!114 &3108185349816868933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,13 +227,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 351056426103883310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00e4ff56872a59f4794053fbc7ce18de, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cdc668ea0c32e64ab5df46578e7c4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.2
   livingTime: 0
   startSound: {fileID: 7119153977521584086, guid: 76ccfbdb4f53cdc499ee6df31c3e92b9, type: 3}
-  hotPoints: 45
+  direction: {x: 0, y: 0, z: 0}
+  hotPoints: 152
   iD: 2
   beamType: 6
   bombExplosion: {fileID: 8300000, guid: ebbdc9587c5d000498898b0ad5bd553f, type: 3}
+  timeToExplode: 0.5

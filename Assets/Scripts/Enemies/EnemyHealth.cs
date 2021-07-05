@@ -6,7 +6,8 @@ public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulne
 {
     [SerializeField] bool invMissiles, invSuperMissiles, invBeams, invBombs, invSuperBombs, invFreeze,invPlasma;
     [SerializeField] Materials materials;
-    [SerializeField]GameObject deathClip;
+    [SerializeField]GameObject deathClip,freezedCol;
+    [SerializeField]Collider2D rigidCol;
     private float totalHealth;
     public int collideDamage;
     public GameObject deadPrefab;
@@ -41,7 +42,8 @@ public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulne
     {
         CancelInvoke("Unfreeze");
         StopAllCoroutines();
-        freezed = true;
+        rigidCol.enabled=false;
+        freezedCol.SetActive(true);freezed = true;
         Invoke("Unfreeze",4f);
         _renderer.material = materials.freeze;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -53,7 +55,8 @@ public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulne
      
     public void Unfreeze()
     {
-        box.enabled=false;
+        rigidCol.enabled = true;
+        freezedCol.SetActive(false); box.enabled=false;
         Utilities.SetBehaviours(components, true);
         _renderer.material = materials.defaultMaterial;
         rb2d.constraints = RigidbodyConstraints2D.None;

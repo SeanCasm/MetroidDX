@@ -258,6 +258,18 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: rigidCol
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: invFreeze
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: freezedCol
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: totalHealth
       value: 10
       objectReference: {fileID: 0}

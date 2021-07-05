@@ -20291,7 +20291,6 @@ MonoBehaviour:
   overHeat: {fileID: 5477157332800073782}
   resizeHorBarOverTime: 2
   maxBarSize: 152
-  playerC: {fileID: 210899529}
 --- !u!95 &5477157333109701565
 Animator:
   serializedVersion: 3
@@ -21496,63 +21495,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &6946818699688953545
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6946818699220308642, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_Name
-      value: BouncingBomb
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6946818699220308647, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 151a3835eaf0075429a8cc567b98f27e, type: 3}
 --- !u!222 &6970171843363063273
 CanvasRenderer:
   m_ObjectHideFlags: 0

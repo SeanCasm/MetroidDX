@@ -219,11 +219,7 @@ public class PlayerController : MonoBehaviour
             if (wallJumping) rb.velocity = Vector2.up * (currentJumpForce / 1.2f) * Time.deltaTime;
             if (moveOnFloor)
             {
-                if (!onSlope) rb.SetVelocity(xVelocity, rb.velocity.y);
-                else
-                {
-                    rb.SetVelocity(-xVelocity *slopePerp.x,-xVelocity *slopePerp.y);
-                }
+                rb.velocity= (!onSlope) ? new Vector2(xVelocity,rb.velocity.y) : new Vector2(-xVelocity * slopePerp.x, -xVelocity * slopePerp.y);
                 if((frontAngle==0 && backAngle!=frontAngle) && (frontHit.point.y>backHit.point.y) && backAngle!=0){
                     rb.SetVelocity(rb.velocity.x,0f);
                 }
@@ -298,8 +294,7 @@ public class PlayerController : MonoBehaviour
         {
             if (balled){
                 anim.SetFloat(animatorHash[18], 1);
-                if(xInput<0)spriteRenderer.flipX = true;
-                else spriteRenderer.flipX = false;
+                spriteRenderer.flipX=(xInput<0) ? true:false;
             }
 
             if (running)
@@ -330,8 +325,7 @@ public class PlayerController : MonoBehaviour
             slopeAngle = Vector2.Angle(hit2D.normal, Vector2.up);
             slopePerp=Vector2.Perpendicular(hit2D.normal).normalized;
             if((slopePerp.y<0 && xInput<0) || (slopePerp.y>0 && xInput>0))slopeAngle*=-1;
-            if(slopeAngle!=0)onSlope=true; 
-            else onSlope=false;
+            onSlope=(slopeAngle!=0) ? true:false;
             /*
             Debug.DrawRay(transform.position,Vector2.down*0.3f,Color.red);
             Debug.DrawRay(hit2D.point, slopePerp*0.3f, Color.blue);
@@ -459,8 +453,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void LeftRightShootPoint(float angleLeft,float angleRight){
-        if (leftLook) shootpoint.eulerAngles = new Vector3(0, 0, angleLeft);
-        else shootpoint.eulerAngles = new Vector3(0, 0, angleRight);
+        shootpoint.eulerAngles=leftLook ? new Vector3(0, 0, angleLeft):new Vector3(0, 0, angleRight);
     }
     private void AimUp()
     {

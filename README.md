@@ -14,11 +14,6 @@ Technique demo based in metroid 2d games.
 <li>Better IA to space pirates</li>
 <li>Transitions at doors entering</li>
 
-
-## Things I'll probable add in a future (if I can code them)
-<li>:clock9: A new boss: Spore spawn </li>
-<li>:clock9: The grappling beam.</li>
-
 ## Content
 
 ### Items

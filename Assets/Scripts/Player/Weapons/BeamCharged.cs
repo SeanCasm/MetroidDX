@@ -8,7 +8,7 @@ public class BeamCharged : Projectil
     new void OnEnable()
     {
         Invoke("BackToGun", livingTime);
-        GameEvents.overHeatAction.Invoke(hotPoints);
+        OverHeatBar.SetFill.Invoke(hotPoints);
         direction = transform.parent.right;
         transform.eulerAngles = transform.parent.eulerAngles;
     }

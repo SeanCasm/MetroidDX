@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4374123270714136259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -114,10 +114,10 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4374123270714136259}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -154,7 +154,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1288401571560660904, guid: 1cb8508d9c02e1e47a453e37ea200dfd, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4c0ceed5880f00b45bceb5e1e9e4be1a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -256,10 +256,10 @@ MonoBehaviour:
   livingTime: 1.33
   startSound: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
-  hotPoints: 18
+  hotPoints: 15
   iD: 3
   beamType: 5
   bombExplosion: {fileID: 8300000, guid: f325906721929da48bbd0cc05e3d666d, type: 3}
   timeToExplode: 1
-  speed: 1
+  speed: 2.2
   pooleable: 1

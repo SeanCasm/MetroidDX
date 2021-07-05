@@ -8,10 +8,10 @@ public class BlackHole : Weapon
     private Animator anim;
     new void Awake()
     {
-        base.Awake();
         anim = GetComponent<Animator>();
     }
     new void OnEnable() {
+        base.OnEnable();
         base.SetDirection();
     }
     new void FixedUpdate()

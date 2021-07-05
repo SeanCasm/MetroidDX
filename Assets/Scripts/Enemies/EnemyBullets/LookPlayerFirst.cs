@@ -5,7 +5,7 @@ namespace Enemy.Weapons{
     public class LookPlayerFirst : Weapon
     {
         new void Awake() {
-            base.Awake();
+            base.OnEnable();
             player = References.Player.transform;
         }
         protected new void OnEnable() {

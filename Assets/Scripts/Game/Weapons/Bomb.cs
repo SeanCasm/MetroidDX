@@ -13,15 +13,14 @@ namespace Player.Weapon
         protected IDamageable<float> health;
         protected IInvulnerable iInvulnerable;
         #region Unity methods
-        new void Awake() {
+        protected new void OnEnable() {
+            base.OnEnable();
+            OverHeatBar.SetFill.Invoke(hotPoints);
+        }
+        protected void Awake() {
             audioPlayer = GetComponent<AudioSource>();
             animator=GetComponent<Animator>();
             Invoke("Explode",timeToExplode);
-        }
-        protected void Start()
-        {
-            if (startSound != null) Instantiate(startSound);
-            GameEvents.overHeatAction.Invoke(hotPoints);
         }
         protected void OnTriggerEnter2D(Collider2D col)
         {

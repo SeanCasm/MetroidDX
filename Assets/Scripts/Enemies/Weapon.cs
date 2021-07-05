@@ -11,15 +11,13 @@ namespace Enemy.Weapons
         public Transform player{get;set;}
         public Transform parent{get;set;}
         private Vector3 target;
-
-        public float Damage { get { return damage; } }
         public Vector3 Direction{get{return direction;}set{direction=value;}}
-      
-        new void Awake()
-        {
-            base.Awake();
-        }
-        protected void OnEnable() {
+
+        bool IPooleable.pooleable { get => this.pooleable; set => this.pooleable=value; }
+
+       
+        protected new void OnEnable() {
+            base.OnEnable();
             Invoke("BackToShootPoint", livingTime);
         }
         protected void OnBecameInvisible()

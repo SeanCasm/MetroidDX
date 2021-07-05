@@ -88,7 +88,7 @@ public class CollectorManager : MonoBehaviour
         switch (reserve.ItemType)
         {
             case ReserveType.Missile:
-                ammo[0].AddCapacity(999);
+                ammo[0].AddCapacity(200);
                 break;
             case ReserveType.SuperMissile:
                  //Check if is the first time on get the item.
@@ -100,7 +100,6 @@ public class CollectorManager : MonoBehaviour
                     GameUI.ammoText.Invoke(1,2);
                 }else{
                     ammo[1].AddCapacity(2);
-                    GameUI.enableUI.Invoke(1);
                     GameUI.ammoText.Invoke(1, ammo[1].actualAmmo);
                 }
                 break;
@@ -114,7 +113,6 @@ public class CollectorManager : MonoBehaviour
                     GameUI.ammoText.Invoke(2, 2);
                 }else{
                     ammo[2].AddCapacity(2);
-                    GameUI.enableUI.Invoke(2);
                     GameUI.ammoText.Invoke(2, ammo[2].actualAmmo);
                 }
                 break;
@@ -125,8 +123,13 @@ public class CollectorManager : MonoBehaviour
                 //Check if is the first time on get the item.
                 if (!inventory.CheckLimitedAmmo(3))
                 {
-                    CountableAmmo newAmmo =new CountableAmmo(false, 3, defaultAmmoPrefabs[2], 0, 0);
+                    CountableAmmo newAmmo =new CountableAmmo(false, 3, defaultAmmoPrefabs[2], 10, 10);
                     ammo[3]=newAmmo;
+                    GameUI.enableUI.Invoke(3);
+                    GameUI.ammoText.Invoke(3, 10);
+                }else{
+                    ammo[3].AddCapacity(10);
+                    GameUI.ammoText.Invoke(3, ammo[3].actualAmmo);
                 }
             break;
         }

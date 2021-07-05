@@ -7,10 +7,6 @@ using UnityEngine.UI;
 public static class GameEvents
 {
     /// <summary>
-    /// When player fires.
-    /// </summary>
-    public static Action<bool> playerFire;
-    /// <summary>
     /// When player deads.
     /// </summary>
     public static Action<bool> retry;
@@ -18,10 +14,6 @@ public static class GameEvents
     /// When player selects "retry" in the retry screen. 
     /// </summary>
     public static Action OnRetry;
-    /// <summary>
-    /// Updates the over heat bar when player fires.
-    /// </summary>
-    public static Action<float> overHeatAction;
     /// <summary>
     /// Updates the player health, when receiving damage and getting health.
     /// </summary>

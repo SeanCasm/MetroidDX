@@ -113,7 +113,9 @@ public class CountableAmmo : Ammo
             this.selected = selected;
         }
     }
- 
+/// <summary>
+/// Represents the player inventory.
+/// </summary>
 public class PlayerInventory : MonoBehaviour
 {
     #region Properties
@@ -122,7 +124,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] BaseData baseData;
     [SerializeField] ButtonUtilities buttonEssentials;
     [SerializeField]Pool pool;
-    [SerializeField] PlayerInstantiates playerInstantiates;
+    [SerializeField] Gun playerInstantiates;
     private GameData data;
     private PlayerController pCont;
     public Dictionary<int, Item> playerItems { get; set; }= new Dictionary<int, Item>();
@@ -143,7 +145,7 @@ public class PlayerInventory : MonoBehaviour
         pCont.OnJump+=pCont.SpeedBoosterChecker;
         if (CheckItem(8)) { pCont.OnSpeedBooster += pCont.SpeedBoosterChecker; pCont.MaxSpeed = pCont.SpeedBS; }
         else { pCont.OnSpeedBooster -= pCont.SpeedBoosterChecker; pCont.MaxSpeed = pCont.RunningSpeed; }
-        SetBeamToShoot();
+        SetBeam();
     }
     private void OnEnable() {
         GameEvents.OnRetry -= OnRetry;
@@ -152,7 +154,7 @@ public class PlayerInventory : MonoBehaviour
     void OnDisable()
     {
         foreach(var element in limitedAmmo){if(element!=null)element.Unsubcribe();}
-        AmmoSelection();
+        DisableSelection();
     }
     #endregion
     #region Public methods
@@ -163,7 +165,7 @@ public class PlayerInventory : MonoBehaviour
         playerItems.Add(id, item);
         SetJumpType(id);
         switch(id){
-            case 7:ChangeJumpForce();break;
+            case 7: ChangeJumpForce();break;
             case 8: SetSpeedBooster(); break;
             case 3: SetSuit(); break;
         }
@@ -171,7 +173,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (id == element)DisableIncompatibleBeams(id);
         }
-        SetBeamToShoot();
+        SetBeam();
     }
     public void SetSelectedItems(int itemID)
     {
@@ -210,9 +212,9 @@ public class PlayerInventory : MonoBehaviour
     /// <summary>
     /// Checks if a item is selected, throught the dictionary of items.
     /// 0=charge beam, 1=ice beam, 2=spazer beam, 3=gravity suit, 4=morfball,
-    /// 5=screw attack, 6=bomb,7=high jump, 8=speed booster, 9=gravity jump </summary>
+    /// 5=screw attack, 6=bomb,7=high jump, 8=speed booster, 9=gravity jump, 10=plasma </summary>
     /// <param name="itemID">item iD to search</param>
-    /// <returns>true: if item exist and his selected, false: item don't exist or his not selected yet</returns>
+    /// <returns>true: if item exist and is selected, false: item doesn't exist or is not selected yet</returns>
     public bool CheckItem(int itemID)
     {
         if (playerItems.ContainsKey(itemID))
@@ -270,13 +272,12 @@ public class PlayerInventory : MonoBehaviour
             if (itemIndex - 1 >= 0 && limitedAmmo[itemIndex - 1] != null) limitedAmmo[itemIndex - 1].Select(false);//previous ammo selected
             if (limitedAmmo[i]!=null && limitedAmmo[i].CheckAmmo())
             {
-                if (itemIndex - 1 >= 0 && limitedAmmo[itemIndex - 1] != null) limitedAmmo[itemIndex - 1].Select(false);//previous ammo selected
                 limitedAmmo[i].Select(true);
                 if (i!=2){
                     canShootBeams = false;
                     pool.SetBeamToPool(limitedAmmo[i].ammoPrefab);
                 }
-                PlayerInstantiates.countableID = i;
+                Gun.countableID = i;
                 return itemIndex;
             }
             else
@@ -284,7 +285,7 @@ public class PlayerInventory : MonoBehaviour
                 itemIndex++;//next position in the list
             }
         }
-        canShootBeams=true;AmmoSelection();
+        DisableSelection();
         return -1;
     }
     #region Mobile Methods
@@ -301,12 +302,12 @@ public class PlayerInventory : MonoBehaviour
 #endif
     #endregion
     /// <summary>
-    /// Disable all ammo UI.
+    /// Disables all ammo UI.
     /// </summary>
-    public void AmmoSelection()
+    public void DisableSelection()
     {
         foreach(var element in limitedAmmo)if(element!=null)element.Select(false);
-        SetBeamToShoot();
+        SetBeam();
     }
     public void SetJumpType(int id)
     {
@@ -346,27 +347,25 @@ public class PlayerInventory : MonoBehaviour
     public void ChangeJumpForce()
     {
         if(playerItems.ContainsKey(7)){
-            if (playerItems[7].selected) pCont.currentJumpForce = baseData.jumpForceUp;
-            else pCont.currentJumpForce = baseData.jumpForce;
+            pCont.currentJumpForce=playerItems[7].selected?baseData.jumpForceUp:baseData.jumpForce;
         }
     }
     public void SetSpeedBooster(){
         if(!CheckItem(8)){pCont.OnSpeedBooster+=pCont.SpeedBoosterChecker;pCont.MaxSpeed=pCont.SpeedBS;}
         else{ pCont.OnSpeedBooster -= pCont.SpeedBoosterChecker;pCont.MaxSpeed = pCont.RunningSpeed; }
     }
-    public void SetBeamToShoot()
+    public void SetBeam()
     {
+        canShootBeams = true;
         if (CheckItem(2))//spazer beam
         {
-            if (!CheckItem(1)) Ammo.ammoSelected = 7;//spazer
-            else Ammo.ammoSelected = 5;//spazer ice
+            Ammo.ammoSelected=CheckItem(1)?5:7;
         }
         else
         {
             if (!CheckItem(1))//ice beam
             {
-                if (CheckItem(10)) Ammo.ammoSelected = 6;//plasma
-                else Ammo.ammoSelected = 3;//normal
+                Ammo.ammoSelected=CheckItem(10)?6:3;
             }
             else Ammo.ammoSelected = 4;//ice
         }
@@ -380,10 +379,10 @@ public class PlayerInventory : MonoBehaviour
     private void OnRetry(){
         if(!SaveAndLoad.newGame){
             LoadInventory(data);
-            AmmoSelection();
+            DisableSelection();
             ChangeJumpForce();
             SetSuit();
-            SetBeamToShoot();
+            SetBeam();
         }
     }
 }

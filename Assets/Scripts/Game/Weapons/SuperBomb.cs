@@ -9,9 +9,8 @@ public class SuperBomb : Bomb
     {
         base.Awake();
     }
-    new void Start()
-    {
-        base.Start();
+    new private void OnEnable() {
+        base.OnEnable();
     }
     new void OnTriggerEnter2D(Collider2D col)
     {

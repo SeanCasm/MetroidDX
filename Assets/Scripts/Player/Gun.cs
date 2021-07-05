@@ -4,7 +4,7 @@ using UnityEngine;
 using Player.Weapon;
 using System;
 
-public class PlayerInstantiates : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     [SerializeField] Transform firePoint;
     [SerializeField] Beams beams;
@@ -13,29 +13,21 @@ public class PlayerInstantiates : MonoBehaviour
     private PlayerInventory inventory;
     public GameObject beamToShoot{get;set;}
     public static int countableID;
-    private int shoots;
     void Awake()
     {
         chargingLoad = transform.GetChild(0).gameObject;
         inventory = GetComponentInParent<PlayerInventory>();
     }
-    private void OnEnable() {
-        shoots=0;
-        GameEvents.playerFire += GunShoot;
-    }
-    private void OnDisable() {
-        GameEvents.playerFire -= GunShoot;
-    } 
     #region Public methods
     public void Charge(bool value)
     {
         chargingLoad.SetActive(value);
     }
-    private void GunShoot(bool isCharging)
+    public void Shoot(bool isCharging)
     {
         var ammo = inventory.limitedAmmo;
         if(countableID==2)countableID=-999;
-        if(inventory.canShootBeams){
+        if(inventory.canShootBeams ){
             if(!isCharging) pool.ActiveNextPoolObject();
             else{
                 int id=beamToShoot.GetComponent<Beam>().ID;
@@ -50,7 +42,7 @@ public class PlayerInstantiates : MonoBehaviour
                 var ammoPos = ammo[countableID];
                 pool.ActiveNextPoolObject();
                 ammoPos.ActualAmmoCount(-1);
-                if (ammoPos.actualAmmo <= 0) inventory.canShootBeams = true;
+                if (ammoPos.actualAmmo <= 0)inventory.SetBeam();
             }
         }
     }

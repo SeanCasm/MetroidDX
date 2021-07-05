@@ -22,6 +22,9 @@ namespace Player.Weapon
         {
             base.FixedUpdate();
         }
+        new void OnDisable() {
+            base.OnDisable();
+        }
         new void OnTriggerEnter2D(Collider2D collision)
         {
             base.OnTriggerEnter2D(collision);

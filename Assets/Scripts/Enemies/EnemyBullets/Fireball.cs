@@ -9,7 +9,7 @@ public class Fireball : Weapon
     [SerializeField]private GameObject groundFireBall;
     new void Awake()
     {
-        base.Awake();
+        base.OnEnable();
         player=References.Player.transform;
         transform.SetParent(null);
         base.SetDirectionAndRotation();

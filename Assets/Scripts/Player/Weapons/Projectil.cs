@@ -10,34 +10,35 @@ namespace Player.Weapon
         [Tooltip("When beam collides generates this impact.")]
         [SerializeField] protected GameObject impactPrefab;
         [SerializeField] protected BoxCollider2D floorCol;
-        [SerializeField] protected Rigidbody2D rigid;
         [SerializeField] BoxCollider2D damageCol;
         [SerializeField] bool pooleable;
         [SerializeField] bool isSpazer,spazerChild;
+        protected Rigidbody2D rigid;
         protected IDamageable<float> health;
-        public bool Pooleable => pooleable;
         private bool poolRemoved;
         protected IInvulnerable iInvulnerable;
         public Vector3 Direction { get { return direction; } set { direction = value; } }
         public bool IsSpazer=>isSpazer;
 
         public Transform parent { get; set; }
+        bool IPooleable.pooleable { get => this.pooleable; set => this.pooleable=value; }
 
         public System.Action NoPlasmaOnTrigger;
         public System.Action OnParentDisabled,OnChildCollided;
 
         #region Unity methods
-        new private void Awake()
+        protected void Awake()
         {
-            base.Awake();
+            rigid=GetComponent<Rigidbody2D>();
         }
-        private void OnDisable() {
+        protected void OnDisable() {
             Pool.OnPoolChanged -= PoolChanged;
         }
-        protected void OnEnable()
+        protected new void OnEnable()
         {
+            base.OnEnable();
             Invoke("BackToGun", livingTime);
-            GameEvents.overHeatAction.Invoke(hotPoints);
+            OverHeatBar.SetFill.Invoke(hotPoints);
             direction = parent.right;
             transform.eulerAngles=parent.eulerAngles;
             Pool.OnPoolChanged += PoolChanged;

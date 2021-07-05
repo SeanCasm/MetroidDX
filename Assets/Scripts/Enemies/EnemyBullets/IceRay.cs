@@ -5,7 +5,7 @@ using Enemy.Weapons;
 public class IceRay : Weapon
 {
     new void Awake() {
-        base.Awake();
+        base.OnEnable();
         player = References.Player.transform;
     }
     new void FixedUpdate() {

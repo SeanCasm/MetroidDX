@@ -5369,7 +5369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 312, y: -3.9999695}
+  m_AnchoredPosition: {x: 382, y: -3.9999695}
   m_SizeDelta: {x: 20.799988, y: 18.300003}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &503844091
@@ -6014,6 +6014,14 @@ PrefabInstance:
       propertyPath: suit
       value: 
       objectReference: {fileID: 1964566932392702657}
+    - target: {fileID: 6799436162236076234, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: chargedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 542fe500f54242a48a1f707d2f0ee64f, type: 3}
+    - target: {fileID: 6799436162236076234, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
+      propertyPath: chargingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cd91b4be3ece74249bd1c9f614321a56, type: 3}
     - target: {fileID: 8898891342960035913, guid: ff0dfbd5da8619a49bc4f9b08a3622da, type: 3}
       propertyPath: joystick
       value: 
@@ -15522,6 +15530,7 @@ MonoBehaviour:
   defaultAmmoPrefabs:
   - {fileID: 3256416437917347827, guid: 237659fdefafb87408ab6ecbf6e2e1b6, type: 3}
   - {fileID: 351056426103883310, guid: 475d84b72c17dd643bed303973b5dd77, type: 3}
+  - {fileID: 4374123270714136259, guid: 6dfefe5eba8d2194c992ca9383042d5a, type: 3}
   buttonEssentials: {fileID: 1925283449}
   mixerToMute: {fileID: 24300002, guid: 1cb8508d9c02e1e47a453e37ea200dfd, type: 2}
 --- !u!114 &1925283449

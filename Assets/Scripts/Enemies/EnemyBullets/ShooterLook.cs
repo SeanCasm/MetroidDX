@@ -4,9 +4,6 @@ using UnityEngine;
 namespace Enemy.Weapons{
     public class ShooterLook : Weapon
     {
-        new void Awake() {
-            base.Awake();
-        }
         new void OnEnable()
         {
             base.OnEnable();

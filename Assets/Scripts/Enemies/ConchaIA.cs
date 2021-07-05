@@ -24,14 +24,7 @@ public class ConchaIA : EnemyBase
             var speed = lastVelocity.magnitude;
             direction = Vector2.Reflect(lastVelocity.normalized, col.contacts[0].normal);
             rigid.SetVelocity(direction * Mathf.Max(currentSpeed, 0f));
-            if (direction.x < 0)
-            {
-                transform.eulerAngles=new Vector3(0,180,0);
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            }
+            transform.eulerAngles=(direction.x<0)?new Vector3(0, 180, 0):new Vector3(0, 0, 0);
         }
     }
 }

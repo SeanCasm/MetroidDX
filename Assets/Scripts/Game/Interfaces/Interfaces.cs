@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public interface IPooleable{
     Transform parent{get;set;}
+    bool pooleable{get;set;}
 }
 public interface IBossFreezeable{
 

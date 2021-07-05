@@ -9,10 +9,8 @@ public class WeaponBase<T> : MonoBehaviour
     [SerializeField] protected GameObject startSound;
 
     [SerializeField] protected Vector3 direction;
-
-    //protected IDoDamage damageType;
-    protected void Awake() {
-        if(startSound!=null)Instantiate(startSound);
+    protected void OnEnable() {
+        if (startSound != null) Instantiate(startSound);
     }
 }
 

@@ -941,7 +941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 93741154669762153}
-  floor: {fileID: 0}
   health: {fileID: 210899530}
   player: {fileID: 8898891342960035913}
   animator: {fileID: 2544012745409219673}

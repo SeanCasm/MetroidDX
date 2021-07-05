@@ -14,8 +14,9 @@ namespace Player.Weapon{
             base.OnEnable();
             base.NoPlasmaOnTrigger += base.BackToGun;
         }
-        protected void OnDisable()
+        protected new void OnDisable()
         {
+            base.OnDisable();
             base.NoPlasmaOnTrigger -= base.BackToGun;
         }
         new void FixedUpdate()

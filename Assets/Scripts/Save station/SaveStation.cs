@@ -63,14 +63,14 @@ public class SaveStation : MonoBehaviour
         anim.SetBool("Saved", true);
         player.transform.position = transform.position;
         player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        playerController.canInstantiate = playerController.movement = false;
+        PlayerController.canInstantiate = playerController.movement = false;
     }
     void stopSavingAnim()
     {
         GameEvents.saveMessage.Invoke();
         unFreezeMoves();
         PlayerAnimatorUpdate(false, false);
-        playerController.canInstantiate = playerController.movement = true;
+        PlayerController.canInstantiate = playerController.movement = true;
     }
     void unFreezeMoves()
     {

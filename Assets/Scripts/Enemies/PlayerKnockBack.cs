@@ -79,7 +79,7 @@ public class PlayerKnockBack : MonoBehaviour
     void EnableMovement()
     {
         player.Damaged =  false;
-        player.movement = player.canInstantiate = true;
+        player.movement = PlayerController.canInstantiate = true;
         player.rb.gravityScale = 1;
     }
     IEnumerator KnockBack()

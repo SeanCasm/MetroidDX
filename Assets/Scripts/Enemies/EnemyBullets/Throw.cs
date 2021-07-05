@@ -6,7 +6,7 @@ public class Throw : Weapon
 {
     [SerializeField] float timeTillHit;
     new void Awake() {
-       base.Awake(); 
+       base.OnEnable(); 
     }
     new void OnEnable()
     {

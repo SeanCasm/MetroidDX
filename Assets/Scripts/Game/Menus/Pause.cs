@@ -58,13 +58,13 @@ public class Pause : MonoBehaviour
         }
     }
     public static void PausePlayer(PlayerController playerC,bool calledfromItemOrWarp){
-        playerC.canInstantiate=playerC.movement = false;
+        PlayerController.canInstantiate=playerC.movement = false;
         playerC.rb.velocity = Vector2.zero;
         if(!calledfromItemOrWarp)OnPause?.Invoke(true);
         Time.timeScale = 0f;
     }
     public static void UnpausePlayer(PlayerController playerC){
-        playerC.canInstantiate = playerC.movement = true;
+        PlayerController.canInstantiate = playerC.movement = true;
         OnPause?.Invoke(false);
         Time.timeScale = 1f;
     }
@@ -90,7 +90,7 @@ public class Pause : MonoBehaviour
         touchpadPaused?.Invoke(false);
         gameSettings.SetEffectsVolume(true);
         gameSettings.SetMusicVolume(true);
-        playerC.movement = playerC.canInstantiate = false;
+        playerC.movement = false;
         playerC.rb.velocity = Vector2.zero;
         Time.timeScale = 0f;
         gamePaused = true;
@@ -102,7 +102,7 @@ public class Pause : MonoBehaviour
         touchpadPaused?.Invoke(true);
         gameSettings.SetEffectsVolume(false);
         gameSettings.SetMusicVolume(false);
-        playerC.canInstantiate = playerC.movement = true;
+        playerC.movement = true;
         Time.timeScale = 1f;
         if(pause!=null)Destroy(pause);
         else if (playerMenu.activeSelf) playerMenu.SetActive(false);

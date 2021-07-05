@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInventory inventory;
     private SomePlayerFX playerFX;
     private SpriteRenderer spriteRenderer;
-    private PlayerInstantiates instantiates;
+    private Gun gun;
     private bool crouch, fall, wallJumping, airShoot, movingOnAir, isJumping, damaged, moveOnFloor, gravityJump, aimDown, aiming, running, aimUp, firstLand,
        onJumpingState, charged, holdingFire, balled, shootOnWalk, isGrounded, screwing, hyperJumping, onRoll, onSlope, inHyperJumpDirection, canCheckFloor = true;
     public System.Action OnJump, OnSpeedBooster;
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             else movement = canInstantiate = true;
         }
     }
-    public bool canInstantiate { get; set; }
+    public static bool canInstantiate;
     public bool Screwing
     {
         get => screwing;
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         OnJump += OnNormalJump;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerFX = GetComponentInChildren<SomePlayerFX>();
-        instantiates = GetComponentInChildren<PlayerInstantiates>();
+        gun = GetComponentInChildren<Gun>();
         inventory = GetComponent<PlayerInventory>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -390,7 +390,7 @@ public class PlayerController : MonoBehaviour
     }
     void ChargingShoot()
     {
-        instantiates.Charge(true); Invoke("Charged", 1.8f);
+        gun.Charge(true); Invoke("Charged", 1.8f);
     }
     void shootingClocking()
     {
@@ -493,7 +493,7 @@ public class PlayerController : MonoBehaviour
         {
             pressCount++;
             pressCount = inventory.AmmoSelection(pressCount);
-            if (pressCount == 3) pressCount = -1;
+            if (pressCount>3) pressCount = -1;
         }
     }
     public void MovementHor(InputAction.CallbackContext context)
@@ -606,24 +606,24 @@ public class PlayerController : MonoBehaviour
     }
     public void Fire(InputAction.CallbackContext context)
     {
-        if (context.started && canInstantiate)
+        if (context.started && canInstantiate && movement)
         {
             if (!isGrounded) { CheckAirShoot(); OnRoll = gravityJump = Screwing = onJumpingState = false; }
-            if (balled) { instantiates.SetBomb(); }
+            if (balled) { gun.SetBomb(); }
             else
             {
-                if (pressCount != 3)
+                if (pressCount != 4)
                 {
                     if (moveOnFloor && !onRoll && !aiming) ShootOnWalk = true;
-                    GameEvents.playerFire.Invoke(false);
+                    gun.Shoot(false);
                 }
             }
             if (inventory.CheckItem(0)) Invoke("ChargingShoot", 0.25f);//charge beam
         }
         if (context.canceled)
         {
-            if (charged) { GameEvents.playerFire.Invoke(true); charged = false; }
-            CancelInvoke("Charged"); instantiates.Charge(false);
+            if (charged) { gun.Shoot(true); charged = false; }
+            CancelInvoke("Charged"); gun.Charge(false);
             CancelInvoke("ChargingShoot"); holdingFire = false;
             CancelInvoke("HoldFire");
         }

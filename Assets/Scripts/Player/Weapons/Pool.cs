@@ -21,7 +21,7 @@ namespace Player.Weapon{
         /// </summary>
         /// <param name="beamPrefab"></param>
         public void SetBeamToPool(GameObject beamPrefab){
-            if(!beamPrefab.GetComponent<Projectil>().Pooleable)return;
+            if(!beamPrefab.GetComponent<IPooleable>().pooleable)return;
             OnPoolChanged?.Invoke();
             pool.ForEach(item=>{
                 if(!item.activeSelf)Destroy(item);
@@ -31,16 +31,17 @@ namespace Player.Weapon{
             {
                 var gObj = Instantiate(beamPrefab, shootPoint.position, Quaternion.identity, shootPoint);
                 gObj.GetComponent<IPooleable>().parent = shootPoint;
-                if(gObj.GetComponent<Projectil>().IsSpazer){
-                    gObj.GetChild(0).GetComponent<Projectil>().parent=gObj.transform;
-                    gObj.GetChild(1).GetComponent<Projectil>().parent = gObj.transform;
+                var component = gObj.GetComponent<Projectil>();
+                if(component!=null && component.IsSpazer){
+                    gObj.GetChild(0).GetComponent<IPooleable>().parent=gObj.transform;
+                    gObj.GetChild(1).GetComponent<IPooleable>().parent = gObj.transform;
                 }
                 pool.Add(gObj);
                 gObj.SetActive(false);
             }
         }
         public void SetChargedBeamToPool(GameObject beamPrefab){
-            if (!beamPrefab.GetComponent<Projectil>().Pooleable) return;
+            if (!beamPrefab.GetComponent<IPooleable>().pooleable) return;
             OnPoolChanged?.Invoke();
             chargedPool.ForEach(item =>
             {
@@ -51,7 +52,9 @@ namespace Player.Weapon{
             {
                 var gObj = Instantiate(beamPrefab, shootPoint.position, Quaternion.identity, shootPoint);
                 gObj.GetComponent<IPooleable>().parent = shootPoint;
-                if (gObj.GetComponent<Projectil>().IsSpazer)
+                var component = gObj.GetComponent<Projectil>();
+
+                if (component != null && component.IsSpazer)
                 {
                     gObj.GetChild(0).GetComponent<Projectil>().parent = gObj.transform;
                     gObj.GetChild(1).GetComponent<Projectil>().parent = gObj.transform;

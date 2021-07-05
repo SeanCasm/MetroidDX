@@ -48,7 +48,7 @@ public class MapUpdater : MonoBehaviour
     {
         pContr.ResetState();
         pContr.IsGrounded = true;
-        pContr.canInstantiate = pContr.movement = false;
+        PlayerController.canInstantiate = pContr.movement = false;
         pContr.rb.bodyType = RigidbodyType2D.Static;
     }
     private void PassMapData()
@@ -86,7 +86,7 @@ public class MapUpdater : MonoBehaviour
     {
         panelText.text = "";
         ClearReferences();
-        pContr.canInstantiate = pContr.movement = true;
+        PlayerController.canInstantiate = pContr.movement = true;
         pContr.rb.bodyType = RigidbodyType2D.Dynamic;
         pContr = null;
         pAnim = null;

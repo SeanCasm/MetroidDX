@@ -148,8 +148,8 @@ public class PlayerInventory : MonoBehaviour
         SetBeam();
     }
     private void OnEnable() {
-        GameEvents.OnRetry -= OnRetry;
-        GameEvents.OnRetry+=OnRetry;
+        Retry.Selected -= OnRetry;
+        Retry.Selected+=OnRetry;
     }
     void OnDisable()
     {
@@ -163,7 +163,7 @@ public class PlayerInventory : MonoBehaviour
         int id = item.iD;
         items.Add(id);
         playerItems.Add(id, item);
-        SetJumpType(id);
+        if(id==9 || id==5)SetJumpType(id);
         switch(id){
             case 7: ChangeJumpForce();break;
             case 8: SetSpeedBooster(); break;
@@ -311,32 +311,21 @@ public class PlayerInventory : MonoBehaviour
     }
     public void SetJumpType(int id)
     {
-        if (id == 9)
-        {
-            pCont.OnJump -= pCont.OnNormalJump;
-            pCont.OnJump -= pCont.OnGravityJump;
-            if (CheckItem(5))
-            {
-                pCont.OnJump += pCont.OnNormalJump;
-                pCont.OnJump += pCont.OnGravityJump;
-            }
-            else
-            {
-                pCont.OnJump += pCont.OnGravityJump;
+        if(CheckItem(id)){
+            if(id==9){
+                pCont.gravityJump=true;
                 pCont.OnJump -= pCont.OnNormalJump;
-            }
-        }
-        else if (id == 5)
-        {
-            if (CheckItem(9))
-            {
-                pCont.OnJump += pCont.OnNormalJump;
-                pCont.OnJump += pCont.OnGravityJump;
-            }
-            else
-            {
+                pCont.OnJump+=pCont.OnGravityJump;
+            }else pCont.screwSelected=true;
+            
+        }else{
+            if (id == 9){
+                pCont.gravityJump = false;
                 pCont.OnJump -= pCont.OnGravityJump;
-                pCont.OnJump += pCont.OnNormalJump;
+                pCont.OnJump+=pCont.OnNormalJump;
+            }else{
+                if(pCont.OnRoll)PlayerHealth.invulnerability=false;
+                pCont.screwSelected = false;
             }
         }
     }

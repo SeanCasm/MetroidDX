@@ -2199,6 +2199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329454616152066585}
   - component: {fileID: 1329454616152066584}
+  - component: {fileID: -7746754980902625364}
   m_Layer: 0
   m_Name: Ridley
   m_TagString: Untagged
@@ -2239,6 +2240,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &-7746754980902625364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329454616152066583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04965dbcd1cbda148a201a8104b0592a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5944112023301068451
 GameObject:
   m_ObjectHideFlags: 0

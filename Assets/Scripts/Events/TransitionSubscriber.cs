@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This class runs a animation when played use the map updater
+/// </summary>
 public class TransitionSubscriber : MonoBehaviour
 {
     [Range(0.1f,3f)]

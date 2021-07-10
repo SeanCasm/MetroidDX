@@ -8,7 +8,7 @@ public class EnableAllPlayer : MonoBehaviour
     private Rigidbody2D rigid;
     
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rigid =GetComponent<Rigidbody2D>();
         behaviours = GetComponents<Behaviour>();

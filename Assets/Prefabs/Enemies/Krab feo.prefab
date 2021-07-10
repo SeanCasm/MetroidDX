@@ -26,6 +26,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1354506, y: 0.08240184}
   m_EdgeRadius: 0
+--- !u!1 &3471718268227103764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3530022250260733550}
+  - component: {fileID: 7224050077490864725}
+  m_Layer: 9
+  m_Name: coll
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3530022250260733550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471718268227103764}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 631231909578185010}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7224050077490864725
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471718268227103764}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.05
 --- !u!1 &4446105887802695193
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,8 +86,6 @@ GameObject:
   - component: {fileID: 7634747292525298483}
   - component: {fileID: 4127814979773581403}
   - component: {fileID: 1017305674662225951}
-  - component: {fileID: 2129897036416033381}
-  - component: {fileID: 6164227841031566465}
   - component: {fileID: -1742360579494147611}
   m_Layer: 9
   m_Name: Krab feo
@@ -63,6 +108,7 @@ Transform:
   - {fileID: 3776330277579865159}
   - {fileID: 4654753541360338463}
   - {fileID: 875440803421181164}
+  - {fileID: 3530022250260733550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,11 +197,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed5c3fcf5aef3c4d8c79085b398013b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  floorAware: 0.3
+  direction: 1
+  speed: 10
+  floorAware: 0.15
+  wallAware: 0.07
+  checkDelay: 0.25
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8
 --- !u!95 &1017305674662225951
 Animator:
   serializedVersion: 3
@@ -175,34 +224,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2129897036416033381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4446105887802695193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!70 &6164227841031566465
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4446105887802695193}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0009581639, y: -0.035009857}
-  m_Size: {x: 0.13377224, y: 0.08496552}
-  m_Direction: 1
 --- !u!114 &-1742360579494147611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeRigidBody: 0
 --- !u!1 &4873239217523688787
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +338,7 @@ PrefabInstance:
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: rigidCol
       value: 
-      objectReference: {fileID: 6164227841031566465}
+      objectReference: {fileID: 0}
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: freezedCol
       value: 

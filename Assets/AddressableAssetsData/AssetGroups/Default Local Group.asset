@@ -461,54 +461,6 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 2bf32718ffebff24c86deb1812c89f84
-    m_Address: Audios/Player/MorphJump.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: d03ec85d7602dfe42a7b93419f71895e
-    m_Address: Audios/Player/NormalJump.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 258ec441950da42408b19ec28eaaab5a
-    m_Address: Audios/Player/Balled.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 595209a22b69d904295429d0d509b21d
-    m_Address: Audios/Player/Screw.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 17d58ab5cb3e33146aa86b7f7fac1c2e
-    m_Address: Audios/Player/ScrewLoop.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: f618862f2e826484791d71deb7c14493
-    m_Address: Audios/Player/Steps.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: d5a78d5c422609a4b9c3393d3ed4958d
-    m_Address: Audios/Player/RollJump.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: d3919c0d4e7b1c94eb1f42328f204862
-    m_Address: Audios/Player/HyperJump.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: d7bc03ec1b1c4bc46bb3b2c966f0ff24
     m_Address: Enemy ins/Bullet black pirate.prefab
     m_ReadOnly: 0

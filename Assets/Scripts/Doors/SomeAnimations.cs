@@ -2,32 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-public class DoorTransition : MonoBehaviour
+public class SomeAnimations : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera virtualCamera;
     [SerializeField] Animator camAnimator;
     private SpriteRenderer spriteRenderer;
     private Transform player;
-    private float ortSizeWidth;
     CameraTransition cameraTransition;
     private Animator animator;
-    private void Awake()
+    private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        transform.localScale = new Vector3(100, 100, 0);
-    }
-    private void Start()
-    {
         player = References.Player.transform;
     }
     private void OnEnable()
     {
         GameEvents.DoorTransition += StartTransition;
+        Retry.Start+=StartDeathAnimation;
     }
     private void OnDisable()
     {
+        Retry.Start -= StartDeathAnimation;
         GameEvents.DoorTransition -= StartTransition;
+    }
+    private void StartDeathAnimation(){
+        transform.position = player.position;
+        animator.SetTrigger("Death");
+        print("XD2");
     }
     private void StartTransition(CameraTransition camTransition)
     {

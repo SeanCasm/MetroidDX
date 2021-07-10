@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Player;
 using System;
+using UnityEngine.Events;
 
 public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
 {
@@ -11,6 +12,8 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     [SerializeField] int energyTanks, maxTotalHealth;
     [SerializeField] Materials materials;
     [SerializeField] BaseData baseData;
+    [SerializeField] float deathAnimTime;
+    [SerializeField] UnityEvent death;
     private int healthRound=1;
     private float currentTankSize;
     private PlayerController player;
@@ -21,26 +24,29 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     public int Tanks { get { return energyTanks; } set {energyTanks=value; } }
     public int TotalHealth { get { return healthRound; } set { healthRound = value; } }
     public int MaxTotalHealth { get { return maxTotalHealth; } set{maxTotalHealth=value;} }
-    public bool invulnerability { get; set; }public bool freezed { get; set; }
+    public static bool invulnerability; public bool freezed { get; set; }
     private bool freezeInvulnerablility;
+    public static bool isDead;
      
     #endregion
     #region Unity Methods
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
+    private void Start() {
+        anim = GetComponentInChildren<Animator>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GetComponent<PlayerController>();
         audioPlayer = GetComponent<AudioSource>();
+    }
+    private void Awake()
+    {
         baseData.SetHealthData(this);
     }
     private void OnEnable() {
-        GameEvents.OnRetry -= OnRetry;
+        Retry.Selected -= OnRetry;
 
         GameEvents.healthTank+=HandleIncrementHealthStats;
         GameEvents.refullAll+=HandleRefullAll;
-        GameEvents.OnRetry+=OnRetry;
+        Retry.Selected+=OnRetry;
     }
     private void OnDisable()
     {
@@ -105,7 +111,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     /// <param name="amount">amount of damage received</param>
     public void AddDamage(int amount)
     {
-        if (!player.inSBVelo && !player.Screwing && !invulnerability && !player.HyperJumping)
+        if (!player.inSBVelo && (!player.screwSelected && !player.OnRoll) && !invulnerability && !player.HyperJumping)
         {
             invulnerability = true;
             SetDamage(amount);
@@ -146,6 +152,12 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
 
     #endregion
     #region Private Methods
+    private IEnumerator AfterDeath(){
+        Retry.Start.Invoke();
+        yield return new WaitForSecondsRealtime(deathAnimTime);
+        print("XD");
+        Retry.Completed.Invoke();
+    }
     private void CanBeFreeze(){
         freezeInvulnerablility=false;
     }
@@ -184,7 +196,8 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
         audioPlayer.ClipAndPlay(damageClip);
     }
     private void Damage(int amount){
-        StartCoroutine("VisualFeedBack");
+        _renderer.color = Color.red;
+        Invoke("VisualFeedBack",.1f);
         if (health >= amount)
         {
             health -= amount;
@@ -196,11 +209,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
             healthRound--;
             if (healthRound == 0)
             {
-                GameEvents.retry.Invoke(true);
-                health = 0;
-                Pause.onAnyMenu = AudioListener.pause = true;
-                _renderer.color = Color.white;
-                Time.timeScale = 0f;
+                death.Invoke();
                 return;
             }
             if (energyTanks > 0) energyTanks--;
@@ -210,14 +219,21 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
         }
         CurrentMaxTotalHealth -= amount;
     }
+    public void OnDeath(){
+        anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+        anim.SetTrigger("Death");
+        StartCoroutine(AfterDeath());
+        health = 0;
+        isDead = Pause.onAnyMenu = AudioListener.pause = true;
+        _renderer.color = Color.white;
+        Time.timeScale = 0f;
+    }
     void Vulnerable()
     {
         invulnerability = false;
     }
-    private IEnumerator VisualFeedBack()
+    private void VisualFeedBack()
     {
-        _renderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
         _renderer.color = Color.white;
     }
     private void HandleRefullAll()

@@ -1,57 +1,87 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WallWalking : MonoBehaviour
 {
     #region Properties
-    [SerializeField] float speed;
-    [SerializeField] float floorAware;
+    [SerializeField] int direction;
+    [SerializeField] float speed,floorAware,wallAware;
+    [Tooltip("Adds a delay after change the eulerAngles on slopes")]
+    [SerializeField] float checkDelay;
     [SerializeField] LayerMask groundLayer;
+    RaycastHit2D wallHit;
     private Transform floorCorner;
+    private Vector2 velocity,slopePerp;
+    private float wallAngle,slopeAngle,prevAngle,curAngle;
+    private bool wallInFront,onSlope,checkFloor=true;
     private Rigidbody2D _rigidbody;
-    private Vector2 velocity;
     #endregion
     #region Unity Methods
+    private void Start() {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
     void Awake()
     {
         floorCorner = transform.GetChild(0);
-        _rigidbody = GetComponent<Rigidbody2D>();
     }
-    // Update is called once per frame
     void Update()
     {
-        if (Physics2D.Raycast(transform.position, transform.right, floorAware, groundLayer))
+        CheckAlign();
+        CheckWall();
+        if (wallInFront)
         {
-            Rotate(90f);
-        }else 
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z + 90f);
+            wallInFront = false;
+        }
         if (!Physics2D.Raycast(transform.position, -transform.up, floorAware, groundLayer))
         {
             transform.position = floorCorner.position;
-            Rotate(-90f);
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z - 90f);
         }
     }
     private void FixedUpdate()
     {
-        _rigidbody.velocity = transform.right*Time.deltaTime*speed;
+        velocity = speed * Time.deltaTime*transform.right;
+        _rigidbody.velocity = velocity;
     }
     #endregion
-    #region Private Methods
-    private void Rotate(float zDegrees)
-    {
-        transform.Rotate(0, 0, zDegrees);
-        
-        switch (transform.eulerAngles.z)
-        {
-            case -90: transform.eulerAngles=new Vector3(0,0,270);
-                break;
-            case -180: transform.eulerAngles = new Vector3(0, 0,180);
-                break;
-            case -270: transform.eulerAngles = new Vector3(0, 0, 90);
-                break;
-            case -360: transform.eulerAngles = new Vector3(0, 0, 0);
-                break;
+    #region Private Methods 
+    private void CheckAlign(){
+        RaycastHit2D align=Physics2D.Raycast(transform.position,-transform.up,floorAware,groundLayer);
+        if(align){
+            slopeAngle = Vector2.Angle(align.normal, Vector2.up);
+            slopePerp = Vector2.Perpendicular(align.normal).normalized;
+            if ((slopePerp.y < 0 && direction < 0) || (slopePerp.y > 0 && direction > 0)) slopeAngle *= -1;
+            if(slopeAngle!=0 && slopeAngle!=90 && slopeAngle!=-90 && slopeAngle!=180)onSlope=true;
+            else onSlope=false;
+            prevAngle=curAngle;
+            curAngle=slopeAngle;
+            
+            if(prevAngle!=curAngle)checkFloor=false;
+            if(checkFloor)transform.eulerAngles = new Vector3(0, 0, slopeAngle);
+            else if(!IsInvoking("CheckFloor"))Invoke("CheckFloor",checkDelay);
         }
+        Debug.DrawRay(transform.position, -transform.up * floorAware, Color.red);
+
+    }
+    void CheckFloor(){
+        checkFloor=true;
+    }
+    private void CheckWall()
+    {
+        wallHit = Physics2D.Raycast(transform.position, transform.right, wallAware, groundLayer);
+        Debug.DrawRay(transform.position, transform.right * wallAware, Color.green);
+        if (wallHit)
+        {
+            wallAngle = Vector2.Angle(wallHit.normal, Vector2.up);
+            if (CheckWallAngle(89,91) || CheckWallAngle(-1,1) || CheckWallAngle(179, 181)) wallInFront = true;
+        }
+        else wallAngle = 0;
+    }
+    private bool CheckWallAngle(float value1,float value2){
+        if(wallAngle>=value1 && wallAngle<=value2)return true;
+        else return false;
     }
     #endregion
 }

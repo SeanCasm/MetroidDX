@@ -11,7 +11,7 @@
                     "id": "cf654486-1673-4d90-8798-4242b475e9f5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "WS",
@@ -19,7 +19,7 @@
                     "id": "cafcabd9-6965-4b50-81d2-07c40410a60d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Fire",
@@ -467,7 +467,7 @@
                     "id": "568d4d34-7d00-46a7-942e-721ecf88a00c",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [

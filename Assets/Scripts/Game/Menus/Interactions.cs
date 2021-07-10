@@ -9,9 +9,9 @@ using UnityEngine.Events;
 public class Interactions:MonoBehaviour
 {
     [SerializeField]ButtonUtilities buttonEssentials;
-    [SerializeField]public UnityEvent backItemMenu,backMap;
+    [SerializeField]public UnityEvent backItemMenu;
     [SerializeField]Button gameVolumeSettings,optionsMainMenu;
-    public static UnityEvent BackMap;
+    [SerializeField] MapNavigation mapNavigation;
     
     private Button settingsFirst,mainMenuFirst,itemMenuFirst,slotButton,settingsButton,pauseFirst, retryFirst,continueFirst;
     public Button SettingsFirst{get=>gameVolumeSettings;}
@@ -35,9 +35,6 @@ public class Interactions:MonoBehaviour
             if (retryFirst) SetGameObjectToEventSystem(retryFirst);
         }
     }
-    private void Awake() {
-        BackMap=backMap;
-    }     
     public void BackPressed(){
         if (Pause.onSlots)
         {
@@ -49,7 +46,7 @@ public class Interactions:MonoBehaviour
             }
         }
         else if (Pause.onItemMenu)backItemMenu.Invoke();
-        else if (Pause.onMap)backMap.Invoke();
+        else if (Pause.onMap)mapNavigation.enabled=false;
     }
     public void SetGameObjectToEventSystem(Button first){
         EventSystem.current.SetSelectedGameObject(first.gameObject);

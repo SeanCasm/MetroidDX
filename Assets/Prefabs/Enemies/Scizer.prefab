@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7035980016951647804}
-  - component: {fileID: 5691691504117469157}
+  - component: {fileID: 7865702259850859055}
   m_Layer: 9
   m_Name: col
   m_TagString: Untagged
@@ -138,14 +138,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5872028538763629232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalPosition: {x: 0, y: -0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2775370865536261731}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &5691691504117469157
-CapsuleCollider2D:
+--- !u!58 &7865702259850859055
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,8 +158,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.22, y: 0.12}
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.075
 --- !u!1 &6382456235544104552
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeRigidBody: 0
 --- !u!114 &8204384134163644616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.32
-  capsule: {fileID: 5691691504117469157}
+  capsule: {fileID: 0}
   slopeFrontRay: 0.0342
   slopeBackRay: 0.0342
   groundHitSlope: 0.058
@@ -461,7 +462,7 @@ PrefabInstance:
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: rigidCol
       value: 
-      objectReference: {fileID: 5691691504117469157}
+      objectReference: {fileID: 0}
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: freezedCol
       value: 

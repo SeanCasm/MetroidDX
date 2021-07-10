@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 758174252501090668}
   - component: {fileID: 758174252501090675}
   - component: {fileID: 7981165804203235146}
+  - component: {fileID: -3724114382222435645}
   m_Layer: 0
   m_Name: Save Station
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 930449575
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: -1
   m_Sprite: {fileID: 6090601720764284560, guid: 29cb496cd0a820e499b51ab4cf82b023, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -126,6 +127,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actualSectorLoad: 
+--- !u!114 &-3724114382222435645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758174252501090672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04965dbcd1cbda148a201a8104b0592a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7392820647340351853
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 8563997471958745963}
   - component: {fileID: 8563997471958745962}
   - component: {fileID: 2007914378}
+  - component: {fileID: 7934429264823710653}
   m_Layer: 0
   m_Name: water demo
   m_TagString: Untagged
@@ -144,6 +145,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newConfiner: {fileID: 831497396}
+--- !u!114 &7934429264823710653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563997471958745961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04965dbcd1cbda148a201a8104b0592a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8563997472767715185
 GameObject:
   m_ObjectHideFlags: 0

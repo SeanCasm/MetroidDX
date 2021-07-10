@@ -5,6 +5,9 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
+/// <summary>
+/// This class represents the retry screen when player is dead.
+/// </summary>
 public class Retry : MonoBehaviour
 {
     #region Properties
@@ -19,6 +22,9 @@ public class Retry : MonoBehaviour
     [SerializeField] LoadScenes sceneLoader;
     private GameObject retryMenu,retryReference;
     private Button retry,mainMenu;
+    public static System.Action Start;
+    public static System.Action Completed;
+    public static System.Action Selected;
     #endregion
     #region Unity Methods
     private void Awake() {
@@ -26,18 +32,18 @@ public class Retry : MonoBehaviour
     }
     private void OnEnable()
     {
-        GameEvents.retry += EnableRetry;
+        Completed += EnableRetry;
     }
     private void OnDisable()
     {
-        GameEvents.retry -= EnableRetry;
+        Completed -= EnableRetry;
     }
     #endregion
     #region Private Methods
     private void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj){
         retryReference =obj.Result;
     }
-    private void EnableRetry(bool value)
+    private void EnableRetry()
     {
         playerDeath.AddListener(()=>InstantiateAndPutOnCanvas());
         playerDeath.Invoke();
@@ -47,13 +53,14 @@ public class Retry : MonoBehaviour
         //Adding events to mainMenu button
         mainMenu=retryMenu.transform.GetChild(1).GetComponent<Button>();
         mainMenu.onClick.AddListener(() =>{
+            PlayerHealth.isDead = false;
             Destroy(allObjectContainer);
         });
         //Adding events to retry button
         retry=retryMenu.transform.GetChild(0).GetComponent<Button>();
         retry.onClick.AddListener(() =>
         {
-            GameEvents.OnRetry.Invoke();
+            Selected.Invoke();
             player.SetActive(true);
             hud.SetActive(true);
             RetryGame();
@@ -66,6 +73,7 @@ public class Retry : MonoBehaviour
     public void RetryGame()
     {
         int slot = SaveAndLoad.slot;
+        PlayerHealth.isDead=false;
         GameData data = SaveSystem.LoadPlayerSlot(slot);
         if (data != null) saveLoad.LoadPlayerSlot(slot);
         else VoidData();

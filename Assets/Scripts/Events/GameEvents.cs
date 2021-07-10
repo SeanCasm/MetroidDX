@@ -7,14 +7,6 @@ using UnityEngine.UI;
 public static class GameEvents
 {
     /// <summary>
-    /// When player deads.
-    /// </summary>
-    public static Action<bool> retry;
-    /// <summary>
-    /// When player selects "retry" in the retry screen. 
-    /// </summary>
-    public static Action OnRetry;
-    /// <summary>
     /// Updates the player health, when receiving damage and getting health.
     /// </summary>
     public static Action<int,int> playerHealth;

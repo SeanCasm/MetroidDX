@@ -74,7 +74,7 @@ public class PirateIA : EnemyBase
             if (idleShooting) { rigid.SetVelocity(0f, 0f); }
             else
             {
-                if (pDetect.detected) efd.SetOnGroundVelocity(horizontalVelocity * 1.5f);
+                if (pDetect.detected) efd.SetOnGroundVelocity(horizontalVelocity * 2f);
                 else efd.SetOnGroundVelocity(speed);
             }
        }else{

@@ -10,12 +10,14 @@ public class OverHeatBar : MonoBehaviour
     public static Action<float> SetFill;
     private float minHotProgress;
     private bool overHeated,sub;
+    IEnumerator coroutine;
      
     #region Unity methods
     void Awake()
     {
         progressHotBar = GetComponent<RectTransform>();
         minHotProgress = progressHotBar.sizeDelta.x;
+        coroutine=UnHotBar();
     }
     private void OnEnable()
     {
@@ -23,11 +25,11 @@ public class OverHeatBar : MonoBehaviour
         sub=true;
         if (progressHotBar.sizeDelta.x > 0)
         {
-            StartCoroutine(UnHotBar());
+            StartCoroutine(coroutine);
         }
     }
     private void OnDisable() {
-        StopCoroutine(UnHotBar());
+        StopCoroutine(coroutine);
     }
     private void OnDestroy() {
         SetFill-=SetHot;
@@ -55,16 +57,20 @@ public class OverHeatBar : MonoBehaviour
     {
         if(!overHeated){
             progressHotBar.sizeDelta = new Vector2(progressHotBar.sizeDelta.x + hotPointsAmount, progressHotBar.sizeDelta.y);
+            StopCoroutine(coroutine);
+            coroutine = UnHotBar();
+            StartCoroutine(coroutine);
             if (progressHotBar.sizeDelta.x >= maxBarSize)
             {
                 overHeated = true;
                 PlayerController.canInstantiate = false;
                 progressHotBar.sizeDelta = new Vector2(maxBarSize, progressHotBar.sizeDelta.y);
                 overHeat.SetActive(true);
-                StartCoroutine(UnHotBar());
+                StartCoroutine(coroutine);
             }
         }
     }
+     
     public void ResetHeatBar()
     {
         progressHotBar.sizeDelta = new Vector2(0, progressHotBar.sizeDelta.y);

@@ -167,10 +167,9 @@ GameObject:
   - component: {fileID: 6269663693729443161}
   - component: {fileID: 9125021139728052071}
   - component: {fileID: 8907362496291718211}
-  - component: {fileID: 5655202146157168257}
-  - component: {fileID: -5727264967101502368}
   - component: {fileID: 927007680064984111}
   - component: {fileID: 3457028879857296937}
+  - component: {fileID: 784459810268623107}
   m_Layer: 9
   m_Name: Moto
   m_TagString: Untagged
@@ -299,37 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79c65fcb3a403c44a22363771e753ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.4
+  speed: 22
   detectPlayer: 0
   playerDetector: {fileID: 7872416709262100088}
---- !u!70 &5655202146157168257
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6269663693729443160}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.24, y: 0.2}
-  m_Direction: 1
---- !u!114 &-5727264967101502368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6269663693729443160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &927007680064984111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,10 +315,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.3
-  capsule: {fileID: 5655202146157168257}
-  slopeFrontRay: 0.037
-  slopeBackRay: 0.037
-  groundHitSlope: 0.066
+  coll: {fileID: 784459810268623107}
+  slopeFrontRay: 0.121
+  slopeBackRay: 0.121
+  groundHitSlope: 0.288
+  rayOffset: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -363,6 +335,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeRigidBody: 0
+--- !u!58 &784459810268623107
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269663693729443160}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.115384616
 --- !u!1001 &4615481048980065036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,7 +374,7 @@ PrefabInstance:
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: rigidCol
       value: 
-      objectReference: {fileID: 5655202146157168257}
+      objectReference: {fileID: 0}
     - target: {fileID: -5384935738484045062, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: deathClip
       value: 

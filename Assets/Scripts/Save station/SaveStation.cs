@@ -26,7 +26,7 @@ public class SaveStation : MonoBehaviour
             saveLoad = col.GetComponentInParent<SaveAndLoad>();
             anim = col.GetComponentInParent<Animator>();
             playerController.ResetState();
-            playerController.IsGrounded=true;
+            playerController.isGrounded=true;
             for(int i=0;i<3;i++){
                 if(i==SaveAndLoad.slot)gameSlot=i;
             }

@@ -10,7 +10,6 @@ public class Warp : MonoBehaviour
     private float playerYPoint;
     private Vector2 exit;
     private GameObject currentZone,nextRoom;
-    public static System.Action OnWarp;
     private PlayerController playerC;
 
     void Start()
@@ -48,7 +47,6 @@ public class Warp : MonoBehaviour
         currentZone.SetActive(false);
         Instantiate(nextRoom);
         yield return new WaitForSecondsRealtime(1f);
-        OnWarp?.Invoke();
         Parallax.clearList.Invoke();
         Pause.UnpausePlayer(playerC);
         Destroy(currentZone);

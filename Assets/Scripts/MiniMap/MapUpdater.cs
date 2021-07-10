@@ -47,7 +47,7 @@ public class MapUpdater : MonoBehaviour
     private void SetPlayer()
     {
         pContr.ResetState();
-        pContr.IsGrounded = true;
+        pContr.isGrounded = true;
         PlayerController.canInstantiate = pContr.movement = false;
         pContr.rb.bodyType = RigidbodyType2D.Static;
     }

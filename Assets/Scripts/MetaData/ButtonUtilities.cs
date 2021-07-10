@@ -10,8 +10,8 @@ public class ButtonUtilities : MonoBehaviour
     public Dictionary<int, Button> buttons { get; set; }
     public List<Button> itemButtons { get; set; }
     private void OnEnable() {
-        GameEvents.OnRetry -= OnRetry;
-        GameEvents.OnRetry+=OnRetry; 
+        Retry.Selected -= OnRetry;
+        Retry.Selected +=OnRetry; 
         GameEvents.setItemButton+=SetButton;
     }
     void Awake()

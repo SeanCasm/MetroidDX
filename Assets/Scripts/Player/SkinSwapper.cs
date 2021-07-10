@@ -74,7 +74,7 @@ public class SkinSwapper : MonoBehaviour
     }
     void LateUpdate()
     {
-        if(currentSide.Count>0){
+        if(currentSide.Count>0 && !PlayerHealth.isDead){
             int index = int.Parse(spriteRenderer.sprite.name);
             spriteRenderer.sprite = currentSide[index];
         }

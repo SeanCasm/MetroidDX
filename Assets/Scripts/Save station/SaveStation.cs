@@ -12,30 +12,29 @@ public class SaveStation : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb2d;
     public string actualSectorLoad;
-    public static bool recentlyLoad;
-    private bool recentlyOnStation;
+    public static bool loaded;
+    private void OnDisable() {
+        loaded=false;
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player") && !recentlyLoad && !recentlyOnStation)
+        if (col.CompareTag("Player") && !loaded)
         {
             Pause.onSave = Pause.onAnyMenu = true;
             GameEvents.save.Invoke(this);
-            player = col.transform.parent.gameObject;
+            player = References.Player;
             rb2d = col.GetComponentInParent<Rigidbody2D>();
             playerController = col.GetComponentInParent<PlayerController>();
             saveLoad = col.GetComponentInParent<SaveAndLoad>();
             anim = col.GetComponentInParent<Animator>();
             playerController.ResetState();
             playerController.isGrounded=true;
+            loaded=true;
             for(int i=0;i<3;i++){
                 if(i==SaveAndLoad.slot)gameSlot=i;
             }
             OnStation();
-            recentlyOnStation=true;
-        }else if(recentlyLoad || recentlyOnStation)Invoke("ResetRecentlyLoad",2f);
-    }
-    private void ResetRecentlyLoad(){
-        recentlyOnStation=recentlyLoad=false;
+        }
     }
     public void saveGame(bool optionSelect)
     {

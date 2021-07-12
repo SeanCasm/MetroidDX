@@ -6,7 +6,7 @@ using Enemy;
 public class EspinaIA : EnemyBase
 {
     private float currentSpeed;
-    private GroundChecker efd;
+    private GroundSlopeChecker efd;
     public GameObject bulletPrefab;
     private bool _isAttacking;
     GameObject[] bulletArray = new GameObject[5];
@@ -14,7 +14,7 @@ public class EspinaIA : EnemyBase
     new void Awake()
     {
         base.Awake();
-        efd = GetComponent<GroundChecker>();
+        efd = GetComponent<GroundSlopeChecker>();
     }
     void Start()
     {

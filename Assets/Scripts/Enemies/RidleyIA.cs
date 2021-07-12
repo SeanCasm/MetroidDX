@@ -36,18 +36,18 @@ public class RidleyIA : Boss
         {
             attacking = true;
             path.speed = 0;
+            StopAllCoroutines();
             StartCoroutine(Attack());
         }
         if (health.MyHealth < health.TotalHealth / 3)
         {
-            if(RandomMove(0, 500) == 121 && !attacking && !ulti && !onUltimate)
+            if(RandomMove(0, 300) == 51 && !attacking && !ulti && !onUltimate)
             {
-                StopAllCoroutines();
                 CancelInvoke();
                 attacking = false;
                 path.speed = 0;
+                StopAllCoroutines();
                 StartCoroutine(Ultimatum());
-                onUltimate = true;
             }
         }
     }
@@ -77,6 +77,7 @@ public class RidleyIA : Boss
     }
     IEnumerator Ultimatum()
     {
+        onUltimate = true;
         LoadMaterial(materials.gold);
         health.GetComponent<Collider2D>().enabled = false;
         ulti = true;

@@ -5,14 +5,14 @@ using Enemy;
 public class CovidIA : EnemyBase
 {
     private BoxCollider2D boxCol;
-    private PlayerDetect pD;
+    private PlayerDetector pD;
     bool moving,detected;
     // Start is called before the first frame update
     new void Awake()
     {
         base.Awake();
         boxCol = GetComponent<BoxCollider2D>();
-        pD = GetComponentInChildren<PlayerDetect>();
+        pD = GetComponentInChildren<PlayerDetector>();
     }
     // Update is called once per frame
     void Update()

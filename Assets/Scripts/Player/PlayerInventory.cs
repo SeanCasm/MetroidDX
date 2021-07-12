@@ -102,22 +102,13 @@ public class CountableAmmo : Ammo
     }
     #endregion
 }
-    [System.Serializable]
-    public class Item : Inventory
-    {
-        public static int[] beamsID { get; } = { 1, 2, 10 };
-        public Beam beam { get; set; }
-        public Item(bool selected, int iD) : base(selected, iD)
-        {
-            this.iD = iD;
-            this.selected = selected;
-        }
-    }
 /// <summary>
 /// Represents the player inventory.
 /// </summary>
 public class PlayerInventory : MonoBehaviour
 {
+    public static int[] beamsID { get; } = { 1, 2, 10 };
+
     #region Properties
     [SerializeField]Interactions interactions;
     [SerializeField] Beams beams;
@@ -127,9 +118,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] Gun playerInstantiates;
     private GameData data;
     private PlayerController pCont;
-    public Dictionary<int, Item> playerItems { get; set; }= new Dictionary<int, Item>();
+    public Dictionary<int, bool> playerItems { get; set; }= new Dictionary<int, bool>();
     public List<int> reserve { get; set; }=new List<int>();
-    public List<int> items { get; set; }=new List<int>();
     public bool canShootBeams { get ;set ; }=true;
     //0: missiles, 1: super missiles, 2: super bombs
     public CountableAmmo[] limitedAmmo { get; set; }= new CountableAmmo[4];
@@ -158,18 +148,16 @@ public class PlayerInventory : MonoBehaviour
     }
     #endregion
     #region Public methods
-    public void AddToItems(Item item)
+    public void AddToItems(int id, bool selected)
     {
-        int id = item.iD;
-        items.Add(id);
-        playerItems.Add(id, item);
+        playerItems.Add(id, selected);
         if(id==9 || id==5)SetJumpType(id);
         switch(id){
             case 7: ChangeJumpForce();break;
             case 8: SetSpeedBooster(); break;
             case 3: SetSuit(); break;
         }
-        foreach (int element in Item.beamsID)
+        foreach (int element in beamsID)
         {
             if (id == element)DisableIncompatibleBeams(id);
         }
@@ -178,8 +166,7 @@ public class PlayerInventory : MonoBehaviour
     public void SetSelectedItems(int itemID)
     {
         var item = playerItems[itemID];
-        bool selected=item.selected=!item.selected;
-        buttonEssentials.SetButton(itemID, selected);
+        buttonEssentials.SetButton(itemID, item = !item);
     }
     /// <summary>
     /// Disable other beams when the combinations are invalid.
@@ -192,19 +179,19 @@ public class PlayerInventory : MonoBehaviour
         {
             if (items.ContainsKey(1))
             {
-                items[1].selected = false;
+                items[1] = false;
                 buttonEssentials.SetButton(1, false);
             }
             if (items.ContainsKey(2))
             {
-                items[2].selected = false;
+                items[2] = false;
                 buttonEssentials.SetButton(2, false);
             }
         }else if(itemID==2 || itemID == 1)
         {
             if (items.ContainsKey(10))
             {
-                items[10].selected = false;
+                items[10] = false;
                 buttonEssentials.SetButton(10, false);
             }
         }
@@ -219,8 +206,8 @@ public class PlayerInventory : MonoBehaviour
     {
         if (playerItems.ContainsKey(itemID))
         {
-            Item item = playerItems[itemID];
-            if (item.selected)return true;
+            bool selected = playerItems[itemID];
+            if (selected)return true;
             else return false;
         }else return false;
     }
@@ -232,7 +219,7 @@ public class PlayerInventory : MonoBehaviour
         }
         return false;
     }
-    public void LoadInventory(GameData data)//List<int> MSB, List<int> item, Dictionary<int,bool> selectItems,Dictionary<int,int> ammoMunition)
+    public void LoadInventory(GameData data)
     {
         this.data=data;
         int ammo=0;
@@ -245,13 +232,13 @@ public class PlayerInventory : MonoBehaviour
         }
         limitedAmmo[0].maxAmmo = limitedAmmo[0].actualAmmo=ammoMn[0];
         reserve = new List<int>(data.reserve);
-        items = new List<int>(data.items);
-        foreach(var element in data.selectItems){
-            if(element.Key!=4){
-                bool value=element.Value;
-                AddToItems(new Item(value,element.Key));
-                buttonEssentials.SetButton(element.Key,value);
-                DisableIncompatibleBeams(element.Key);
+        foreach(var element in data.items){
+            if(element.id!=4){
+                bool value=element.selected;
+                AddToItems(element.id,value);
+                print(element);
+                buttonEssentials.SetButton(element.id,value);
+                DisableIncompatibleBeams(element.id);
             }
         }
         interactions.SetButtonNavigation();
@@ -336,7 +323,7 @@ public class PlayerInventory : MonoBehaviour
     public void ChangeJumpForce()
     {
         if(playerItems.ContainsKey(7)){
-            pCont.currentJumpForce=playerItems[7].selected?baseData.jumpForceUp:baseData.jumpForce;
+            pCont.currentJumpForce=playerItems[7]?baseData.jumpForceUp:baseData.jumpForce;
         }
     }
     public void SetSpeedBooster(){

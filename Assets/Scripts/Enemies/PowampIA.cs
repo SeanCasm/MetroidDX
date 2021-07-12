@@ -8,7 +8,7 @@ public class PowampIA : EnemyBase
     [SerializeField]private LayerMask ground;
     [SerializeField]private float groundDistance,swimVelocity;
     [SerializeField]private GameObject bulletPrefab;
-    private PlayerDetect pD;
+    private PlayerDetector pD;
     private bool facingUp;
     private GameObject[] bullets=new GameObject[8];
     private Weapon[] weaponComponent = new Weapon[8];
@@ -16,7 +16,7 @@ public class PowampIA : EnemyBase
     new void Awake()
     {
         base.Awake();
-        pD = GetComponentInChildren<PlayerDetect>();
+        pD = GetComponentInChildren<PlayerDetector>();
     }
     void Start()
     {

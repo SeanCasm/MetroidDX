@@ -8,9 +8,9 @@ public class SaveAndLoad : MonoBehaviour
 {
     [SerializeField] PlayerInventory inventory;
     [SerializeField] PlayerHealth health;
-    [SerializeField] CollectorManager collector;
     [SerializeField]MapSaveSystem map;
     [SerializeField] Room rooms;
+    private GameData data;
     private float[] position= new float[3];
     public string sectorName{get;set;}
     public static bool newGame;
@@ -24,7 +24,7 @@ public class SaveAndLoad : MonoBehaviour
     public void SavePlayerSlot(int slotIndex) { SaveSystem.SavePlayerSlot(inventory, health,map, position, sectorName, slotIndex); }
     public void LoadPlayerSlot(int slotIndex)
     {
-        GameData data = SaveSystem.LoadPlayerSlot(slotIndex);
+        data = SaveSystem.LoadPlayerSlot(slotIndex);
         if (data == null)
         {
             return;
@@ -32,55 +32,37 @@ public class SaveAndLoad : MonoBehaviour
         else
         {
             slot=slotIndex;
-            dataLoader(data);
+            dataLoader();
         }
     }
     /// <summary>
-    /// Loads all game data
+    /// Loads all the game data
     /// </summary>
     /// <param name="data">reference to GameData script to load the game data</param>
-    private void dataLoader(GameData data)
+    private void dataLoader()
     {
         sectorName = data.actualSector;
-        AsyncOperation operation=SceneManager.LoadSceneAsync(data.scene,LoadSceneMode.Single);
-        StartCoroutine(CheckSceneLoaded(operation,data));
+        SceneManager.LoadSceneAsync(1,LoadSceneMode.Single).completed+=OnCompleted;
         health.LoadHealth(data);
         map.LoadMap(data);
         Boss.defeateds = new List<int>(data.bossesDefeated);
-        LoadToCollectorManager(data);
         TimeCounter.SetTimeAfterLoad(data.time);
         inventory.LoadInventory(data);
         MapUpdater.mappers=new List<int>(data.mappers);
     }
-    IEnumerator CheckSceneLoaded(AsyncOperation operation,GameData data){
-        while(!operation.isDone){
-            yield return new WaitForSecondsRealtime(0.05f);
-        }
+    void OnCompleted(AsyncOperation operation){
+        
         GameObject room=rooms.LoadRoom(sectorName);
         room.name=sectorName;
-        Vector3 position;
+        Vector3 position=new Vector3();
         position.x = data.position[0];
         position.y = data.position[1];
         position.z = 0;
-        SaveStation.recentlyLoad = true;
+        SaveStation.loaded = true;
         transform.position = position;
         Instantiate(room);
          
         GameEvents.enablePlayer.Invoke();
     }
-    private void LoadToCollectorManager(GameData data)
-    {
-        var reserve = data.reserve;
-        var items = data.items;
-        collector.reserveSearch.Clear();
-        for(int i = 0; i < reserve.Count; i++)
-        {
-            collector.reserveSearch.Add(reserve[i], new ReserveAcquired());
-        }
-        collector.itemSearch.Clear();
-        for (int i = 0; i < items.Count; i++)
-        {
-            collector.itemSearch.Add(items[i], new ItemAcquired());
-        }
-    }
+ 
 }

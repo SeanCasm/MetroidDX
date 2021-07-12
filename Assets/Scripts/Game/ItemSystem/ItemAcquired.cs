@@ -17,11 +17,14 @@ public class ItemAcquired : MonoBehaviour,ICollecteable
     public ItemType iType { get { return itemType; } }
     #endregion
     #region Unity Methods
+    private void OnEnable() {
+        bool registered = GameEvents.verifyRegistry.Invoke(iD, false);
+        if (registered) Destroy(gameObject);
+    }
     private void Awake()
     {
         box = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        GameEvents.verifyRegistry.Invoke(this);
     }
     private void OnBecameInvisible()
     {

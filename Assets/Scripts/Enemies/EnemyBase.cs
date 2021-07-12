@@ -11,10 +11,10 @@ namespace Enemy
         protected EnemyHealth eh;
         protected Animator anim;
         protected Rigidbody2D rigid;
-        protected PlayerDetect pDetect;
+        protected PlayerDetector pDetect;
         protected void Awake()
         {
-            if(detectPlayer)pDetect = GetComponentInChildren<PlayerDetect>();
+            if(detectPlayer)pDetect = GetComponentInChildren<PlayerDetector>();
             eh = GetComponentInChildren<EnemyHealth>();
             anim = GetComponent<Animator>();
             rigid = GetComponent<Rigidbody2D>();

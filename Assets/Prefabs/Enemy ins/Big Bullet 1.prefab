@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeRigidBody: 0
 --- !u!82 &7986096400916726299
 AudioSource:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   startSound: {fileID: 7119153977521584086, guid: 7a220b2ce8382d44fa0dc1509b38d1bc, type: 3}
   direction: {x: 0, y: 0, z: 0}
   speed: 2
-  timeTillHit: 0
   rigid: {fileID: -2801550449270846129}
   pooleable: 1
+  rightAngleLimit: 45
+  leftAngleLimit: 135

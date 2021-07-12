@@ -9,13 +9,13 @@ public class ScizerIA : EnemyBase
     [SerializeField]GameObject scizerBulltet;
     [SerializeField]Transform[] shootPoints;
     Throw pF;
-    private GroundChecker efd;
+    private GroundSlopeChecker efd;
     Transform player;
     bool attacking;
     new void Awake()
     {
         base.Awake();
-        efd = GetComponent<GroundChecker>();
+        efd = GetComponent<GroundSlopeChecker>();
     }
     private void FixedUpdate() {
         if(!attacking)efd.SetOnGroundVelocity(speed);

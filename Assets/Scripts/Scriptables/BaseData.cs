@@ -17,7 +17,7 @@ namespace Player{
         [SerializeField] Beams beams;
         public void SetInventoryData(PlayerInventory inventory){
             inventory.limitedAmmo[0]=new CountableAmmo(false, 0, beams.limitedAmmo[0], missileAmmo, missileAmmo);
-            inventory.AddToItems(new Item(true, 4));//add the morfball item, initial game item by default.
+            inventory.AddToItems(4,true);//add the morfball item, initial game item by default.
             inventory.transform.position=spawn;
             inventory.SetSuit();
         }

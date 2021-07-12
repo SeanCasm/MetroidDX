@@ -163,9 +163,4 @@ public static class Utilities
         int i= UnityEngine.Random.Range(0,list.Count);
         return list[i];
     }
-    public static Component GetRandom(this Component[] list)
-    {
-        int i = UnityEngine.Random.Range(0, list.Length);
-        return list[i];
-    }
 }

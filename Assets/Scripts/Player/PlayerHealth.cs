@@ -155,7 +155,6 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     private IEnumerator AfterDeath(){
         Retry.Start.Invoke();
         yield return new WaitForSecondsRealtime(deathAnimTime);
-        print("XD");
         Retry.Completed.Invoke();
     }
     private void CanBeFreeze(){
@@ -220,12 +219,12 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
         CurrentMaxTotalHealth -= amount;
     }
     public void OnDeath(){
+        _renderer.color = Color.white;
         anim.updateMode = AnimatorUpdateMode.UnscaledTime;
         anim.SetTrigger("Death");
         StartCoroutine(AfterDeath());
         health = 0;
         isDead = Pause.onAnyMenu = AudioListener.pause = true;
-        _renderer.color = Color.white;
         Time.timeScale = 0f;
     }
     void Vulnerable()

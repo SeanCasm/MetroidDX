@@ -29,7 +29,7 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""AD"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""cf654486-1673-4d90-8798-4242b475e9f5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

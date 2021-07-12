@@ -2,26 +2,10 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 public static class SaveSystem
 {
-    public static GlobalGameData LoadSettings()
-    {
-        string path = Application.persistentDataPath + "/config.globalxd";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            GlobalGameData data = formatter.Deserialize(stream) as GlobalGameData;
-            stream.Close();
-            return data;
-        }
-        else
-        {
-
-            return null;
-        }
-    }
     public static void SavePlayerSlot(PlayerInventory inventory, PlayerHealth energy,
         MapSaveSystem map,float[] pos, string sectorName, int slotIndex)
     {
@@ -50,6 +34,7 @@ public static class SaveSystem
     {
 
         string path = Application.persistentDataPath + GetSlotPath(slotIndex);
+
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

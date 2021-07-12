@@ -31,15 +31,11 @@ public static class GameEvents
     /// <summary>
     /// Verifies the registry of reserve and items in the collector manager.
     /// </summary>
-    public static Action<ICollecteable> verifyRegistry;
+    public static Func<int,bool,bool> verifyRegistry;
     /// <summary>
     /// Enables player after retry game and when is loading for the first time in the main menu.
     /// </summary>
     public static Action enablePlayer;
-    /// <summary>
-    /// Enables or disables the item buttons on the player item menu.
-    /// </summary>
-    public static Action<int, bool> setItemButton;
     /// <summary>
     /// Enables the transition when player enters to a door.
     /// </summary>
@@ -58,14 +54,6 @@ public static class GameEvents
     /// Starts the transition animation.
     /// </summary>
     public static Func<float> StartTransition;
-    /// <summary>
-    /// Sets the player left side animation spritesheet.
-    /// </summary>
-    public static Action LeftSide;
-    /// <summary>
-    /// Sets the player right side animation spritesheet.
-    /// </summary>
-    public static Action RightSide;
     public static Action EquipPower,EquipGravity,EquipCorrupt;
     public static Action<string, Input> OnInputBinded;
 }

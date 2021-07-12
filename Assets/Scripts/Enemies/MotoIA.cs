@@ -6,9 +6,9 @@ public class MotoIA : EnemyBase
 {
     #region Properties
     [SerializeField]BoxCollider2D playerDetector;
-    private GroundChecker efd;
+    private GroundSlopeChecker efd;
     private float currentSpeed;
-    private PlayerDetect pD;
+    private PlayerDetector pD;
     bool detected, prepared;
     #endregion
     #region Unity Methods
@@ -16,8 +16,8 @@ public class MotoIA : EnemyBase
     {
         base.Awake();
         currentSpeed=speed;
-        pD = GetComponentInChildren<PlayerDetect>();
-        efd = GetComponentInChildren<GroundChecker>();
+        pD = GetComponentInChildren<PlayerDetector>();
+        efd = GetComponentInChildren<GroundSlopeChecker>();
     }
     void Update()
     {

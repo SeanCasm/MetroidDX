@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dad78ba38f70fa45a8110efd4e7c79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detected: 0
+  detector: {fileID: 0}
 --- !u!1 &6761028164690014024
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,13 +441,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.32
-  capsule: {fileID: 0}
-  slopeFrontRay: 0.0342
-  slopeBackRay: 0.0342
-  groundHitSlope: 0.058
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  slopeFrontRay: 0.0342
+  slopeBackRay: 0.0342
+  groundHitSlope: 0.058
+  coll: {fileID: 7865702259850859055}
+  rayOffset: 1
 --- !u!1001 &221265109106624293
 PrefabInstance:
   m_ObjectHideFlags: 0

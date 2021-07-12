@@ -10,6 +10,10 @@ public class MiniMap : MonoBehaviour
     public bool isExplored{get;set;}=false;
     public Tile currentTile{get;private set;}
     public Vector2 newTrans{get;private set;}
+    public char spriteSheet{get;private set;}
+    private void Start() {
+        spriteSheet =mapTile.name[0];
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player")

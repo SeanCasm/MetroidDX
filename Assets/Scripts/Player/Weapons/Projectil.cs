@@ -65,6 +65,7 @@ namespace Player.Weapon
                     }
                     else Reject();
                 }
+                BackToGun();
             }
             else if ((collision.IsTouching(floorCol) && collision.tag == "Suelo")) FloorCollision();
             else if (collision.CompareTag("EnemyBeam"))

@@ -238,6 +238,7 @@ MonoBehaviour:
   jumpForce: 11.2
   horizontalSpeed: 2.2
   jumpTime: 0.5
+  minAltitude: 0
 --- !u!50 &1578709582
 Rigidbody2D:
   serializedVersion: 4
@@ -273,14 +274,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.15
   floorAware: 0.32
-  coll: {fileID: 6581055560578040712}
-  slopeFrontRay: 0.1338
-  slopeBackRay: 0.1338
-  groundHitSlope: 0.314
-  rayOffset: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  slopeFrontRay: 0.1338
+  slopeBackRay: 0.1338
+  groundHitSlope: 0.314
+  coll: {fileID: 6581055560578040712}
+  rayOffset: 2
 --- !u!114 &-4963613191072335354
 MonoBehaviour:
   m_ObjectHideFlags: 0

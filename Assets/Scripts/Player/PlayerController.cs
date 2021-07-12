@@ -307,7 +307,7 @@ public class PlayerController : MonoBehaviour
         FalseAnyAnimStateAtAir();
         if (balled) anim.SetFloat(animatorHash[18], 1);
         if (onJumpingState && xInput != 0) currentSpeed = speed / 2;
-        if (!onJumpingState && !onRoll && !aimDown && !aimUp && !gravityJump && !isJumping && !damaged &&
+        if (!onJumpingState && !onRoll && !aimDown && !aimUp && !gravityJump && !isJumping && !damaged && !PlayerHealth.isDead &&
            !screwSelected && !balled && !hyperJumping && !holdingFire && !charged && aim == 0 && !airShoot)
         {
             fall = true;
@@ -370,12 +370,16 @@ public class PlayerController : MonoBehaviour
     public void ResetState()
     {
         StopAllCoroutines();
-        //CancelInvoke();
-        inSBVelo = crouch = fall = wallJumping = IsJumping =hyperJumpCharged = onJumpingState = 
-        charged = holdingFire = ShootOnWalk = isGrounded = HyperJumping = Balled =
-        movement = canInstantiate = OnRoll = airShoot=false;
+        CancelInvoke();
+        inSBVelo = crouch = fall = wallJumping = IsJumping =hyperJumpCharged = onJumpingState = movement= 
+        charged = holdingFire = ShootOnWalk = isGrounded =canInstantiate = OnRoll = airShoot=false;
         xInput = yInput = 0;
+        anim.SetFloat(animatorHash[18], 1);
         rb.velocity = Vector2.zero;
+    }
+    public void RestoreValuesAfterHit(){
+        canInstantiate=movement=canCheckFloor=true;
+        damaged=false;
     }
     public void Freeze()
     {
@@ -466,14 +470,14 @@ public class PlayerController : MonoBehaviour
      
     public void MovementHor(InputAction.CallbackContext context)
     {
-        if (movement)
+        if (movement && context.started)
         {
             xInput = context.ReadValue<float>();
             if (!inHyperJumpDirection)
             {
                 crouch = false;
-                if (xInput < 0 && context.performed) OnLeft(true);
-                else if (xInput > 0 && context.performed) OnLeft(false);
+                if (xInput < 0) OnLeft(true);
+                else if (xInput > 0) OnLeft(false);
             }
             else
             {
@@ -482,14 +486,14 @@ public class PlayerController : MonoBehaviour
                 else if (xInput > 0) anim.SetTrigger("HyperJump R");
                 HyperJumping = true;
             }
-            if (context.canceled)
-            {
-                xInput = 0;
-                if(aim>0)AimUp();
-                else if(aim<0)AimDown();
-                else LeftRightShootPoint(180,0);
-                ShootOnWalk = false;
-            }
+             
+        }else if (movement && context.canceled)
+        {
+            xInput = 0;
+            if (aim > 0) AimUp();
+            else if (aim < 0) AimDown();
+            else LeftRightShootPoint(180, 0);
+            ShootOnWalk = false;
         }
     }
     public void MovementVer(InputAction.CallbackContext context)
@@ -525,12 +529,11 @@ public class PlayerController : MonoBehaviour
                 if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
                 HyperJumping = true;
             }
-            if (yInput == 0)
-            {
-                yInput = 0;
-                aimUp = aimDown = false;
-                shootpoint.eulerAngles= leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0); 
-            }
+            
+        }else if(movement && context.canceled){
+            yInput = 0;
+            aimUp = aimDown = false;
+            shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);
         }
     }
     public void InstantMorfBall(InputAction.CallbackContext context)

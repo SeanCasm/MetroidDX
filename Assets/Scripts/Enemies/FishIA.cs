@@ -12,12 +12,12 @@ public class FishIA : EnemyBase
     private float velocity;
     public float groundDistance;
     public LayerMask groundLayer,playerLayer;
-    private PlayerDetect detect;
+    private PlayerDetector detect;
     new void Awake()
     {
         base.Awake();
         velocity = swimVelocity;
-        detect = GetComponentInChildren<PlayerDetect>();
+        detect = GetComponentInChildren<PlayerDetector>();
     }
     private void Start()
     {

@@ -27,7 +27,8 @@ public class ReserveAcquired : MonoBehaviour,ICollecteable
     private void OnEnable()
     {
         nameItem=gameObject.name;
-        GameEvents.verifyRegistry.Invoke(this);
+        bool registered=GameEvents.verifyRegistry.Invoke(iD,true);
+        if(registered)Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

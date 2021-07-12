@@ -12,7 +12,6 @@ public class ButtonUtilities : MonoBehaviour
     private void OnEnable() {
         Retry.Selected -= OnRetry;
         Retry.Selected +=OnRetry; 
-        GameEvents.setItemButton+=SetButton;
     }
     void Awake()
     {

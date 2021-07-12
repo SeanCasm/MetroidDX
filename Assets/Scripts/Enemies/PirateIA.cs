@@ -15,18 +15,18 @@ public class PirateIA : EnemyBase
     [SerializeField]Transform platformDetector;
     [SerializeField]Transform fallDetector;
     [SerializeField]float floorDistance,jumpForce,horizontalSpeed,jumpTime;
+    [SerializeField] float minAltitude;
     Transform playerTransform;
     private float currentSpeed, horizontalVelocity,ascend;
-    private GroundChecker efd;
+    private GroundSlopeChecker efd;
     private bool idleShooting,jumping,jumpEnabled;
-    private const float minAltitude = 0.5f;
     #endregion
     #region Unity Methods
     new void Awake()
     {
         base.Awake();
         currentSpeed = speed;
-        efd = GetComponent<GroundChecker>();
+        efd = GetComponent<GroundSlopeChecker>();
     }
     void Update()
     {
@@ -46,7 +46,7 @@ public class PirateIA : EnemyBase
                 {
                     anim.SetTrigger("Shoot D up");
                 }
-                else if (playerTransform.position.y <= transform.position.y - minAltitude)
+                else if (playerTransform.position.y < transform.position.y - minAltitude)
                 {
                     anim.SetTrigger("Shoot D down");
                 }

@@ -10,7 +10,7 @@ namespace Enemy.Weapons
         [SerializeField]bool pooleable;
         public Transform player{get;set;}
         public Transform parent{get;set;}
-        private Vector3 target;
+        private float rotationZ;
         public Vector3 Direction{get{return direction;}set{direction=value;}}
 
         bool IPooleable.pooleable { get => this.pooleable; set => this.pooleable=value; }
@@ -29,6 +29,7 @@ namespace Enemy.Weapons
                 Destroy(gameObject);
             }else{
                 transform.position = parent.position;
+                transform.SetParent(parent);
                 gameObject.SetActive(false);
             }
         }
@@ -38,10 +39,25 @@ namespace Enemy.Weapons
         public void SetDirectionAndRotation()
         {
             SetDirection();
-            Vector2 direction = player.transform.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 22);
+            rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);        
+        }
+        /// <summary>
+        /// Looks toward the player, limitating the rotation and direction.
+        /// </summary>
+        /// <param name="zLimit">z right angle limit</param>
+        /// <param name="zLimitLeft">< left angle limit</param>
+        public void SetDirectionAndRotationLimit(float zLimit,float zLimitLeft)
+        {
+            SetDirection();
+            rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            if(rotationZ<=90 && rotationZ>=-90)rotationZ=Mathf.Clamp(rotationZ,-zLimit,zLimit);
+            else if(rotationZ>90 && rotationZ>-90) rotationZ=Mathf.Clamp(rotationZ,-zLimitLeft,zLimitLeft);
+
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+
+            direction = transform.right;
         }
         public void SetDirectionAndRotation(float zDegrees)
         {
@@ -97,18 +113,21 @@ namespace Enemy.Weapons
             rigid.MovePosition(transform.position + direction * Time.deltaTime*speed);
         }
         /// <summary>
-        /// Sets the weapon direction toward the player.
+        /// Sets the weapon direction towards the player.
         /// </summary>
         /// <param name="myTransform"></param>
         protected void SetDirection()
         {
             if (player != null)
             {
-                target = player.position;
-                direction = (target - transform.position).normalized;
+                direction = (player.position - transform.position).normalized;
             }
         }
-         
+        private Vector2 Vector2FromAngle(float a)
+        {
+            a *= Mathf.Deg2Rad;
+            return new Vector2(Mathf.Cos(a), Mathf.Sin(a));
+        }
         protected void DoDrop()
         {
             GameEvents.drop.Invoke(transform.position);

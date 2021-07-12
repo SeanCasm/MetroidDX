@@ -13,6 +13,6 @@ public class DeactivateScene : MonoBehaviour
         Retry.Start -= Deactivate;
     }
     private void Deactivate(){
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

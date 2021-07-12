@@ -42,7 +42,7 @@ public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulne
     {
         CancelInvoke("Unfreeze");
         StopAllCoroutines();
-        rigidCol.enabled=false;
+        if(rigidCol)rigidCol.enabled=false;
         freezedCol.SetActive(true);freezed = true;
         Invoke("Unfreeze",4f);
         _renderer.material = materials.freeze;
@@ -55,7 +55,7 @@ public class EnemyHealth : Health<float>,IDamageable<float>,IFreezeable,IInvulne
      
     public void Unfreeze()
     {
-        rigidCol.enabled = true;
+        if (rigidCol) rigidCol.enabled = true;
         freezedCol.SetActive(false); box.enabled=false;
         Utilities.SetBehaviours(components, true);
         _renderer.material = materials.defaultMaterial;

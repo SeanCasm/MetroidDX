@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15398ae36b4ea8e45a2c0452d989447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeRigidBody: 0
 --- !u!1 &2091988772480431275
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dad78ba38f70fa45a8110efd4e7c79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detected: 0
+  detector: {fileID: 2091988772480431268}
 --- !u!61 &5746672341928042172
 BoxCollider2D:
   m_ObjectHideFlags: 0

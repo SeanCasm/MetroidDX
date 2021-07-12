@@ -21,6 +21,7 @@ namespace Enemy.Weapon{
         public void ActiveNextPoolObject(){
             if(actual==poolSize)actual=0;
             pool[actual].SetActive(true);
+            pool[actual].transform.SetParent(null);
             actual++;
         }
         void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj){

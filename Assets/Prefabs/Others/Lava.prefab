@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bE2d: {fileID: 2241726046726126690}
   waterCollider: {fileID: 6221954038255071133}
-  animationSpeed: 0.65
+  animationSpeed: 0.5
   damageCall: 1
   damage: 2
 --- !u!1 &4485313583166043462

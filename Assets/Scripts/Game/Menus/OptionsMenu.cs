@@ -5,6 +5,7 @@ using UnityEngine;
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField]GameObject mainMenu;
+    [SerializeField] MenuPointer menuPointer;
     [SerializeField] Interactions menuFirst;
     public GameObject pauseMenu{get;set;}
     public bool fromMenuCalled { get; set; }
@@ -13,13 +14,17 @@ public class OptionsMenu : MonoBehaviour
         if (fromMenuCalled)
         {
             mainMenu.SetActive(true);
-            menuFirst.SetGameObjectToEventSystem(menuFirst.OptionMainMenu);
+            menuFirst.SetMainMenuSettingsFirst();
+            menuPointer.SetCurrentMenu("main");
+            menuPointer.SetCurrentPointerPosition(3);
             Pause.onSlots=true;
         }
         else
         {
+            menuPointer.SetCurrentMenu("pause");
+            menuPointer.SetCurrentPointerPosition(1);
             pauseMenu.SetActive(true);
-            menuFirst.SetGameObjectToEventSystem(menuFirst.PauseFirst);
+            menuFirst.SetPauseSettingsFirst();
         }
     }
 }

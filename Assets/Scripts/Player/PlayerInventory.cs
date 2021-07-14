@@ -116,6 +116,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] ButtonUtilities buttonEssentials;
     [SerializeField]Pool pool;
     [SerializeField] Gun playerInstantiates;
+    public static System.Action GravitySetted;
+    public static System.Action GravityUnsetted;
     private GameData data;
     private PlayerController pCont;
     public Dictionary<int, bool> playerItems { get; set; }= new Dictionary<int, bool>();
@@ -165,8 +167,9 @@ public class PlayerInventory : MonoBehaviour
     }
     public void SetSelectedItems(int itemID)
     {
-        var item = playerItems[itemID];
+        bool item = playerItems[itemID];
         buttonEssentials.SetButton(itemID, item = !item);
+        playerItems[itemID] = item;
     }
     /// <summary>
     /// Disable other beams when the combinations are invalid.
@@ -303,6 +306,7 @@ public class PlayerInventory : MonoBehaviour
                 pCont.gravityJump=true;
                 pCont.OnJump -= pCont.OnNormalJump;
                 pCont.OnJump+=pCont.OnGravityJump;
+                GravitySetted?.Invoke();
             }else pCont.screwSelected=true;
             
         }else{
@@ -310,6 +314,7 @@ public class PlayerInventory : MonoBehaviour
                 pCont.gravityJump = false;
                 pCont.OnJump -= pCont.OnGravityJump;
                 pCont.OnJump+=pCont.OnNormalJump;
+                GravityUnsetted?.Invoke();
             }else{
                 if(pCont.OnRoll)PlayerHealth.invulnerability=false;
                 pCont.screwSelected = false;
@@ -317,9 +322,9 @@ public class PlayerInventory : MonoBehaviour
         }
     }
     /// <summary>
-    /// Change the player jump force, is called in a unity button event.
+    /// Changes the player jump force, called in a unity button event.
     /// </summary>
-    /// <param name="changeForce">true: to change the jump force to the high jump force, false: change to the default jump force</param>
+    /// <param name="changeForce">true: change the jump force to the high jump force, false: change to the default jump force</param>
     public void ChangeJumpForce()
     {
         if(playerItems.ContainsKey(7)){

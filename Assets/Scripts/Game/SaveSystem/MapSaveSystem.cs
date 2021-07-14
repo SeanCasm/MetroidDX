@@ -58,7 +58,6 @@ public class MapSaveSystem : MonoBehaviour
         Tile tile = new Tile();
         tileInfo.ForEach(item =>
         {
-            print(item.name);
             Vector3Int newPos = new Vector3Int(item.xpos, item.ypos, 0);
             switch (item.spriteSheet)
             {

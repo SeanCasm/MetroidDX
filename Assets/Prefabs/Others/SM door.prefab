@@ -219,7 +219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2390118088129571688}
-  - component: {fileID: 7559432395082193524}
   - component: {fileID: 1338791453514288274}
   - component: {fileID: 7810795474416175326}
   - component: {fileID: 2964206139468354870}
@@ -247,28 +246,6 @@ Transform:
   m_Father: {fileID: 1522148314186653894}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &7559432395082193524
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649662539878605927}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.029112011, y: -0.3070017}
-  - {x: 0.025948912, y: 0.3016368}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &1338791453514288274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -338,7 +315,7 @@ MonoBehaviour:
   openEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7559432395082193524}
+      - m_Target: {fileID: 2964206139468354870}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -377,7 +354,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7559432395082193524}
+      - m_Target: {fileID: 2964206139468354870}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -389,8 +366,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  clip: {fileID: 8300000, guid: 1c712580bfc1e6442b556e02ccc630e1, type: 3}
-  clip2: {fileID: 8300000, guid: e93df397fa69198499f82f59210d4980, type: 3}
+  clip: {fileID: 8300000, guid: 0bed63f5bab43224ca09293eacb6b002, type: 3}
+  clip2: {fileID: 8300000, guid: 598e2100a6a9174459a24f6502c335f5, type: 3}
   close: 0
 --- !u!61 &2964206139468354870
 BoxCollider2D:
@@ -402,7 +379,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.000043183565, y: 0}

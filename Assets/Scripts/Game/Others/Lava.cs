@@ -10,17 +10,20 @@ public class Lava : Fluid
     private void Awake() {
         audioPlayer=GetComponent<AudioSource>();
     }
+    new void OnEnable() {
+       base.OnEnable(); 
+    }
+    new void OnDisable() {
+        base.OnDisable();
+    }
     new void OnTriggerEnter2D(Collider2D col)
     {
         base.OnTriggerEnter2D(col);
         if(col.CompareTag("Player") && col.IsTouching(waterCollider)){
             playerH=col.GetComponentInParent<PlayerHealth>();
-            StartCoroutine(ConstantDamage());
+            
+            InvokeRepeating("SetDamage",damageCall,damageCall);
         }
-    }
-    new void OnTriggerStay2D(Collider2D col)
-    {
-        base.OnTriggerStay2D(col);
     }
     new void OnTriggerExit2D(Collider2D col)
     {
@@ -32,13 +35,8 @@ public class Lava : Fluid
             audioPlayer.Stop();
         }
     }
-    IEnumerator ConstantDamage()
-    {
+    void SetDamage(){
         audioPlayer.Play();
-        while (playerH!=null)
-        {
-            playerH.SetConstantDamage(damage);
-            yield return new WaitForSeconds(damageCall);
-        }
-    }
+        playerH.SetConstantDamage(damage);
+    } 
 }

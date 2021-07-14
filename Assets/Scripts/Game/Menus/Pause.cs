@@ -10,11 +10,10 @@ public class Pause : MonoBehaviour
     #region Properties
     [SerializeField] UnityEvent unpauseEvent,pauseEvent,quickMinimap;
     [SerializeField]GameSettings gameSettings;
-    [SerializeField]Transform canvas;
-    [SerializeField]GameObject pauseMenuPrefab,settings,allObjectsContainer;
+    [SerializeField] GameObject pauseMenu; 
     [SerializeField]OptionsMenu optionsMenu;
     [SerializeField] Interactions menuFirst;
-    GameObject pause;
+    [SerializeField] MenuPointer menuPointer;
     public static System.Action<bool> touchpadPaused;
     public static System.Action<bool> OnPause;
     public static bool onItemMenu,onMap,onSlots, gamePaused, onAnyMenu, onGame,onSave;
@@ -45,7 +44,10 @@ public class Pause : MonoBehaviour
     {
         if(CheckBeforePause() && context.performed)
         {
-            if (gamePaused)unpauseEvent.Invoke();
+            if (gamePaused){
+                menuPointer.gameObject.SetActive(false);
+                unpauseEvent.Invoke();
+            }
             else{escPause = true;EscPause();pauseEvent.Invoke();}
         }
     } 
@@ -104,8 +106,8 @@ public class Pause : MonoBehaviour
         gameSettings.SetMusicVolume(false);
         playerC.movement = true;
         Time.timeScale = 1f;
-        if(pause!=null)Destroy(pause);
-        else if (playerMenu.activeSelf) playerMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        playerMenu.SetActive(false);
         escPause = enterPause = gamePaused = false;
     }
     /// <summary>
@@ -135,36 +137,25 @@ public class Pause : MonoBehaviour
         menuFirst.SetGameObjectToEventSystem(playerMenu.GetChild(1).GetChild(3).GetComponent<Button>());
     }
     void EscPause() {
-         
-        pause=Instantiate(pauseMenuPrefab,canvas);
-        optionsMenu.pauseMenu=pause.GetChild(0);
+        pauseMenu.SetActive(true);
+        optionsMenu.pauseMenu=pauseMenu;
 
-        Button resume, options, mainMenu, quitGame;
-
-        resume=GetComponentAtIndex(pause.GetChild(0),1);
+        Button resume, options;
+        menuPointer.gameObject.SetActive(true);
+        resume=GetComponentAtIndex(pauseMenu,1);
+        menuFirst.SetPauseResumeFirst();
+        menuPointer.SetCurrentMenu("pause");
+        menuPointer.SetCurrentPointerPosition(0);
         resume.onClick.AddListener(()=>{
             unpauseEvent.Invoke();
             GameEvents.timeCounter.Invoke(true);//unpauses the time counter.
-            Destroy(pause);
         });
         //Setting the first select.
-        menuFirst.PauseFirst=resume;
-        options=GetComponentAtIndex(pause.GetChild(0), 2);
+        options=GetComponentAtIndex(pauseMenu, 2);
+
         options.onClick.AddListener(() => {
-            pause.GetChild(0).SetActive(false);
-            settings.SetActive(true);
-            settings.GetComponent<OptionsMenu>().fromMenuCalled = false;
             onSubMenu = true;
-            menuFirst.SetGameObjectToEventSystem(menuFirst.SettingsFirst);
         });
-        
-        mainMenu=GetComponentAtIndex(pause.GetChild(0),3);
-        mainMenu.onClick.AddListener(()=>{
-            Destroy(allObjectsContainer);
-        });
-        
-        quitGame=GetComponentAtIndex(pause.GetChild(0),4);
-        quitGame.onClick.AddListener(()=>QuitGame());
         
         GameEvents.timeCounter.Invoke(false);//pauses the time counter.
     }

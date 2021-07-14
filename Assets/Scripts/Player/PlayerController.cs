@@ -34,12 +34,13 @@ public class PlayerController : MonoBehaviour
     private SomePlayerFX playerFX;
     private SpriteRenderer spriteRenderer;
     private Gun gun;
-    private bool crouch, fall, wallJumping, isJumping, aimDown, aiming, running, aimUp, firstLand,firstAir,shooting,airShoot,onScrewJump,
+    private bool crouch, fall, wallJumping, isJumping, aimDown, aiming, running, aimUp, firstLand,firstAir,shooting,airShoot,
        onJumpingState, charged, holdingFire, balled, shootOnWalk, hyperJumping, onRoll, onSlope, inHyperJumpDirection, canCheckFloor = true;
     public System.Action OnJump, OnSpeedBooster;
     int pressCount = -1;
     int[] animatorHash = new int[27];
     public float currentJumpForce { get; set; }
+    public static float slow=1;
     public bool damaged{get;set;} public bool gravityJump{get;set;}
     public bool screwSelected{get;set;}
     public bool OnRoll
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-    public float SpeedBS { get => speedBooster; } public float RunningSpeed { get => runningSpeed; }
+    public float SpeedBS { get => speedBooster; } public float RunningSpeed { get => runningSpeed; set=>runningSpeed=value;}
     public bool inSBVelo { get; set; } public bool hyperJumpCharged { get; set; }
     public bool HyperJumping
     {
@@ -133,6 +134,7 @@ public class PlayerController : MonoBehaviour
     {
         OnJump += OnNormalJump;
         jumpTimeCounter = jumpTime;
+        slow = 1;
     }
     void Start()
     {
@@ -176,11 +178,11 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!damaged && !hyperJumping)
+        if (!damaged && !hyperJumping && movement)
         {
-            xVelocity = xInput * currentSpeed * Time.deltaTime;
-            if (isJumping && (movement || jumpTimeCounter > 0f)) rb.velocity = Vector2.up * currentJumpForce * Time.deltaTime;
-            if (wallJumping) rb.velocity = Vector2.up * (currentJumpForce / 1.2f) * Time.deltaTime;
+            xVelocity = xInput * (currentSpeed/slow) * Time.deltaTime;
+            if (isJumping && (movement || jumpTimeCounter > 0f)) rb.velocity = Vector2.up * (currentJumpForce/slow) * Time.deltaTime;
+            if (wallJumping) rb.velocity = Vector2.up * (currentJumpForce / slow/1.45f) * Time.deltaTime;
             if (isGrounded && xInput!=0)
             {
                 rb.velocity= (!onSlope) ? new Vector2(xVelocity,rb.velocity.y) : new Vector2(-xVelocity * slopePerp.x, -xVelocity * slopePerp.y);
@@ -192,11 +194,11 @@ public class PlayerController : MonoBehaviour
             else if (!isGrounded && xInput == 0) rb.SetVelocity(0, rb.velocity.y);
         }
         else
-        if (hyperJumping) rb.velocity = hyperJumpDir * currentJumpForce * 2.5f * hyperJumpForceMultiplier * Time.deltaTime;
+        if (hyperJumping) rb.velocity = hyperJumpDir * (currentJumpForce/slow) * 2.5f * hyperJumpForceMultiplier * Time.deltaTime;
     }
     void LateUpdate()
     {
-        if (!hyperJumping)
+        if (!hyperJumping && movement)
         {
             anim.SetBool(animatorHash[0], aim < 0);
             anim.SetBool(animatorHash[1], aim > 0);
@@ -306,7 +308,7 @@ public class PlayerController : MonoBehaviour
     {
         FalseAnyAnimStateAtAir();
         if (balled) anim.SetFloat(animatorHash[18], 1);
-        if (onJumpingState && xInput != 0) currentSpeed = speed / 2;
+        if (onJumpingState && xInput != 0) currentSpeed = (speed / 2);
         if (!onJumpingState && !onRoll && !aimDown && !aimUp && !gravityJump && !isJumping && !damaged && !PlayerHealth.isDead &&
            !screwSelected && !balled && !hyperJumping && !holdingFire && !charged && aim == 0 && !airShoot)
         {
@@ -318,8 +320,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Physics2D.Raycast(transform.position, Vector2.up, 0.22f, groundLayer))
             {
-                fall = true;
-                OnRoll = onJumpingState = IsJumping = false;
+                IsJumping = false;
+                jumpTimeCounter=0;
             }
         }
     }
@@ -389,20 +391,18 @@ public class PlayerController : MonoBehaviour
     #region Aim methods
     public void OnAim(InputAction.CallbackContext context)
     {
-        if (movement)
+        if (movement && context.started)
         {
             aim = context.ReadValue<float>();
-            if (context.performed)
-            {
                 if (aim > 0) AimUp();
                 else if (aim < 0) AimDown();
                 aiming = true; ShootOnWalk = false;
-            }else
-            if (context.canceled)
-            {
-                LeftRightShootPoint(180,0);
-                aiming=aimUp = aimDown = false;
-            }
+        }else
+        if (context.canceled)
+        {
+            aim=0;
+            LeftRightShootPoint(180, 0);
+            aiming = aimUp = aimDown = false;
         }
     }
     private void LeftRightShootPoint(float angleLeft,float angleRight){
@@ -439,7 +439,7 @@ public class PlayerController : MonoBehaviour
         leftLook = value;
         if (value)
         {
-            transform.localScale = new Vector2(-.86f, .86f);
+            transform.localScale = new Vector2(-1, 1);
             shootpoint.localScale = new Vector3(-1, 1, 0);
             if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 180);
             else if (aim > 0) AimUp();
@@ -448,7 +448,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector2(.86f, .86f);
+            transform.localScale = new Vector2(1,1);
             if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 0);
             else if (aim > 0) AimUp();
             else AimDown();
@@ -487,7 +487,7 @@ public class PlayerController : MonoBehaviour
                 HyperJumping = true;
             }
              
-        }else if (movement && context.canceled)
+        }else if (context.canceled)
         {
             xInput = 0;
             if (aim > 0) AimUp();
@@ -530,7 +530,7 @@ public class PlayerController : MonoBehaviour
                 HyperJumping = true;
             }
             
-        }else if(movement && context.canceled){
+        }else if(context.canceled){
             yInput = 0;
             aimUp = aimDown = false;
             shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);

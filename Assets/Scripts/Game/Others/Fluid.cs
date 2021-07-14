@@ -10,6 +10,14 @@ public class Fluid : MonoBehaviour
     protected SkinSwapper pSkin;
     protected PlayerHealth playerH;
     private Animator pAnimator;
+    protected void OnEnable() {
+        PlayerInventory.GravitySetted+=SetSlow;
+        PlayerInventory.GravityUnsetted+=UnsetSlow;
+    }
+    protected void OnDisable() {
+        PlayerInventory.GravitySetted -= SetSlow;
+        PlayerInventory.GravityUnsetted -= UnsetSlow;
+    }
     protected void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player") && col.IsTouching(waterCollider))
@@ -18,24 +26,26 @@ public class Fluid : MonoBehaviour
             pSkin=col.GetComponentInParent<SkinSwapper>();
             if (!pSkin.Gravity)
             {
+                PlayerController.slow=1.75f;
                 pAnimator.SetFloat("AnimSpeed", animationSpeed);
-            }
-            else bE2d.enabled = false;
+            }else bE2d.enabled = false;
         }
     }
-    protected void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.CompareTag("Player") && col.IsTouching(waterCollider))
-        {
-            if (!pSkin.Gravity){bE2d.enabled = true;pAnimator.SetFloat("AnimSpeed", animationSpeed); }
-            else{ bE2d.enabled = false;pAnimator.SetFloat("AnimSpeed",1f);}
-        }
+    
+    private void SetSlow(){
+        waterCollider.enabled=bE2d.enabled = true;
+    }
+    private void UnsetSlow(){
+        waterCollider.enabled=bE2d.enabled = false;
     }
     protected void OnTriggerExit2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
             pAnimator.SetFloat("AnimSpeed", 1f);
+            if(!pSkin.Gravity){
+                PlayerController.slow = 1;
+            }
         }
     }
 }

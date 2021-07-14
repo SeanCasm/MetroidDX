@@ -10,9 +10,6 @@ public class Water : Fluid
     {
          base.OnTriggerEnter2D(col);
     }
-    new void OnTriggerStay2D(Collider2D other) {
-       base.OnTriggerStay2D(other); 
-    }
     new void OnTriggerExit2D(Collider2D col){
         base.OnTriggerExit2D(col);
     }

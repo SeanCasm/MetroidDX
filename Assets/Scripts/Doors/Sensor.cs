@@ -41,6 +41,7 @@ public class Sensor : MonoBehaviour
     #endregion
     public void Close(){
         closeEvent.Invoke();
+        _animator.SetTrigger("Close");
     }
     public void AudioOpen()
     {

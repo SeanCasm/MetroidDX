@@ -281,13 +281,13 @@ public class PlayerInventory : MonoBehaviour
     #region Mobile Methods
 #if UNITY_ANDROID
     public void AmmoSelection_Mobile(int index){
-        var lAmmo=limitedAmmoSearch[index];
+        var lAmmo=limitedAmmo[index];
         lAmmo.Select(!lAmmo.selected);
         canShootBeams = lAmmo.selected;
         if(lAmmo.selected){
-            PlayerInstantiates.countableID = index;
+            Gun.countableID = index;
             pool.SetBeamToPool(lAmmo.ammoPrefab);
-        }else AmmoSelection();
+        }else DisableSelection();
     } 
 #endif
     #endregion

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Items;
 public class ReserveAcquired : MonoBehaviour,ICollecteable
 {
     #region Properties
@@ -47,3 +46,4 @@ public class ReserveAcquired : MonoBehaviour,ICollecteable
   
     #endregion
 }
+public enum ReserveType{Missile, SuperMissile, SuperBomb, EnergyTank, BouncingBomb}

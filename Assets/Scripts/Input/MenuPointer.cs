@@ -17,8 +17,8 @@ public class MenuPointer : MonoBehaviour
     [SerializeField] float moveRepeatDelay;
     [SerializeField] float moveRepeatRate;
     float delay;
-    private InputAction moveVer,select,back,esc;
-    private InputActionMap _inputActionMap,playerActionMap;
+    private InputAction moveVer,select;
+    private InputActionMap _inputActionMap;
     public static bool canMove=true;
     private bool holding,plus, minus;
     private int index=0,lenght;
@@ -75,9 +75,6 @@ public class MenuPointer : MonoBehaviour
         rect.anchoredPosition = new Vector3(currentMenu[index].x, currentMenu[index].y, 0);
     }
     #endregion
-    private void Select(InputAction.CallbackContext context){
-
-    }
     private void MoveVer(InputAction.CallbackContext context)
     {
         if(canMove){

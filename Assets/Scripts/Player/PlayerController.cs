@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour
     private SomePlayerFX playerFX;
     private SpriteRenderer spriteRenderer;
     private Gun gun;
-    private bool crouch, fall, wallJumping, isJumping, aimDown, aiming, running, aimUp, firstLand,firstAir,shooting,airShoot,
+    private bool crouch, fall, wallJumping, isJumping, aiming, running, firstLand,firstAir,shooting,airShoot,
        onJumpingState, charged, holdingFire, balled, shootOnWalk, hyperJumping, onRoll, onSlope, inHyperJumpDirection, canCheckFloor = true;
     public System.Action OnJump, OnSpeedBooster;
-    int pressCount = -1;
+    int pressCount = -1,aimUpDown=0;
     int[] animatorHash = new int[27];
     public float currentJumpForce { get; set; }
     public static float slow=1;
@@ -117,8 +117,9 @@ public class PlayerController : MonoBehaviour
             {
                 playerFX.Balled();
                 aim = 0;
+                aimUpDown=0;
                 shootpoint.eulerAngles = new Vector3(0, 0, 0);
-                screwSelected = OnRoll = crouch = aimDown = aimUp = false;
+                screwSelected = OnRoll = crouch =false;
             }else{ 
                 anim.SetFloat(animatorHash[18], 1);
                 spriteRenderer.flipX = false;
@@ -166,9 +167,12 @@ public class PlayerController : MonoBehaviour
                 if(jumpTimeCounter>0)jumpTimeCounter-=Time.deltaTime;
                 else IsJumping=false;
             }
-        #if UNITY_ANDROID
-            MobileMovement();
-        #endif
+            #if UNITY_ANDROID
+            if(DeviceConnected.actualDevice==Device.Touch){
+                MobileMoveHor();
+                MobileMoveVer();
+            }
+            #endif
         }
     }
     void OnDisable()
@@ -202,23 +206,23 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool(animatorHash[0], aim < 0);
             anim.SetBool(animatorHash[1], aim > 0);
+            anim.SetBool(animatorHash[2], balled);
             anim.SetBool(animatorHash[3], isGrounded && xInput != 0);
             anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded && xInput != 0));
             anim.SetBool(animatorHash[5], crouch);
             anim.SetBool(animatorHash[6], leftLook);
-            anim.SetBool(animatorHash[7], aimUp);
-            anim.SetBool(animatorHash[8], isGrounded && xInput == 0);//idle
-            anim.SetBool(animatorHash[10], onRoll && !screwSelected && !gravityJump);
-            anim.SetBool(animatorHash[11], aimDown);
-            anim.SetBool(animatorHash[13], (holdingFire || shooting || airShoot) && !isGrounded);
-            anim.SetBool(animatorHash[14], screwSelected && onRoll && (!gravityJump || gravityJump));
-            anim.SetBool(animatorHash[15], onJumpingState);
-            anim.SetBool(animatorHash[16], fall);
-            anim.SetBool(animatorHash[17], gravityJump && onRoll && !screwSelected);
-            anim.SetBool(animatorHash[2], balled);
-            anim.SetBool(animatorHash[9], isGrounded);
+            anim.SetBool(animatorHash[7], isGrounded && xInput == 0);//idle
+            anim.SetBool(animatorHash[8], isGrounded);
+
+            anim.SetBool(animatorHash[9], onRoll && !screwSelected && !gravityJump);//onroll
+            anim.SetBool(animatorHash[11], (holdingFire || shooting || airShoot) && !isGrounded);//airshoot
+            anim.SetBool(animatorHash[12], screwSelected && onRoll && (!gravityJump || gravityJump));//screw
+            anim.SetBool(animatorHash[13], onJumpingState);//jump state
+            anim.SetBool(animatorHash[14], fall);
+            anim.SetBool(animatorHash[15], gravityJump && onRoll && !screwSelected);//gravity jump
+            anim.SetInteger(animatorHash[18],aimUpDown);
         }
-        anim.SetFloat(animatorHash[12], rb.velocity.y);
+        anim.SetFloat(animatorHash[10], rb.velocity.y);
     }
     #endregion
     private void CancelAndInvoke(string methodName, float time)
@@ -265,7 +269,8 @@ public class PlayerController : MonoBehaviour
     }
     private void FalseAnyAnimStateAtGrounding()
     {
-        airShoot=OnRoll = aimUp = aimDown = firstAir = onJumpingState = fall = false;
+        aimUpDown=0;
+        airShoot=OnRoll = firstAir = onJumpingState = fall = false;
         playerFX.StopLoopClips();
     }
     public void SpeedBoosterChecker()
@@ -309,7 +314,7 @@ public class PlayerController : MonoBehaviour
         FalseAnyAnimStateAtAir();
         if (balled) anim.SetFloat(animatorHash[18], 1);
         if (onJumpingState && xInput != 0) currentSpeed = (speed / 2);
-        if (!onJumpingState && !onRoll && !aimDown && !aimUp && !gravityJump && !isJumping && !damaged && !PlayerHealth.isDead &&
+        if (!onJumpingState && !onRoll && aimUpDown==0 && !gravityJump && !isJumping && !damaged && !PlayerHealth.isDead &&
            !screwSelected && !balled && !hyperJumping && !holdingFire && !charged && aim == 0 && !airShoot)
         {
             fall = true;
@@ -389,20 +394,56 @@ public class PlayerController : MonoBehaviour
     }
  
     #region Aim methods
-    public void OnAim(InputAction.CallbackContext context)
-    {
+    private bool diagDown,diagUp;
+    public void OnAimUp(InputAction.CallbackContext context){
         if (movement && context.started)
         {
-            aim = context.ReadValue<float>();
-                if (aim > 0) AimUp();
-                else if (aim < 0) AimDown();
-                aiming = true; ShootOnWalk = false;
-        }else
+            AimUp();
+            aiming = true; ShootOnWalk = false;
+            diagUp=true;
+            if(diagDown){
+                aimUpDown=1;diagUp=false;
+                shootpoint.eulerAngles = new Vector3(0, 0, 90);
+            }
+            else aimUpDown=0;
+
+        }
+        else
         if (context.canceled)
         {
-            aim=0;
-            LeftRightShootPoint(180, 0);
-            aiming = aimUp = aimDown = false;
+            diagUp=false;
+            if (!diagDown && !diagUp)
+            {
+                LeftRightShootPoint(180, 0);
+                aimUpDown=0;
+                aim = 0; aiming = false;
+            }else if(diagDown){
+                AimDown();
+            }
+        }
+    }
+    public void OnAimDown(InputAction.CallbackContext context){
+        if (movement && context.started)
+        {
+            AimDown();
+            aiming = true; ShootOnWalk = false;
+            diagDown= true;
+            if (diagUp){
+                aimUpDown=1;diagDown= false;
+                shootpoint.eulerAngles = new Vector3(0, 0, 90);
+            }
+            else aimUpDown=0;
+        }
+        else
+       if (context.canceled)
+        {
+            diagDown=false;
+            if(!diagDown && !diagUp){
+                LeftRightShootPoint(180, 0);
+                aimUpDown = 0;aim=0;aiming=false;
+            }else if(diagUp){
+                AimUp();
+            }
         }
     }
     private void LeftRightShootPoint(float angleLeft,float angleRight){
@@ -410,8 +451,9 @@ public class PlayerController : MonoBehaviour
     }
     private void AimUp()
     {
+        aim=1;
         LeftRightShootPoint(135,45);
-        aimUp = aimDown = false;
+        aimUpDown =0;
         if (inHyperJumpDirection)
         {
             
@@ -431,8 +473,9 @@ public class PlayerController : MonoBehaviour
     }
     private void AimDown()
     {
+        aim=-1;
         LeftRightShootPoint(-135,-45);
-        aimUp = aimDown = false;
+        aimUpDown =0;
     }
     public void OnLeft(bool value)
     {
@@ -506,19 +549,19 @@ public class PlayerController : MonoBehaviour
                 if (yInput > 0f)
                 {
                     if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, 90);
-                    if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
+                    if (!balled && !crouch && isGrounded) {aimUpDown =1; aim = 0; }
                     if (crouch) crouch = false;
-                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = true; aim = 0; aimDown = false; }
+                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUpDown =1; aim = 0;}
                     else if (balled && isGrounded) { crouch = true; Balled = false; }
                     else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
                     {
                         Balled = false;
-                        aimUp = true;
+                        aimUpDown =0;
                     }
                 }
                 else if (yInput < 0f)
                 {
-                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = false; aim = 0; aimDown = true; }
+                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUpDown =-1; aim = 0;}
                     if (inventory.CheckItem(4) && crouch) Balled = true;
                     if (!balled && isGrounded) crouch = true;
                     if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, -90);
@@ -532,7 +575,7 @@ public class PlayerController : MonoBehaviour
             
         }else if(context.canceled){
             yInput = 0;
-            aimUp = aimDown = false;
+            aimUpDown = 0;
             shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);
         }
     }
@@ -642,43 +685,53 @@ public class PlayerController : MonoBehaviour
             {
                 wallJumping = OnRoll = true;
                 Invoke("DisableWallJump", 0.25f);
-                StartCoroutine(JumpCoroutine());
             }
         }
         if (!triggered) IsJumping = false;
     }
-    private void MobileMovement()
-    {
-        if (joystick.Horizontal < -0.25) { xInput = -1; direction = Vector2.left; }
-        else if (joystick.Horizontal > 0.25) { xInput = 1; direction = Vector2.right; }
-        else
-        {
-            xInput = 0; moveOnFloor = false; xInput = 0;
-            CancelInvoke("enableWalking");
-            movingOnAir = ShootOnWalk = moveOnFloor = false;
+    private void MobileMoveHor(){
+        if(movement){
+
+            if (joystick.Horizontal < -0.25) { xInput = -1; direction = Vector2.left; }
+            else if (joystick.Horizontal > 0.25) { xInput = 1; direction = Vector2.right; }
+            else
+            {
+                xInput = 0;
+                CancelInvoke("enableWalking");
+                ShootOnWalk = false;
+             }
+            crouch = false;
+            if (!inHyperJumpDirection)
+            {
+                crouch = false;
+                if (xInput < 0) OnLeft(true);
+                else if (xInput > 0) OnLeft(false);
+                else{
+                    if (aim > 0) AimUp();
+                    else if (aim < 0) AimDown();
+                    else LeftRightShootPoint(180, 0);
+                    ShootOnWalk = false;
+                }
+            }
+            else
+            {
+                hyperJumpDir = direction;
+                if (xInput < 0) anim.SetTrigger("HyperJump L");
+                else if (xInput > 0) anim.SetTrigger("HyperJump R");
+                HyperJumping = true;
+            }
         }
+    }
+    private void MobileMoveVer(){
         if (joystick.Vertical < -0.25) yInput = -1;
         else if (joystick.Vertical > 0.25) yInput = 1;
         else { yInput = 0; }
-        if (!inHyperJumpDirection)
+        if (movement)
         {
-            crouch = false;
-            if (xInput < 0)
+            if (!inHyperJumpDirection)
             {
-                shootpoint.localScale = new Vector3(-1, 1, 0);
-                if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 180);
-                direction = Vector2.left; SkinSwapper.OnLeft.Invoke(true);
-            }
-            else if (xInput > 0)
-            {
-                shootpoint.localScale = new Vector3(1, 1, 0);
-                if (aim == 0) shootpoint.eulerAngles = new Vector3(0, 0, 0);
-                direction = Vector2.right; SkinSwapper.OnLeft.Invoke(false);
-            }
-            if(xInput==0){
                 if (yInput > 0f)
                 {
-                    if (!balled && !crouch) gravityJump = Screwing = false;
                     if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, 90);
                     if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
                     if (crouch) crouch = false;
@@ -697,23 +750,18 @@ public class PlayerController : MonoBehaviour
                     if (!balled && isGrounded) crouch = true;
                     if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, -90);
                 }
-                else
-                {
-                    aimUp = aimDown = false;
-                    if(aim==0){
-                        if (leftLook) shootpoint.eulerAngles = new Vector3(0, 0, 180);
-                        else shootpoint.eulerAngles = new Vector3(0, 0, 0);
-                    }
-                }
             }
+            else
+            {
+                if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
+                HyperJumping = true;
+            }
+
         }
-        else
+        else if (yInput == 0)
         {
-            hyperJumpDir = direction;
-            if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
-            else if (xInput < 0) anim.SetTrigger("HyperJump L");
-            else if (xInput > 0) anim.SetTrigger("HyperJump R");
-            HyperJumping = true;
+            aimUp = aimDown = false;
+            shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);
         }
     }
     public void Diagonal_Mobile(int value)
@@ -724,8 +772,7 @@ public class PlayerController : MonoBehaviour
             if (value > 0)AimUp();
             else if (value < 0)AimDown();
             
-            aiming = true; gravityJump = Screwing = ShootOnWalk = false;
-            CheckAirShoot();
+            aiming = true; OnRoll = ShootOnWalk = false;
             CancelInvoke("DisableAimDiagonal");
             Invoke("DisableAimDiagonal", 3);
         }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Items;
 public class ItemAcquired : MonoBehaviour,ICollecteable
 {
     #region Properties
@@ -43,3 +42,4 @@ public class ItemAcquired : MonoBehaviour,ICollecteable
     }
     #endregion
 }
+public enum ItemType{Special, Suit, Beam}

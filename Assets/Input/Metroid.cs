@@ -100,12 +100,20 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Aim"",
+                    ""name"": ""Aim up"",
                     ""type"": ""Button"",
-                    ""id"": ""e57a3c54-8bae-4123-b039-21cc8daa75e6"",
+                    ""id"": ""302ce236-f5ac-4e3f-a2ca-34342ff0ff5e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Aim down"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a76d88e-38e2-4c34-b150-0656dee0a963"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -265,72 +273,6 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""e5668b33-3660-4af5-a88c-1f3fcf16a27e"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""c9f8b702-49f6-4089-8da9-4a5548c8175d"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""5072cde8-cde3-4197-b021-12d3252ef0b9"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""gamepad"",
-                    ""id"": ""c8930d95-2681-430c-b28e-8dd7bd66ffaf"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""99a49f5a-f9cb-4a40-bf65-f901556dc670"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""0c1bb95d-b90c-467f-b616-e7a1021c8b5e"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
                     ""id"": ""1e03bee5-6293-42c1-badf-f1b9cd32764d"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -460,6 +402,50 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                     ""action"": ""WS"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3696ea48-167e-49c2-8984-47290ef8169a"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Aim down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90d53f8d-12d8-40c5-9aab-45dc18e11d5f"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Aim down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02dd0adb-c3df-43de-940d-2fd21a9f1ca1"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Aim up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b162878a-67e6-4b8f-9722-64e592625d21"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Aim up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -730,7 +716,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
         m_Player_Selectitems = m_Player.FindAction("Select items", throwIfNotFound: true);
         m_Player_Mainpause = m_Player.FindAction("Main pause", throwIfNotFound: true);
         m_Player_Playermenu = m_Player.FindAction("Player menu", throwIfNotFound: true);
-        m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
+        m_Player_Aimup = m_Player.FindAction("Aim up", throwIfNotFound: true);
+        m_Player_Aimdown = m_Player.FindAction("Aim down", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
@@ -806,7 +793,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Selectitems;
     private readonly InputAction m_Player_Mainpause;
     private readonly InputAction m_Player_Playermenu;
-    private readonly InputAction m_Player_Aim;
+    private readonly InputAction m_Player_Aimup;
+    private readonly InputAction m_Player_Aimdown;
     public struct PlayerActions
     {
         private @Metroid m_Wrapper;
@@ -820,7 +808,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
         public InputAction @Selectitems => m_Wrapper.m_Player_Selectitems;
         public InputAction @Mainpause => m_Wrapper.m_Player_Mainpause;
         public InputAction @Playermenu => m_Wrapper.m_Player_Playermenu;
-        public InputAction @Aim => m_Wrapper.m_Player_Aim;
+        public InputAction @Aimup => m_Wrapper.m_Player_Aimup;
+        public InputAction @Aimdown => m_Wrapper.m_Player_Aimdown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -857,9 +846,12 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                 @Playermenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlayermenu;
                 @Playermenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlayermenu;
                 @Playermenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlayermenu;
-                @Aim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
-                @Aim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
-                @Aim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
+                @Aimup.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimup;
+                @Aimup.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimup;
+                @Aimup.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimup;
+                @Aimdown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimdown;
+                @Aimdown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimdown;
+                @Aimdown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimdown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -891,9 +883,12 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
                 @Playermenu.started += instance.OnPlayermenu;
                 @Playermenu.performed += instance.OnPlayermenu;
                 @Playermenu.canceled += instance.OnPlayermenu;
-                @Aim.started += instance.OnAim;
-                @Aim.performed += instance.OnAim;
-                @Aim.canceled += instance.OnAim;
+                @Aimup.started += instance.OnAimup;
+                @Aimup.performed += instance.OnAimup;
+                @Aimup.canceled += instance.OnAimup;
+                @Aimdown.started += instance.OnAimdown;
+                @Aimdown.performed += instance.OnAimdown;
+                @Aimdown.canceled += instance.OnAimdown;
             }
         }
     }
@@ -1028,7 +1023,8 @@ public partial class @Metroid : IInputActionCollection2, IDisposable
         void OnSelectitems(InputAction.CallbackContext context);
         void OnMainpause(InputAction.CallbackContext context);
         void OnPlayermenu(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
+        void OnAimup(InputAction.CallbackContext context);
+        void OnAimdown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

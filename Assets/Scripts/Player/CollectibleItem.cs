@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Items;
 public class CollectibleItem : MonoBehaviour
 {
     [SerializeField]GameObject collectibleSound;
@@ -45,3 +44,4 @@ public class CollectibleItem : MonoBehaviour
         }
     }
 }
+public enum CollectibleType{Missile, SuperMissile, SuperBomb, Health, Special}

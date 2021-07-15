@@ -53,3 +53,4 @@ public class Warp : MonoBehaviour
         Destroy(gameObject);
     }
 }
+public enum CameraTransition{Left, Right, Up, Down}

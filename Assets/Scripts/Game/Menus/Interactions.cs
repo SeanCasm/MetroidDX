@@ -12,7 +12,6 @@ public class Interactions:MonoBehaviour
     [SerializeField]ButtonUtilities buttonEssentials;
     [SerializeField]public UnityEvent backItemMenu;
     [SerializeField]Button gameVolumeSettings;
-    [SerializeField] MapNavigation mapNavigation;
     [SerializeField] GameObject pauseSettings,pauseResume,mainSettings;
     [SerializeField] EventSystem eventSystem;
     private InputActionMap _inputActionMap;
@@ -68,7 +67,6 @@ public class Interactions:MonoBehaviour
             }
         }
         else if (Pause.onItemMenu) backItemMenu.Invoke();
-        else if (Pause.onMap) mapNavigation.enabled = false;
     }
     public void SetGameObjectToEventSystem(Slider first)
     {
@@ -131,8 +129,5 @@ public class Interactions:MonoBehaviour
     }
     public void OnItemMenu(bool value){
         Pause.onItemMenu=value;
-    }
-    public void OnMap(bool value){
-        Pause.onMap=value;
     }
 }

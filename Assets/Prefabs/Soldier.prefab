@@ -274,7 +274,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &1473017728
 MonoBehaviour:
@@ -1078,7 +1078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8199000337012693979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 3926644864004323400}
@@ -1436,7 +1436,7 @@ Transform:
   m_GameObject: {fileID: 8898891342960035920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.86, y: 0.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 3926644864004323400}
   m_Father: {fileID: 0}
@@ -1601,7 +1601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 210899527}
   health: {fileID: 210899530}
-  collector: {fileID: 0}
   map: {fileID: 0}
   rooms: {fileID: 11400000, guid: 757ba1966e2c6694391644ec9c9618e0, type: 2}
 --- !u!114 &978456424407916437
@@ -1714,19 +1713,7 @@ MonoBehaviour:
     m_ActionId: 781bb584-74de-4e5c-bffa-50abb993e418
     m_ActionName: Menu/Select[/Keyboard/z]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Interactions, Assembly-CSharp
-        m_MethodName: BackPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 65434b0d-3477-46be-b1b2-67a589db7925
     m_ActionName: Menu/Back[/Keyboard/x]
   - m_PersistentCalls:
@@ -1765,35 +1752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8898891342960035913}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnAim
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e57a3c54-8bae-4123-b039-21cc8daa75e6
-    m_ActionName: Player/Aim[/Keyboard/leftShift,/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8898891342960035913}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: MovementVer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MapNavigation, Assembly-CSharp
-        m_MethodName: MoveVer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1819,9 +1778,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MapNavigation, Assembly-CSharp
-        m_MethodName: MoveHor
+    m_ActionId: cf654486-1673-4d90-8798-4242b475e9f5
+    m_ActionName: Player/AD[/Keyboard/d,/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 568d4d34-7d00-46a7-942e-721ecf88a00c
+    m_ActionName: UI/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8898891342960035913}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAimUp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1831,12 +1798,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cf654486-1673-4d90-8798-4242b475e9f5
-    m_ActionName: Player/AD[/Keyboard/d,/Keyboard/a]
+    m_ActionId: 302ce236-f5ac-4e3f-a2ca-34342ff0ff5e
+    m_ActionName: Player/Aim up[/Keyboard/leftShift,/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 568d4d34-7d00-46a7-942e-721ecf88a00c
-    m_ActionName: UI/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      m_Calls:
+      - m_Target: {fileID: 8898891342960035913}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAimDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a76d88e-38e2-4c34-b150-0656dee0a963
+    m_ActionName: Player/Aim down[/Keyboard/k,/DualShock4GamepadHID/leftShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1911,6 +1890,45 @@ MonoBehaviour:
   materials: {fileID: 11400000, guid: 57f0750b5c65c8944a3209add1eaf321, type: 2}
   baseData: {fileID: 11400000, guid: 6a01ece67ea3b1a4dbe2b2a45cc65d66, type: 2}
   deathAnimTime: 3
+  death:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8199000337012693979}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 210899530}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   damageClip: {fileID: 8300000, guid: 68fb5c6117da25749b5808d0aea45fa9, type: 3}
 --- !u!114 &210899536
 MonoBehaviour:
@@ -1969,12 +1987,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf393d07d81615b43a09d0d690faec7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 93741154669762153}
   health: {fileID: 210899530}
   player: {fileID: 8898891342960035913}
   animator: {fileID: 2544012745409219673}
   playerFX: {fileID: 1473017728}
-  knockBackTime: 0.5
+  knockBackTime: 0.35
+  knockBackPowUp: 1.5
+  knockBackPowHor: 2
 --- !u!82 &6494764425435648262
 AudioSource:
   m_ObjectHideFlags: 0

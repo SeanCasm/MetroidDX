@@ -10,7 +10,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField] List<GameObject> controlDeviceReference;
     [SerializeField] List<MonoBehaviour> classes;
     [SerializeField] List<GameObject> menuMessages;
-    [SerializeField] GameObject eventSystemStandalone, eventSystemAndroid;
+    [SerializeField] GameObject eventSystemStandalone, eventSystemAndroid,menuPointer;
     [SerializeField] List<Image> raycasteableImages;
     [SerializeField]List<GameObject> mobileButtons;
     [Header("Player UI and inventory config")]
@@ -40,7 +40,8 @@ public class BuildManager : MonoBehaviour
         });
         touchpadReference.SetActive(true);
         eventSystemAndroid.SetActive(true);
-        Destroy(eventSystemStandalone);
+        menuPointer.SetActive(false);
+        eventSystemStandalone.SetActive(false);
 #endif
 #if UNITY_STANDALONE
         Destroy(touchpadReference);

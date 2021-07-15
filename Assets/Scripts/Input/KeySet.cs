@@ -13,17 +13,25 @@ public class KeySet : MonoBehaviour
     private const string text = "Waiting for input...";
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
     private int index;
+
     private Text keyText, actionText;
     private void Awake()
     {
         actionText = gameObject.GetChild(0).GetComponent<Text>();
         keyText = gameObject.GetChild(1).GetComponent<Text>();
-        if (RebindKeys.deviceType == Game.Device.Device.Keyboard) index = compositeIndex;
+        if (RebindKeys.deviceType ==Device.Keyboard) index = compositeIndex;
         else index = compositeIndexGP;
-        keyText.text = BindToText(actionReference);
-         
+        keyText.text = BindToText();
     }
-    private string BindToText(InputActionReference actionReference)
+    public void SetIndex(bool keyboard){
+        if(keyboard)index = compositeIndex;
+        else index = compositeIndexGP;
+    }
+    public void SetKeyText(){
+        keyText = gameObject.GetChild(1).GetComponent<Text>();
+        keyText.text=BindToText();
+    }
+    private string BindToText()
     {
         return InputControlPath.ToHumanReadableString(
             actionReference.action.bindings[index].effectivePath,
@@ -35,19 +43,19 @@ public class KeySet : MonoBehaviour
         actionTextAux = actionText.text;
         actionText.text = text;
         rebindKeys.Input.SwitchCurrentActionMap("NNN");
-        PerformIR(actionReference);
+        PerformIR();
     }
 
-    public void PerformIR(InputActionReference inputAction)
+    public void PerformIR()
     {
         actionReference.action.Disable();
-        rebindingOperation = inputAction.action.PerformInteractiveRebinding(index)
-        .WithControlsExcluding("Mouse").OnMatchWaitForAnother(0.1f).OnComplete(operation => RebindComplete(inputAction)).Start();
+        rebindingOperation = actionReference.action.PerformInteractiveRebinding(index)
+        .WithControlsExcluding("Mouse").OnMatchWaitForAnother(0.1f).OnComplete(operation => RebindComplete()).Start();
     }
-    public void RebindComplete(InputActionReference inputAction)
+    public void RebindComplete()
     {
         actionReference.action.Enable();
-        keyText.text = BindToText(inputAction);
+        keyText.text = BindToText();
         rebindKeys.Input.SwitchCurrentActionMap("Player");
         rebindingOperation.Dispose();
         actionText.text = actionTextAux;
@@ -59,6 +67,10 @@ public class KeySet : MonoBehaviour
             case "Back":
                 GameEvents.OnInputBinded.Invoke(keyText.text,Input.Back);
                 break;
+            case "Jump":
+                GameEvents.OnInputBinded.Invoke(keyText.text, Input.Space);
+                break;
         }
     }
 }
+public enum Input{Select, Back, Space}

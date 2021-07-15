@@ -146,6 +146,8 @@ MonoBehaviour:
   - {fileID: -4335938139029162949, guid: ca6cf90bba0e6fe4898b5fb5bc221a67, type: 3}
   - {fileID: 8027770469856490054, guid: ca6cf90bba0e6fe4898b5fb5bc221a67, type: 3}
   - {fileID: -4363401975855298980, guid: ca6cf90bba0e6fe4898b5fb5bc221a67, type: 3}
+  - {fileID: 7616003413684315914, guid: ca6cf90bba0e6fe4898b5fb5bc221a67, type: 3}
+  - {fileID: -8979552351150605350, guid: ca6cf90bba0e6fe4898b5fb5bc221a67, type: 3}
   suitRight:
   - {fileID: -2311659948842064771, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
   - {fileID: 7364682651488144517, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
@@ -279,3 +281,5 @@ MonoBehaviour:
   - {fileID: -4335938139029162949, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
   - {fileID: 8027770469856490054, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
   - {fileID: -4363401975855298980, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
+  - {fileID: -8267035241582214800, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}
+  - {fileID: 6415232461400146297, guid: f9f77d741dff5074ab2d3a82d44a9c89, type: 3}

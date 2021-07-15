@@ -43,3 +43,4 @@ namespace Player.Weapon
         }
     }
 }
+public enum WeaponType{Missile, SuperMissile, Beam, IceBeam, Plasma, Bomb, SuperBomb, All}

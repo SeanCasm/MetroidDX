@@ -7,7 +7,7 @@ public class UpdateKeyUI : MonoBehaviour
     [SerializeField] Input inputKey;
 
     private TextMeshProUGUI keyText;
-    private void Awake()
+    private void Start()
     {
         keyText = GetComponent<TextMeshProUGUI>();
     }
@@ -36,6 +36,9 @@ public class UpdateKeyUI : MonoBehaviour
                     break;
                 case Input.Back:
                     keyText.text = "[" + inputText + "] Back";
+                    break;
+                case Input.Space:// for minimap
+                    keyText.text="[" + inputText + "] Center camera";
                     break;
             }
         }

@@ -15,10 +15,9 @@ public class Slots : MonoBehaviour
     [Tooltip("Array of play time in order: slot-1,slot-2,slot-3")]
     [SerializeField] TextMeshProUGUI[] times;
     private GameData data;
-    public GameObject player;
     void Awake()
     {
-        Pause.onSlots=true;
+        Pause.gamePaused=Pause.onSlots=true;
     }
     // Start is called before the first frame update
     void Start()

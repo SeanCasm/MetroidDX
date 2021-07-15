@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Blocks;
 
 public class DestroyableBlock : MonoBehaviour
 {
@@ -63,3 +62,4 @@ public class DestroyableBlock : MonoBehaviour
     }
     #endregion
 }
+public enum BlockType{beam, missile, bomb, superMissile, superBomb, screwAttack, speedBooster}

@@ -36,10 +36,6 @@ public interface IPlayerWeapon{
 public interface IDrop{
 
 }
-public interface IDoDamage
-{
-    void DoDamage<T,U>(T damage,U enemyH)where U:Health<T>;
-}
 public interface IFreezeable
 {
     void FreezeMe();

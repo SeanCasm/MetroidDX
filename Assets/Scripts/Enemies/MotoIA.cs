@@ -30,13 +30,15 @@ public class MotoIA : EnemyBase
     {
         if (!detected && !prepared)
         {
+            rigid.gravityScale = 1;
             efd.SetOnGroundVelocity(currentSpeed);
         }
         else if (detected && !prepared)
         {
             rigid.velocity = new Vector2(0f, rigid.velocity.y);
+            rigid.gravityScale = 0;
         }
-        else if (prepared) efd.SetOnGroundVelocity(currentSpeed *1.5f);
+        else if (prepared){ efd.SetOnGroundVelocity(currentSpeed *1.85f);rigid.gravityScale = 1; }
     }
     void OnTriggerEnter2D(Collider2D col)
     {

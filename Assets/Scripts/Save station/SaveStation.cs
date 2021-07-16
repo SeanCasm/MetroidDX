@@ -20,7 +20,7 @@ public class SaveStation : MonoBehaviour
     {
         if (col.CompareTag("Player") && !loaded)
         {
-            Pause.onSave = Pause.onAnyMenu = true;
+            Pause.onAnyMenu = true;
             GameEvents.save.Invoke(this);
             player = References.Player;
             rb2d = col.GetComponentInParent<Rigidbody2D>();

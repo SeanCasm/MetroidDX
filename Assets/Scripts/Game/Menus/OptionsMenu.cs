@@ -1,30 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OptionsMenu : MonoBehaviour
 {
-    [SerializeField]GameObject mainMenu;
-    [SerializeField] MenuPointer menuPointer;
-    [SerializeField] Interactions menuFirst;
-    public GameObject pauseMenu{get;set;}
+    [SerializeField] UnityEvent mainMenu,pauseMenu;
     public bool fromMenuCalled { get; set; }
     public void Back()
     {
         if (fromMenuCalled)
         {
-            mainMenu.SetActive(true);
-            menuFirst.SetMainMenuSettingsFirst();
-            menuPointer.SetCurrentMenu("main");
-            menuPointer.SetCurrentPointerPosition(3);
+            mainMenu?.Invoke();
             Pause.onSlots=true;
         }
         else
         {
-            menuPointer.SetCurrentMenu("pause");
-            menuPointer.SetCurrentPointerPosition(1);
-            pauseMenu.SetActive(true);
-            menuFirst.SetPauseSettingsFirst();
+            pauseMenu?.Invoke();
         }
     }
 }

@@ -54,23 +54,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 6112005388181521144, guid: 73b98196b9ef68d4d870c47f54ba0ea3,
-        type: 3}
+      value: {fileID: 6112005388181521144, guid: 73b98196b9ef68d4d870c47f54ba0ea3, type: 3}
     - time: 0.05
-      value: {fileID: -4819110229049387863, guid: 73b98196b9ef68d4d870c47f54ba0ea3,
-        type: 3}
+      value: {fileID: -4819110229049387863, guid: 73b98196b9ef68d4d870c47f54ba0ea3, type: 3}
     - time: 0.1
-      value: {fileID: 6112005388181521144, guid: 73b98196b9ef68d4d870c47f54ba0ea3,
-        type: 3}
+      value: {fileID: 6112005388181521144, guid: 73b98196b9ef68d4d870c47f54ba0ea3, type: 3}
     - time: 0.15
-      value: {fileID: -4819110229049387863, guid: 73b98196b9ef68d4d870c47f54ba0ea3,
-        type: 3}
+      value: {fileID: -4819110229049387863, guid: 73b98196b9ef68d4d870c47f54ba0ea3, type: 3}
     - time: 0.2
-      value: {fileID: 6112005388181521144, guid: 73b98196b9ef68d4d870c47f54ba0ea3,
-        type: 3}
+      value: {fileID: 6112005388181521144, guid: 73b98196b9ef68d4d870c47f54ba0ea3, type: 3}
     - time: 0.25
-      value: {fileID: -4819110229049387863, guid: 73b98196b9ef68d4d870c47f54ba0ea3,
-        type: 3}
+      value: {fileID: -4819110229049387863, guid: 73b98196b9ef68d4d870c47f54ba0ea3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -238,11 +232,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.2
-    functionName: Fireball
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

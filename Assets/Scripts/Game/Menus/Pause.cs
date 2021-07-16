@@ -11,11 +11,10 @@ public class Pause : MonoBehaviour
     [SerializeField] UnityEvent unpauseEvent, pauseEvent, quickMinimap;
     [SerializeField] GameSettings gameSettings;
     [SerializeField] GameObject pauseMenu, touchGamepad;
-    [SerializeField] OptionsMenu optionsMenu;
     [SerializeField] Interactions menuFirst;
     [SerializeField] MenuPointer menuPointer;
     public static System.Action<bool> OnPause;
-    public static bool onItemMenu, onSlots, gamePaused, onAnyMenu, onGame, onSave, escPause;
+    public static bool onItemMenu, onSlots, gamePaused, onAnyMenu, onGame;
     public GameObject player;
     public GameObject playerMenu;
     private PlayerController playerC;
@@ -37,7 +36,7 @@ public class Pause : MonoBehaviour
     private void OnDisable()
     {
         GameEvents.MinimapShortcout -= QuickMinimap;
-        onItemMenu = onSlots = gamePaused = onAnyMenu = onGame = onSave = false;
+        onItemMenu = onSlots = gamePaused = onAnyMenu = onGame = false;
     }
     #endregion
     #region Public Methods
@@ -118,7 +117,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         playerMenu.SetActive(false);
-        escPause = enterPause = gamePaused = false;
+        enterPause = gamePaused = false;
     }
     /// <summary>
     /// Used in Resume button onclick event at playerMenu.
@@ -131,14 +130,9 @@ public class Pause : MonoBehaviour
     void QuickMinimap()
     {
         enterPause = true;
-#if UNITY_STANDALONE
         GameEvents.pauseTimeCounter.Invoke(true);
-        menuFirst.SetGameObjectToEventSystem(playerMenu.GetChild(1).GetChild(3).GetComponent<Button>());
-#endif
-#if UNITY_ANDROID
-        EnterPause(true);
-#endif
-        quickMinimap.Invoke(); pauseEvent.Invoke();
+        quickMinimap.Invoke(); 
+        pauseEvent.Invoke();
     }
 
     void EnterPause(bool onMobile)
@@ -148,9 +142,7 @@ public class Pause : MonoBehaviour
     }
     void EscPause()
     {
-        escPause = true;
         pauseMenu.SetActive(true);
-        optionsMenu.pauseMenu = pauseMenu;
 
         Button resume, options;
         menuPointer?.gameObject.SetActive(true);

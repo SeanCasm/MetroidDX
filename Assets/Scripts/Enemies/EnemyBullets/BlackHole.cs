@@ -6,23 +6,27 @@ public class BlackHole : Weapon
 {
     [SerializeField] CircleCollider2D circleCollider;
     private Animator anim;
+    private bool collided;
     new void Awake()
     {
-        anim = GetComponent<Animator>();
-    }
-    new void OnEnable() {
         base.OnEnable();
-        base.SetDirection();
+        anim = GetComponent<Animator>();
+        player = References.Player.transform;
+        transform.SetParent(null);
+        base.SetDirectionAndRotation();
     }
+     
     new void FixedUpdate()
     {
-        base.FixedUpdate();
+        if(!collided)base.FixedUpdate();
+        else rigid.velocity=Vector2.zero;
     }
     new void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Suelo") && collision.IsTouching(circleCollider))
         {
             anim.SetBool("OnGround", true);
+            collided=true;
         }
     }
 

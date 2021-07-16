@@ -6,67 +6,89 @@ using PathCreation.Examples;
 public class RidleyIA : Boss
 {
     [SerializeField] Materials materials;
-    [SerializeField] float speed;
-    [SerializeField] Animator animHead, animNeck;
+    [SerializeField] float speed, beginNeutralTime, projectilRepeatRate;
+    [SerializeField] int totalAttackSize;
+    [SerializeField] Animator animHead, animNeck, animBody;
     [SerializeField] List<SpriteRenderer> ridleyAllRenderers;
-    Transform player;
+    [SerializeField] GameObject fireBall, firePoint, blackHole;
+    GameObject player;
+    private (float time, bool ultimate)[] attackPattern;
     private PathFollower path;
-    float currentSpeed,pathSpeed;
+    float currentSpeed, pathSpeed;
     BossHealth health;
-    bool attacking,ulti,onUltimate;
+    bool attacking, onUltimate, newPatterns;
     void Awake()
     {
         path = GetComponent<PathCreation.Examples.PathFollower>();
         health = GetComponentInChildren<BossHealth>();
-        player=References.Player.transform;
+        player = References.Player;
     }
     new void Start()
     {
         base.Start();
         pathSpeed = path.speed;
         currentSpeed = speed;
+        attackPattern = new (float time, bool ultimate)[totalAttackSize];
+        FillAttackPattern();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if(player.transform.position.x>transform.position.x)transform.localScale=new Vector3(1,1);
-        else transform.localScale = new Vector3(-1, 1);
-        if (RandomMove(0, 400) == 51 && !attacking && !ulti)
+        if (player.transform.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1);
+        else transform.localScale = new Vector3(1, 1);
+
+        if (health.MyHealth < health.TotalHealth / 2.25f && !newPatterns)
         {
-            attacking = true;
-            path.speed = 0;
-            StopAllCoroutines();
-            StartCoroutine(Attack());
-        }
-        if (health.MyHealth < health.TotalHealth / 3)
-        {
-            if(RandomMove(0, 300) == 51 && !attacking && !ulti && !onUltimate)
-            {
-                CancelInvoke();
-                attacking = false;
-                path.speed = 0;
-                StopAllCoroutines();
-                StartCoroutine(Ultimatum());
-            }
+            FillUltimateAttackPatern();
+            newPatterns = true;
         }
     }
     private void LateUpdate()
     {
-        animHead.SetBool("attacking", attacking && !onUltimate);
-        animNeck.SetBool("attacking", attacking && !onUltimate);
+        animHead.SetBool("attacking", attacking);
+        animNeck.SetBool("attacking", attacking);
+    }
+    private void FillAttackPattern()
+    {
+        for (int i = 0; i < attackPattern.Length; i++)
+        {
+            attackPattern[i].time = Random.Range(3.5f, 6.2f);
+        }
+        StartCoroutine("Attack");
+    }
+    private void FillUltimateAttackPatern()
+    {
+        for (int i = 0; i < attackPattern.Length; i++)
+        {
+            attackPattern[i].time = Random.Range(3.23f, 5.4f);
+            attackPattern[i].ultimate = Random.Range(1, 3) == 2 ? true : false;
+        }
+        StartCoroutine("Attack");
     }
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(Random.Range(1, 2));
-        int timeAttacking = Random.Range(2, 3);
-        Invoke("stopAttacking", timeAttacking);
-    }
-    void stopAttacking()
-    {
-        attacking = false;
-        path.speed = pathSpeed;
-        LoadMaterial(materials.defaultMaterial);
+        int index = 0;
+        yield return new WaitForSeconds(beginNeutralTime);//waits before start attack
+
+        while (health.MyHealth > 0)
+        {
+            if (!attackPattern[index].ultimate)
+            {
+                StopCoroutine("AttackRate");
+                attacking = true; StartCoroutine("AttackRate", fireBall);
+            }
+            else Ultimate();
+            path.speed = 0;
+            yield return new WaitForSeconds(attackPattern[index].time);//ends the attack
+            if (onUltimate) UnsetUltimate();
+            attacking = false;
+            path.speed = pathSpeed;
+            LoadMaterial(materials.defaultMaterial);
+            index++;
+            yield return new WaitForSeconds(attackPattern[index].time);//waits before start attack
+            index++;
+        }
     }
     private void LoadMaterial(Material material)
     {
@@ -75,23 +97,27 @@ public class RidleyIA : Boss
             element.material = material;
         }
     }
-    IEnumerator Ultimatum()
+    IEnumerator AttackRate(GameObject p)
     {
+        while (attacking)
+        {
+            yield return new WaitForSeconds(projectilRepeatRate);
+            GameObject o = Instantiate(p, firePoint.transform.position, Quaternion.identity);
+            o.transform.SetParent(null);
+        }
+    }
+    void Ultimate()
+    {
+        StopCoroutine("AttackRate");
+        StartCoroutine("AttackRate", blackHole);
         onUltimate = true;
         LoadMaterial(materials.gold);
         health.GetComponent<Collider2D>().enabled = false;
-        ulti = true;
-        yield return new WaitForSeconds(2.5f);
+
+    }
+    void UnsetUltimate()
+    {
         health.GetComponent<Collider2D>().enabled = true;
-        onUltimate = ulti = false;
-        Invoke("stopAttacking", 2f);
-    }
-    void StopAttack()
-    {
-        attacking = false;
-    }
-    int RandomMove(int minValue, int maxValue)
-    {
-        return Random.Range(minValue, maxValue);
+        onUltimate = false;
     }
 }

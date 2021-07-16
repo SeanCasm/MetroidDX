@@ -11,7 +11,6 @@ public class CollectorManager : MonoBehaviour
     #region Properties
     public static CollectorManager instance;
     [SerializeField] UnityEvent Pickup;
-    [SerializeField] Interactions interactions;
     [SerializeField] AudioClip reserveAcquired, itemAcquired;
     [SerializeField] GameObject player, acquiredPanel, canvas;
     [SerializeField] Image suitUI;
@@ -53,7 +52,6 @@ public class CollectorManager : MonoBehaviour
     {
         inventory.AddToItems(item.ID, true);
         buttonEssentials.SetButton(item.ID, true);
-        interactions.SetButtonNavigation();
     }
     public void SetPause()
     {

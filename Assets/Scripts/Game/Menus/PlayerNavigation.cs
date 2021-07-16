@@ -4,21 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UI.Controller;
 
-public class PlayerNavigation : MonoBehaviour
+public class PlayerNavigation : Controller
 {
     [SerializeField] Button up,right,down,left;
-    [SerializeField] InputActionAsset playerInput;
-    private InputAction move;
-    private void OnEnable()
+    void Awake()
     {
-        move=playerInput.FindActionMap("UI").FindAction("Move");
-        move.started+=Move;
+        move = playerInput.FindActionMap("UI").FindAction("Move");
     }
-    private void OnDisable(){
-        move.started -= Move;
+     protected override void OnEnable()
+    {
+        move.started+=MoveAround;
     }
-    private void Move(InputAction.CallbackContext context){
+     protected override void OnDisable(){
+        move.started -= MoveAround;
+    }
+    protected override void MoveAround(InputAction.CallbackContext context){
         float x=context.ReadValue<Vector2>().x;
         float y = context.ReadValue<Vector2>().y;
         if(x==1)right.onClick?.Invoke();
@@ -26,5 +28,4 @@ public class PlayerNavigation : MonoBehaviour
         else if(y==1)up.onClick?.Invoke();
         else if(y==-1)down.onClick?.Invoke();
     }
-    
 }

@@ -31,11 +31,17 @@ public class EspinaIA : EnemyBase
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))anim.SetBool("Attack",_isAttacking=true);
+        if (collision.CompareTag("Player")){
+            anim.SetBool("Attack",_isAttacking=true);
+            rigid.gravityScale = 0;
+        }
     }
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))anim.SetBool("Attack", _isAttacking=false);
+        if (col.CompareTag("Player")){
+            anim.SetBool("Attack", _isAttacking=false);
+            rigid.gravityScale = 1;
+        }
     } 
     public void Shoot()
     {

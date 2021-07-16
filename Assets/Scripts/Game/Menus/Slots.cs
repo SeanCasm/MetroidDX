@@ -17,7 +17,7 @@ public class Slots : MonoBehaviour
     private GameData data;
     void Awake()
     {
-        Pause.gamePaused=Pause.onSlots=true;
+        Pause.onSlots=true;
     }
     // Start is called before the first frame update
     void Start()

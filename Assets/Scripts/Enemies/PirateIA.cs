@@ -71,9 +71,10 @@ public class PirateIA : EnemyBase
     private void FixedUpdate()
     {
        if(!jumping){
-            if (idleShooting) { rigid.SetVelocity(0f, 0f); }
+            if (idleShooting) { rigid.SetVelocity(0f, 0f);rigid.gravityScale=0;}
             else
             {
+                rigid.gravityScale = 1;
                 if (pDetect.detected) efd.SetOnGroundVelocity(horizontalVelocity * 2f);
                 else efd.SetOnGroundVelocity(speed);
             }

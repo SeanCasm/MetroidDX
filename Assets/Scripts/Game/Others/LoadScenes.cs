@@ -30,10 +30,10 @@ public class LoadScenes : MonoBehaviour
     IEnumerator CheckRoomLoad(){
         GameObject room=Instantiate(initialRoom);
         while(room==null){
-            yield return new WaitForSeconds(.01f);
+            yield return null;
         }
         playerEnabler.transform.position=spawnPoint.transform.position;
-        Pause.gamePaused=Pause.onSlots=false;
+        Pause.onSlots=false;
         GameEvents.enablePlayer.Invoke();
     }
 }

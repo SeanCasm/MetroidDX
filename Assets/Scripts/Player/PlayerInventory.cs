@@ -110,7 +110,6 @@ public class PlayerInventory : MonoBehaviour
     public static int[] beamsID { get; } = { 1, 2, 10 };
 
     #region Properties
-    [SerializeField]Interactions interactions;
     [SerializeField] Beams beams;
     [SerializeField] BaseData baseData;
     [SerializeField] ButtonUtilities buttonEssentials;
@@ -133,7 +132,6 @@ public class PlayerInventory : MonoBehaviour
         pCont = GetComponent<PlayerController>();
         baseData.SetInventoryData(this);
         buttonEssentials.SetButton(4, true);
-        interactions.SetButtonNavigation();
         pCont.OnJump+=pCont.SpeedBoosterChecker;
         if (CheckItem(8)) { pCont.OnSpeedBooster += pCont.SpeedBoosterChecker; pCont.MaxSpeed = pCont.SpeedBS; }
         else { pCont.OnSpeedBooster -= pCont.SpeedBoosterChecker; pCont.MaxSpeed = pCont.RunningSpeed; }
@@ -244,7 +242,6 @@ public class PlayerInventory : MonoBehaviour
                 DisableIncompatibleBeams(element.id);
             }
         }
-        interactions.SetButtonNavigation();
     }
     public void SetSuit()
     {

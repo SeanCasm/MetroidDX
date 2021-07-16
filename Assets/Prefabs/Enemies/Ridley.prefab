@@ -856,8 +856,12 @@ MonoBehaviour:
   roomDoors: []
   materials: {fileID: 11400000, guid: 57f0750b5c65c8944a3209add1eaf321, type: 2}
   speed: 3
+  beginNeutralTime: 3.1
+  projectilRepeatRate: 0.55
+  totalAttackSize: 40
   animHead: {fileID: 9112067698488568765}
   animNeck: {fileID: 9112067698729621487}
+  animBody: {fileID: 5355170751797608117}
   ridleyAllRenderers:
   - {fileID: 9112067698808045326}
   - {fileID: 9112067698757155641}
@@ -879,6 +883,9 @@ MonoBehaviour:
   - {fileID: 2414679244941851911}
   - {fileID: 568986003450178208}
   - {fileID: 9038461432034261652}
+  fireBall: {fileID: 713739263067028680, guid: 8e540229e66b1244aafcb223fe45069e, type: 3}
+  firePoint: {fileID: 9112067697484067682}
+  blackHole: {fileID: 4086132759228983230, guid: c9a4de002a675224a9fba2cb88ffc913, type: 3}
 --- !u!114 &2048785955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +902,7 @@ MonoBehaviour:
   endOfPathInstruction: 0
   speed: 1.2
   rotateAroundPath: 0
+  allowZRot: 0
 --- !u!70 &8553111050163397988
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2051,6 +2059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ridley special tail
       objectReference: {fileID: 0}
+    - target: {fileID: 4448417024627416361, guid: 9bcd91438fe64874f9bd628887bfbda9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4592710381918985882, guid: 9bcd91438fe64874f9bd628887bfbda9, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 0.0000038146973
@@ -2305,7 +2317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4426089985664442961, guid: f1dd1b872e405f641b53f03bcab22875, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4182479510867568782, guid: f1dd1b872e405f641b53f03bcab22875, type: 3}
       propertyPath: m_SortingLayer

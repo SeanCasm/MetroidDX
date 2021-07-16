@@ -11,7 +11,4 @@ public class ButtonID : MonoBehaviour
     public void SetButton(){
         buttonEssentials.SetButton(iD,selected);
     }
-    private void OnDisable() {
-        Pause.onItemMenu=false;
-    }
 }

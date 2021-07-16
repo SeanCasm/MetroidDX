@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI.Controller;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MenuPointer : MonoBehaviour
+public class MenuPointer : Controller
 {
-    [SerializeField] InputActionAsset playerInput;
     [Tooltip("RectTrasform pos x and y of the main menu buttons")]
     [SerializeField] Vector2[] menuButtons;
     [Tooltip("RectTrasform pos x and y of the settings menu")]
@@ -17,8 +17,6 @@ public class MenuPointer : MonoBehaviour
     [SerializeField] float moveRepeatDelay;
     [SerializeField] float moveRepeatRate;
     float delay;
-    private InputAction moveVer,select;
-    private InputActionMap _inputActionMap;
     public static bool canMove=true;
     private bool holding,plus, minus;
     private int index=0,lenght;
@@ -29,17 +27,22 @@ public class MenuPointer : MonoBehaviour
         currentMenu=menuButtons;
         lenght=currentMenu.Length;
     }
-    private void OnEnable() {
-        _inputActionMap = playerInput.FindActionMap("UI");
-        moveVer = _inputActionMap.FindAction("Move");
-        select=_inputActionMap.FindAction("Select");
-        canMove=true;
-        moveVer.started += MoveVer;
-        moveVer.canceled+=CancelVer;
+    void Awake()
+    {
+        base.moveVer=base.GetActionFromActionMap("Move");
+        base.select = base.GetActionFromActionMap("Select");
     }
-    private void OnDisable() {
-        moveVer.started -= MoveVer;
-        moveVer.canceled -= CancelVer;
+    protected override void OnEnable() {
+        canMove=true;
+        base.moveVer.started += MoveVer;
+        base.moveVer.canceled+=CancelVer;
+    }
+    protected override void OnDisable() {
+        base.moveVer.started -= MoveVer;
+        base.moveVer.canceled -= CancelVer;
+        StopAllCoroutines();
+        index=0;
+        plus = holding = minus=false;
     }
     #region UI
     public void DisablePointer(bool disable){
@@ -68,14 +71,15 @@ public class MenuPointer : MonoBehaviour
                 currentMenu=controlSettingsButtons;
                 break;
         }
-        
+        lenght = currentMenu.Length;
+
     }
     public void SetCurrentPointerPosition(int index){
         this.index = index;
         rect.anchoredPosition = new Vector3(currentMenu[index].x, currentMenu[index].y, 0);
     }
     #endregion
-    private void MoveVer(InputAction.CallbackContext context)
+    protected override void MoveVer(InputAction.CallbackContext context)
     {
         if(canMove){
             StopAllCoroutines();
@@ -85,7 +89,7 @@ public class MenuPointer : MonoBehaviour
                 index++;
                 holding=plus=true;
                 minus=false;
-                if (index > currentMenu.Length - 1)
+                if (index > lenght - 1)
                 {
                     index = 0;
                     rect.anchoredPosition = new Vector3(currentMenu[0].x, currentMenu[0].y, 0);
@@ -103,8 +107,8 @@ public class MenuPointer : MonoBehaviour
                 holding=minus = true;
                 if (index < 0)
                 {
-                    index = currentMenu.Length - 1;
-                    rect.anchoredPosition = new Vector3(currentMenu[currentMenu.Length - 1].x, currentMenu[currentMenu.Length - 1].y, 0);
+                    index = lenght - 1;
+                    rect.anchoredPosition = new Vector3(currentMenu[lenght - 1].x, currentMenu[lenght - 1].y, 0);
                 }
                 else
                 {
@@ -122,22 +126,25 @@ public class MenuPointer : MonoBehaviour
     IEnumerator OnHolding()
     {
         delay = moveRepeatDelay;
+        
         while (holding)
         {
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSecondsRealtime(delay);
+
             if (plus) index++;
             else if (minus) index--;
-            if (index > currentMenu.Length - 1){
+            if (index > lenght - 1){
                 index = 0;
                 rect.anchoredPosition = new Vector3(currentMenu[0].x, currentMenu[0].y, 0);
             }
             else if (index < 0){
-                index = currentMenu.Length - 1;
-                rect.anchoredPosition = new Vector3(currentMenu[currentMenu.Length - 1].x, currentMenu[currentMenu.Length - 1].y, 0);
+                index = lenght - 1;
+                rect.anchoredPosition = new Vector3(currentMenu[lenght - 1].x, currentMenu[lenght - 1].y, 0);
             }else{
                 rect.anchoredPosition = new Vector3(currentMenu[index].x, currentMenu[index].y, 0);
             }
             delay = moveRepeatRate;
         }
     }
+    
 }

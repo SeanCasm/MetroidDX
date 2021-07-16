@@ -193,9 +193,9 @@ public class PlayerController : MonoBehaviour
                 if((frontAngle==0 && backAngle!=frontAngle) && (frontHit.point.y>backHit.point.y) && backAngle!=0){
                     rb.SetVelocity(rb.velocity.x,0f);
                 }
+            }else if(!isGrounded){
+                rb.velocity= onRoll ? new Vector2(xVelocity,rb.velocity.y): new Vector2(xVelocity/ 1.85f, rb.velocity.y);
             }
-            else if (!isGrounded && xInput != 0) rb.SetVelocity(xVelocity, rb.velocity.y);
-            else if (!isGrounded && xInput == 0) rb.SetVelocity(0, rb.velocity.y);
         }
         else
         if (hyperJumping) rb.velocity = hyperJumpDir * (currentJumpForce/slow) * 2.5f * hyperJumpForceMultiplier * Time.deltaTime;
@@ -221,6 +221,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool(animatorHash[14], fall);
             anim.SetBool(animatorHash[15], gravityJump && onRoll && !screwSelected);//gravity jump
             anim.SetInteger(animatorHash[18],aimUpDown);
+            anim.SetInteger(animatorHash[19], (int)xInput);
         }
         anim.SetFloat(animatorHash[10], rb.velocity.y);
     }
@@ -235,6 +236,7 @@ public class PlayerController : MonoBehaviour
     void OnGround()
     {
         OnSlope();
+        rb.gravityScale= onSlope ? 0 : 1;
         if (xInput != 0f)
         {
             if (balled){
@@ -401,7 +403,7 @@ public class PlayerController : MonoBehaviour
             AimUp();
             aiming = true; ShootOnWalk = false;
             diagUp=true;
-            if(diagDown){
+            if(diagDown && xInput==0){
                 aimUpDown=1;diagUp=false;
                 shootpoint.eulerAngles = new Vector3(0, 0, 90);
             }
@@ -428,7 +430,7 @@ public class PlayerController : MonoBehaviour
             AimDown();
             aiming = true; ShootOnWalk = false;
             diagDown= true;
-            if (diagUp){
+            if (diagUp && xInput == 0){
                 aimUpDown=1;diagDown= false;
                 shootpoint.eulerAngles = new Vector3(0, 0, 90);
             }
@@ -501,6 +503,10 @@ public class PlayerController : MonoBehaviour
         SkinSwapper.OnLeft.Invoke(value);
     }
     #endregion
+    private void Up(){
+        aimUpDown = 1;
+        shootpoint.eulerAngles = new Vector3(0, 0, 90);
+    }
     public void SelectingAmmo(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -516,6 +522,7 @@ public class PlayerController : MonoBehaviour
         if (movement && context.started)
         {
             xInput = context.ReadValue<float>();
+            aimUpDown=0;
             if (!inHyperJumpDirection)
             {
                 crouch = false;
@@ -548,16 +555,19 @@ public class PlayerController : MonoBehaviour
             {
                 if (yInput > 0f)
                 {
-                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, 90);
-                    if (!balled && !crouch && isGrounded) {aimUpDown =1; aim = 0; }
-                    if (crouch) crouch = false;
-                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUpDown =1; aim = 0;}
-                    else if (balled && isGrounded) { crouch = true; Balled = false; }
-                    else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
-                    {
-                        Balled = false;
-                        aimUpDown =0;
-                    }
+                    if(isGrounded){
+                        if (!balled && !crouch && xInput == 0f && aim == 0)Up();
+                        if (crouch) crouch = false;
+                        else if (balled) { crouch = true; Balled = false; }
+
+                    }else{
+                        if (aim == 0 && !crouch && !balled) Up();
+                        else if (balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
+                        {
+                            Balled = false;
+                            aimUpDown = 0;
+                        }
+                    } 
                 }
                 else if (yInput < 0f)
                 {
@@ -575,8 +585,7 @@ public class PlayerController : MonoBehaviour
             
         }else if(context.canceled){
             yInput = 0;
-            aimUpDown = 0;
-            shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);
+            if(aim==0 && aimUpDown==0)shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);
         }
     }
     public void InstantMorfBall(InputAction.CallbackContext context)

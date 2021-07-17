@@ -1,7 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     #region Properties
@@ -150,7 +153,9 @@ public class PlayerController : MonoBehaviour
         maxSpeed = runningSpeed;
         for (int i = 0; i < anim.parameterCount - 2; i++) animatorHash[i] = Animator.StringToHash(anim.parameters[i].name);
         currentSpeed = speed; currentJumpForce = jumpForce;
+
     }
+    float xAxis,yAxis;
     void Update()
     {
         if (movement && !damaged)
@@ -168,10 +173,7 @@ public class PlayerController : MonoBehaviour
                 else IsJumping=false;
             }
             #if UNITY_ANDROID
-            if(DeviceConnected.actualDevice==Device.Touch){
-                MobileMoveHor();
-                MobileMoveVer();
-            }
+                 
             #endif
         }
     }
@@ -702,81 +704,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!triggered) IsJumping = false;
     }
-    private void MobileMoveHor(){
-        if(movement){
-
-            if (joystick.Horizontal < -0.25) { xInput = -1; direction = Vector2.left; }
-            else if (joystick.Horizontal > 0.25) { xInput = 1; direction = Vector2.right; }
-            else
-            {
-                xInput = 0;
-                CancelInvoke("enableWalking");
-                ShootOnWalk = false;
-             }
-            crouch = false;
-            if (!inHyperJumpDirection)
-            {
-                crouch = false;
-                if (xInput < 0) OnLeft(true);
-                else if (xInput > 0) OnLeft(false);
-                else{
-                    if (aim > 0) AimUp();
-                    else if (aim < 0) AimDown();
-                    else LeftRightShootPoint(180, 0);
-                    ShootOnWalk = false;
-                }
-            }
-            else
-            {
-                hyperJumpDir = direction;
-                if (xInput < 0) anim.SetTrigger("HyperJump L");
-                else if (xInput > 0) anim.SetTrigger("HyperJump R");
-                HyperJumping = true;
-            }
-        }
-    }
-    private void MobileMoveVer(){
-        if (joystick.Vertical < -0.25) yInput = -1;
-        else if (joystick.Vertical > 0.25) yInput = 1;
-        else { yInput = 0; }
-        if (movement)
-        {
-            if (!inHyperJumpDirection)
-            {
-                if (yInput > 0f)
-                {
-                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, 90);
-                    if (!balled && !crouch && isGrounded) { aimDown = false; aim = 0; aimUp = true; }
-                    if (crouch) crouch = false;
-                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = true; aim = 0; aimDown = false; }
-                    else if (balled && isGrounded) { crouch = true; Balled = false; }
-                    else if (!isGrounded && balled && yInput > 0 && Physics2D.Raycast(transform.position, Vector2.up, groundDistance, groundLayer))
-                    {
-                        Balled = false;
-                        aimUp = true;
-                    }
-                }
-                else if (yInput < 0f)
-                {
-                    if (!balled && xInput == 0f && !aiming && !isGrounded) { aimUp = false; aim = 0; aimDown = true; }
-                    if (inventory.CheckItem(4) && crouch) Balled = true;
-                    if (!balled && isGrounded) crouch = true;
-                    if (aim == 0 && !crouch && !balled) shootpoint.eulerAngles = new Vector3(0, 0, -90);
-                }
-            }
-            else
-            {
-                if (yInput > 0) { hyperJumpDir = Vector2.up; anim.SetTrigger("HyperJump up"); }
-                HyperJumping = true;
-            }
-
-        }
-        else if (yInput == 0)
-        {
-            aimUp = aimDown = false;
-            shootpoint.eulerAngles = leftLook ? new Vector3(0, 0, 180) : new Vector3(0, 0, 0);
-        }
-    }
+    
     public void Diagonal_Mobile(int value)
     {
         if (movement)
@@ -793,7 +721,8 @@ public class PlayerController : MonoBehaviour
     private void DisableAimDiagonal()
     {
         LeftRightShootPoint(180, 0);
-        aiming = aimUp = aimDown = false;
+        aiming =  false;
+        aimUpDown = 0;
         aim = 0;
     }
 #endif

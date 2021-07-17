@@ -67,8 +67,8 @@ public class PlayerKnockBack : MonoBehaviour
     /// <param name="collisionX">collision X position</param>
     private void Hitted(float myXPosition, float collisionX)
     {
-        health.AddDamage(damageReceived);
         if(!PlayerHealth.isDead){
+            health.AddDamage(damageReceived);
             if (!player.Balled){ animator.SetTrigger("Hitted");}
             if (collisionX >= myXPosition) { dir=-1;player.leftLook = false; player.OnLeft(false); }
             else { player.leftLook = true; player.OnLeft(true);dir = 1; }

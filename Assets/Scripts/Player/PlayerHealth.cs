@@ -44,14 +44,14 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     private void OnEnable() {
         Retry.Selected -= OnRetry;
 
-        GameEvents.healthTank+=HandleIncrementHealthStats;
+        GameEvents.healthTank+=FillHealth;
         GameEvents.refullAll+=HandleRefullAll;
         Retry.Selected+=OnRetry;
     }
     private void OnDisable()
     {
         GameEvents.refullAll -= HandleRefullAll;
-        GameEvents.healthTank-=HandleIncrementHealthStats;
+        GameEvents.healthTank-=FillHealth;
     }
     #endregion
     #region Public Methods
@@ -95,9 +95,9 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
         GameEvents.playerHealth.Invoke(health, energyTanks);
     }
     /// <summary>
-    /// Add a tank to the total tank count and refill the player health
+    /// Adds a tank to the total tanks count and refill the player health
     /// </summary>
-    private void HandleIncrementHealthStats()
+    private void FillHealth()
     {
         energyTanks += 1;
         health = 99;
@@ -220,6 +220,7 @@ public class PlayerHealth : Health<int>,IDamageable<int>,IFreezeable
     }
     public void OnDeath(){
         _renderer.color = Color.white;
+        player.ResetState();
         anim.updateMode = AnimatorUpdateMode.UnscaledTime;
         anim.SetTrigger("Death");
         StartCoroutine(AfterDeath());

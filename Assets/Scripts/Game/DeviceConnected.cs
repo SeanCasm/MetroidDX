@@ -51,7 +51,6 @@ public class DeviceConnected : MonoBehaviour
                         item.interactable = true;
 
                     });
-                    if(Pause.escPause || Pause.onSlots)menuPointer.SetActive(true);
                     eventSystemStandalone.SetActive(true);
                     eventSystemAndroid.SetActive(false);
 #endif

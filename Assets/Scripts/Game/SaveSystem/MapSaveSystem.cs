@@ -24,17 +24,17 @@ public class MapSaveSystem : MonoBehaviour
     }
     void OnEnable()
     {
-        GameEvents.miniMap += HandleRegistryTile;
+        GameEvents.miniMap += TilerRegister;
         GameEvents.UnexploredMap += xd;
     }
     private void OnDisable()
     {
-        GameEvents.miniMap -= HandleRegistryTile;
+        GameEvents.miniMap -= TilerRegister;
         GameEvents.UnexploredMap -= xd;
     }
     #endregion
     #region Private Methods
-    private void HandleRegistryTile(MiniMap miniMap)
+    private void TilerRegister(MiniMap miniMap)
     {
         tileMap.SetTile(miniMap.cellPos, miniMap.currentTile);
         tileInfo.Add((miniMap.mapTile.name, miniMap.cellPos.x, miniMap.cellPos.y, miniMap.spriteSheet));

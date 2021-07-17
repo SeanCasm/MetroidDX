@@ -6,20 +6,15 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 public static class GameEvents
 {
-     
     /// <summary>
     /// Updates the player health, when receiving damage and getting health.
     /// </summary>
     public static Action<int,int> playerHealth;
     public static Action healthTank;
     /// <summary>
-    /// Refull all player health and inventory ammo.
+    /// Refulls all player health and inventory ammo.
     /// </summary>
     public static Action refullAll;
-    /// <summary>
-    /// Event when the player is injured. Its neccesary the damage value (int) and
-    /// the world position to set a knock back. 
-    /// </summary>
     public static Action<int, float> damagePlayer;
     public static Action<Vector2> drop;
     public static Action<SaveStation> save;
@@ -55,6 +50,6 @@ public static class GameEvents
     /// Starts the transition animation.
     /// </summary>
     public static Func<float> StartTransition;
-    public static Action EquipPower,EquipGravity,EquipCorrupt;
+    public static Action EquipPower,EquipGravity;
     public static Action<string, Input> OnInputBinded;
 }

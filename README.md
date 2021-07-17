@@ -4,16 +4,6 @@ Technique demo based in metroid 2d games.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/51692672/120400439-e04aff00-c30b-11eb-90df-8f645c00e7aa.gif" alt="animated"></p>
 
-## Half of 2021 Update
-<li>More improvements are applied to the game, like object pooling for some enemy bullets and player beams.</li>
-<li>Android version perfectly playable and optimized.</li>
-<li>Added the time counter.</li>
-<li>Added a new boss: Serris</li>
-<li>Added the map updater</li>
-<li>Speed Booster updated, now the player can jump to: up,righ,left and upper diagonals</li>
-<li>Better IA to space pirates</li>
-<li>Transitions at doors entering</li>
-
 ## Content
 
 ### Items
@@ -31,9 +21,8 @@ Technique demo based in metroid 2d games.
 <a href="https://imgur.com/a/Oim3mHW" target="_blank">Bombs</a>,
 <a href="https://imgur.com/a/IgeAvx8" target="_blank">Super bombs</a>,
 <a href="https://imgur.com/a/B54Kohq">Super missiles</a>,
-<a href="https://imgur.com/a/v46CSVJ">Missiles by default</a>,
-<a href="https://imgur.com/a/6VWaziU">Energy tanks</a> and
-<a href="https://imgur.com/a/JvGM9tO" target="_blank">Beam combinations</a> (only spazer+ice)
+<a href="https://imgur.com/a/v46CSVJ">Missiles</a>,
+<a href="https://imgur.com/a/6VWaziU">Energy tanks</a>
 
 ### Bosses
 

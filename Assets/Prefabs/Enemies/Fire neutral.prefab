@@ -250,11 +250,9 @@ MonoBehaviour:
   floorAware: 0.15
   wallAware: 0.07
   checkDelay: 0.25
-  groundRayOffset: 0.0485
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  coll: {fileID: 5503677182317773733}
 --- !u!114 &7999577691186172236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +332,14 @@ PrefabInstance:
     - target: {fileID: 5308001063827605019, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999238706005282191, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999238706005282191, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: invFreeze
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 270d2a303514dae408b1fc32378c6829, type: 3}

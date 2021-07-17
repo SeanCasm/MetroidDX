@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class KraidIA : Boss
 {
-    [SerializeField] Transform[] holes;
     [SerializeField] Animator head;
     [SerializeField] AudioClip roarClip;
-    [SerializeField] GameObject holeClaw;
+    [SerializeField] Enemy.Weapon.Pool pool;
+    private bool[] clawsInScene=new bool[3];
     private BossHealth health;
     private AudioSource audioPlayer;
     private bool onRoar;
@@ -21,6 +21,7 @@ public class KraidIA : Boss
     new void Start()
     {
         base.Start();
+        pool.SetKraidPool();
         StartCoroutine(RandomHoleShoot());
     }
     private void Update() {
@@ -45,13 +46,21 @@ public class KraidIA : Boss
     }
     IEnumerator RandomHoleShoot()
     {
+        int index=2;
         while (health.MyHealth > 0)
         {
-            yield return new WaitForSeconds(2.5f);
-            Instantiate(holeClaw, holes[Random.Range(0, 2)].position,Quaternion.identity);
+            print(index);
+            yield return new WaitForSeconds(3f);
+            if(!clawsInScene[index]){
+                BigClaw bg=pool.pool[index].GetComponent<BigClaw>();
+                pool.ActivePrevPoolObject();
+                bg.OnDissapear(()=>{clawsInScene[index] = false;print(index);});
+                clawsInScene[index] = true;
+            }
+            index--;
+            if(index <0)index =2;
         }
     }
-     
     private void Roar()
     {
         audioPlayer.Play();

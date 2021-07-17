@@ -11,18 +11,29 @@ namespace Enemy.Weapon{
         [SerializeField] Transform[] shootPoint;
         [SerializeField] int poolSize;
         public Transform[] ShootPoint=>shootPoint;
-
         public int actual{get;set;}=0;
+        public int prev{get;set;}
+        private int poolSizeKraid;
         public List<GameObject> pool{get;private set;} = new List<GameObject>();
         private void Awake() {
             if(shootPoint.Length==0){shootPoint=new Transform[1];shootPoint[0]=transform;}
             bulletPrefab.LoadAssetAsync<GameObject>().Completed+=OnLoadDone;
+        }
+        public void SetKraidPool(){
+            poolSizeKraid =poolSize*shootPoint.Length;
+            prev=poolSizeKraid-1;
         }
         public void ActiveNextPoolObject(){
             if(actual==poolSize)actual=0;
             pool[actual].SetActive(true);
             pool[actual].transform.SetParent(null);
             actual++;
+        }
+        public void ActivePrevPoolObject(){
+            if (prev <0) prev = poolSizeKraid -1;
+            pool[prev].SetActive(true);
+            pool[prev].transform.SetParent(null);
+            prev--;
         }
         void OnLoadDone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj){
             for(int i=0;i<poolSize;i++){

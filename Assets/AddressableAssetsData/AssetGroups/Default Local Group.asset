@@ -503,12 +503,6 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 10e6a91394913144694fc4ecfd2cc27d
-    m_Address: Enemy ins/Kraid craw.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: a73f6de1d576098418a9b5df77c20295
     m_Address: "Enemy ins/Pi\xF1a projectil 2.prefab"
     m_ReadOnly: 0
@@ -535,6 +529,12 @@ MonoBehaviour:
     m_TargetAsset: {fileID: 0}
   - m_GUID: 8f987a3a4d0738242a5555690b8f93dc
     m_Address: Assets/Prefabs/Scenarios/Save 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 080148b3dafcd584cb6308d9f38db8d2
+    m_Address: Assets/Prefabs/Scenarios/Boss serris.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}

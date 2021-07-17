@@ -5,20 +5,23 @@ namespace Enemy.Weapons
 {
     public class Weapon : WeaponBase<int>,IPooleable
     {
-        [SerializeField]float speed;
-        [SerializeField]protected Rigidbody2D rigid;
+        [SerializeField]protected float speed;
         [SerializeField]bool pooleable;
         public Transform player{get;set;}
         public Transform parent{get;set;}
         private float rotationZ;
+        protected Rigidbody2D rigid;
         public Vector3 Direction{get{return direction;}set{direction=value;}}
 
         bool IPooleable.pooleable { get => this.pooleable; set => this.pooleable=value; }
 
        
-        protected new void OnEnable() {
+        protected virtual new void OnEnable() {
             base.OnEnable();
             Invoke("BackToShootPoint", livingTime);
+        }
+        protected void Start(){
+            rigid=GetComponent<Rigidbody2D>();
         }
         protected void OnBecameInvisible()
         {

@@ -5,6 +5,10 @@ using Enemy.Weapons;
 public class Throw : Weapon
 {
     [SerializeField] float timeTillHit;
+    new void Start()
+    {
+        base.Start();
+    }
     new void Awake() {
        base.OnEnable(); 
     }

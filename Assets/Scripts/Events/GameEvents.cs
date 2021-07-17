@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 public static class GameEvents
 {
+     
     /// <summary>
     /// Updates the player health, when receiving damage and getting health.
     /// </summary>

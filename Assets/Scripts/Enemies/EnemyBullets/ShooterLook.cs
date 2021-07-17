@@ -4,6 +4,10 @@ using UnityEngine;
 namespace Enemy.Weapons{
     public class ShooterLook : Weapon
     {
+        new void Start()
+        {
+            base.Start();
+        }
         new void OnEnable()
         {
             base.OnEnable();

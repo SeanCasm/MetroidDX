@@ -4,12 +4,22 @@ using UnityEngine;
 using Enemy.Weapons;
 public class Claw : Weapon,IDrop
 {
+    new void OnEnable() {
+        base.player=References.Player.transform;
+        base.SetDirection();  
+    }
+    new void FixedUpdate() {
+        base.FixedUpdate();
+    }
+    new void Start() {
+       base.Start(); 
+    }
     new void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision);
         if (collision.GetComponent<IPlayerWeapon>() != null)
         {
             base.DoDrop();
         }
+        base.OnTriggerEnter2D(collision);
     }
 }

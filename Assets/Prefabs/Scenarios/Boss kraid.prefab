@@ -376,6 +376,7 @@ MonoBehaviour:
   bossToSpawn: {fileID: 5826830013503729741, guid: 2d11aef54d070ea4780a606a781abafb, type: 3}
   doors:
   - {fileID: 3893271858291738530}
+  - {fileID: 1949651562287294780}
   ridleyPath: {fileID: 0}
 --- !u!1 &6512815535604506853
 GameObject:
@@ -2897,6 +2898,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1522148314186653895, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+      propertyPath: nextzone.m_AssetGUID
+      value: 080148b3dafcd584cb6308d9f38db8d2
+      objectReference: {fileID: 0}
     - target: {fileID: 8506606003914838878, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.56679916
@@ -2924,3 +2929,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1522148314186653894, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
   m_PrefabInstance: {fileID: 8604981262129914338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1949651562287294780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7810795474416175326, guid: 077b2bbb489b99448b8982e0c015aeef, type: 3}
+  m_PrefabInstance: {fileID: 8604981262129914338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbe3a6f923ff414d9d3fe9525f03be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

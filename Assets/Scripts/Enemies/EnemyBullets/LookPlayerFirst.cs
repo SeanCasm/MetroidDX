@@ -8,7 +8,10 @@ namespace Enemy.Weapons{
         [SerializeField, Range(1f, 45f)] float rightAngleLimit;
         [Tooltip("Represents the limit (negative and positive) of the angle when this object looks left toward the player")]
         [SerializeField,Range(1f,135f)] float leftAngleLimit;
-
+        new void Start()
+        {
+            base.Start();
+        }
         new void Awake() {
             //base.OnEnable();
             player = References.Player.transform;

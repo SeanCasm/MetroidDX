@@ -340,15 +340,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallAware: 0.11
   floorAware: 0.3
-  coll: {fileID: 6700091212144095227}
-  slopeFrontRay: 0.1104
-  slopeBackRay: 0.1104
-  groundHitSlope: 0.229
-  rayOffset: 1.75
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  checkSlopes: 1
+  slopeFrontRay: 0.1104
+  slopeBackRay: 0.1104
+  groundHitSlope: 0.229
+  coll: {fileID: 6700091212144095227}
+  rayOffset: 1.75
 --- !u!61 &7705301335545073502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -506,6 +505,22 @@ PrefabInstance:
     - target: {fileID: 5308001063827605019, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
       propertyPath: m_Name
       value: HurtBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999238706005282191, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999238706005282191, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: rigidCol
+      value: 
+      objectReference: {fileID: 6700091212144095227}
+    - target: {fileID: 5999238706005282191, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: freezedCol
+      value: 
+      objectReference: {fileID: 8852572335691350482}
+    - target: {fileID: 5999238706005282191, guid: 270d2a303514dae408b1fc32378c6829, type: 3}
+      propertyPath: collideDamage
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 270d2a303514dae408b1fc32378c6829, type: 3}

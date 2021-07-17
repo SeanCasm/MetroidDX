@@ -7,6 +7,10 @@ using Enemy.Weapons;
 public class Fireball : Weapon
 {
     [SerializeField]private GameObject groundFireBall;
+    new void Start()
+    {
+        base.Start();
+    }
     new void Awake()
     {
         base.OnEnable();

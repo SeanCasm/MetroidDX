@@ -7,6 +7,10 @@ public class BlackHole : Weapon
     [SerializeField] CircleCollider2D circleCollider;
     private Animator anim;
     private bool collided;
+    new void Start()
+    {
+        base.Start();
+    }
     new void Awake()
     {
         base.OnEnable();

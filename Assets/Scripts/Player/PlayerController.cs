@@ -202,26 +202,9 @@ public class PlayerController : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (!hyperJumping && movement)
+        if (!hyperJumping && movement && Time.timeScale>0)
         {
-            anim.SetBool(animatorHash[0], aim < 0);
-            anim.SetBool(animatorHash[1], aim > 0);
-            anim.SetBool(animatorHash[2], balled);
-            anim.SetBool(animatorHash[3], isGrounded && xInput != 0);
-            anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded && xInput != 0));
-            anim.SetBool(animatorHash[5], crouch);
-            anim.SetBool(animatorHash[6], leftLook);
-            anim.SetBool(animatorHash[7], isGrounded && xInput == 0);//idle
-            anim.SetBool(animatorHash[8], isGrounded);
-
-            anim.SetBool(animatorHash[9], onRoll && !screwSelected && !gravityJump);//onroll
-            anim.SetBool(animatorHash[11], (holdingFire || shooting || airShoot) && !isGrounded);//airshoot
-            anim.SetBool(animatorHash[12], screwSelected && onRoll && (!gravityJump || gravityJump));//screw
-            anim.SetBool(animatorHash[13], onJumpingState);//jump state
-            anim.SetBool(animatorHash[14], fall);
-            anim.SetBool(animatorHash[15], gravityJump && onRoll && !screwSelected);//gravity jump
-            anim.SetInteger(animatorHash[18],aimUpDown);
-            anim.SetInteger(animatorHash[19], (int)xInput);
+            AnimStates();
         }
         anim.SetFloat(animatorHash[10], rb.velocity.y);
     }
@@ -344,6 +327,26 @@ public class PlayerController : MonoBehaviour
         firstLand = onSlope = ShootOnWalk = false;
     }
     #endregion
+    private void AnimStates(){
+        anim.SetBool(animatorHash[0], aim < 0);
+        anim.SetBool(animatorHash[1], aim > 0);
+        anim.SetBool(animatorHash[2], balled);
+        anim.SetBool(animatorHash[3], isGrounded && xInput != 0);
+        anim.SetBool(animatorHash[4], shootOnWalk || (holdingFire && isGrounded && xInput != 0));
+        anim.SetBool(animatorHash[5], crouch);
+        anim.SetBool(animatorHash[6], leftLook);
+        anim.SetBool(animatorHash[7], isGrounded && xInput == 0);//idle
+        anim.SetBool(animatorHash[8], isGrounded);
+
+        anim.SetBool(animatorHash[9], onRoll && !screwSelected && !gravityJump);//onroll
+        anim.SetBool(animatorHash[11], (holdingFire || shooting || airShoot) && !isGrounded);//airshoot
+        anim.SetBool(animatorHash[12], screwSelected && onRoll && (!gravityJump || gravityJump));//screw
+        anim.SetBool(animatorHash[13], onJumpingState);//jump state
+        anim.SetBool(animatorHash[14], fall);
+        anim.SetBool(animatorHash[15], gravityJump && onRoll && !screwSelected);//gravity jump
+        anim.SetInteger(animatorHash[18], aimUpDown);
+        anim.SetInteger(animatorHash[19], (int)xInput);
+    }
     #region Delayed Methods
     void Charged()
     {
@@ -380,9 +383,10 @@ public class PlayerController : MonoBehaviour
     {
         StopAllCoroutines();
         CancelInvoke();
-        inSBVelo = crouch = fall = wallJumping = IsJumping =hyperJumpCharged = onJumpingState = movement= 
+        movement=inSBVelo = crouch = fall = wallJumping = IsJumping =hyperJumpCharged = onJumpingState = 
         charged = holdingFire = ShootOnWalk = isGrounded =canInstantiate = OnRoll = airShoot=false;
         xInput = yInput = 0;
+        AnimStates();
         anim.SetFloat(animatorHash[18], 1);
         rb.velocity = Vector2.zero;
     }

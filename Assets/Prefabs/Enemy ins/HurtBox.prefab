@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671138251056074468}
-  - component: {fileID: -5384935738484045062}
+  - component: {fileID: 5999238706005282191}
   m_Layer: 7
   m_Name: HurtBox
   m_TagString: Enemy
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5384935738484045062
+--- !u!114 &5999238706005282191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +50,10 @@ MonoBehaviour:
   invBombs: 0
   invSuperBombs: 0
   invFreeze: 0
+  invPlasma: 0
   materials: {fileID: 11400000, guid: 57f0750b5c65c8944a3209add1eaf321, type: 2}
   deathClip: {fileID: 5122862422074326034, guid: bccb81efe6a1c09469ab7d11ee28ede4, type: 3}
-  collideDamage: 12
+  freezedCol: {fileID: 0}
+  rigidCol: {fileID: 0}
+  collideDamage: 0
   deadPrefab: {fileID: 338955410158009082, guid: ed52c26abe576934ab72d20f58cd6283, type: 3}
